@@ -5,10 +5,32 @@ from tests.base_test import BaseTest
 
 
 class LoginTest(BaseTest):
-    def test_should_sign_in_github_account(self):
-        page = LoginPage(self.driver)
+    def test_should_sign_in_github_account_with_email(self):
+        login_page = LoginPage(self.driver)
         github_repo_page = GitHubRepoPage(self.driver)
-        page.input_login(PassGitHub.EMAIL) \
+        login_page.input_login(PassGitHub.EMAIL) \
             .input_password(PassGitHub.PASSWORD) \
             .click_sign_in_button()
         self.assertTrue(github_repo_page.is_repo_list_container_visible(), "Repos list should be displayed")
+
+    def test_should_sign_in_github_account_with_username(self):
+        login_page = LoginPage(self.driver)
+        github_repo_page = GitHubRepoPage(self.driver)
+        login_page.input_login(PassGitHub.USERNAME) \
+            .input_password(PassGitHub.PASSWORD) \
+            .click_sign_in_button()
+        self.assertTrue(github_repo_page.is_repo_list_container_visible(), "Repos list should be displayed")
+
+    def test_should_not_sign_in_with_incorrect_password(self):
+        login_page = LoginPage(self.driver)
+        login_page.input_login(PassGitHub.EMAIL) \
+            .input_password("IncorrectPassword") \
+            .click_sign_in_button()
+        self.assertTrue(login_page.is_login_in_error_displayed(), "Error login in should be display")
+
+    def test_should_not_sign_in_with_incorrect_login(self):
+        login_page = LoginPage(self.driver)
+        login_page.input_login("fake_user_12340000000000001234") \
+            .input_password("IncorrectPassword") \
+            .click_sign_in_button()
+        self.assertTrue(login_page.is_login_in_error_displayed(), "Error login in should be display")
