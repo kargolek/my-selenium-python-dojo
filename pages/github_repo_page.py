@@ -1,5 +1,4 @@
 from selenium.webdriver.common.by import By
-
 from pages.base_page import BasePage
 
 
@@ -8,7 +7,6 @@ class GitHubRepoPage(BasePage):
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.driver = driver
 
     def is_repo_list_container_visible(self):
         return self.wait_for_visible_element(self.REPO_CONTAINER, 10).is_displayed()
