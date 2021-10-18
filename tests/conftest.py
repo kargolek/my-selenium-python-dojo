@@ -4,9 +4,16 @@ from pathlib import Path
 import pytest
 from selenium import webdriver
 
+from credentials.credentials import PassGitHub
+from pages.github_repo_page import GitHubRepoPage
+from pages.login_page import LoginPage
 from utilities.driver_factory import DriverFactory
+from utilities.driver_utils import DriverUtils
 
 driver: webdriver.Chrome
+
+DRIVER_TYPE = "edge"
+COOKIES = None
 
 
 def get_project_root() -> str:
@@ -48,15 +55,46 @@ def pytest_runtest_makereport(item):
 
 
 @pytest.fixture()
-def teardown():
+def web_driver_each():
+    global driver
+    driver = DriverFactory.get_web_driver(DRIVER_TYPE)
+    driver.get("https://github.com/login")
+    return driver
+
+
+@pytest.fixture()
+def web_driver_each_quit():
     yield
     global driver
     driver.quit()
 
 
-@pytest.fixture()
-def browser():
+@pytest.fixture(scope="class")
+def setup_github_cookies():
+    w_driver = DriverFactory.get_web_driver(DRIVER_TYPE)
+    w_driver.get("https://github.com/login")
+    login_page = LoginPage(w_driver)
+    login_page.sign_in_github_account(PassGitHub.USERNAME, PassGitHub.PASSWORD) \
+        .is_repo_list_container_visible()
+    global COOKIES
+    COOKIES = w_driver.get_cookies()
+    w_driver.quit()
+
+
+@pytest.fixture(scope="class")
+def web_driver():
     global driver
-    driver = DriverFactory.get_web_driver("chrome")
-    driver.get("https://github.com/login")
+    driver = DriverFactory.get_web_driver(DRIVER_TYPE)
+    driver.get("http://github.com/")
+    DriverUtils(driver).add_cookie(COOKIES, {"name": "__Host-user_session_same_site"})
+    driver.refresh()
+    GitHubRepoPage(driver).is_repo_list_container_visible()
     return driver
+
+
+@pytest.fixture(scope="class")
+def web_driver_quit():
+    yield
+    global COOKIES
+    COOKIES = None
+    driver.quit()
