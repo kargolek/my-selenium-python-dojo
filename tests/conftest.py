@@ -6,7 +6,7 @@ from selenium import webdriver
 
 from credentials.credentials import PassGitHub
 from pages.github_dashboard_page import GitHubDashboardPage
-from pages.login_page import LoginPage
+from pages.github_login_page import GitHubLoginPage
 from utilities.driver_factory import DriverFactory
 from utilities.driver_utils import DriverUtils
 
@@ -73,7 +73,7 @@ def web_driver_each_quit():
 def setup_github_cookies():
     w_driver = DriverFactory.get_web_driver(DRIVER_TYPE)
     w_driver.get("https://github.com/login")
-    login_page = LoginPage(w_driver)
+    login_page = GitHubLoginPage(w_driver)
     login_page.sign_in_github_account(PassGitHub.USERNAME, PassGitHub.PASSWORD) \
         .is_repo_list_container_visible()
     global COOKIES
@@ -92,14 +92,19 @@ def web_driver():
     return driver
 
 
-@pytest.fixture()
-def git_hub_repo_page(web_driver):
-    return GitHubDashboardPage(web_driver)
-
-
 @pytest.fixture(scope="class")
 def web_driver_quit():
     yield
     global COOKIES
     COOKIES = None
     driver.quit()
+
+
+@pytest.fixture()
+def github_repo_page():
+    return GitHubDashboardPage(driver)
+
+
+@pytest.fixture()
+def github_login_page():
+    return GitHubLoginPage(driver)

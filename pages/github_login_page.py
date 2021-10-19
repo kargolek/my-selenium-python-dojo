@@ -4,7 +4,7 @@ from pages.base_page import BasePage
 from pages.github_dashboard_page import GitHubDashboardPage
 
 
-class LoginPage(BasePage):
+class GitHubLoginPage(BasePage):
     LOGIN_FIELD = (By.ID, "login_field")
     PASSWORD_FIELD = (By.ID, "password")
     SIGN_IN_BUTTON = (By.NAME, "commit")
