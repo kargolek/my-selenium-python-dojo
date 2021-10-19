@@ -2,16 +2,16 @@ import pytest
 from hamcrest import assert_that, equal_to
 
 from credentials.credentials import PassGitHub
-from pages.github_repo_page import GitHubRepoPage
+from pages.github_dashboard_page import GitHubDashboardPage
 from pages.login_page import LoginPage
 
 
 @pytest.mark.usefixtures("web_driver_each", "web_driver_each_quit")
-class TestLogIn:
+class TestGitHubLogIn:
 
     def test_should_sign_in_github_account_with_email(self, web_driver_each):
         login_page = LoginPage(web_driver_each)
-        github_repo_page = GitHubRepoPage(web_driver_each)
+        github_repo_page = GitHubDashboardPage(web_driver_each)
         login_page.input_login(PassGitHub.EMAIL) \
             .input_password(PassGitHub.PASSWORD) \
             .click_sign_in_button()
@@ -19,7 +19,7 @@ class TestLogIn:
 
     def test_should_sign_in_github_account_with_username(self, web_driver_each):
         login_page = LoginPage(web_driver_each)
-        github_repo_page = GitHubRepoPage(web_driver_each)
+        github_repo_page = GitHubDashboardPage(web_driver_each)
         login_page.input_login(PassGitHub.USERNAME) \
             .input_password(PassGitHub.PASSWORD) \
             .click_sign_in_button()

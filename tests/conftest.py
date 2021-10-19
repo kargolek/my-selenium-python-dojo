@@ -5,14 +5,14 @@ import pytest
 from selenium import webdriver
 
 from credentials.credentials import PassGitHub
-from pages.github_repo_page import GitHubRepoPage
+from pages.github_dashboard_page import GitHubDashboardPage
 from pages.login_page import LoginPage
 from utilities.driver_factory import DriverFactory
 from utilities.driver_utils import DriverUtils
 
 driver: webdriver.Chrome
 
-DRIVER_TYPE = "edge"
+DRIVER_TYPE = "chrome"
 COOKIES = None
 
 
@@ -88,8 +88,13 @@ def web_driver():
     driver.get("http://github.com/")
     DriverUtils(driver).add_cookie(COOKIES, {"name": "__Host-user_session_same_site"})
     driver.refresh()
-    GitHubRepoPage(driver).is_repo_list_container_visible()
+    GitHubDashboardPage(driver).is_repo_list_container_visible()
     return driver
+
+
+@pytest.fixture()
+def git_hub_repo_page(web_driver):
+    return GitHubDashboardPage(web_driver)
 
 
 @pytest.fixture(scope="class")

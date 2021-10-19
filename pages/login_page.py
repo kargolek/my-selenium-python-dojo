@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
-from pages.github_repo_page import GitHubRepoPage
+from pages.github_dashboard_page import GitHubDashboardPage
 
 
 class LoginPage(BasePage):
@@ -12,7 +12,7 @@ class LoginPage(BasePage):
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.git_hub_repo_page = GitHubRepoPage(self.driver)
+        self.github_dashboard_page = GitHubDashboardPage(self.driver)
 
     def input_login(self, login_name):
         self.wait_for_visible_element(self.LOGIN_FIELD, 10).send_keys(login_name)
@@ -33,4 +33,4 @@ class LoginPage(BasePage):
         self.input_login(username)
         self.input_password(password)
         self.click_sign_in_button()
-        return self.git_hub_repo_page
+        return self.github_dashboard_page
