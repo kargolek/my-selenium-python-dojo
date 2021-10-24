@@ -42,7 +42,10 @@ class DriverUtils:
         def process_browser_log_entry(entry):
             response = json.loads(entry['message'])['message']
             return response
-
-        browser_log = self.driver.get_log('performance')
-        events = [process_browser_log_entry(entry) for entry in browser_log]
-        return [event for event in events if 'Network.response' in event['method']]
+        print(self.driver.name)
+        if self.driver.name == "chrome":
+            browser_log = self.driver.get_log('performance')
+            events = [process_browser_log_entry(entry) for entry in browser_log]
+            return [event for event in events if 'Network.response' in event['method']]
+        else:
+            raise Exception("Unable to get events cause driver type is not chromedriver")
