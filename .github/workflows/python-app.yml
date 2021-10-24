@@ -36,9 +36,9 @@ jobs:
         pytest nothing.py
     - name: Check secret
       env:
-        SUPER_SECRET: ${{ secrets.EMAIL_GIT_TEST }}
+        EMAIL_GIT_TEST: ${{ secrets.EMAIL_GIT_TEST }}
       run: |
-        echo $SUPER_SECRET
+        echo $EMAIL_GIT_TEST
     - name: Run selenium pytest
       run: |
         pytest tests/secret_test.py
