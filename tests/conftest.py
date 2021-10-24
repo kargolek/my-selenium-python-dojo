@@ -51,6 +51,7 @@ def pytest_runtest_makereport(item):
                 html = '<div><img src="%s" alt="screenshot" style="width:304px;height:228px;" ' \
                        'onclick="window.open(this.src)" align="right"/></div>' % file_path
                 extra.append(pytest_html.extras.html(html))
+            print(f"PATH: {file_path}")
         report.extra = extra
 
 
