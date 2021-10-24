@@ -52,6 +52,7 @@ def pytest_runtest_makereport(item):
                        'onclick="window.open(this.src)" align="right"/></div>' % file_path
                 extra.append(pytest_html.extras.html(html))
             print(f"PATH: {file_path}")
+            print(f"ROOT: {get_project_root()}")
         report.extra = extra
 
 
