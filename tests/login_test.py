@@ -9,13 +9,13 @@ class TestGitHubLogIn:
 
     def test_should_sign_in_github_account_with_email(self, web_driver_each, github_login_page, github_repo_page):
         github_login_page.input_login(Secrets.EMAIL) \
-            .input_password(Secrets.PASSWORD) \
+            .input_password("MyTestSeleniumPython001") \
             .click_sign_in_button()
         assert_that(github_repo_page.is_repo_list_container_visible(), equal_to(True))
 
     def test_should_sign_in_github_account_with_username(self, web_driver_each, github_login_page, github_repo_page):
         github_login_page.input_login(Secrets.USERNAME) \
-            .input_password(Secrets.PASSWORD) \
+            .input_password("MyTestSeleniumPython001") \
             .click_sign_in_button()
         assert_that(github_repo_page.is_repo_list_container_visible(), equal_to(True))
 
