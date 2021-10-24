@@ -31,9 +31,9 @@ jobs:
         pytest nothing.py
     - name: Check secret
       env:
-        SUPER_SECRET: ${{ secrets.EMAIL_TEST }}
+        SUPER_SECRET: ${{ env.CI_CD.secrets.EMAIL_TEST }}
       run: |
-        echo "$SUPER_SECRET"
+        echo $SUPER_SECRET
     - name: Run selenium pytest
       run: |
         pytest
