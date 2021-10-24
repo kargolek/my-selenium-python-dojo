@@ -22,6 +22,7 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         pip install webdriver-manager
         pip install selenium
+        pip install msedge-selenium-tools selenium==3.141
     - name: Install Chrome
       run: |
         sudo apt install google-chrome-stable
