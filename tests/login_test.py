@@ -1,3 +1,5 @@
+import time
+
 import pytest
 from hamcrest import assert_that, equal_to
 
@@ -12,6 +14,7 @@ class TestGitHubLogIn:
             .input_password("MyTestSeleniumPython001") \
             .click_sign_in_button()
         print(web_driver_each.current_url)
+        time.sleep(20)
         assert_that(github_repo_page.is_repo_list_container_visible(), equal_to(True))
 
     def test_should_sign_in_github_account_with_username(self, web_driver_each, github_login_page, github_repo_page):
