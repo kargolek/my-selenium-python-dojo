@@ -26,7 +26,6 @@ jobs:
         pip install PyHamcrest
         pip install chromedriver-py
         pip install pytest-html
-        pip install pytest-html-reporter
     - name: Install Chrome
       run: |
         sudo apt install google-chrome-stable
@@ -44,5 +43,5 @@ jobs:
     - uses: actions/upload-artifact@v2
       if: failure()
       with:
-        name: my-artifact
-        path: /home/runner/work/my-selenium-python-example/my-selenium-python-example
+        name: test-report
+        path: /home/runner/work/my-selenium-python-example/my-selenium-python-example/tests/reports
