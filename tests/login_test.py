@@ -1,26 +1,26 @@
 import pytest
 from hamcrest import assert_that, equal_to
 
-from credentials.credentials import PassGitHub
+from credentials.secrets import Secrets
 
 
 @pytest.mark.usefixtures("web_driver_each", "web_driver_each_quit")
 class TestGitHubLogIn:
 
     def test_should_sign_in_github_account_with_email(self, web_driver_each, github_login_page, github_repo_page):
-        github_login_page.input_login(PassGitHub.EMAIL) \
-            .input_password(PassGitHub.PASSWORD) \
+        github_login_page.input_login(Secrets.EMAIL) \
+            .input_password(Secrets.PASSWORD) \
             .click_sign_in_button()
         assert_that(github_repo_page.is_repo_list_container_visible(), equal_to(True))
 
     def test_should_sign_in_github_account_with_username(self, web_driver_each, github_login_page, github_repo_page):
-        github_login_page.input_login(PassGitHub.USERNAME) \
-            .input_password(PassGitHub.PASSWORD) \
+        github_login_page.input_login(Secrets.USERNAME) \
+            .input_password(Secrets.PASSWORD) \
             .click_sign_in_button()
         assert_that(github_repo_page.is_repo_list_container_visible(), equal_to(True))
 
     def test_should_not_sign_in_with_incorrect_password(self, web_driver_each, github_login_page):
-        github_login_page.input_login(PassGitHub.EMAIL) \
+        github_login_page.input_login(Secrets.EMAIL) \
             .input_password("IncorrectPassword") \
             .click_sign_in_button()
         assert_that(github_login_page.is_login_in_error_displayed(), equal_to(True))

@@ -4,7 +4,7 @@ from pathlib import Path
 import pytest
 from selenium import webdriver
 
-from credentials.credentials import PassGitHub
+from credentials.secrets import Secrets
 from pages.github_dashboard_page import GitHubDashboardPage
 from pages.github_login_page import GitHubLoginPage
 from utilities.driver_factory import DriverFactory
@@ -74,7 +74,7 @@ def setup_github_cookies():
     w_driver = DriverFactory.get_web_driver(DRIVER_TYPE)
     w_driver.get("https://github.com/login")
     login_page = GitHubLoginPage(w_driver)
-    login_page.sign_in_github_account(PassGitHub.USERNAME, PassGitHub.PASSWORD) \
+    login_page.sign_in_github_account(Secrets.USERNAME, Secrets.PASSWORD) \
         .is_repo_list_container_visible()
     global COOKIES
     COOKIES = w_driver.get_cookies()
@@ -93,7 +93,7 @@ def web_driver():
 
 
 @pytest.fixture(scope="class")
-def web_driver_quit():
+def web_driver_quit(web_driver):
     yield
     global COOKIES
     COOKIES = None
