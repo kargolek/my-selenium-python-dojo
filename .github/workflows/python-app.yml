@@ -40,7 +40,7 @@ jobs:
         USER_GIT_TEST: ${{ secrets.USER_GIT_TEST }}
         PASSWORD_GIT_TEST: ${{ secrets.PASSWORD_GIT_TEST }}
       run: |
-        pytest tests/
+         pytest --html=report.html --self-contained-html
     - uses: actions/upload-artifact@v2
       if: failure()
       with:
