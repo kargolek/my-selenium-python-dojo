@@ -34,11 +34,8 @@ jobs:
       run: |
         echo "def test_1(): pass" > nothing.py
         pytest nothing.py
-    - name: Check secret
+    - name: Run selenium pytest
       env:
         EMAIL_GIT_TEST: ${{ secrets.EMAIL_GIT_TEST }}
-      run: |
-        echo $EMAIL_GIT_TEST
-    - name: Run selenium pytest
       run: |
         pytest tests/secret_test.py
