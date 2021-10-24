@@ -24,6 +24,3 @@ jobs:
     - name: Install Chrome
       run: |
       sudo apt install google-chrome-stable
-    - name: Test with pytest
-      run: |
-        pytest
