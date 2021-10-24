@@ -35,12 +35,13 @@ jobs:
         pytest nothing.py
     - name: Run selenium pytest
       env:
+        PASSWORD_GIT_TEST: ${{ secrets.PASSWORD_GIT_TEST }}
         EMAIL_GIT_TEST: ${{ secrets.EMAIL_GIT_TEST }}
         USER_GIT_TEST: ${{ secrets.USER_GIT_TEST }}
-        PASSWORD_GIT_TEST: ${{ secrets.PASSWORD_GIT_TEST }}
       run: |
          pytest --html=report.html --self-contained-html
     - uses: actions/upload-artifact@v2
+      if: failure()
       with:
         name: my-artifact
         path: /home/runner/work/my-selenium-python-example/my-selenium-python-example
