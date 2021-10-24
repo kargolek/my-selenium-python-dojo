@@ -28,3 +28,6 @@ jobs:
       run: |
         echo "def test_1(): pass" > nothing.py
         pytest nothing.py
+    - name: Run selenium pytest
+      run: |
+        pytest
