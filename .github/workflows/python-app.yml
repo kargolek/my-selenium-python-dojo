@@ -23,4 +23,8 @@ jobs:
         pip install webdriver-manager
     - name: Install Chrome
       run: |
-      sudo apt install google-chrome-stable
+        sudo apt install google-chrome-stable
+    - name: Make sure pytest is working
+      run: |
+        echo "def test_1(): pass" > nothing.py
+        pytest nothing.py
