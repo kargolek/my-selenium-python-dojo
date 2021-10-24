@@ -29,6 +29,11 @@ jobs:
       run: |
         echo "def test_1(): pass" > nothing.py
         pytest nothing.py
+    - name: Check secret
+      env:
+        SUPER_SECRET: ${{ secrets.EMAIL_TEST }}
+      run: |
+        echo "$SUPER_SECRET"
     - name: Run selenium pytest
       run: |
         pytest
