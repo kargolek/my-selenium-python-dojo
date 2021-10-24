@@ -78,8 +78,9 @@ def setup_github_cookies():
     login_page = GitHubLoginPage(w_driver)
     login_page.sign_in_github_account(Secrets.USERNAME, Secrets.PASSWORD) \
         .is_repo_list_container_visible()
-    global COOKIES
-    COOKIES = w_driver.get_cookies()
+    # global COOKIES
+    # COOKIES = w_driver.get_cookies()
+    DriverUtils(w_driver).save_cookie_to_file()
     w_driver.quit()
 
 
@@ -88,7 +89,7 @@ def web_driver():
     global driver
     driver = DriverFactory.get_web_driver(DRIVER_TYPE)
     driver.get("http://github.com/")
-    DriverUtils(driver).add_cookie(COOKIES, {"name": "__Host-user_session_same_site"})
+    DriverUtils(driver).add_cookie_from_file({"name": "__Host-user_session_same_site"})
     driver.refresh()
     GitHubDashboardPage(driver).is_repo_list_container_visible()
     return driver
