@@ -24,7 +24,7 @@ jobs:
     - name: Install Chrome
       run: |
       sudo apt install google-chrome-stable
-    - name Install WebDriver Manager
+    - name: Install WebDriver Manager
       run: |
         pip install webdriver-manager
     - name: Test with pytest
