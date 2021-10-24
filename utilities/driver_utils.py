@@ -42,7 +42,7 @@ class DriverUtils:
         def process_browser_log_entry(entry):
             response = json.loads(entry['message'])['message']
             return response
-        print(self.driver.name)
+
         if self.driver.name == "chrome":
             browser_log = self.driver.get_log('performance')
             events = [process_browser_log_entry(entry) for entry in browser_log]
