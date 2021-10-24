@@ -4,6 +4,7 @@ import pytest
 from hamcrest import assert_that, equal_to
 
 from credentials.secrets import Secrets
+from pages.github_device_verification_page import GitHubDeviceVerificationPage
 
 
 @pytest.mark.usefixtures("web_driver_each", "web_driver_each_quit")
@@ -17,6 +18,9 @@ class TestGitHubLogIn:
         print(web_driver_each.current_url)
         print(web_driver_each.page_source)
         time.sleep(10)
+        verification_page = GitHubDeviceVerificationPage(web_driver_each)
+        verification_page.input_device_code("123456")\
+            .click_verification_device()
         assert_that(github_repo_page.is_repo_list_container_visible(), equal_to(True))
 
     def test_should_sign_in_github_account_with_username(self, web_driver_each, github_login_page, github_repo_page):

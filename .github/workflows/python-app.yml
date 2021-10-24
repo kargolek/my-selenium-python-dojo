@@ -39,7 +39,7 @@ jobs:
         EMAIL_GIT_TEST: ${{ secrets.EMAIL_GIT_TEST }}
         USER_GIT_TEST: ${{ secrets.USER_GIT_TEST }}
       run: |
-         pytest tests/ --html=report.html --self-contained-html
+         pytest tests/login_test.py --html=report.html --self-contained-html
     - uses: actions/upload-artifact@v2
       if: failure()
       with:
