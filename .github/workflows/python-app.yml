@@ -23,6 +23,7 @@ jobs:
         pip install webdriver-manager
         pip install selenium
         pip install msedge-selenium-tools selenium==3.141
+        pip install PyHamcrest
     - name: Install Chrome
       run: |
         sudo apt install google-chrome-stable
