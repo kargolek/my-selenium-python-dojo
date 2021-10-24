@@ -40,4 +40,4 @@ jobs:
         USER_GIT_TEST: ${{ secrets.USER_GIT_TEST }}
         PASSWORD_GIT_TEST: ${{ secrets.PASSWORD_GIT_TEST }}
       run: |
-        pytest tests/secret_test.py
+        pytest tests/
