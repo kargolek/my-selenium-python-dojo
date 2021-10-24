@@ -12,7 +12,7 @@ class DriverFactory:
     @staticmethod
     def __get_chrome_driver(chrome_options):
         desired_capabilities = DesiredCapabilities.CHROME
-        desired_capabilities["goog:loggingPrefs"] = {"performance": "ALL"}
+        # desired_capabilities["goog:loggingPrefs"] = {"performance": "ALL"}
         driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install(),
                                   options=chrome_options, desired_capabilities=desired_capabilities)
         return driver
