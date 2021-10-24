@@ -1,5 +1,6 @@
 from msedge.selenium_tools import EdgeOptions, Edge
 from selenium import webdriver
+from selenium.webdriver import DesiredCapabilities
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
@@ -10,8 +11,10 @@ class DriverFactory:
 
     @staticmethod
     def __get_chrome_driver(chrome_options):
+        desired_capabilities = DesiredCapabilities.CHROME
+        desired_capabilities["goog:loggingPrefs"] = {"performance": "ALL"}
         driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install(),
-                                  options=chrome_options)
+                                  options=chrome_options, desired_capabilities=desired_capabilities)
         return driver
 
     @staticmethod
@@ -19,6 +22,7 @@ class DriverFactory:
         if chrome_options is None:
             chrome_options = webdriver.ChromeOptions()
             chrome_options.add_argument("start-maximized")
+
         return chrome_options
 
     @staticmethod

@@ -1,3 +1,4 @@
+import json
 import os
 import pickle
 from pathlib import Path
@@ -36,3 +37,15 @@ class DriverUtils:
         for cookie in cookies:
             if should_ignore_cookie(cookie, ignore_cookies_by_key_value) is False:
                 self.driver.add_cookie(cookie)
+
+    def get_browser_events(self):
+        def process_browser_log_entry(entry):
+            response = json.loads(entry['message'])['message']
+            return response
+
+        if self.driver.name == "chrome":
+            browser_log = self.driver.get_log('performance')
+            events = [process_browser_log_entry(entry) for entry in browser_log]
+            return [event for event in events if 'Network.response' in event['method']]
+        else:
+            raise Exception("Unable to get events cause driver type is not chromedriver")
