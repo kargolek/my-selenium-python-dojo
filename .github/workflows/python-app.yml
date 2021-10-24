@@ -37,5 +37,7 @@ jobs:
     - name: Run selenium pytest
       env:
         EMAIL_GIT_TEST: ${{ secrets.EMAIL_GIT_TEST }}
+        USER_GIT_TEST: ${{ secrets.USER_GIT_TEST }}
+        PASSWORD_GIT_TEST: ${{ secrets.PASSWORD_GIT_TEST }}
       run: |
         pytest tests/secret_test.py
