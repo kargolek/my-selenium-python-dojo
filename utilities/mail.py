@@ -27,14 +27,25 @@ class Mail:
         first_email_id = int(id_list[0])
         latest_email_id = int(id_list[-1])
 
-        for i in range(latest_email_id, first_email_id, -1):
-            data = mail.fetch(str(i), '(RFC822)')
-            for response_part in data:
-                arr = response_part[0]
-                if isinstance(arr, tuple):
-                    msg = email.message_from_string(str(arr[1], 'utf-8'))
-                    email_subject = msg['subject']
-                    email_from = msg['from']
-                    print('From : ' + email_from + '\n')
-                    print('Subject : ' + email_subject + '\n')
-                    print(f"Body: {self.get_body(msg)}\n")
+        data = mail.fetch(str(latest_email_id), '(RFC822)')
+        for response_part in data:
+            arr = response_part[0]
+            if isinstance(arr, tuple):
+                msg = email.message_from_string(str(arr[1], 'utf-8'))
+                email_subject = msg['subject']
+                email_from = msg['from']
+                body = self.get_body(msg)
+                print(f"\nSUBJECT: {email_subject}\nFROM: {email_from}\nBODY: {body}\n")
+                return {"subject": email_subject, "from": email_from, "body": body}
+
+        # for i in range(latest_email_id, first_email_id, -1):
+        #     data = mail.fetch(str(i), '(RFC822)')
+        #     for response_part in data:
+        #         arr = response_part[0]
+        #         if isinstance(arr, tuple):
+        #             msg = email.message_from_string(str(arr[1], 'utf-8'))
+        #             email_subject = msg['subject']
+        #             email_from = msg['from']
+        #             print('From : ' + email_from + '\n')
+        #             print('Subject : ' + email_subject + '\n')
+        #             print(f"Body: {self.get_body(msg)}\n")

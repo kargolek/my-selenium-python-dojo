@@ -12,7 +12,7 @@ class TestGitHubLogIn:
 
     def test_should_sign_in_github_account_with_email(self, web_driver_each, github_login_page, github_repo_page):
         github_login_page.input_login(Secrets.EMAIL) \
-            .input_password("MyTestSeleniumPython001") \
+            .input_password(Secrets.PASSWORD) \
             .click_sign_in_button()
         time.sleep(5)
         print(web_driver_each.current_url)
@@ -25,7 +25,7 @@ class TestGitHubLogIn:
 
     def test_should_sign_in_github_account_with_username(self, web_driver_each, github_login_page, github_repo_page):
         github_login_page.input_login(Secrets.USERNAME) \
-            .input_password("MyTestSeleniumPython001") \
+            .input_password(Secrets.PASSWORD) \
             .click_sign_in_button()
         print(web_driver_each.current_url)
         assert_that(github_repo_page.is_repo_list_container_visible(), equal_to(True))

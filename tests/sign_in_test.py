@@ -3,6 +3,7 @@ import time
 import pytest
 
 from credentials.secrets import Secrets
+from pages.github_device_verification_page import GitHubDeviceVerificationPage
 from utilities.mail import Mail
 
 
@@ -14,6 +15,13 @@ class TestGitHubLogIn:
             .input_password(Secrets.PASSWORD) \
             .click_sign_in_button()
         time.sleep(30)
-        Mail().read_email_from_gmail()
-        assert False
+        first_message = Mail().read_email_from_gmail()
+        body_bytes = first_message.get("body")
+        body: str = body_bytes.decode(encoding="utf-8")
+        code = ''.join([n for n in body[body.find("Verification code:"):body.find("\r\n\r\nIf you")] if n.isdigit()])
+
+        GitHubDeviceVerificationPage(web_driver_each) \
+            .input_device_code(code) \
+            .click_verification_device()
+
         pass
