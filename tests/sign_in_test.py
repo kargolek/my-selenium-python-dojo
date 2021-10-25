@@ -11,4 +11,5 @@ class TestGitHubLogIn:
     def test_should_sign_in_github_account_with_email(self, web_driver_each, github_login_page, github_repo_page):
         Mail().read_email_from_gmail()
         time.sleep(10)
+        assert False
         pass
