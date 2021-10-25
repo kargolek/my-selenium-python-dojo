@@ -20,8 +20,10 @@ class TestGitHubLogIn:
         body: str = body_bytes.decode(encoding="utf-8")
         code = ''.join([n for n in body[body.find("Verification code:"):body.find("\r\n\r\nIf you")] if n.isdigit()])
 
+        print(f"CODE:    {code}")
+
         GitHubDeviceVerificationPage(web_driver_each) \
             .input_device_code(code) \
             .click_verification_device()
 
-        pass
+        assert False
