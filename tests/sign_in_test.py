@@ -14,7 +14,7 @@ class TestGitHubLogIn:
         github_login_page.input_login(Secrets.EMAIL) \
             .input_password(Secrets.PASSWORD) \
             .click_sign_in_button()
-        time.sleep(30)
+        time.sleep(20)
         first_message = Mail().read_email_from_gmail()
         body_bytes = first_message.get("body")
         body: str = body_bytes.decode(encoding="utf-8")
@@ -22,8 +22,8 @@ class TestGitHubLogIn:
 
         print(f"CODE:    {code}")
 
-        GitHubDeviceVerificationPage(web_driver_each) \
-            .input_device_code(code) \
-            .click_verification_device()
+        # GitHubDeviceVerificationPage(web_driver_each) \
+        #     .input_device_code(code) \
+        #     .click_verification_device()
 
         assert False
