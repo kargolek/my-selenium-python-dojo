@@ -22,8 +22,8 @@ class TestGitHubLogIn:
 
         print(f"CODE:    {code}")
 
-        # GitHubDeviceVerificationPage(web_driver_each) \
-        #     .input_device_code(code) \
-        #     .click_verification_device()
+        GitHubDeviceVerificationPage(web_driver_each) \
+            .input_device_code(code) \
+            .click_verification_device()
 
         assert False
