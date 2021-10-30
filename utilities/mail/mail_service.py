@@ -33,7 +33,7 @@ class MailService:
         id_list = mail_ids[0].split()
         return int(id_list[-1])
 
-    def _get_latest_mail_details_from_response_part(self, data) -> dict[str:str]:
+    def _get_latest_mail_details_from_response_part(self, data) -> dict:
         for response_part in data:
             arr = response_part[0]
             if isinstance(arr, tuple):
