@@ -1,12 +1,10 @@
 import os
-import time
 from pathlib import Path
 
 import pytest
 from selenium import webdriver
 
 from credentials.secrets import Secrets
-from pages.github_action_bar_page import GitHubActionBarPage
 from pages.github_dashboard_page import GitHubDashboardPage
 from pages.github_login_page import GitHubLoginPage
 from utilities.driver_factory import DriverFactory
