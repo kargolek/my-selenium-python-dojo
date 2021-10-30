@@ -20,12 +20,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-        pip install webdriver-manager
-        pip install selenium
-        pip install msedge-selenium-tools selenium==3.141
-        pip install PyHamcrest
-        pip install chromedriver-py
-        pip install pytest-html
     - name: Install Chrome
       run: |
         sudo apt install google-chrome-stable
