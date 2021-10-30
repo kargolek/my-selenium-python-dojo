@@ -38,4 +38,4 @@ jobs:
       if: failure()
       with:
         name: my-artifact
-        path: /home/runner/work/my-selenium-python-example/my-selenium-python-example
+        path: /home/runner/work/my-selenium-python-dojo/my-selenium-python-dojo
