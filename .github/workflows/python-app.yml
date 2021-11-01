@@ -25,8 +25,6 @@ jobs:
         sudo apt install google-chrome-stable
     - name: Install Edge
       run:  |
-        sudo apt install software-properties-common apt-transport-https wget curl
-        wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add –
         sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main"
         sudo apt-get update
         sudo apt install microsoft-edge-beta
@@ -39,7 +37,7 @@ jobs:
         EMAIL_GIT_TEST: ${{ secrets.EMAIL_GIT_TEST }}
         USER_GIT_TEST: ${{ secrets.USER_GIT_TEST }}
       run: |
-         pytest tests/sign_in_test.py --html=report.html --self-contained-html
+         pytest --html=report.html --self-contained-html
     - uses: actions/upload-artifact@v2
       if: failure()
       with:
