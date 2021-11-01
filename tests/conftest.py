@@ -94,7 +94,7 @@ def web_driver():
     global driver
     driver = DriverFactory.get_web_driver(DRIVER_TYPE)
     driver.get("http://github.com/")
-    DriverUtils(driver).add_cookie_from_file({"name": "__Host-user_session_same_site"})
+    DriverUtils(driver).add_cookie(COOKIES, {"name": "__Host-user_session_same_site"})
     driver.refresh()
     GitHubDashboardPage(driver).is_repo_list_container_visible()
     return driver
