@@ -117,6 +117,7 @@ def github_repo_page():
 def github_login_page():
     return GitHubLoginPage(driver)
 
+
 @pytest.fixture()
 def github_otp_page():
     return GitHubDeviceVerificationPage(driver)
