@@ -65,7 +65,7 @@ def pytest_runtest_makereport(item):
 def web_driver_each():
     global driver
     driver = DriverFactory.get_web_driver(DRIVER_TYPE)
-    driver.get("https://github.com")
+    driver.get("https://github.com/login")
     return driver
 
 
