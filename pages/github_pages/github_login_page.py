@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
@@ -23,6 +25,7 @@ class GitHubLoginPage(BasePage):
         return self
 
     def click_sign_in_button(self):
+        time.sleep(1)
         self._wait_for_visible_element(self.SIGN_IN_BUTTON, 10).click()
         return self
 
