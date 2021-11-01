@@ -38,6 +38,7 @@ class DriverFactory:
     def __firefox_options_default(firefox_options):
         if firefox_options is None:
             firefox_options = webdriver.FirefoxOptions()
+            firefox_options.add_argument("--headless")
         return firefox_options
 
     @staticmethod
