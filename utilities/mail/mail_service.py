@@ -40,8 +40,10 @@ class MailService:
                 msg = email.message_from_string(str(arr[1], 'utf-8'))
                 email_subject = msg[MailDetails.SUBJECT]
                 email_from = msg[MailDetails.FROM]
-                body = self.get_body(msg)
-                return {MailDetails.SUBJECT: email_subject, MailDetails.FROM: email_from, MailDetails.BODY: body}
+                email_date = msg[MailDetails.DATE]
+                body = self.get_body(msg).decode(encoding="utf-8")
+                return {MailDetails.SUBJECT: email_subject, MailDetails.FROM: email_from, MailDetails.BODY: body,
+                        MailDetails.DATE: email_date}
 
     def read_email_from_gmail(self) -> dict:
         mail = self._get_inbox()
@@ -49,15 +51,3 @@ class MailService:
         latest_mail_id = self._get_latest_mail_id(data)
         data = mail.fetch(str(latest_mail_id), '(RFC822)')
         return self._get_latest_mail_details_from_response_part(data)
-
-        # for i in range(latest_email_id, first_email_id, -1):
-        #     data = mail.fetch(str(i), '(RFC822)')
-        #     for response_part in data:
-        #         arr = response_part[0]
-        #         if isinstance(arr, tuple):
-        #             msg = email.message_from_string(str(arr[1], 'utf-8'))
-        #             email_subject = msg['subject']
-        #             email_from = msg['from']
-        #             print('From : ' + email_from + '\n')
-        #             print('Subject : ' + email_subject + '\n')
-        #             print(f"Body: {self.get_body(msg)}\n")

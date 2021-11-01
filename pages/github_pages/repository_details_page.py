@@ -13,13 +13,13 @@ class RepositoryDetailsPage(BasePage):
         super().__init__(driver)
 
     def get_repo_owner_dropdown(self):
-        return self.wait_for_visible_element(self.REPO_OWNER_DROPDOWN, 10)
+        return self._wait_for_visible_element(self.REPO_OWNER_DROPDOWN, 10)
 
     def get_repo_name_input(self):
-        return self.wait_for_visible_element(self.REPO_NAME_INPUT, 10)
+        return self._wait_for_visible_element(self.REPO_NAME_INPUT, 10)
 
     def get_privacy_public_checkbox(self):
-        return self.wait_for_visible_element(self.PRIVACY_PUBLIC_CHECKBOX, 10)
+        return self._wait_for_visible_element(self.PRIVACY_PUBLIC_CHECKBOX, 10)
 
     def get_privacy_private_checkbox(self):
-        return self.wait_for_visible_element(self.PRIVACY_PRIVATE_CHECKBOX, 10)
+        return self._wait_for_visible_element(self.PRIVACY_PRIVATE_CHECKBOX, 10)

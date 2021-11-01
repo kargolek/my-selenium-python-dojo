@@ -11,6 +11,6 @@ class GitHubActionBarPage(BasePage):
         super().__init__(driver)
 
     def click_sign_out_button(self):
-        self.wait_for_visible_element(self.USER_MENU_BUTTON, 10).click()
-        self.wait_for_visible_element(self.SIGN_OUT_MENU_BUTTON, 10).click()
+        self._wait_for_visible_element(self.USER_MENU_BUTTON, 10).click()
+        self._wait_for_visible_element(self.SIGN_OUT_MENU_BUTTON, 10).click()
         return self

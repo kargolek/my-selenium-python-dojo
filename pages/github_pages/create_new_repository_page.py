@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-from pages.repository_details_page import RepositoryDetailsPage
+from pages.github_pages.repository_details_page import RepositoryDetailsPage
 
 
 class CreateNewRepositoryPage(RepositoryDetailsPage):
@@ -10,4 +10,4 @@ class CreateNewRepositoryPage(RepositoryDetailsPage):
         super().__init__(driver)
 
     def get_create_repository_button(self):
-        return self.wait_for_visible_element(self.CREATE_REPOSITORY_BUTTON, 10)
+        return self._wait_for_visible_element(self.CREATE_REPOSITORY_BUTTON, 10)

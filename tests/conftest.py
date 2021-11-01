@@ -5,8 +5,9 @@ import pytest
 from selenium import webdriver
 
 from credentials.secrets import Secrets
-from pages.github_dashboard_page import GitHubDashboardPage
-from pages.github_login_page import GitHubLoginPage
+from pages.github_pages.github_dashboard_page import GitHubDashboardPage
+from pages.github_pages.github_device_verification_page import GitHubDeviceVerificationPage
+from pages.github_pages.github_login_page import GitHubLoginPage
 from utilities.driver_factory import DriverFactory
 from utilities.driver_utils import DriverUtils
 
@@ -16,20 +17,24 @@ DRIVER_TYPE = "chrome"
 COOKIES = None
 
 
-def get_project_root() -> str:
+def get_test_root() -> str:
     return str(Path(__file__).parent)
 
 
+def get_resource_mail_content() -> str:
+    return str(Path(__file__).parent.parent) + "/resources/mail_content/"
+
+
 def get_screenshot_dir():
-    return get_project_root() + "\\reports\\screenshots\\"
+    return get_test_root() + "\\reports\\screenshots\\"
 
 
 @pytest.hookimpl(tryfirst=True)
 def pytest_configure(config):
-    reports = get_project_root() + "\\reports"
+    reports = get_test_root() + "\\reports"
     if not os.path.exists(reports):
         os.makedirs(reports)
-    screenshots = get_project_root() + "\\reports\\screenshots"
+    screenshots = get_test_root() + "\\reports\\screenshots"
     if not os.path.exists(screenshots):
         os.makedirs(screenshots)
     config.option.htmlpath = reports + "\\test_report.html"
@@ -52,7 +57,7 @@ def pytest_runtest_makereport(item):
                        'onclick="window.open(this.src)" align="right"/></div>' % file_path
                 extra.append(pytest_html.extras.html(html))
             print(f"PATH: {file_path}")
-            print(f"ROOT: {get_project_root()}")
+            print(f"ROOT: {get_test_root()}")
         report.extra = extra
 
 
@@ -78,9 +83,9 @@ def setup_github_cookies():
     login_page = GitHubLoginPage(w_driver)
     login_page.sign_in_github_account(Secrets.USERNAME, Secrets.PASSWORD) \
         .is_repo_list_container_visible()
-    # global COOKIES
-    # COOKIES = w_driver.get_cookies()
-    DriverUtils(w_driver).save_cookie_to_file()
+    GitHubDeviceVerificationPage(w_driver).input_otp_code_if_verification_present()
+    global COOKIES
+    COOKIES = w_driver.get_cookies()
     w_driver.quit()
 
 
@@ -111,3 +116,7 @@ def github_repo_page():
 @pytest.fixture()
 def github_login_page():
     return GitHubLoginPage(driver)
+
+@pytest.fixture()
+def github_otp_page():
+    return GitHubDeviceVerificationPage(driver)

@@ -23,10 +23,16 @@ jobs:
     - name: Install Chrome
       run: |
         sudo apt install google-chrome-stable
-    - name: Make sure pytest is working
+    - name: Install Edge
+      run:  |
+        sudo apt install software-properties-common apt-transport-https wget curl
+        wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add –
+        sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main"
+        sudo apt-get update
+        sudo apt install microsoft-edge-beta
+    - name: Install Firefox
       run: |
-        echo "def test_1(): pass" > nothing.py
-        pytest nothing.py
+        sudo apt install firefox
     - name: Run selenium pytest
       env:
         PASSWORD_GIT_TEST: ${{ secrets.PASSWORD_GIT_TEST }}

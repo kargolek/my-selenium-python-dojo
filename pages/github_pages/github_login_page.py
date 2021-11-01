@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
-from pages.github_dashboard_page import GitHubDashboardPage
+from pages.github_pages.github_dashboard_page import GitHubDashboardPage
 
 
 class GitHubLoginPage(BasePage):
@@ -15,19 +15,19 @@ class GitHubLoginPage(BasePage):
         self.github_dashboard_page = GitHubDashboardPage(self.driver)
 
     def input_login(self, login_name):
-        self.wait_for_visible_element(self.LOGIN_FIELD, 10).send_keys(login_name)
+        self._wait_for_visible_element(self.LOGIN_FIELD, 10).send_keys(login_name)
         return self
 
     def input_password(self, password):
-        self.wait_for_visible_element(self.PASSWORD_FIELD, 10).send_keys(password)
+        self._wait_for_visible_element(self.PASSWORD_FIELD, 10).send_keys(password)
         return self
 
     def click_sign_in_button(self):
-        self.wait_for_visible_element(self.SIGN_IN_BUTTON, 10).click()
+        self._wait_for_visible_element(self.SIGN_IN_BUTTON, 10).click()
         return self
 
     def is_login_in_error_displayed(self):
-        return self.wait_for_visible_element(self.INCORRECT_LOGIN_PASSWORD, 10).is_displayed()
+        return self._wait_for_visible_element(self.INCORRECT_LOGIN_PASSWORD, 10).is_displayed()
 
     def sign_in_github_account(self, username, password):
         self.input_login(username)
