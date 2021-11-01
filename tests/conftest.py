@@ -81,7 +81,7 @@ def setup_github_cookies():
     w_driver = DriverFactory.get_web_driver(DRIVER_TYPE)
     w_driver.get("https://github.com/login")
     login_page = GitHubLoginPage(w_driver)
-    login_page.sign_in_github_account(Secrets.USERNAME, Secrets.PASSWORD) \
+    login_page.sign_in_github_account(Secrets.USERNAME, "MyTestSeleniumPython001") \
         .is_repo_list_container_visible()
     GitHubDeviceVerificationPage(w_driver).input_otp_code_if_verification_present()
     global COOKIES

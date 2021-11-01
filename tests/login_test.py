@@ -3,6 +3,7 @@ from hamcrest import assert_that, equal_to
 
 from credentials.secrets import Secrets
 
+PASSWORD = "MyTestSeleniumPython001"
 
 @pytest.mark.usefixtures("web_driver_each", "web_driver_each_quit")
 class TestGitHubLogIn:
@@ -10,7 +11,7 @@ class TestGitHubLogIn:
     def test_should_sign_in_github_account_with_email(self, web_driver_each, github_login_page, github_repo_page,
                                                       github_otp_page):
         github_login_page.input_login(Secrets.EMAIL) \
-            .input_password(Secrets.PASSWORD) \
+            .input_password(PASSWORD) \
             .click_sign_in_button()
 
         github_otp_page.input_otp_code_if_verification_present()
@@ -19,7 +20,7 @@ class TestGitHubLogIn:
     def test_should_sign_in_github_account_with_username(self, web_driver_each, github_login_page, github_repo_page,
                                                          github_otp_page):
         github_login_page.input_login(Secrets.USERNAME) \
-            .input_password(Secrets.PASSWORD) \
+            .input_password(PASSWORD) \
             .click_sign_in_button()
         github_otp_page.input_otp_code_if_verification_present()
         assert_that(github_repo_page.is_repo_list_container_visible(), equal_to(True))
