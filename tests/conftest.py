@@ -13,7 +13,7 @@ from utilities.driver_utils import DriverUtils
 
 driver: webdriver.Chrome
 
-DRIVER_TYPE = "firefox"
+DRIVER_TYPE = "chrome"
 COOKIES = None
 
 
@@ -65,7 +65,7 @@ def pytest_runtest_makereport(item):
 def web_driver_each():
     global driver
     driver = DriverFactory.get_web_driver(DRIVER_TYPE)
-    driver.get("https://github.com/login")
+    driver.get("https://github.com")
     return driver
 
 

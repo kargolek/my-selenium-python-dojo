@@ -5,6 +5,7 @@ from credentials.secrets import Secrets
 
 PASSWORD = "MyTestSeleniumPython001"
 
+
 @pytest.mark.usefixtures("web_driver_each", "web_driver_each_quit")
 class TestGitHubLogIn:
 
@@ -13,7 +14,6 @@ class TestGitHubLogIn:
         github_login_page.input_login(Secrets.EMAIL) \
             .input_password(PASSWORD) \
             .click_sign_in_button()
-
         github_otp_page.input_otp_code_if_verification_present()
         assert_that(github_repo_page.is_repo_list_container_visible(), equal_to(True))
 
