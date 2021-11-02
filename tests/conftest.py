@@ -88,13 +88,10 @@ def github_main_bar_page(web_driver):
 
 
 @pytest.fixture
-def sign_out_github(web_driver):
+def sign_out_github(github_main_bar_page):
     yield web_driver
-    web_driver.delete_all_cookies()
-    web_driver.refresh()
-    time.sleep(5)
-    # if github_main_bar_page.is_user_menu_available():
-    #     github_main_bar_page.click_sign_out_button()
+    if github_main_bar_page.is_user_menu_available():
+        github_main_bar_page.click_sign_out_button()
 
 
 @pytest.fixture(scope="class")
