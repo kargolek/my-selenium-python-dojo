@@ -15,7 +15,7 @@ class TestGitHubLogIn:
 
     def test_should_sign_in_github_account_with_account_name(self, web_driver, login_to_github_account, github_repo_page,
                                                              github_otp_page):
-        time.sleep(70)
+        time.sleep(120)
         before_dt = get_naive_utc_current_dt()
         web_driver.get("https://github.com/login")
         login_to_github_account.sign_in_github_account(Secrets.USERNAME, Secrets.PASSWORD)
