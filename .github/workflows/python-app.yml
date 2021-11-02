@@ -1,6 +1,12 @@
 name: Build & Tests
 
-on: [push]
+on:
+  push:
+    branches:
+      - *
+  pull_request:
+    branches:
+      - *
 
 jobs:
   build:
@@ -29,9 +35,9 @@ jobs:
         USER_GIT_TEST: ${{ secrets.USER_GIT_TEST }}
       run: |
         pytest --html=report.html --self-contained-html
-    - name: Install Chrome
+    - name: Check dir
       run: |
-        sudo ls /home/runner/work/my-selenium-python-dojo/
+        sudo ls /home/runner/work/my-selenium-python-dojo/my-selenium-python-dojo/
     - uses: actions/upload-artifact@v2
       with:
         name: my-artifact
