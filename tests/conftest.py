@@ -1,5 +1,4 @@
 import os
-import time
 from pathlib import Path
 
 import pytest
@@ -12,7 +11,7 @@ from pages.github_pages.github_login_page import GitHubLoginPage
 from pages.github_pages.github_main_bar_page import GitHubMainBarPage
 from utilities.datetime.date_time import get_naive_utc_current_dt
 from utilities.driver_factory import DriverFactory
-from utilities.otp_handles.github_otp import GitHubOtp
+from utilities.driver_utils import DriverUtils
 
 driver: webdriver.Chrome
 
@@ -64,7 +63,7 @@ def pytest_runtest_makereport(item):
         report.extra = extra
 
 
-@pytest.fixture(scope="class")
+@pytest.fixture(scope="session")
 def web_driver() -> webdriver:
     web_driver = DriverFactory.get_web_driver(DRIVER_TYPE)
     global driver
@@ -73,7 +72,7 @@ def web_driver() -> webdriver:
     web_driver.quit()
 
 
-@pytest.fixture(scope="class")
+@pytest.fixture(scope="session")
 def login_to_github_account(web_driver):
     before_sign_in_dt = get_naive_utc_current_dt()
     web_driver.get("https://github.com/login")
@@ -95,10 +94,18 @@ def sign_out_github(github_main_bar_page):
         github_main_bar_page.click_sign_out_button()
 
 
-@pytest.fixture(scope="class")
-def setup_cookies():
+@pytest.fixture(scope="session")
+def set_cookies(web_driver):
     global COOKIES
-    COOKIES = driver.get_cookies()
+    COOKIES = web_driver.get_cookies()
+
+
+@pytest.fixture(scope="session")
+def add_cookies(web_driver):
+    global COOKIES
+    web_driver.get("https://github.com")
+    DriverUtils(web_driver).add_cookie(COOKIES, {"name": "__Host-user_session_same_site"})
+    web_driver.refresh()
 
 
 #
