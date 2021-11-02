@@ -2,10 +2,13 @@ import os
 import time
 from pathlib import Path
 
+from utilities.datetime.date_time import *
 from utilities.files.file_service import FileService
 from utilities.mail.mail_details import MailDetails
 from utilities.mail.mail_service import MailService
 from utilities.otp_handles.otp_exception import OtpException
+
+OTP_MAIL_TITLE = "[GitHub] Please verify your device"
 
 TIME_SLEEP_BETWEEN_CHECK_MAILBOX = 3
 
@@ -30,15 +33,15 @@ class GitHubOtp:
         self.__mail_service = MailService()
         self.__file_service = FileService
 
-    def __get_previous_otp_mail_details(self):
-        return self.__file_service.read_file_lines(self.__github_resource_otp, OTP_CODE_TXT)
-
-    def __parse_previous_github_otp(self):
-        lines = self.__get_previous_otp_mail_details()
-        subject = lines[0].replace("subject:", "").replace("\n", "")
-        code = lines[1].replace("code:", "").replace("\n", "")
-        date = lines[2].replace("date:", "").replace("\n", "")
-        return {MailDetails.SUBJECT: subject, "code": code, MailDetails.DATE: date}
+    # def __get_previous_otp_mail_details(self):
+    #     return self.__file_service.read_file_lines(self.__github_resource_otp, OTP_CODE_TXT)
+    #
+    # def __parse_previous_github_otp(self):
+    #     lines = self.__get_previous_otp_mail_details()
+    #     subject = lines[0].replace("subject:", "").replace("\n", "")
+    #     code = lines[1].replace("code:", "").replace("\n", "")
+    #     date = lines[2].replace("date:", "").replace("\n", "")
+    #     return {MailDetails.SUBJECT: subject, "code": code, MailDetails.DATE: date}
 
     def __parse_latest_github_otp(self):
         latest_message = self.__mail_service.read_email_from_gmail()
@@ -66,7 +69,20 @@ class GitHubOtp:
     #             raise OtpException("Timeout error during waiting for OTP mail")
 
     def get_latest_opt_code(self, time_wait=30.0):
-        time.sleep(10)
         latest_otp_dict = self.__parse_latest_github_otp()
+        current_dt = get_naive_utc_current_dt()
+        time_start = time.time()
+        print(latest_otp_dict)
+        while latest_otp_dict.get(MailDetails.SUBJECT) != OTP_MAIL_TITLE:
+            time.sleep(2)
+            latest_otp_dict = self.__parse_latest_github_otp()
+            if (time.time() - time_start) > time_wait:
+                raise OtpException("Timeout during waiting for otp mail")
+        print(latest_otp_dict)
+        while is_earlier_date(latest_otp_dict.get(MailDetails.DATE), current_dt):
+            time.sleep(2)
+            latest_otp_dict = self.__parse_latest_github_otp()
+            if (time.time() - time_start) > time_wait:
+                raise OtpException("Timeout during waiting for otp mail")
+        print(latest_otp_dict)
         return latest_otp_dict.get("code")
-
