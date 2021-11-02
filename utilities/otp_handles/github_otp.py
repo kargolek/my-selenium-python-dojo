@@ -49,18 +49,24 @@ class GitHubOtp:
         date = latest_message.get(MailDetails.DATE)
         return {MailDetails.SUBJECT: subject, "code": code, MailDetails.DATE: date}
 
+    # def get_latest_opt_code(self, time_wait=30.0):
+    #     prev_otp_dict = self.__parse_previous_github_otp()
+    #     time_start = time.time()
+    #     while True:
+    #         latest_otp_dict = self.__parse_latest_github_otp()
+    #         time.sleep(TIME_SLEEP_BETWEEN_CHECK_MAILBOX)
+    #         latest_code = latest_otp_dict.get("code")
+    #         if prev_otp_dict.get(MailDetails.SUBJECT) == latest_otp_dict.get(MailDetails.SUBJECT) \
+    #                 and prev_otp_dict.get("code") != latest_code \
+    #                 and prev_otp_dict.get(MailDetails.DATE) != latest_otp_dict.get(MailDetails.DATE):
+    #             FileService.write_file_text_lines(get_resource_mail_content(), OTP_CODE_TXT, latest_otp_dict)
+    #             return latest_code
+    #         time_end = time.time() - time_start
+    #         if time_end > time_wait:
+    #             raise OtpException("Timeout error during waiting for OTP mail")
+
     def get_latest_opt_code(self, time_wait=30.0):
-        prev_otp_dict = self.__parse_previous_github_otp()
-        time_start = time.time()
-        while True:
-            latest_otp_dict = self.__parse_latest_github_otp()
-            time.sleep(TIME_SLEEP_BETWEEN_CHECK_MAILBOX)
-            latest_code = latest_otp_dict.get("code")
-            if prev_otp_dict.get(MailDetails.SUBJECT) == latest_otp_dict.get(MailDetails.SUBJECT) \
-                    and prev_otp_dict.get("code") != latest_code \
-                    and prev_otp_dict.get(MailDetails.DATE) != latest_otp_dict.get(MailDetails.DATE):
-                FileService.write_file_text_lines(get_resource_mail_content(), OTP_CODE_TXT, latest_otp_dict)
-                return latest_code
-            time_end = time.time() - time_start
-            if time_end > time_wait:
-                raise OtpException("Timeout error during waiting for OTP mail")
+        time.sleep(30)
+        latest_otp_dict = self.__parse_latest_github_otp()
+        return latest_otp_dict.get("code")
+
