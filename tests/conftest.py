@@ -12,6 +12,7 @@ from pages.github_pages.github_login_page import GitHubLoginPage
 from pages.github_pages.github_main_bar_page import GitHubMainBarPage
 from utilities.datetime.date_time import get_naive_utc_current_dt
 from utilities.driver_factory import DriverFactory
+from utilities.otp_handles.github_otp import GitHubOtp
 
 driver: webdriver.Chrome
 
@@ -89,7 +90,7 @@ def github_main_bar_page(web_driver):
 
 @pytest.fixture
 def sign_out_github(github_main_bar_page):
-    yield web_driver
+    yield github_main_bar_page
     if github_main_bar_page.is_user_menu_available():
         github_main_bar_page.click_sign_out_button()
 
