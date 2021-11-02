@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
@@ -23,9 +25,9 @@ class GitHubDeviceVerificationPage(BasePage):
     def is_input_device_code_present(self):
         return self._is_element_located_after_wait(self.VERIFICATION_CODE_INPUT, 10)
 
-    def input_otp_code_if_verification_present(self):
+    def input_otp_code_if_verification_present(self, date_before_login: datetime):
         # if self.is_input_device_code_present():
-        code = GitHubOtp().get_latest_opt_code(80)
+        code = GitHubOtp().get_latest_opt_code(date_before_login, 80.0)
         print(f"VERIFICATION CODE: {code}")
         self.input_device_code(code)
         # self.click_verification_device()

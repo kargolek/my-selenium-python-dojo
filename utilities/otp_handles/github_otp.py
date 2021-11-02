@@ -68,9 +68,8 @@ class GitHubOtp:
     #         if time_end > time_wait:
     #             raise OtpException("Timeout error during waiting for OTP mail")
 
-    def get_latest_opt_code(self, time_wait=30.0):
-        current_dt = get_naive_utc_current_dt()
-        print(f"DATE ON CI: {current_dt}")
+    def get_latest_opt_code(self, date_before_login: datetime, time_wait=30.0):
+        print(f"DATE ON CI: {date_before_login}")
         time.sleep(2)
         latest_otp_dict = self.__parse_latest_github_otp()
         time_start = time.time()
@@ -81,7 +80,7 @@ class GitHubOtp:
             if (time.time() - time_start) > time_wait:
                 raise OtpException("Timeout during waiting for otp mail")
         print(f"AFTER SUBJECT CHECK: {latest_otp_dict}")
-        while latest_otp_dict.get(MailDetails.DATE) > current_dt:
+        while latest_otp_dict.get(MailDetails.DATE) < date_before_login:
             time.sleep(2)
             latest_otp_dict = self.__parse_latest_github_otp()
             if (time.time() - time_start) > time_wait:
