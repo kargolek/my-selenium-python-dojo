@@ -72,17 +72,17 @@ class GitHubOtp:
         latest_otp_dict = self.__parse_latest_github_otp()
         current_dt = get_naive_utc_current_dt()
         time_start = time.time()
-        print(latest_otp_dict)
+        print(f"ON START: {latest_otp_dict}")
         while latest_otp_dict.get(MailDetails.SUBJECT) != OTP_MAIL_TITLE:
             time.sleep(2)
             latest_otp_dict = self.__parse_latest_github_otp()
             if (time.time() - time_start) > time_wait:
                 raise OtpException("Timeout during waiting for otp mail")
-        print(latest_otp_dict)
+        print(f"AFTER SUBJECT CHECK: {latest_otp_dict}")
         while is_earlier_date(latest_otp_dict.get(MailDetails.DATE), current_dt):
             time.sleep(2)
             latest_otp_dict = self.__parse_latest_github_otp()
             if (time.time() - time_start) > time_wait:
                 raise OtpException("Timeout during waiting for otp mail")
-        print(latest_otp_dict)
+        print(f"AFTER DATE CHECK: {latest_otp_dict}")
         return latest_otp_dict.get("code")
