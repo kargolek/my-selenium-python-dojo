@@ -42,10 +42,6 @@ class MailService:
                 email_subject = msg[MailDetails.SUBJECT]
                 email_from = msg[MailDetails.FROM]
                 email_date = email.utils.parsedate_to_datetime(msg[MailDetails.DATE]).astimezone(pytz.utc)
-                # print(f"EMAIL DATE: {email_date}, OLD DATE: {msg[MailDetails.DATE]},"
-                #       f" CURRENT DATE: {datetime.now().astimezone(pytz.utc)}")
-                #
-                # # print(f"COMPARE DATES: {is_date_past(email_date)}")
                 body = self.get_body(msg).decode(encoding="utf-8")
                 return {MailDetails.SUBJECT: email_subject, MailDetails.FROM: email_from, MailDetails.BODY: body,
                         MailDetails.DATE: email_date}

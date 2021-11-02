@@ -48,19 +48,19 @@ def pytest_runtest_makereport(item):
     outcome = yield
     report = outcome.get_result()
     extra = getattr(report, 'extra', [])
-    if report.when == 'call':
-        xfail = hasattr(report, 'wasxfail')
-        if (report.skipped and xfail) or (report.failed and not xfail):
-            test_name = report.nodeid.replace("::", "_").replace(".", "_").replace("/", "_") + ".png"
-            driver.get_screenshot_as_file(get_screenshot_dir() + test_name)
-            file_path = "screenshots/" + test_name
-            if file_path:
-                html = '<div><img src="%s" alt="screenshot" style="width:304px;height:228px;" ' \
-                       'onclick="window.open(this.src)" align="right"/></div>' % file_path
-                extra.append(pytest_html.extras.html(html))
-            print(f"PATH: {file_path}")
-            print(f"ROOT: {get_test_root()}")
-        report.extra = extra
+    if report.when == 'call' and not report.failed:
+        # xfail = hasattr(report, 'wasxfail')
+        # if (report.skipped and xfail) or (report.failed and not xfail):
+        test_name = report.nodeid.replace("::", "_").replace(".", "_").replace("/", "_") + ".png"
+        driver.get_screenshot_as_file(get_screenshot_dir() + test_name)
+        file_path = "screenshots/" + test_name
+        if file_path:
+            html = '<div><img src="%s" alt="screenshot" style="width:400px;height:300px;" ' \
+                   'onclick="window.open(this.src)" align="right"/></div>' % file_path
+            extra.append(pytest_html.extras.html(html))
+        print(f"PATH: {file_path}")
+        print(f"ROOT: {get_test_root()}")
+    report.extra = extra
 
 
 @pytest.fixture(scope="session")
@@ -106,27 +106,6 @@ def add_cookies(web_driver):
     web_driver.get("https://github.com")
     DriverUtils(web_driver).add_cookie(COOKIES, {"name": "__Host-user_session_same_site"})
     web_driver.refresh()
-
-
-#
-# @pytest.fixture(scope="class")
-# def web_driver():
-#     global driver
-#     driver = DriverFactory.get_web_driver(DRIVER_TYPE)
-#     driver.get("http://github.com/")
-#     DriverUtils(driver).add_cookie(COOKIES, {"name": "__Host-user_session_same_site"})
-#     driver.refresh()
-#     GitHubDashboardPage(driver).is_repo_list_container_visible()
-#     return driver
-
-#
-# @pytest.fixture(scope="class")
-# def web_driver_quit(web_driver):
-#     yield
-#     global COOKIES
-#     COOKIES = None
-#     driver.quit()
-#
 
 
 @pytest.fixture()

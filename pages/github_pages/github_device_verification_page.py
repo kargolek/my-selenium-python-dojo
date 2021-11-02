@@ -28,6 +28,5 @@ class GitHubDeviceVerificationPage(BasePage):
     def input_otp_code_if_verification_present(self, date_before_login: datetime):
         if self.is_input_device_code_present():
             code = GitHubOtp().get_latest_opt_code(date_before_login, 30.0)
-            print(f"VERIFICATION CODE: {code}")
             self.input_device_code(code)
         return GitHubDashboardPage(self.driver)

@@ -25,7 +25,6 @@ class GitHubLoginPage(BasePage):
         return self
 
     def click_sign_in_button(self):
-        time.sleep(2)
         self._wait_for_visible_element(self.SIGN_IN_BUTTON, 10).click()
         return self
 
