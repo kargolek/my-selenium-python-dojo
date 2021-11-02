@@ -21,7 +21,7 @@ class GitHubDeviceVerificationPage(BasePage):
         return self
 
     def is_input_device_code_present(self):
-        return self._is_element_located_after_wait(self.VERIFICATION_CODE_INPUT, 5)
+        return self._is_element_located_after_wait(self.VERIFICATION_CODE_INPUT, 10)
 
     def input_otp_code_if_verification_present(self):
         if self.is_input_device_code_present():

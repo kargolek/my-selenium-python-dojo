@@ -66,7 +66,7 @@ class GitHubOtp:
     #             raise OtpException("Timeout error during waiting for OTP mail")
 
     def get_latest_opt_code(self, time_wait=30.0):
-        time.sleep(30)
+        time.sleep(10)
         latest_otp_dict = self.__parse_latest_github_otp()
         return latest_otp_dict.get("code")
 
