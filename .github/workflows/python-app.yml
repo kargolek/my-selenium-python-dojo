@@ -23,19 +23,9 @@ jobs:
     - name: Install Chrome
       run: |
         sudo apt install google-chrome-stable
-    - name: Install Edge
-      run:  |
-        sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main"
-        sudo apt-get update
-        sudo apt install microsoft-edge-beta
     - name: Install Firefox
       run: |
         sudo apt install firefox
-    - name: Start display
-      run: |
-        Xvfb :99 -ac -screen 0 1280x1024x24 &
-        export DISPLAY=:99
-        nice -n 10 x11vnc 2>&1 &
     - name: Run selenium pytest
       env:
         PASSWORD_GIT_TEST: ${{ secrets.PASSWORD_GIT_TEST }}
