@@ -70,7 +70,7 @@ class GitHubOtp:
 
     def get_latest_opt_code(self, date_before_login: datetime, time_wait=30.0):
         print(f"DATE ON CI: {date_before_login}")
-        time.sleep(2)
+        time.sleep(1)
         latest_otp_dict = self.__parse_latest_github_otp()
         time_start = time.time()
         print(f"ON START: {latest_otp_dict}")

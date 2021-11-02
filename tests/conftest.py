@@ -1,4 +1,5 @@
 import os
+import time
 from pathlib import Path
 
 import pytest
@@ -8,8 +9,9 @@ from credentials.secrets import Secrets
 from pages.github_pages.github_dashboard_page import GitHubDashboardPage
 from pages.github_pages.github_device_verification_page import GitHubDeviceVerificationPage
 from pages.github_pages.github_login_page import GitHubLoginPage
+from pages.github_pages.github_main_bar_page import GitHubMainBarPage
+from utilities.datetime.date_time import get_naive_utc_current_dt
 from utilities.driver_factory import DriverFactory
-from utilities.driver_utils import DriverUtils
 
 driver: webdriver.Chrome
 
@@ -61,51 +63,65 @@ def pytest_runtest_makereport(item):
         report.extra = extra
 
 
-@pytest.fixture()
-def web_driver_each():
+@pytest.fixture(scope="class")
+def web_driver() -> webdriver:
+    web_driver = DriverFactory.get_web_driver(DRIVER_TYPE)
     global driver
-    driver = DriverFactory.get_web_driver(DRIVER_TYPE)
-    driver.get("https://github.com/login")
-    return driver
-
-
-@pytest.fixture()
-def web_driver_each_quit():
-    yield
-    global driver
-    driver.quit()
+    driver = web_driver
+    yield web_driver
+    web_driver.quit()
 
 
 @pytest.fixture(scope="class")
-def setup_github_cookies():
-    w_driver = DriverFactory.get_web_driver(DRIVER_TYPE)
-    w_driver.get("https://github.com/login")
-    login_page = GitHubLoginPage(w_driver)
-    login_page.sign_in_github_account(Secrets.USERNAME, "MyTestSeleniumPython001") \
-        .is_repo_list_container_visible()
-    GitHubDeviceVerificationPage(w_driver).input_otp_code_if_verification_present()
+def login_to_github_account(web_driver):
+    before_sign_in_dt = get_naive_utc_current_dt()
+    web_driver.get("https://github.com/login")
+    login_page = GitHubLoginPage(web_driver)
+    login_page.sign_in_github_account(Secrets.EMAIL, Secrets.PASSWORD)
+    GitHubDeviceVerificationPage(web_driver).input_otp_code_if_verification_present(before_sign_in_dt)
+    return login_page
+
+
+@pytest.fixture(scope="class")
+def github_main_bar_page(web_driver):
+    return GitHubMainBarPage(web_driver)
+
+
+@pytest.fixture
+def sign_out_github(web_driver):
+    yield web_driver
+    web_driver.delete_all_cookies()
+    web_driver.refresh()
+    time.sleep(5)
+    # if github_main_bar_page.is_user_menu_available():
+    #     github_main_bar_page.click_sign_out_button()
+
+
+@pytest.fixture(scope="class")
+def setup_cookies():
     global COOKIES
-    COOKIES = w_driver.get_cookies()
-    w_driver.quit()
+    COOKIES = driver.get_cookies()
 
 
-@pytest.fixture(scope="class")
-def web_driver():
-    global driver
-    driver = DriverFactory.get_web_driver(DRIVER_TYPE)
-    driver.get("http://github.com/")
-    DriverUtils(driver).add_cookie(COOKIES, {"name": "__Host-user_session_same_site"})
-    driver.refresh()
-    GitHubDashboardPage(driver).is_repo_list_container_visible()
-    return driver
+#
+# @pytest.fixture(scope="class")
+# def web_driver():
+#     global driver
+#     driver = DriverFactory.get_web_driver(DRIVER_TYPE)
+#     driver.get("http://github.com/")
+#     DriverUtils(driver).add_cookie(COOKIES, {"name": "__Host-user_session_same_site"})
+#     driver.refresh()
+#     GitHubDashboardPage(driver).is_repo_list_container_visible()
+#     return driver
 
-
-@pytest.fixture(scope="class")
-def web_driver_quit(web_driver):
-    yield
-    global COOKIES
-    COOKIES = None
-    driver.quit()
+#
+# @pytest.fixture(scope="class")
+# def web_driver_quit(web_driver):
+#     yield
+#     global COOKIES
+#     COOKIES = None
+#     driver.quit()
+#
 
 
 @pytest.fixture()
