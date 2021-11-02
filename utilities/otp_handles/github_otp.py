@@ -70,6 +70,8 @@ class GitHubOtp:
 
     def get_latest_opt_code(self, time_wait=30.0):
         current_dt = get_naive_utc_current_dt()
+        print(f"DATE ON CI: {current_dt}")
+        time.sleep(1)
         latest_otp_dict = self.__parse_latest_github_otp()
         time_start = time.time()
         print(f"ON START: {latest_otp_dict}")
