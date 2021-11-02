@@ -1,6 +1,6 @@
 from datetime import datetime
 
-DATE_FORMAT = "%d/%m/%Y %H:%M:%S"
+DATE_FORMAT = "%d/%m/%Y %H:%M:%S %Z%z"
 
 
 def format_date_time(date_time: datetime) -> str:
