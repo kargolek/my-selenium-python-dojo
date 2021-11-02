@@ -11,12 +11,16 @@ class TestGitHubLogIn:
 
     def test_should_sign_in_github_account_with_email(self, web_driver_each, github_login_page, github_repo_page,
                                                       github_otp_page):
-        print(f"DATE TIME TO CHECK ON CI:{datetime.datetime.utcnow()}")
-        github_login_page.input_login(Secrets.EMAIL) \
-            .input_password(Secrets.PASSWORD) \
-            .click_sign_in_button()
-        github_otp_page.input_otp_code_if_verification_present()
-        assert_that(github_repo_page.is_repo_list_container_visible(), equal_to(True))
+        # github_login_page.input_login(Secrets.EMAIL) \
+        #     .input_password(Secrets.PASSWORD) \
+        #     .click_sign_in_button()
+        # github_otp_page.input_otp_code_if_verification_present()
+        # assert_that(github_repo_page.is_repo_list_container_visible(), equal_to(True))
+
+        b = True
+        while b:
+            b = False
+
         assert False
 
     # def test_should_sign_in_github_account_with_username(self, web_driver_each, github_login_page, github_repo_page,

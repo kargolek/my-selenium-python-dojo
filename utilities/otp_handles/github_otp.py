@@ -71,7 +71,7 @@ class GitHubOtp:
     def get_latest_opt_code(self, time_wait=30.0):
         current_dt = get_naive_utc_current_dt()
         print(f"DATE ON CI: {current_dt}")
-        time.sleep(1)
+        time.sleep(2)
         latest_otp_dict = self.__parse_latest_github_otp()
         time_start = time.time()
         print(f"ON START: {latest_otp_dict}")
@@ -81,7 +81,7 @@ class GitHubOtp:
             if (time.time() - time_start) > time_wait:
                 raise OtpException("Timeout during waiting for otp mail")
         print(f"AFTER SUBJECT CHECK: {latest_otp_dict}")
-        while is_earlier_date(latest_otp_dict.get(MailDetails.DATE), current_dt):
+        while latest_otp_dict.get(MailDetails.DATE) > current_dt:
             time.sleep(2)
             latest_otp_dict = self.__parse_latest_github_otp()
             if (time.time() - time_start) > time_wait:

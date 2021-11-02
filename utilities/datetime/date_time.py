@@ -14,4 +14,4 @@ def get_naive_utc_current_dt():
 
 
 def is_earlier_date(date_time_obj: datetime, now_date: datetime):
-    return date_time_obj < now_date
+    return date_time_obj > now_date
