@@ -22,7 +22,6 @@ jobs:
     - name: Install dependencies
       run: |
         timedatectl
-        sudo timedatectl set-timezone Europe/Poland
         date
         python -m pip install --upgrade pip
         pip install pytest
