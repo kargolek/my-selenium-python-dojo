@@ -10,6 +10,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - uses: szenius/set-timezone@v1.0
+      with:
+        timezoneLinux: "Europe/Poland"
     - uses: actions/checkout@v2
     - name: Set up Python 3.9
       uses: actions/setup-python@v2
