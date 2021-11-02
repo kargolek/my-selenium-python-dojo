@@ -30,7 +30,6 @@ jobs:
       run: |
          pytest --html=report.html --self-contained-html
     - uses: actions/upload-artifact@v2
-      if: failure()
       with:
         name: my-artifact
         path: /home/runner/work/my-selenium-python-dojo/my-selenium-python-dojo/tests/reports
