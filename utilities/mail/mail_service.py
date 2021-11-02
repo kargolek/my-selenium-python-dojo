@@ -6,7 +6,7 @@ import imaplib
 import pytz
 
 from credentials.secrets import Secrets
-from utilities.datetime.date_time import set_datetime_to_utc
+from utilities.datetime.date_time import *
 from utilities.mail.mail_details import MailDetails
 
 
@@ -44,10 +44,13 @@ class MailService:
                 msg = email.message_from_string(str(arr[1], 'utf-8'))
                 email_subject = msg[MailDetails.SUBJECT]
                 email_from = msg[MailDetails.FROM]
-                email_date = email.utils.parsedate_to_datetime(msg[MailDetails.DATE])
+                email_date = email.utils.parsedate_to_datetime(msg[MailDetails.DATE]).astimezone(pytz.utc)
 
-                print(f"EMAIL DATE: {set_datetime_to_utc(email_date)}, OLD DATE: {msg[MailDetails.DATE]},"
-                      f" CURRENT DATE: {datetime.datetime.utcnow()}")
+                print(f"EMAIL DATE: {email_date}, OLD DATE: {msg[MailDetails.DATE]},"
+                      f" CURRENT DATE: {datetime.now().astimezone(pytz.utc)}")
+
+                print(f"COMPARE DATES: {compare_datetime_to_current(email_date)}")
+
                 body = self.get_body(msg).decode(encoding="utf-8")
                 return {MailDetails.SUBJECT: email_subject, MailDetails.FROM: email_from, MailDetails.BODY: body,
                         MailDetails.DATE: email_date}
