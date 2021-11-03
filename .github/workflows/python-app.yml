@@ -26,6 +26,6 @@ jobs:
           HUB_HOST: hub
           HUB_PORT: 4444
     steps:
-    - name: Install dependencies
+    - name: Check hub status
       run: |
-        curl http://testhost:4444/wd/hub/status/
+        curl http://localhost:4444/wd/hub/status/
