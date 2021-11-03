@@ -19,7 +19,7 @@ jobs:
         docker-compose -f "docker-compose.yml" up -d --build
     - name: Check hub status
       run: |
-        curl http://localhost:4444/wd/hub/status/
+        curl -L http://localhost:4444/status
     - name: Stop containers
       if: always()
       run: |
