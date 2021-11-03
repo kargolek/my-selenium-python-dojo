@@ -11,21 +11,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: node:14.4
-      options: --network-alias testhost
-      env:
-        SELENIUM_HUB_HOST: hub
-        TEST_HOST: testhost
-    services:
-      hub:
-        image: selenium/hub:latest
-      chrome:
-        image: selenium/node-chrome:latest
-        env:
-          HUB_HOST: hub
-          HUB_PORT: 4444
     steps:
-    - name: Check hub status
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Start containers
+      run: docker-compose -f "docker-compose.yml" up -d --build
+
+      - name: Check hub status
       run: |
-        curl http://localhost:4444/wd/hub/status/
+        sh curl http://localhost:4444/wd/hub/status/
+
+      - name: Stop containers
+      if: always()
+      run: docker-compose -f "docker-compose.yml" down
