@@ -16,12 +16,13 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Start containers
-      run: docker-compose -f "docker-compose.yml" up -d --build
+        run: |
+        docker-compose -f "docker-compose.yml" up -d --build
 
       - name: Check hub status
-      run: |
+        run: |
         sh curl http://localhost:4444/wd/hub/status/
 
       - name: Stop containers
-      if: always()
-      run: docker-compose -f "docker-compose.yml" down
+        if: always()
+        run: docker-compose -f "docker-compose.yml" down
