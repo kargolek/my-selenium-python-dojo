@@ -3,7 +3,7 @@ name: Build & Tests
 on:
   push:
     branches:
-      - '**'
+      - master
   pull_request:
     branches:
       - master
@@ -35,10 +35,7 @@ jobs:
         USER_GIT_TEST: ${{ secrets.USER_GIT_TEST }}
       run: |
         pytest --html=report.html --self-contained-html
-    - name: Check dir
-      run: |
-        sudo ls /home/runner/work/my-selenium-python-dojo/my-selenium-python-dojo/
     - uses: actions/upload-artifact@v2
       with:
-        name: my-artifact
-        path: /home/runner/work/my-selenium-python-dojo/my-selenium-python-dojo/tests/report/
+        name: artifact-with-test-results
+        path: /home/runner/work/my-selenium-python-dojo/my-selenium-python-dojo/
