@@ -5,8 +5,11 @@ import pytest
 from selenium import webdriver
 
 from credentials.secrets import Secrets
-from pages.github_dashboard_page import GitHubDashboardPage
-from pages.github_login_page import GitHubLoginPage
+from pages.github_pages.github_dashboard_page import GitHubDashboardPage
+from pages.github_pages.github_device_verification_page import GitHubDeviceVerificationPage
+from pages.github_pages.github_login_page import GitHubLoginPage
+from pages.github_pages.github_main_bar_page import GitHubMainBarPage
+from utilities.datetime.date_time import get_naive_utc_current_dt
 from utilities.driver_factory import DriverFactory
 from utilities.driver_utils import DriverUtils
 
@@ -16,20 +19,24 @@ DRIVER_TYPE = "chrome"
 COOKIES = None
 
 
-def get_project_root() -> str:
+def get_test_root() -> str:
     return str(Path(__file__).parent)
 
 
+def get_resource_mail_content() -> str:
+    return str(Path(__file__).parent.parent) + "/resources/mail_content/"
+
+
 def get_screenshot_dir():
-    return get_project_root() + "\\reports\\screenshots\\"
+    return get_test_root() + "\\reports\\screenshots\\"
 
 
 @pytest.hookimpl(tryfirst=True)
 def pytest_configure(config):
-    reports = get_project_root() + "\\reports"
+    reports = get_test_root() + "\\reports"
     if not os.path.exists(reports):
         os.makedirs(reports)
-    screenshots = get_project_root() + "\\reports\\screenshots"
+    screenshots = get_test_root() + "\\reports\\screenshots"
     if not os.path.exists(screenshots):
         os.makedirs(screenshots)
     config.option.htmlpath = reports + "\\test_report.html"
@@ -41,63 +48,64 @@ def pytest_runtest_makereport(item):
     outcome = yield
     report = outcome.get_result()
     extra = getattr(report, 'extra', [])
-    if report.when == 'call':
-        xfail = hasattr(report, 'wasxfail')
-        if (report.skipped and xfail) or (report.failed and not xfail):
-            test_name = report.nodeid.replace("::", "_").replace(".", "_").replace("/", "_") + ".png"
-            driver.get_screenshot_as_file(get_screenshot_dir() + test_name)
-            file_path = "screenshots/" + test_name
-            if file_path:
-                html = '<div><img src="%s" alt="screenshot" style="width:304px;height:228px;" ' \
-                       'onclick="window.open(this.src)" align="right"/></div>' % file_path
-                extra.append(pytest_html.extras.html(html))
-        report.extra = extra
+    if report.when == 'call' and not report.failed:
+        # xfail = hasattr(report, 'wasxfail')
+        # if (report.skipped and xfail) or (report.failed and not xfail):
+        test_name = report.nodeid.replace("::", "_").replace(".", "_").replace("/", "_") + ".png"
+        driver.get_screenshot_as_file(get_screenshot_dir() + test_name)
+        file_path = "screenshots/" + test_name
+        if file_path:
+            html = '<div><img src="%s" alt="screenshot" style="width:400px;height:300px;" ' \
+                   'onclick="window.open(this.src)" align="right"/></div>' % file_path
+            extra.append(pytest_html.extras.html(html))
+        print(f"PATH: {file_path}")
+        print(f"ROOT: {get_test_root()}")
+    report.extra = extra
 
 
-@pytest.fixture()
-def web_driver_each():
+@pytest.fixture(scope="session")
+def web_driver() -> webdriver:
+    web_driver = DriverFactory.get_web_driver(DRIVER_TYPE)
     global driver
-    driver = DriverFactory.get_web_driver(DRIVER_TYPE)
-    driver.get("https://github.com/login")
-    return driver
+    driver = web_driver
+    yield web_driver
+    web_driver.quit()
 
 
-@pytest.fixture()
-def web_driver_each_quit():
-    yield
-    global driver
-    driver.quit()
+@pytest.fixture(scope="session")
+def login_to_github_account(web_driver):
+    before_sign_in_dt = get_naive_utc_current_dt()
+    web_driver.get("https://github.com/login")
+    login_page = GitHubLoginPage(web_driver)
+    login_page.sign_in_github_account(Secrets.EMAIL, Secrets.PASSWORD)
+    GitHubDeviceVerificationPage(web_driver).input_otp_code_if_verification_present(before_sign_in_dt)
+    return login_page
 
 
 @pytest.fixture(scope="class")
-def setup_github_cookies():
-    w_driver = DriverFactory.get_web_driver(DRIVER_TYPE)
-    w_driver.get("https://github.com/login")
-    login_page = GitHubLoginPage(w_driver)
-    login_page.sign_in_github_account(Secrets.USERNAME, Secrets.PASSWORD) \
-        .is_repo_list_container_visible()
+def github_main_bar_page(web_driver):
+    return GitHubMainBarPage(web_driver)
+
+
+@pytest.fixture
+def sign_out_github(github_main_bar_page):
+    yield github_main_bar_page
+    if github_main_bar_page.is_user_menu_available():
+        github_main_bar_page.click_sign_out_button()
+
+
+@pytest.fixture(scope="session")
+def set_cookies(web_driver):
     global COOKIES
-    COOKIES = w_driver.get_cookies()
-    w_driver.quit()
+    COOKIES = web_driver.get_cookies()
 
 
-@pytest.fixture(scope="class")
-def web_driver():
-    global driver
-    driver = DriverFactory.get_web_driver(DRIVER_TYPE)
-    driver.get("http://github.com/")
-    DriverUtils(driver).add_cookie(COOKIES, {"name": "__Host-user_session_same_site"})
-    driver.refresh()
-    GitHubDashboardPage(driver).is_repo_list_container_visible()
-    return driver
-
-
-@pytest.fixture(scope="class")
-def web_driver_quit(web_driver):
-    yield
+@pytest.fixture(scope="session")
+def add_cookies(web_driver):
     global COOKIES
-    COOKIES = None
-    driver.quit()
+    web_driver.get("https://github.com")
+    DriverUtils(web_driver).add_cookie(COOKIES, {"name": "__Host-user_session_same_site"})
+    web_driver.refresh()
 
 
 @pytest.fixture()
@@ -108,3 +116,8 @@ def github_repo_page():
 @pytest.fixture()
 def github_login_page():
     return GitHubLoginPage(driver)
+
+
+@pytest.fixture()
+def github_otp_page():
+    return GitHubDeviceVerificationPage(driver)

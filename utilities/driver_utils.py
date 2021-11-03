@@ -21,9 +21,10 @@ class DriverUtils:
         self.cookies_file = self.rootDir + "/credentials/cookies.pkl"
 
     def save_cookie_to_file(self):
-        pickle.dump(self.driver.get_cookies(), open(self.cookies_file, "wb"))
+        if os.path.exists(self.cookies_file) is False:
+            pickle.dump(self.driver.get_cookies(), open(self.cookies_file, "wb"))
 
-    def add_cookie_from_file(self, ignore_cookies_by_key_value: dict, delete_after_add: bool):
+    def add_cookie_from_file(self, ignore_cookies_by_key_value: dict, delete_after_add: bool = False):
         if os.path.exists(self.cookies_file):
             for cookie in pickle.load(open(self.cookies_file, "rb")):
                 if should_ignore_cookie(cookie, ignore_cookies_by_key_value) is False:
