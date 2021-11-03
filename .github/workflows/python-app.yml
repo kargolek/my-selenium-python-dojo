@@ -41,4 +41,4 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: my-artifact
-        path: /home/runner/work/my-selenium-python-dojo/tests/report
+        path: /home/runner/work/my-selenium-python-dojo/my-selenium-python-dojo/tests/report/
