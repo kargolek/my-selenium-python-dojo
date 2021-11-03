@@ -6,7 +6,7 @@ from hamcrest import assert_that, equal_to, not_none
 class TestGitHubDashboard:
     def test_is_git_repo_list_available(self, web_driver, github_repo_page):
         web_driver.get("https://github.com/")
-        assert_that(github_repo_page.is_repo_list_container_visible(), equal_to(False))
+        assert_that(github_repo_page.is_repo_list_container_visible(), equal_to(True))
 
     def test_should_open_create_new_repo(self, web_driver, github_repo_page):
         web_driver.get("https://github.com/")
