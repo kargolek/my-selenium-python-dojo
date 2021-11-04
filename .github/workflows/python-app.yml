@@ -43,4 +43,4 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: artifact-with-test-results
-        path: ${{ github.workspace }}
+        path: /home/runner/work/my-selenium-python-dojo/my-selenium-python-dojo/tests\reports\test_report.html
