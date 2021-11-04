@@ -35,5 +35,6 @@ class TestGitHubDashboard:
 
     def test_should_open_hello_world_page(self, web_driver, github_repo_page):
         print("ENV GITHUB_ACTIONS: " + Environment.IS_CI_CD_ENV)
+        assert False
 
 
