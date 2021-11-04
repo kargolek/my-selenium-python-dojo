@@ -43,7 +43,7 @@ jobs:
     - uses: actions/upload-artifact@v2
       if: always()
       with:
-        name: artifact-with-test-results /home/runner/work/my-selenium-python-dojo/
+        name: artifact-with-test-results
         path: /home/runner/work/my-selenium-python-dojo
     - name: Check dirs
       if: always()
