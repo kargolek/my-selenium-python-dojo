@@ -9,7 +9,7 @@ on:
       - master
 
 jobs:
-  selenium_tests:
+  Selenium-tests:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -59,4 +59,5 @@ jobs:
       - name: Publish results
         uses: EnricoMi/publish-unit-test-result-action@v1
         with:
+          check_name: Selenium Tests Results
           files: artifacts/artifact-with-test-results/result.xml
