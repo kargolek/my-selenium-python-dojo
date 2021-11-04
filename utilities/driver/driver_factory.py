@@ -18,6 +18,15 @@ class DriverFactory:
         return driver
 
     @staticmethod
+    def __get_remote_chrome_driver(chrome_options):
+        desired_capabilities = DesiredCapabilities.CHROME
+        desired_capabilities["goog:loggingPrefs"] = {"performance": "ALL"}
+        driver = webdriver.Remote(command_executor="http://localhost:4444/wd/hub",
+                                  desired_capabilities=desired_capabilities,
+                                  options=chrome_options)
+        return driver
+
+    @staticmethod
     def __chrome_options_default(chrome_options):
         if chrome_options is None:
             chrome_options = webdriver.ChromeOptions()

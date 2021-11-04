@@ -17,10 +17,6 @@ jobs:
     - name: Start containers
       run: |
         docker-compose -f "docker-compose.yml" up -d --build
-    - name: Sleep for 60s
-      uses: juliangruber/sleep-action@v1
-      with:
-        time: 60s
     - name: Check hub status
       run: |
         curl -L http://localhost:4444/grid/api/hub

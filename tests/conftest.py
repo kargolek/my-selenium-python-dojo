@@ -4,14 +4,14 @@ from pathlib import Path
 import pytest
 from selenium import webdriver
 
-from credentials.secrets import Secrets
 from pages.github_pages.github_dashboard_page import GitHubDashboardPage
 from pages.github_pages.github_device_verification_page import GitHubDeviceVerificationPage
 from pages.github_pages.github_login_page import GitHubLoginPage
 from pages.github_pages.github_main_bar_page import GitHubMainBarPage
+from utilities.credentials.secrets import Secrets
 from utilities.datetime.date_time import get_naive_utc_current_dt
-from utilities.driver_factory import DriverFactory
-from utilities.driver_utils import DriverUtils
+from utilities.driver.driver_factory import DriverFactory
+from utilities.driver.driver_utils import DriverUtils
 
 driver: webdriver.Chrome
 
