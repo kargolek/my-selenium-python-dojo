@@ -17,6 +17,28 @@ jobs:
     - name: Start containers
       run: |
         docker-compose -f "docker-compose.yml" up -d --build
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest
+        pip install -r requirements.txt;
+    - name: Install Chrome
+      run: |
+        sudo apt install google-chrome-stable
+    - name: Install Firefox
+      run: |
+        sudo apt install firefox
+    - name: Run selenium pytest
+      env:
+        PASSWORD_GIT_TEST: ${{ secrets.PASSWORD_GIT_TEST }}
+        EMAIL_GIT_TEST: ${{ secrets.EMAIL_GIT_TEST }}
+        USER_GIT_TEST: ${{ secrets.USER_GIT_TEST }}
+      run: |
+        pytest --html=report.html --self-contained-html
+    - name: Sleep for 30s
+      uses: juliangruber/sleep-action@v1
+      with:
+        time: 30s
     - name: Check hub status
       run: |
         curl -L http://localhost:4444/grid/api/hub

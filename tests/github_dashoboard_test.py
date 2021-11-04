@@ -34,5 +34,6 @@ class TestGitHubDashboard:
     #     assert_that(guid_url, equal_to("https://guides.github.com/activities/hello-world/"))
 
     def test_should_open_hello_world_page(self, web_driver, github_repo_page):
-        print(Environment.IS_CI_CD_ENV)
+        print("ENV GITHUB_ACTIONS: " + Environment.IS_CI_CD_ENV)
+
 
