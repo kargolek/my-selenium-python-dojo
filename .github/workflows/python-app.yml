@@ -43,7 +43,7 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: artifact-with-test-results /home/runner/work/my-selenium-python-dojo/
-        path: /home/runner/work/my-selenium-python-dojo/my-selenium-python-dojo/tests\reports\test_report.html
+        path: /home/runner/work/my-selenium-python-dojo
     - name: Check dirs
       run: |
         ls /home/runner/work/my-selenium-python-dojo/my-selenium-python-dojo/
