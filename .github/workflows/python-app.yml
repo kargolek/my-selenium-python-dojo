@@ -35,7 +35,7 @@ jobs:
         EMAIL_GIT_TEST: ${{ secrets.EMAIL_GIT_TEST }}
         USER_GIT_TEST: ${{ secrets.USER_GIT_TEST }}
       run: |
-        pytest --html=report.html --self-contained-html
+        pytest -v --html=report.html --self-contained-html --junitxml="tests/report/result.xml"
     - name: Stop containers
       if: always()
       run: |
@@ -44,7 +44,7 @@ jobs:
       if: always()
       with:
         name: artifact-with-test-results
-        path: /home/runner/work/my-selenium-python-dojo/my-selenium-python-dojo/tests/reports
+        path: /tests/reports
     - name: Check dirs
       if: always()
       run: |
