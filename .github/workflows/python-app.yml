@@ -47,8 +47,3 @@ jobs:
     - name: Check dirs
       run: |
         ls /home/runner/work/my-selenium-python-dojo/my-selenium-python-dojo/
-        ls /home/runner/work/my-selenium-python-dojo/
-        ls /home/runner/work/
-        ls /home/runner/
-        ls /home
-        ls /
