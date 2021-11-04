@@ -6,6 +6,10 @@ from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from webdriver_manager.utils import ChromeType
 
+from utilities.environment.Environment import Environment
+
+HTTP_LOCALHOST_WD_HUB = "http://localhost:4444/wd/hub"
+
 
 class DriverFactory:
 
@@ -13,18 +17,13 @@ class DriverFactory:
     def __get_chrome_driver(chrome_options):
         desired_capabilities = DesiredCapabilities.CHROME
         desired_capabilities["goog:loggingPrefs"] = {"performance": "ALL"}
-        driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install(),
-                                  options=chrome_options, desired_capabilities=desired_capabilities)
-        return driver
-
-    @staticmethod
-    def __get_remote_chrome_driver(chrome_options):
-        desired_capabilities = DesiredCapabilities.CHROME
-        desired_capabilities["goog:loggingPrefs"] = {"performance": "ALL"}
-        driver = webdriver.Remote(command_executor="http://localhost:4444/wd/hub",
-                                  desired_capabilities=desired_capabilities,
-                                  options=chrome_options)
-        return driver
+        if Environment.IS_CI_CD_ENV == "true":
+            return webdriver.Remote(command_executor=HTTP_LOCALHOST_WD_HUB,
+                                    desired_capabilities=desired_capabilities,
+                                    options=chrome_options)
+        else:
+            return webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install(),
+                                    options=chrome_options, desired_capabilities=desired_capabilities)
 
     @staticmethod
     def __chrome_options_default(chrome_options):
