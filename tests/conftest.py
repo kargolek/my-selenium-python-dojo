@@ -28,18 +28,18 @@ def get_resource_mail_content() -> str:
 
 
 def get_screenshot_dir():
-    return get_test_root() + "\\reports\\screenshots\\"
+    return get_test_root() + "/reports/screenshots/"
 
 
 @pytest.hookimpl(tryfirst=True)
 def pytest_configure(config):
-    reports = get_test_root() + "\\reports"
+    reports = get_test_root() + "/reports"
     if not os.path.exists(reports):
         os.makedirs(reports)
-    screenshots = get_test_root() + "\\reports\\screenshots"
+    screenshots = get_test_root() + "/reports/screenshots"
     if not os.path.exists(screenshots):
         os.makedirs(screenshots)
-    config.option.htmlpath = reports + "\\test_report.html"
+    config.option.htmlpath = reports + "/test_report.html"
     print(f"HTML REPORT PATH: {config.option.htmlpath}")
 
 
