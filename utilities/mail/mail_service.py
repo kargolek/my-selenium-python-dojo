@@ -2,7 +2,7 @@ import email
 import email.utils
 import imaplib
 
-from credentials.secrets import Secrets
+from utilities.credentials.secrets import Secrets
 from utilities.datetime.date_time import *
 from utilities.mail.mail_details import MailDetails
 
