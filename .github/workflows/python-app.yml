@@ -41,9 +41,11 @@ jobs:
       run: |
         docker-compose -f "docker-compose.yml" down
     - uses: actions/upload-artifact@v2
+      if: always()
       with:
         name: artifact-with-test-results /home/runner/work/my-selenium-python-dojo/
         path: /home/runner/work/my-selenium-python-dojo
     - name: Check dirs
+      if: always()
       run: |
         ls /home/runner/work/my-selenium-python-dojo/my-selenium-python-dojo/
