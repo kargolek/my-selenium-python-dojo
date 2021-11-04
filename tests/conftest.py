@@ -40,6 +40,7 @@ def pytest_configure(config):
     if not os.path.exists(screenshots):
         os.makedirs(screenshots)
     config.option.htmlpath = reports + "\\test_report.html"
+    print(f"HTML REPORT PATH: {config.option.htmlpath}")
 
 
 @pytest.mark.hookwrapper
