@@ -47,7 +47,7 @@ jobs:
         path: ${{ github.workspace }}/tests/reports
   publish-test-results:
     name: Publish selenium tests results
-    needs: selenium_tests
+    needs: Selenium-tests
     runs-on: ubuntu-latest
     if: always()
     steps:
