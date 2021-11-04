@@ -44,7 +44,7 @@ jobs:
       if: always()
       with:
         name: artifact-with-test-results
-        path: /tests/reports
+        path: /home/runner/work/my-selenium-python-dojo/my-selenium-python-dojo/tests/reports
     - name: Check dirs
       if: always()
       run: |
