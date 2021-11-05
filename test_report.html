@@ -429,26 +429,29 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>test_report.html</h1>
-    <p>Report generated on 04-Nov-2021 at 05:29:32 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
+    <p>Report generated on 05-Nov-2021 at 18:14:35 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
+        <td>CI</td>
+        <td>true</td></tr>
+      <tr>
         <td>JAVA_HOME</td>
-        <td>C:\Program Files\Java\jdk1.8.0_241</td></tr>
+        <td>/usr/lib/jvm/adoptopenjdk-11-hotspot-amd64</td></tr>
       <tr>
         <td>Packages</td>
         <td>{"pluggy": "1.0.0", "py": "1.10.0", "pytest": "6.2.5"}</td></tr>
       <tr>
         <td>Platform</td>
-        <td>Windows-10-10.0.19043-SP0</td></tr>
+        <td>Linux-5.11.0-1020-azure-x86_64-with-glibc2.29</td></tr>
       <tr>
         <td>Plugins</td>
         <td>{"html": "3.1.1", "metadata": "1.11.0"}</td></tr>
       <tr>
         <td>Python</td>
-        <td>3.9.5</td></tr></table>
+        <td>3.8.10</td></tr></table>
     <h2>Summary</h2>
-    <p>4 tests ran in 20.06 seconds. </p>
+    <p>4 tests ran in 14.29 seconds. </p>
     <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">4 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
@@ -464,28 +467,21 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_is_git_repo_list_available</td>
-          <td class="col-duration">13.51</td>
+          <td class="col-duration">8.88</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_is_git_repo_list_available.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> -----------------------------Captured stderr setup------------------------------ <br/>
-
-====== WebDriver manager ======
-Current chromium version is 95.0.4638
-Get LATEST driver version for 95.0.4638
-Driver [C:\Users\karol\.wdm\drivers\chromedriver\win32\95.0.4638.54\chromedriver.exe] found in cache
-<br/> -------------------------------Captured log setup------------------------------- <br/>INFO     WDM:logger.py:22 
-
-INFO     WDM:logger.py:12 ====== WebDriver manager ======
-INFO     WDM:logger.py:12 Current chromium version is 95.0.4638
-INFO     WDM:logger.py:12 Get LATEST driver version for 95.0.4638
-INFO     WDM:logger.py:12 Driver [C:\Users\karol\.wdm\drivers\chromedriver\win32\95.0.4638.54\chromedriver.exe] found in cache<br/></div></td></tr></tbody>
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>DATE ON CI: 2021-11-05 18:14:22.493133+00:00
+ON START: {&lt;MailDetails.SUBJECT: &#x27;subject&#x27;&gt;: &#x27;[GitHub] Please verify your device&#x27;, &#x27;code&#x27;: &#x27;423372&#x27;, &lt;MailDetails.DATE: &#x27;date&#x27;&gt;: datetime.datetime(2021, 11, 5, 18, 14, 24, tzinfo=&lt;UTC&gt;)}
+AFTER SUBJECT CHECK: {&lt;MailDetails.SUBJECT: &#x27;subject&#x27;&gt;: &#x27;[GitHub] Please verify your device&#x27;, &#x27;code&#x27;: &#x27;423372&#x27;, &lt;MailDetails.DATE: &#x27;date&#x27;&gt;: datetime.datetime(2021, 11, 5, 18, 14, 24, tzinfo=&lt;UTC&gt;)}
+AFTER DATE CHECK: {&lt;MailDetails.SUBJECT: &#x27;subject&#x27;&gt;: &#x27;[GitHub] Please verify your device&#x27;, &#x27;code&#x27;: &#x27;423372&#x27;, &lt;MailDetails.DATE: &#x27;date&#x27;&gt;: datetime.datetime(2021, 11, 5, 18, 14, 24, tzinfo=&lt;UTC&gt;)}
+<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_should_open_create_new_repo</td>
-          <td class="col-duration">1.42</td>
+          <td class="col-duration">1.65</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -495,7 +491,7 @@ INFO     WDM:logger.py:12 Driver [C:\Users\karol\.wdm\drivers\chromedriver\win32
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_should_open_import_repo_page</td>
-          <td class="col-duration">1.31</td>
+          <td class="col-duration">1.51</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -505,7 +501,7 @@ INFO     WDM:logger.py:12 Driver [C:\Users\karol\.wdm\drivers\chromedriver\win32
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_should_open_hello_world_page</td>
-          <td class="col-duration">2.94</td>
+          <td class="col-duration">1.17</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
