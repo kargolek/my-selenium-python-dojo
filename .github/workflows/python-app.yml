@@ -55,9 +55,13 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           path: artifacts
-
       - name: Publish results
         uses: EnricoMi/publish-unit-test-result-action@v1
         with:
           check_name: Selenium Tests Results
           files: artifacts/artifact-with-test-results/result.xml
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: artifacts/artifact-with-test-results/
