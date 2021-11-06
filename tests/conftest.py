@@ -76,6 +76,7 @@ def login_to_github_account(web_driver):
     login_page = GitHubLoginPage(web_driver)
     login_page.sign_in_github_account(Secrets.EMAIL, Secrets.PASSWORD)
     GitHubDeviceVerificationPage(web_driver).input_otp_code_if_verification_present(before_sign_in_dt)
+    assert GitHubDashboardPage(web_driver).is_repo_list_container_visible()
     return login_page
 
 
