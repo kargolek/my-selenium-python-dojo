@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="4" failures="0" skipped="0" tests="4" time="300.459" timestamp="2021-11-06T14:53:00.219568" hostname="fv-az77-654"><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_is_git_repo_list_available" time="300.136"><error message="failed on setup with &quot;KeyError: 'status'&quot;">@pytest.fixture(scope="session")
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="4" failures="0" skipped="0" tests="4" time="300.378" timestamp="2021-11-06T15:18:41.189313" hostname="fv-az39-661"><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_is_git_repo_list_available" time="300.105"><error message="failed on setup with &quot;KeyError: 'status'&quot;">@pytest.fixture(scope="session")
     def web_driver() -&gt; webdriver:
 &gt;       web_driver = DriverFactory.get_web_driver(DRIVER_TYPE)
 
@@ -16,8 +16,8 @@ utilities/driver/driver_factory.py:63: in __get_edge_driver
     self.error_handler.check_response(response)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = &lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x7f5ac084f850&gt;
-response = {'status': 500, 'value': '{\n  "value": {\n    "additionalInformation": "Driver info: driver.version: unknown",\n    "... out",\n    "buildInformation": {\n      "buildRevision": "3a21814679",\n      "releaseLabel": "4.0.0"\n    }\n  }\n}'}
+self = &lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x7fc5a9d63760&gt;
+response = {'status': 500, 'value': '{\n  "value": {\n    "additionalInformation": "Driver info: driver.version: unknown",\n    "... out",\n    "buildInformation": {\n      "buildRevision": "aea69daa1c",\n      "releaseLabel": "4.1.0"\n    }\n  }\n}'}
 
     def check_response(self, response):
         """
@@ -49,7 +49,7 @@ response = {'status': 500, 'value': '{\n  "value": {\n    "additionalInformation
 &gt;                       status = value["status"]
 E                       KeyError: 'status'
 
-../../../.local/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py:130: KeyError</error></testcase><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_create_new_repo" time="0.001"><error message="failed on setup with &quot;KeyError: 'status'&quot;">@pytest.fixture(scope="session")
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py:130: KeyError</error></testcase><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_create_new_repo" time="0.000"><error message="failed on setup with &quot;KeyError: 'status'&quot;">@pytest.fixture(scope="session")
     def web_driver() -&gt; webdriver:
 &gt;       web_driver = DriverFactory.get_web_driver(DRIVER_TYPE)
 
@@ -67,8 +67,8 @@ utilities/driver/driver_factory.py:63: in __get_edge_driver
     self.error_handler.check_response(response)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = &lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x7f5ac084f850&gt;
-response = {'status': 500, 'value': '{\n  "value": {\n    "additionalInformation": "Driver info: driver.version: unknown",\n    "... out",\n    "buildInformation": {\n      "buildRevision": "3a21814679",\n      "releaseLabel": "4.0.0"\n    }\n  }\n}'}
+self = &lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x7fc5a9d63760&gt;
+response = {'status': 500, 'value': '{\n  "value": {\n    "additionalInformation": "Driver info: driver.version: unknown",\n    "... out",\n    "buildInformation": {\n      "buildRevision": "aea69daa1c",\n      "releaseLabel": "4.1.0"\n    }\n  }\n}'}
 
     def check_response(self, response):
         """
@@ -100,7 +100,7 @@ response = {'status': 500, 'value': '{\n  "value": {\n    "additionalInformation
 &gt;                       status = value["status"]
 E                       KeyError: 'status'
 
-../../../.local/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py:130: KeyError</error></testcase><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_import_repo_page" time="0.001"><error message="failed on setup with &quot;KeyError: 'status'&quot;">@pytest.fixture(scope="session")
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py:130: KeyError</error></testcase><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_import_repo_page" time="0.000"><error message="failed on setup with &quot;KeyError: 'status'&quot;">@pytest.fixture(scope="session")
     def web_driver() -&gt; webdriver:
 &gt;       web_driver = DriverFactory.get_web_driver(DRIVER_TYPE)
 
@@ -118,8 +118,8 @@ utilities/driver/driver_factory.py:63: in __get_edge_driver
     self.error_handler.check_response(response)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = &lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x7f5ac084f850&gt;
-response = {'status': 500, 'value': '{\n  "value": {\n    "additionalInformation": "Driver info: driver.version: unknown",\n    "... out",\n    "buildInformation": {\n      "buildRevision": "3a21814679",\n      "releaseLabel": "4.0.0"\n    }\n  }\n}'}
+self = &lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x7fc5a9d63760&gt;
+response = {'status': 500, 'value': '{\n  "value": {\n    "additionalInformation": "Driver info: driver.version: unknown",\n    "... out",\n    "buildInformation": {\n      "buildRevision": "aea69daa1c",\n      "releaseLabel": "4.1.0"\n    }\n  }\n}'}
 
     def check_response(self, response):
         """
@@ -169,8 +169,8 @@ utilities/driver/driver_factory.py:63: in __get_edge_driver
     self.error_handler.check_response(response)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = &lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x7f5ac084f850&gt;
-response = {'status': 500, 'value': '{\n  "value": {\n    "additionalInformation": "Driver info: driver.version: unknown",\n    "... out",\n    "buildInformation": {\n      "buildRevision": "3a21814679",\n      "releaseLabel": "4.0.0"\n    }\n  }\n}'}
+self = &lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x7fc5a9d63760&gt;
+response = {'status': 500, 'value': '{\n  "value": {\n    "additionalInformation": "Driver info: driver.version: unknown",\n    "... out",\n    "buildInformation": {\n      "buildRevision": "aea69daa1c",\n      "releaseLabel": "4.1.0"\n    }\n  }\n}'}
 
     def check_response(self, response):
         """
