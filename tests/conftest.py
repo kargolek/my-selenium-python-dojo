@@ -16,7 +16,7 @@ from utilities.driver.driver_utils import DriverUtils
 
 driver: webdriver.Chrome
 
-DRIVER_TYPE = "firefox"
+DRIVER_TYPE = "chrome"
 COOKIES = None
 
 
