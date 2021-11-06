@@ -1,4 +1,3 @@
-from msedge.selenium_tools import EdgeOptions, Edge
 from selenium import webdriver
 from selenium.webdriver import DesiredCapabilities
 from webdriver_manager.chrome import ChromeDriverManager
@@ -64,11 +63,11 @@ class DriverFactory:
                                       desired_capabilities=desired_capabilities,
                                       options=edge_options)
         else:
-            driver = Edge(executable_path=EdgeChromiumDriverManager().install(), options=edge_options)
+            driver = webdriver.Edge(executable_path=EdgeChromiumDriverManager().install(), options=edge_options)
         return driver
 
     @staticmethod
-    def __edge_options_default(edge_options) -> EdgeOptions:
+    def __edge_options_default(edge_options):
         if edge_options is None:
             edge_options = webdriver.EdgeOptions()
             edge_options.use_chromium = True
