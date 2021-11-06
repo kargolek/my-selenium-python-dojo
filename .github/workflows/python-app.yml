@@ -28,7 +28,7 @@ jobs:
         time: 15s
     - name: Check hub status
       run: |
-        curl -L http://localhost:4444/grid/api/hub
+        curl -L http://localhost:4444/wd/hub/status
     - name: Run selenium pytest
       env:
         PASSWORD_GIT_TEST: ${{ secrets.PASSWORD_GIT_TEST }}
