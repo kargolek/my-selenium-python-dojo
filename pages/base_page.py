@@ -19,3 +19,9 @@ class BasePage:
             return True
         except TimeoutException:
             return False
+
+    def _is_proper_url_set(self, url: str, time_seconds: int) -> bool:
+        try:
+            return WebDriverWait(self.driver, time_seconds).until(EC.url_to_be(url))
+        except TimeoutException:
+            return False

@@ -1,4 +1,3 @@
-from msedge.selenium_tools import EdgeOptions, Edge
 from selenium import webdriver
 from selenium.webdriver import DesiredCapabilities
 from webdriver_manager.chrome import ChromeDriverManager
@@ -37,8 +36,14 @@ class DriverFactory:
 
     @staticmethod
     def __get_firefox_driver(firefox_options):
-        driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=firefox_options)
-        driver.maximize_window()
+        driver: webdriver
+        desired_capabilities = DesiredCapabilities.FIREFOX
+        if Environment.IS_CI_CD_ENV == "true":
+            driver = webdriver.Remote(command_executor=HTTP_LOCALHOST_WD_HUB,
+                                      desired_capabilities=desired_capabilities,
+                                      options=firefox_options)
+        else:
+            driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=firefox_options)
         return driver
 
     @staticmethod
@@ -46,20 +51,28 @@ class DriverFactory:
         if firefox_options is None:
             firefox_options = webdriver.FirefoxOptions()
             firefox_options.add_argument("--headless")
+            firefox_options.add_argument('window-size=1920x1080')
         return firefox_options
 
     @staticmethod
     def __get_edge_driver(edge_options):
-        driver = Edge(executable_path=EdgeChromiumDriverManager().install(), options=edge_options)
-        driver.maximize_window()
+        driver: webdriver
+        desired_capabilities = DesiredCapabilities.EDGE
+        if Environment.IS_CI_CD_ENV == "true":
+            driver = webdriver.Remote(command_executor=HTTP_LOCALHOST_WD_HUB,
+                                      desired_capabilities=desired_capabilities,
+                                      options=edge_options)
+        else:
+            driver = webdriver.Edge(executable_path=EdgeChromiumDriverManager().install(), options=edge_options)
         return driver
 
     @staticmethod
-    def __edge_options_default(edge_options) -> EdgeOptions:
+    def __edge_options_default(edge_options):
         if edge_options is None:
-            edge_options = EdgeOptions()
+            edge_options = webdriver.EdgeOptions()
             edge_options.use_chromium = True
-            edge_options.headless = False
+            edge_options.headless = True
+            edge_options.add_argument('window-size=1920x1080')
         return edge_options
 
     @staticmethod
