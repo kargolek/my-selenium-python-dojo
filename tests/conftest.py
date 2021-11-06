@@ -8,6 +8,7 @@ from pages.github_pages.github_dashboard_page import GitHubDashboardPage
 from pages.github_pages.github_device_verification_page import GitHubDeviceVerificationPage
 from pages.github_pages.github_login_page import GitHubLoginPage
 from pages.github_pages.github_main_bar_page import GitHubMainBarPage
+from pages.github_pages.guides.guides_github_land_page import GuidesGitHubLandPage
 from utilities.credentials.secrets import Secrets
 from utilities.datetime.date_time import get_naive_utc_current_dt
 from utilities.driver.driver_factory import DriverFactory
@@ -15,7 +16,7 @@ from utilities.driver.driver_utils import DriverUtils
 
 driver: webdriver.Chrome
 
-DRIVER_TYPE = "chrome"
+DRIVER_TYPE = "firefox"
 COOKIES = None
 
 
@@ -105,15 +106,20 @@ def add_cookies(web_driver):
 
 
 @pytest.fixture()
-def github_repo_page():
-    return GitHubDashboardPage(driver)
+def github_repo_page(web_driver):
+    return GitHubDashboardPage(web_driver)
 
 
 @pytest.fixture()
-def github_login_page():
-    return GitHubLoginPage(driver)
+def github_login_page(web_driver):
+    return GitHubLoginPage(web_driver)
 
 
 @pytest.fixture()
-def github_otp_page():
-    return GitHubDeviceVerificationPage(driver)
+def github_otp_page(web_driver):
+    return GitHubDeviceVerificationPage(web_driver)
+
+
+@pytest.fixture()
+def github_guid_land_page(web_driver):
+    return GuidesGitHubLandPage(web_driver)
