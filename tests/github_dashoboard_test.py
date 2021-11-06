@@ -26,8 +26,8 @@ class TestGitHubDashboard:
     def test_should_open_hello_world_page(self, web_driver, github_repo_page):
         web_driver.get("https://github.com/")
         github_repo_page.click_read_guid_button()
-        web_driver.switch_to_window(web_driver.window_handles[1])
+        web_driver.switch_to.window(web_driver.window_handles[1])
         guid_url = web_driver.current_url
         web_driver.close()
-        web_driver.switch_to_window(web_driver.window_handles[0])
+        web_driver.switch_to.window(web_driver.window_handles[0])
         assert_that(guid_url, equal_to("https://guides.github.com/activities/hello-world/"))
