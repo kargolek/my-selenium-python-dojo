@@ -16,7 +16,7 @@ from utilities.driver.driver_utils import DriverUtils
 
 driver: webdriver.Chrome
 
-DRIVER_TYPE = "edge"
+DRIVER_TYPE = "firefox"
 COOKIES = None
 
 
