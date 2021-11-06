@@ -1,1 +1,218 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="4" time="20.320" timestamp="2021-11-06T16:03:20.719988" hostname="fv-az74-661"><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_is_git_repo_list_available" time="14.590" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_create_new_repo" time="1.773" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_import_repo_page" time="1.549" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_hello_world_page" time="1.291" /></testsuite></testsuites>
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="4" time="63.784" timestamp="2021-11-06T16:16:12.967887" hostname="fv-az123-151"><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_is_git_repo_list_available" time="24.965"><failure message="selenium.common.exceptions.TimeoutException: Message: &#10;Stacktrace:&#10;WebDriverError@chrome://remote/content/shared/webdriver/Errors.jsm:181:5&#10;NoSuchElementError@chrome://remote/content/shared/webdriver/Errors.jsm:393:5&#10;element.find/&lt;/&lt;@chrome://remote/content/marionette/element.js:299:16">self = &lt;tests.github_dashoboard_test.TestGitHubDashboard object at 0x7ff6db455610&gt;
+web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="fd423d60-d0af-4cc8-b32d-10c779ea289d")&gt;
+github_repo_page = &lt;pages.github_pages.github_dashboard_page.GitHubDashboardPage object at 0x7ff6db455940&gt;
+
+    def test_is_git_repo_list_available(self, web_driver, github_repo_page):
+        web_driver.get("https://github.com/")
+&gt;       assert_that(github_repo_page.is_repo_list_container_visible(), equal_to(True))
+
+tests/github_dashoboard_test.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+pages/github_pages/github_dashboard_page.py:25: in is_repo_list_container_visible
+    return self._wait_for_visible_element(self.REPO_CONTAINER, 10).is_displayed()
+pages/base_page.py:14: in _wait_for_visible_element
+    return WebDriverWait(self.driver, time_seconds).until(EC.visibility_of_element_located(by_locator))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;selenium.webdriver.support.wait.WebDriverWait (session="fd423d60-d0af-4cc8-b32d-10c779ea289d")&gt;
+method = &lt;function visibility_of_element_located.&lt;locals&gt;._predicate at 0x7ff6dc4ad5e0&gt;
+message = ''
+
+    def until(self, method, message=''):
+        """Calls the method provided with the driver as an argument until the \
+        return value does not evaluate to ``False``.
+    
+        :param method: callable(WebDriver)
+        :param message: optional message for :exc:`TimeoutException`
+        :returns: the result of the last call to `method`
+        :raises: :exc:`selenium.common.exceptions.TimeoutException` if timeout occurs
+        """
+        screen = None
+        stacktrace = None
+    
+        end_time = time.time() + self._timeout
+        while True:
+            try:
+                value = method(self._driver)
+                if value:
+                    return value
+            except InvalidSelectorException as e:
+                raise e
+            except self._ignored_exceptions as exc:
+                screen = getattr(exc, 'screen', None)
+                stacktrace = getattr(exc, 'stacktrace', None)
+            time.sleep(self._poll)
+            if time.time() &gt; end_time:
+                break
+&gt;       raise TimeoutException(message, screen, stacktrace)
+E       selenium.common.exceptions.TimeoutException: Message: 
+E       Stacktrace:
+E       WebDriverError@chrome://remote/content/shared/webdriver/Errors.jsm:181:5
+E       NoSuchElementError@chrome://remote/content/shared/webdriver/Errors.jsm:393:5
+E       element.find/&lt;/&lt;@chrome://remote/content/marionette/element.js:299:16
+
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:89: TimeoutException</failure></testcase><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_create_new_repo" time="11.560"><failure message="selenium.common.exceptions.TimeoutException: Message: &#10;Stacktrace:&#10;WebDriverError@chrome://remote/content/shared/webdriver/Errors.jsm:181:5&#10;NoSuchElementError@chrome://remote/content/shared/webdriver/Errors.jsm:393:5&#10;element.find/&lt;/&lt;@chrome://remote/content/marionette/element.js:299:16">self = &lt;tests.github_dashoboard_test.TestGitHubDashboard object at 0x7ff6db3a6e20&gt;
+web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="fd423d60-d0af-4cc8-b32d-10c779ea289d")&gt;
+github_repo_page = &lt;pages.github_pages.github_dashboard_page.GitHubDashboardPage object at 0x7ff6db3a6f10&gt;
+
+    def test_should_open_create_new_repo(self, web_driver, github_repo_page):
+        web_driver.get("https://github.com/")
+&gt;       create_repo_button = github_repo_page.click_create_repository() \
+            .get_create_repository_button()
+
+tests/github_dashoboard_test.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+pages/github_pages/github_dashboard_page.py:28: in click_create_repository
+    self._wait_for_visible_element(self.CREATE_REPOSITORY_BUTTON, 10).click()
+pages/base_page.py:14: in _wait_for_visible_element
+    return WebDriverWait(self.driver, time_seconds).until(EC.visibility_of_element_located(by_locator))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;selenium.webdriver.support.wait.WebDriverWait (session="fd423d60-d0af-4cc8-b32d-10c779ea289d")&gt;
+method = &lt;function visibility_of_element_located.&lt;locals&gt;._predicate at 0x7ff6db38f820&gt;
+message = ''
+
+    def until(self, method, message=''):
+        """Calls the method provided with the driver as an argument until the \
+        return value does not evaluate to ``False``.
+    
+        :param method: callable(WebDriver)
+        :param message: optional message for :exc:`TimeoutException`
+        :returns: the result of the last call to `method`
+        :raises: :exc:`selenium.common.exceptions.TimeoutException` if timeout occurs
+        """
+        screen = None
+        stacktrace = None
+    
+        end_time = time.time() + self._timeout
+        while True:
+            try:
+                value = method(self._driver)
+                if value:
+                    return value
+            except InvalidSelectorException as e:
+                raise e
+            except self._ignored_exceptions as exc:
+                screen = getattr(exc, 'screen', None)
+                stacktrace = getattr(exc, 'stacktrace', None)
+            time.sleep(self._poll)
+            if time.time() &gt; end_time:
+                break
+&gt;       raise TimeoutException(message, screen, stacktrace)
+E       selenium.common.exceptions.TimeoutException: Message: 
+E       Stacktrace:
+E       WebDriverError@chrome://remote/content/shared/webdriver/Errors.jsm:181:5
+E       NoSuchElementError@chrome://remote/content/shared/webdriver/Errors.jsm:393:5
+E       element.find/&lt;/&lt;@chrome://remote/content/marionette/element.js:299:16
+
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:89: TimeoutException</failure></testcase><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_import_repo_page" time="11.160"><failure message="selenium.common.exceptions.TimeoutException: Message: &#10;Stacktrace:&#10;WebDriverError@chrome://remote/content/shared/webdriver/Errors.jsm:181:5&#10;NoSuchElementError@chrome://remote/content/shared/webdriver/Errors.jsm:393:5&#10;element.find/&lt;/&lt;@chrome://remote/content/marionette/element.js:299:16">self = &lt;tests.github_dashoboard_test.TestGitHubDashboard object at 0x7ff6db343610&gt;
+web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="fd423d60-d0af-4cc8-b32d-10c779ea289d")&gt;
+github_repo_page = &lt;pages.github_pages.github_dashboard_page.GitHubDashboardPage object at 0x7ff6db343e50&gt;
+
+    def test_should_open_import_repo_page(self, web_driver, github_repo_page):
+        web_driver.get("https://github.com/")
+&gt;       import_button = github_repo_page.click_import_repository() \
+            .get_begin_import_button()
+
+tests/github_dashoboard_test.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+pages/github_pages/github_dashboard_page.py:39: in click_import_repository
+    self._wait_for_visible_element(self.IMPORT_REPOSITORY_BUTTON, 10).click()
+pages/base_page.py:14: in _wait_for_visible_element
+    return WebDriverWait(self.driver, time_seconds).until(EC.visibility_of_element_located(by_locator))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;selenium.webdriver.support.wait.WebDriverWait (session="fd423d60-d0af-4cc8-b32d-10c779ea289d")&gt;
+method = &lt;function visibility_of_element_located.&lt;locals&gt;._predicate at 0x7ff6db38fe50&gt;
+message = ''
+
+    def until(self, method, message=''):
+        """Calls the method provided with the driver as an argument until the \
+        return value does not evaluate to ``False``.
+    
+        :param method: callable(WebDriver)
+        :param message: optional message for :exc:`TimeoutException`
+        :returns: the result of the last call to `method`
+        :raises: :exc:`selenium.common.exceptions.TimeoutException` if timeout occurs
+        """
+        screen = None
+        stacktrace = None
+    
+        end_time = time.time() + self._timeout
+        while True:
+            try:
+                value = method(self._driver)
+                if value:
+                    return value
+            except InvalidSelectorException as e:
+                raise e
+            except self._ignored_exceptions as exc:
+                screen = getattr(exc, 'screen', None)
+                stacktrace = getattr(exc, 'stacktrace', None)
+            time.sleep(self._poll)
+            if time.time() &gt; end_time:
+                break
+&gt;       raise TimeoutException(message, screen, stacktrace)
+E       selenium.common.exceptions.TimeoutException: Message: 
+E       Stacktrace:
+E       WebDriverError@chrome://remote/content/shared/webdriver/Errors.jsm:181:5
+E       NoSuchElementError@chrome://remote/content/shared/webdriver/Errors.jsm:393:5
+E       element.find/&lt;/&lt;@chrome://remote/content/marionette/element.js:299:16
+
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:89: TimeoutException</failure></testcase><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_hello_world_page" time="12.965"><failure message="selenium.common.exceptions.TimeoutException: Message: &#10;Stacktrace:&#10;WebDriverError@chrome://remote/content/shared/webdriver/Errors.jsm:181:5&#10;NoSuchElementError@chrome://remote/content/shared/webdriver/Errors.jsm:393:5&#10;element.find/&lt;/&lt;@chrome://remote/content/marionette/element.js:299:16">self = &lt;tests.github_dashoboard_test.TestGitHubDashboard object at 0x7ff6db3a60a0&gt;
+web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="fd423d60-d0af-4cc8-b32d-10c779ea289d")&gt;
+github_repo_page = &lt;pages.github_pages.github_dashboard_page.GitHubDashboardPage object at 0x7ff6db3a66d0&gt;
+github_guid_land_page = &lt;pages.github_pages.guides.guides_github_land_page.GuidesGitHubLandPage object at 0x7ff6db3a6490&gt;
+
+    def test_should_open_hello_world_page(self, web_driver, github_repo_page, github_guid_land_page):
+        web_driver.get("https://github.com/")
+&gt;       github_repo_page.click_read_guid_button()
+
+tests/github_dashoboard_test.py:28: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+pages/github_pages/github_dashboard_page.py:35: in click_read_guid_button
+    self.get_read_guide_button().click()
+pages/github_pages/github_dashboard_page.py:32: in get_read_guide_button
+    return self._wait_for_visible_element(self.READ_GUIDE_BUTTON, 10)
+pages/base_page.py:14: in _wait_for_visible_element
+    return WebDriverWait(self.driver, time_seconds).until(EC.visibility_of_element_located(by_locator))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;selenium.webdriver.support.wait.WebDriverWait (session="fd423d60-d0af-4cc8-b32d-10c779ea289d")&gt;
+method = &lt;function visibility_of_element_located.&lt;locals&gt;._predicate at 0x7ff6db38f790&gt;
+message = ''
+
+    def until(self, method, message=''):
+        """Calls the method provided with the driver as an argument until the \
+        return value does not evaluate to ``False``.
+    
+        :param method: callable(WebDriver)
+        :param message: optional message for :exc:`TimeoutException`
+        :returns: the result of the last call to `method`
+        :raises: :exc:`selenium.common.exceptions.TimeoutException` if timeout occurs
+        """
+        screen = None
+        stacktrace = None
+    
+        end_time = time.time() + self._timeout
+        while True:
+            try:
+                value = method(self._driver)
+                if value:
+                    return value
+            except InvalidSelectorException as e:
+                raise e
+            except self._ignored_exceptions as exc:
+                screen = getattr(exc, 'screen', None)
+                stacktrace = getattr(exc, 'stacktrace', None)
+            time.sleep(self._poll)
+            if time.time() &gt; end_time:
+                break
+&gt;       raise TimeoutException(message, screen, stacktrace)
+E       selenium.common.exceptions.TimeoutException: Message: 
+E       Stacktrace:
+E       WebDriverError@chrome://remote/content/shared/webdriver/Errors.jsm:181:5
+E       NoSuchElementError@chrome://remote/content/shared/webdriver/Errors.jsm:393:5
+E       element.find/&lt;/&lt;@chrome://remote/content/marionette/element.js:299:16
+
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:89: TimeoutException</failure></testcase></testsuite></testsuites>
