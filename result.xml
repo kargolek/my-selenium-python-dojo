@@ -1,170 +1,205 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="4" time="63.681" timestamp="2021-11-06T14:45:49.542581" hostname="fv-az123-151"><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_is_git_repo_list_available" time="24.865"><failure message="selenium.common.exceptions.TimeoutException: Message:">self = &lt;tests.github_dashoboard_test.TestGitHubDashboard object at 0x7f3a9a4e8340&gt;
-web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="566fa01c-b696-4e6f-b3e5-4ec06aa00a87")&gt;
-github_repo_page = &lt;pages.github_pages.github_dashboard_page.GitHubDashboardPage object at 0x7f3a9a4e8ac0&gt;
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="4" failures="0" skipped="0" tests="4" time="300.459" timestamp="2021-11-06T14:53:00.219568" hostname="fv-az77-654"><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_is_git_repo_list_available" time="300.136"><error message="failed on setup with &quot;KeyError: 'status'&quot;">@pytest.fixture(scope="session")
+    def web_driver() -&gt; webdriver:
+&gt;       web_driver = DriverFactory.get_web_driver(DRIVER_TYPE)
 
-    def test_is_git_repo_list_available(self, web_driver, github_repo_page):
-        web_driver.get("https://github.com/")
-&gt;       assert_that(github_repo_page.is_repo_list_container_visible(), equal_to(True))
-
-tests/github_dashoboard_test.py:10: 
+tests/conftest.py:65: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-pages/github_pages/github_dashboard_page.py:25: in is_repo_list_container_visible
-    return self._wait_for_visible_element(self.REPO_CONTAINER, 10).is_displayed()
-pages/base_page.py:14: in _wait_for_visible_element
-    return WebDriverWait(self.driver, time_seconds).until(EC.visibility_of_element_located(by_locator))
+utilities/driver/driver_factory.py:86: in get_web_driver
+    return DriverFactory.__get_edge_driver(DriverFactory.__edge_options_default(options))
+utilities/driver/driver_factory.py:63: in __get_edge_driver
+    driver = webdriver.Remote(command_executor=HTTP_LOCALHOST_WD_HUB,
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py:157: in __init__
+    self.start_session(capabilities, browser_profile)
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py:252: in start_session
+    response = self.execute(Command.NEW_SESSION, parameters)
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py:321: in execute
+    self.error_handler.check_response(response)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = &lt;selenium.webdriver.support.wait.WebDriverWait (session="566fa01c-b696-4e6f-b3e5-4ec06aa00a87")&gt;
-method = &lt;selenium.webdriver.support.expected_conditions.visibility_of_element_located object at 0x7f3a9a4e8850&gt;
-message = ''
+self = &lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x7f5ac084f850&gt;
+response = {'status': 500, 'value': '{\n  "value": {\n    "additionalInformation": "Driver info: driver.version: unknown",\n    "... out",\n    "buildInformation": {\n      "buildRevision": "3a21814679",\n      "releaseLabel": "4.0.0"\n    }\n  }\n}'}
 
-    def until(self, method, message=''):
-        """Calls the method provided with the driver as an argument until the \
-        return value is not False."""
-        screen = None
-        stacktrace = None
+    def check_response(self, response):
+        """
+        Checks that a JSON response from the WebDriver does not have an error.
     
-        end_time = time.time() + self._timeout
-        while True:
-            try:
-                value = method(self._driver)
-                if value:
-                    return value
-            except self._ignored_exceptions as exc:
-                screen = getattr(exc, 'screen', None)
-                stacktrace = getattr(exc, 'stacktrace', None)
-            time.sleep(self._poll)
-            if time.time() &gt; end_time:
-                break
-&gt;       raise TimeoutException(message, screen, stacktrace)
-E       selenium.common.exceptions.TimeoutException: Message:
-
-../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:80: TimeoutException</failure></testcase><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_create_new_repo" time="11.819"><failure message="selenium.common.exceptions.TimeoutException: Message:">self = &lt;tests.github_dashoboard_test.TestGitHubDashboard object at 0x7f3a9a43b610&gt;
-web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="566fa01c-b696-4e6f-b3e5-4ec06aa00a87")&gt;
-github_repo_page = &lt;pages.github_pages.github_dashboard_page.GitHubDashboardPage object at 0x7f3a9a43b730&gt;
-
-    def test_should_open_create_new_repo(self, web_driver, github_repo_page):
-        web_driver.get("https://github.com/")
-&gt;       create_repo_button = github_repo_page.click_create_repository() \
-            .get_create_repository_button()
-
-tests/github_dashoboard_test.py:14: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-pages/github_pages/github_dashboard_page.py:28: in click_create_repository
-    self._wait_for_visible_element(self.CREATE_REPOSITORY_BUTTON, 10).click()
-pages/base_page.py:14: in _wait_for_visible_element
-    return WebDriverWait(self.driver, time_seconds).until(EC.visibility_of_element_located(by_locator))
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = &lt;selenium.webdriver.support.wait.WebDriverWait (session="566fa01c-b696-4e6f-b3e5-4ec06aa00a87")&gt;
-method = &lt;selenium.webdriver.support.expected_conditions.visibility_of_element_located object at 0x7f3a9a43b4f0&gt;
-message = ''
-
-    def until(self, method, message=''):
-        """Calls the method provided with the driver as an argument until the \
-        return value is not False."""
-        screen = None
-        stacktrace = None
+        :Args:
+         - response - The JSON response from the WebDriver server as a dictionary
+           object.
     
-        end_time = time.time() + self._timeout
-        while True:
-            try:
-                value = method(self._driver)
-                if value:
-                    return value
-            except self._ignored_exceptions as exc:
-                screen = getattr(exc, 'screen', None)
-                stacktrace = getattr(exc, 'stacktrace', None)
-            time.sleep(self._poll)
-            if time.time() &gt; end_time:
-                break
-&gt;       raise TimeoutException(message, screen, stacktrace)
-E       selenium.common.exceptions.TimeoutException: Message:
-
-../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:80: TimeoutException</failure></testcase><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_import_repo_page" time="11.223"><failure message="selenium.common.exceptions.TimeoutException: Message:">self = &lt;tests.github_dashoboard_test.TestGitHubDashboard object at 0x7f3a9a44db50&gt;
-web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="566fa01c-b696-4e6f-b3e5-4ec06aa00a87")&gt;
-github_repo_page = &lt;pages.github_pages.github_dashboard_page.GitHubDashboardPage object at 0x7f3a9a44d3d0&gt;
-
-    def test_should_open_import_repo_page(self, web_driver, github_repo_page):
-        web_driver.get("https://github.com/")
-&gt;       import_button = github_repo_page.click_import_repository() \
-            .get_begin_import_button()
-
-tests/github_dashoboard_test.py:21: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-pages/github_pages/github_dashboard_page.py:39: in click_import_repository
-    self._wait_for_visible_element(self.IMPORT_REPOSITORY_BUTTON, 10).click()
-pages/base_page.py:14: in _wait_for_visible_element
-    return WebDriverWait(self.driver, time_seconds).until(EC.visibility_of_element_located(by_locator))
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = &lt;selenium.webdriver.support.wait.WebDriverWait (session="566fa01c-b696-4e6f-b3e5-4ec06aa00a87")&gt;
-method = &lt;selenium.webdriver.support.expected_conditions.visibility_of_element_located object at 0x7f3a9a44dbb0&gt;
-message = ''
-
-    def until(self, method, message=''):
-        """Calls the method provided with the driver as an argument until the \
-        return value is not False."""
-        screen = None
+        :Raises: If the response contains an error message.
+        """
+        status = response.get('status', None)
+        if status is None or status == ErrorCode.SUCCESS:
+            return
+        value = None
+        message = response.get("message", "")
+        screen = response.get("screen", "")
         stacktrace = None
+        if isinstance(status, int):
+            value_json = response.get('value', None)
+            if value_json and isinstance(value_json, basestring):
+                import json
+                try:
+                    value = json.loads(value_json)
+                    if len(value.keys()) == 1:
+                        value = value['value']
+                    status = value.get('error', None)
+                    if status is None:
+&gt;                       status = value["status"]
+E                       KeyError: 'status'
+
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py:130: KeyError</error></testcase><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_create_new_repo" time="0.001"><error message="failed on setup with &quot;KeyError: 'status'&quot;">@pytest.fixture(scope="session")
+    def web_driver() -&gt; webdriver:
+&gt;       web_driver = DriverFactory.get_web_driver(DRIVER_TYPE)
+
+tests/conftest.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+utilities/driver/driver_factory.py:86: in get_web_driver
+    return DriverFactory.__get_edge_driver(DriverFactory.__edge_options_default(options))
+utilities/driver/driver_factory.py:63: in __get_edge_driver
+    driver = webdriver.Remote(command_executor=HTTP_LOCALHOST_WD_HUB,
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py:157: in __init__
+    self.start_session(capabilities, browser_profile)
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py:252: in start_session
+    response = self.execute(Command.NEW_SESSION, parameters)
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py:321: in execute
+    self.error_handler.check_response(response)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x7f5ac084f850&gt;
+response = {'status': 500, 'value': '{\n  "value": {\n    "additionalInformation": "Driver info: driver.version: unknown",\n    "... out",\n    "buildInformation": {\n      "buildRevision": "3a21814679",\n      "releaseLabel": "4.0.0"\n    }\n  }\n}'}
+
+    def check_response(self, response):
+        """
+        Checks that a JSON response from the WebDriver does not have an error.
     
-        end_time = time.time() + self._timeout
-        while True:
-            try:
-                value = method(self._driver)
-                if value:
-                    return value
-            except self._ignored_exceptions as exc:
-                screen = getattr(exc, 'screen', None)
-                stacktrace = getattr(exc, 'stacktrace', None)
-            time.sleep(self._poll)
-            if time.time() &gt; end_time:
-                break
-&gt;       raise TimeoutException(message, screen, stacktrace)
-E       selenium.common.exceptions.TimeoutException: Message:
-
-../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:80: TimeoutException</failure></testcase><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_hello_world_page" time="12.743"><failure message="selenium.common.exceptions.TimeoutException: Message:">self = &lt;tests.github_dashoboard_test.TestGitHubDashboard object at 0x7f3a9a43ba60&gt;
-web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="566fa01c-b696-4e6f-b3e5-4ec06aa00a87")&gt;
-github_repo_page = &lt;pages.github_pages.github_dashboard_page.GitHubDashboardPage object at 0x7f3a9a43bcd0&gt;
-github_guid_land_page = &lt;pages.github_pages.guides.guides_github_land_page.GuidesGitHubLandPage object at 0x7f3a9a43bb20&gt;
-
-    def test_should_open_hello_world_page(self, web_driver, github_repo_page, github_guid_land_page):
-        web_driver.get("https://github.com/")
-&gt;       github_repo_page.click_read_guid_button()
-
-tests/github_dashoboard_test.py:28: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-pages/github_pages/github_dashboard_page.py:35: in click_read_guid_button
-    self.get_read_guide_button().click()
-pages/github_pages/github_dashboard_page.py:32: in get_read_guide_button
-    return self._wait_for_visible_element(self.READ_GUIDE_BUTTON, 10)
-pages/base_page.py:14: in _wait_for_visible_element
-    return WebDriverWait(self.driver, time_seconds).until(EC.visibility_of_element_located(by_locator))
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = &lt;selenium.webdriver.support.wait.WebDriverWait (session="566fa01c-b696-4e6f-b3e5-4ec06aa00a87")&gt;
-method = &lt;selenium.webdriver.support.expected_conditions.visibility_of_element_located object at 0x7f3a9a43b160&gt;
-message = ''
-
-    def until(self, method, message=''):
-        """Calls the method provided with the driver as an argument until the \
-        return value is not False."""
-        screen = None
+        :Args:
+         - response - The JSON response from the WebDriver server as a dictionary
+           object.
+    
+        :Raises: If the response contains an error message.
+        """
+        status = response.get('status', None)
+        if status is None or status == ErrorCode.SUCCESS:
+            return
+        value = None
+        message = response.get("message", "")
+        screen = response.get("screen", "")
         stacktrace = None
-    
-        end_time = time.time() + self._timeout
-        while True:
-            try:
-                value = method(self._driver)
-                if value:
-                    return value
-            except self._ignored_exceptions as exc:
-                screen = getattr(exc, 'screen', None)
-                stacktrace = getattr(exc, 'stacktrace', None)
-            time.sleep(self._poll)
-            if time.time() &gt; end_time:
-                break
-&gt;       raise TimeoutException(message, screen, stacktrace)
-E       selenium.common.exceptions.TimeoutException: Message:
+        if isinstance(status, int):
+            value_json = response.get('value', None)
+            if value_json and isinstance(value_json, basestring):
+                import json
+                try:
+                    value = json.loads(value_json)
+                    if len(value.keys()) == 1:
+                        value = value['value']
+                    status = value.get('error', None)
+                    if status is None:
+&gt;                       status = value["status"]
+E                       KeyError: 'status'
 
-../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:80: TimeoutException</failure></testcase></testsuite></testsuites>
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py:130: KeyError</error></testcase><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_import_repo_page" time="0.001"><error message="failed on setup with &quot;KeyError: 'status'&quot;">@pytest.fixture(scope="session")
+    def web_driver() -&gt; webdriver:
+&gt;       web_driver = DriverFactory.get_web_driver(DRIVER_TYPE)
+
+tests/conftest.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+utilities/driver/driver_factory.py:86: in get_web_driver
+    return DriverFactory.__get_edge_driver(DriverFactory.__edge_options_default(options))
+utilities/driver/driver_factory.py:63: in __get_edge_driver
+    driver = webdriver.Remote(command_executor=HTTP_LOCALHOST_WD_HUB,
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py:157: in __init__
+    self.start_session(capabilities, browser_profile)
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py:252: in start_session
+    response = self.execute(Command.NEW_SESSION, parameters)
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py:321: in execute
+    self.error_handler.check_response(response)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x7f5ac084f850&gt;
+response = {'status': 500, 'value': '{\n  "value": {\n    "additionalInformation": "Driver info: driver.version: unknown",\n    "... out",\n    "buildInformation": {\n      "buildRevision": "3a21814679",\n      "releaseLabel": "4.0.0"\n    }\n  }\n}'}
+
+    def check_response(self, response):
+        """
+        Checks that a JSON response from the WebDriver does not have an error.
+    
+        :Args:
+         - response - The JSON response from the WebDriver server as a dictionary
+           object.
+    
+        :Raises: If the response contains an error message.
+        """
+        status = response.get('status', None)
+        if status is None or status == ErrorCode.SUCCESS:
+            return
+        value = None
+        message = response.get("message", "")
+        screen = response.get("screen", "")
+        stacktrace = None
+        if isinstance(status, int):
+            value_json = response.get('value', None)
+            if value_json and isinstance(value_json, basestring):
+                import json
+                try:
+                    value = json.loads(value_json)
+                    if len(value.keys()) == 1:
+                        value = value['value']
+                    status = value.get('error', None)
+                    if status is None:
+&gt;                       status = value["status"]
+E                       KeyError: 'status'
+
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py:130: KeyError</error></testcase><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_hello_world_page" time="0.001"><error message="failed on setup with &quot;KeyError: 'status'&quot;">@pytest.fixture(scope="session")
+    def web_driver() -&gt; webdriver:
+&gt;       web_driver = DriverFactory.get_web_driver(DRIVER_TYPE)
+
+tests/conftest.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+utilities/driver/driver_factory.py:86: in get_web_driver
+    return DriverFactory.__get_edge_driver(DriverFactory.__edge_options_default(options))
+utilities/driver/driver_factory.py:63: in __get_edge_driver
+    driver = webdriver.Remote(command_executor=HTTP_LOCALHOST_WD_HUB,
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py:157: in __init__
+    self.start_session(capabilities, browser_profile)
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py:252: in start_session
+    response = self.execute(Command.NEW_SESSION, parameters)
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py:321: in execute
+    self.error_handler.check_response(response)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;selenium.webdriver.remote.errorhandler.ErrorHandler object at 0x7f5ac084f850&gt;
+response = {'status': 500, 'value': '{\n  "value": {\n    "additionalInformation": "Driver info: driver.version: unknown",\n    "... out",\n    "buildInformation": {\n      "buildRevision": "3a21814679",\n      "releaseLabel": "4.0.0"\n    }\n  }\n}'}
+
+    def check_response(self, response):
+        """
+        Checks that a JSON response from the WebDriver does not have an error.
+    
+        :Args:
+         - response - The JSON response from the WebDriver server as a dictionary
+           object.
+    
+        :Raises: If the response contains an error message.
+        """
+        status = response.get('status', None)
+        if status is None or status == ErrorCode.SUCCESS:
+            return
+        value = None
+        message = response.get("message", "")
+        screen = response.get("screen", "")
+        stacktrace = None
+        if isinstance(status, int):
+            value_json = response.get('value', None)
+            if value_json and isinstance(value_json, basestring):
+                import json
+                try:
+                    value = json.loads(value_json)
+                    if len(value.keys()) == 1:
+                        value = value['value']
+                    status = value.get('error', None)
+                    if status is None:
+&gt;                       status = value["status"]
+E                       KeyError: 'status'
+
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py:130: KeyError</error></testcase></testsuite></testsuites>
