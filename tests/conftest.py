@@ -40,7 +40,6 @@ def pytest_configure(config):
     if not os.path.exists(screenshots):
         os.makedirs(screenshots)
     config.option.htmlpath = reports + "/index.html"
-    print(f"HTML REPORT PATH: {config.option.htmlpath}")
 
 
 @pytest.mark.hookwrapper
@@ -49,7 +48,7 @@ def pytest_runtest_makereport(item):
     outcome = yield
     report = outcome.get_result()
     extra = getattr(report, 'extra', [])
-    if report.when == 'call' and not report.failed:
+    if report.when == 'call':
         test_name = report.nodeid.replace("::", "_").replace(".", "_").replace("/", "_") + ".png"
         driver.get_screenshot_as_file(get_screenshot_dir() + test_name)
         file_path = "screenshots/" + test_name
@@ -57,8 +56,6 @@ def pytest_runtest_makereport(item):
             html = '<div><img src="%s" alt="screenshot" style="width:400px;height:300px;" ' \
                    'onclick="window.open(this.src)" align="right"/></div>' % file_path
             extra.append(pytest_html.extras.html(html))
-        print(f"PATH: {file_path}")
-        print(f"ROOT: {get_test_root()}")
     report.extra = extra
 
 
