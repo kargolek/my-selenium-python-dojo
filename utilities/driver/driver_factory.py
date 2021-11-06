@@ -70,7 +70,7 @@ class DriverFactory:
     @staticmethod
     def __edge_options_default(edge_options) -> EdgeOptions:
         if edge_options is None:
-            edge_options = EdgeOptions()
+            edge_options = webdriver.EdgeOptions()
             edge_options.use_chromium = True
             edge_options.headless = True
             edge_options.add_argument('window-size=1920x1080')
