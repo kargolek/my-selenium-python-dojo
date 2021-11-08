@@ -28,7 +28,6 @@ class GitHubDashboardPage(BasePage):
 
     def open_url(self):
         self.driver.get(self.baseUrl)
-        time.sleep(5)
         return self
 
     def get_read_guide_button(self):

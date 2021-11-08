@@ -7,7 +7,7 @@ class GuidesGitHubLandPage(BasePage):
 
     def __init__(self, driver: webdriver.WebDriver):
         super().__init__(driver)
-        self.url = "https://guides.github.com/activities/hello-world/"
+        self.url = "https://docs.github.com/en/get-started/quickstart/hello-world"
 
     def is_driver_set_proper_url(self):
         return super()._is_proper_url_set(self.url, 5)
