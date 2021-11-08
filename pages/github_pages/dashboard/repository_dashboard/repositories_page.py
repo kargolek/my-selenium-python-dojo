@@ -26,7 +26,7 @@ class RepositoriesListPage(BasePage):
     def get_repo_by_name(self, account_name: str, repo_name: str):
         self.is_repo_list_container_visible()
         return super()._wait_for_visible_element(
-            (By.XPATH, ".//aside//div[@class='wb-break-word']//a[@href='/" + account_name + "/" + repo_name + "']"), 10)
+            (By.XPATH, ".//div[@class='wb-break-word']//a[@href='/" + account_name + "/" + repo_name + "']"), 10)
 
     def click_repo_by_name(self, account_name: str, repo_name: str):
         self.get_repo_by_name(account_name, repo_name).click()
