@@ -10,4 +10,4 @@ class GuidesGitHubLandPage(BasePage):
         self.url = "https://guides.github.com/activities/hello-world/"
 
     def is_driver_set_proper_url(self):
-        return self._is_proper_url_set(self.url, 5)
+        return super()._is_proper_url_set(self.url, 5)

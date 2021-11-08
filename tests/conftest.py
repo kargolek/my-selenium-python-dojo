@@ -4,15 +4,18 @@ from pathlib import Path
 import pytest
 from selenium import webdriver
 
-from pages.github_pages.github_dashboard_page import GitHubDashboardPage
+from pages.github_pages.dashboard.github_dashboard_page import GitHubDashboardPage
 from pages.github_pages.github_device_verification_page import GitHubDeviceVerificationPage
 from pages.github_pages.github_login_page import GitHubLoginPage
 from pages.github_pages.github_main_bar_page import GitHubMainBarPage
 from pages.github_pages.guides.guides_github_land_page import GuidesGitHubLandPage
+from pages.github_pages.repository.settings.github_confirm_password_page import GitHubConfirmPasswordPage
 from utilities.credentials.secrets import Secrets
 from utilities.datetime.date_time import get_naive_utc_current_dt
 from utilities.driver.driver_factory import DriverFactory
 from utilities.driver.driver_utils import DriverUtils
+
+GITHUB_COM = "https://github.com"
 
 driver: webdriver.Chrome
 
@@ -76,7 +79,7 @@ def login_to_github_account(web_driver):
     login_page = GitHubLoginPage(web_driver)
     login_page.sign_in_github_account(Secrets.EMAIL, Secrets.PASSWORD)
     GitHubDeviceVerificationPage(web_driver).input_otp_code_if_verification_present(before_sign_in_dt)
-    assert GitHubDashboardPage(web_driver).is_repo_list_container_visible()
+    assert GitHubDashboardPage(web_driver).repositories_list.is_repo_list_container_visible()
     return login_page
 
 
@@ -101,26 +104,54 @@ def set_cookies(web_driver):
 @pytest.fixture(scope="session")
 def add_cookies(web_driver):
     global COOKIES
-    web_driver.get("https://github.com")
+    web_driver.get(GITHUB_COM)
     DriverUtils(web_driver).add_cookie(COOKIES, {"name": "__Host-user_session_same_site"})
     web_driver.refresh()
 
 
-@pytest.fixture()
-def github_repo_page(web_driver):
+@pytest.fixture(scope="session")
+def github_dashboard_page(web_driver):
     return GitHubDashboardPage(web_driver)
 
 
-@pytest.fixture()
+@pytest.fixture(scope="session")
 def github_login_page(web_driver):
     return GitHubLoginPage(web_driver)
 
 
-@pytest.fixture()
+@pytest.fixture(scope="session")
 def github_otp_page(web_driver):
     return GitHubDeviceVerificationPage(web_driver)
 
 
-@pytest.fixture()
+@pytest.fixture(scope="session")
 def github_guid_land_page(web_driver):
     return GuidesGitHubLandPage(web_driver)
+
+
+@pytest.fixture(scope="session")
+def github_confirm_password_page(web_driver):
+    return GitHubConfirmPasswordPage(web_driver)
+
+
+def delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page):
+    web_driver.get(GITHUB_COM)
+    while github_dashboard_page.repositories_list.is_repositories_contains_repo():
+        github_dashboard_page.repositories_list.click_first_repo_on_repositories() \
+            .click_settings_tab() \
+            .click_options_side_setting() \
+            .click_delete_repository_button() \
+            .type_confirm_security_text() \
+            .click_confirm_delete_repo_button()
+        github_confirm_password_page.input_password_if_confirm_necessary(Secrets.PASSWORD)
+
+
+@pytest.fixture()
+def delete_all_repos(web_driver, github_dashboard_page, github_confirm_password_page):
+    delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page)
+
+
+@pytest.fixture(scope="session")
+def delete_all_repos_after_all_tests(web_driver, github_dashboard_page, github_confirm_password_page):
+    yield
+    delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page)
