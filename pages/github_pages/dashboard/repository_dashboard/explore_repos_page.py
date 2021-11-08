@@ -15,9 +15,9 @@ class ExploreReposPage(BasePage):
         super().__init__(driver)
 
     def click_first_explore_repo_item(self):
-        super()._wait_for_all_elements_visible(self.REPOSITORIES_ITEMS, 5)[0].click()
+        super()._wait_for_all_elements_visible(self.REPOSITORIES_ITEMS, 10)[0].click()
         return GitHubRepoMainPage(self.driver)
 
     def click_explore_more(self):
-        super()._wait_for_visible_element(self.EXPLORE_MORE_BUTTON, 5).click()
+        super()._wait_for_visible_element(self.EXPLORE_MORE_BUTTON, 10).click()
         return GitHubExploreDashboardPage(self.driver)

@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 
 import pytest
+from hamcrest import assert_that, equal_to
 from selenium import webdriver
 
 from pages.github_pages.dashboard.github_dashboard_page import GitHubDashboardPage
@@ -159,9 +160,10 @@ def delete_all_repos_after_all_tests(web_driver, github_dashboard_page, github_c
 
 @pytest.fixture()
 def search_and_open_repo(web_driver, github_dashboard_page):
-    github_dashboard_page.open_url() \
+    is_content_opened = github_dashboard_page.open_url() \
         .top_main_bar \
         .input_text_to_search("Python") \
         .click_first_repo_result() \
         .content_list_page \
         .is_content_container_visible()
+    assert_that(is_content_opened, equal_to(True))
