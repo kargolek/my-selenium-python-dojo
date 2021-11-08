@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="7" time="109.223" timestamp="2021-11-08T22:09:05.910117" hostname="fv-az39-661"><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_is_git_repo_list_available" time="14.747" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_create_new_repo" time="9.580" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_import_repo_page" time="9.456" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_hello_world_page" time="11.263"><failure message="AssertionError: &#10;Expected: &lt;True&gt;&#10;     but: was &lt;False&gt;">self = &lt;tests.github_dashoboard_test.TestGitHubDashboard object at 0x7fefc0001100&gt;
-web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="339e53afd6222e43d46ec918a489853e")&gt;
-github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7fefbffdcf10&gt;
-github_guid_land_page = &lt;pages.github_pages.guides.guides_github_land_page.GuidesGitHubLandPage object at 0x7fefc0001940&gt;
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="7" time="111.229" timestamp="2021-11-08T22:15:45.043707" hostname="fv-az135-837"><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_is_git_repo_list_available" time="17.240" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_create_new_repo" time="9.583" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_import_repo_page" time="9.423" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_hello_world_page" time="11.446"><failure message="AssertionError: &#10;Expected: &lt;True&gt;&#10;     but: was &lt;False&gt;">self = &lt;tests.github_dashoboard_test.TestGitHubDashboard object at 0x7ff0e34fb250&gt;
+web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="83fd002d36a04325f52df91618bc1a9b")&gt;
+github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7ff0e34d5f70&gt;
+github_guid_land_page = &lt;pages.github_pages.guides.guides_github_land_page.GuidesGitHubLandPage object at 0x7ff0e34fb940&gt;
 
     def test_should_open_hello_world_page(self, web_driver, github_dashboard_page, github_guid_land_page):
         github_dashboard_page.open_url() \
@@ -15,9 +15,9 @@ E       AssertionError:
 E       Expected: &lt;True&gt;
 E            but: was &lt;False&gt;
 
-tests/github_dashoboard_test.py:35: AssertionError</failure></testcase><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_create_repo_form_introduce_yourself_activity" time="24.868"><failure message="selenium.common.exceptions.TimeoutException: Message: &#10;Stacktrace:&#10;#0 0x559b48704f93 &lt;unknown&gt;&#10;#1 0x559b481df908 &lt;unknown&gt;&#10;#2 0x559b4821566a &lt;unknown&gt;&#10;#3 0x559b48247ff4 &lt;unknown&gt;&#10;#4 0x559b48232aad &lt;unknown&gt;&#10;#5 0x559b48245c91 &lt;unknown&gt;&#10;#6 0x559b48232973 &lt;unknown&gt;&#10;#7 0x559b48208df4 &lt;unknown&gt;&#10;#8 0x559b48209de5 &lt;unknown&gt;&#10;#9 0x559b487342be &lt;unknown&gt;&#10;#10 0x559b48749ba0 &lt;unknown&gt;&#10;#11 0x559b48735215 &lt;unknown&gt;&#10;#12 0x559b4874afe8 &lt;unknown&gt;&#10;#13 0x559b487299db &lt;unknown&gt;&#10;#14 0x559b48766218 &lt;unknown&gt;&#10;#15 0x559b48766398 &lt;unknown&gt;&#10;#16 0x559b487816cd &lt;unknown&gt;&#10;#17 0x7f3b1b5e5609 &lt;unknown&gt;">self = &lt;tests.github_dashoboard_test.TestGitHubDashboard object at 0x7fefc0001df0&gt;
-web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="339e53afd6222e43d46ec918a489853e")&gt;
-github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7fefbffdcf10&gt;
+tests/github_dashoboard_test.py:35: AssertionError</failure></testcase><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_create_repo_form_introduce_yourself_activity" time="24.165"><failure message="selenium.common.exceptions.TimeoutException: Message: &#10;Stacktrace:&#10;#0 0x558b5f904f93 &lt;unknown&gt;&#10;#1 0x558b5f3df908 &lt;unknown&gt;&#10;#2 0x558b5f41566a &lt;unknown&gt;&#10;#3 0x558b5f447ff4 &lt;unknown&gt;&#10;#4 0x558b5f432aad &lt;unknown&gt;&#10;#5 0x558b5f445c91 &lt;unknown&gt;&#10;#6 0x558b5f432973 &lt;unknown&gt;&#10;#7 0x558b5f408df4 &lt;unknown&gt;&#10;#8 0x558b5f409de5 &lt;unknown&gt;&#10;#9 0x558b5f9342be &lt;unknown&gt;&#10;#10 0x558b5f949ba0 &lt;unknown&gt;&#10;#11 0x558b5f935215 &lt;unknown&gt;&#10;#12 0x558b5f94afe8 &lt;unknown&gt;&#10;#13 0x558b5f9299db &lt;unknown&gt;&#10;#14 0x558b5f966218 &lt;unknown&gt;&#10;#15 0x558b5f966398 &lt;unknown&gt;&#10;#16 0x558b5f9816cd &lt;unknown&gt;&#10;#17 0x7fdd87e56609 &lt;unknown&gt;">self = &lt;tests.github_dashoboard_test.TestGitHubDashboard object at 0x7ff0e34fbdf0&gt;
+web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="83fd002d36a04325f52df91618bc1a9b")&gt;
+github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7ff0e34d5f70&gt;
 delete_all_repos = None
 
     def test_should_create_repo_form_introduce_yourself_activity(self, web_driver, github_dashboard_page,
@@ -37,8 +37,8 @@ pages/base_page.py:16: in _wait_for_visible_element
     return WebDriverWait(self.driver, time_seconds).until(EC.visibility_of_element_located(by_locator))
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = &lt;selenium.webdriver.support.wait.WebDriverWait (session="339e53afd6222e43d46ec918a489853e")&gt;
-method = &lt;function visibility_of_element_located.&lt;locals&gt;._predicate at 0x7fefbff1ad30&gt;
+self = &lt;selenium.webdriver.support.wait.WebDriverWait (session="83fd002d36a04325f52df91618bc1a9b")&gt;
+method = &lt;function visibility_of_element_located.&lt;locals&gt;._predicate at 0x7ff0e3415d30&gt;
 message = ''
 
     def until(self, method, message=''):
@@ -70,28 +70,28 @@ message = ''
 &gt;       raise TimeoutException(message, screen, stacktrace)
 E       selenium.common.exceptions.TimeoutException: Message: 
 E       Stacktrace:
-E       #0 0x559b48704f93 &lt;unknown&gt;
-E       #1 0x559b481df908 &lt;unknown&gt;
-E       #2 0x559b4821566a &lt;unknown&gt;
-E       #3 0x559b48247ff4 &lt;unknown&gt;
-E       #4 0x559b48232aad &lt;unknown&gt;
-E       #5 0x559b48245c91 &lt;unknown&gt;
-E       #6 0x559b48232973 &lt;unknown&gt;
-E       #7 0x559b48208df4 &lt;unknown&gt;
-E       #8 0x559b48209de5 &lt;unknown&gt;
-E       #9 0x559b487342be &lt;unknown&gt;
-E       #10 0x559b48749ba0 &lt;unknown&gt;
-E       #11 0x559b48735215 &lt;unknown&gt;
-E       #12 0x559b4874afe8 &lt;unknown&gt;
-E       #13 0x559b487299db &lt;unknown&gt;
-E       #14 0x559b48766218 &lt;unknown&gt;
-E       #15 0x559b48766398 &lt;unknown&gt;
-E       #16 0x559b487816cd &lt;unknown&gt;
-E       #17 0x7f3b1b5e5609 &lt;unknown&gt;
+E       #0 0x558b5f904f93 &lt;unknown&gt;
+E       #1 0x558b5f3df908 &lt;unknown&gt;
+E       #2 0x558b5f41566a &lt;unknown&gt;
+E       #3 0x558b5f447ff4 &lt;unknown&gt;
+E       #4 0x558b5f432aad &lt;unknown&gt;
+E       #5 0x558b5f445c91 &lt;unknown&gt;
+E       #6 0x558b5f432973 &lt;unknown&gt;
+E       #7 0x558b5f408df4 &lt;unknown&gt;
+E       #8 0x558b5f409de5 &lt;unknown&gt;
+E       #9 0x558b5f9342be &lt;unknown&gt;
+E       #10 0x558b5f949ba0 &lt;unknown&gt;
+E       #11 0x558b5f935215 &lt;unknown&gt;
+E       #12 0x558b5f94afe8 &lt;unknown&gt;
+E       #13 0x558b5f9299db &lt;unknown&gt;
+E       #14 0x558b5f966218 &lt;unknown&gt;
+E       #15 0x558b5f966398 &lt;unknown&gt;
+E       #16 0x558b5f9816cd &lt;unknown&gt;
+E       #17 0x7fdd87e56609 &lt;unknown&gt;
 
-../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:89: TimeoutException</failure></testcase><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_open_explore_repo_from_the_list" time="5.177"><failure message="selenium.common.exceptions.TimeoutException: Message:">self = &lt;tests.github_dashoboard_test.TestGitHubDashboard object at 0x7fefc0001a30&gt;
-web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="339e53afd6222e43d46ec918a489853e")&gt;
-github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7fefbffdcf10&gt;
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:89: TimeoutException</failure></testcase><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_open_explore_repo_from_the_list" time="5.161"><failure message="selenium.common.exceptions.TimeoutException: Message:">self = &lt;tests.github_dashoboard_test.TestGitHubDashboard object at 0x7ff0e34fbc10&gt;
+web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="83fd002d36a04325f52df91618bc1a9b")&gt;
+github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7ff0e34d5f70&gt;
 
     def test_open_explore_repo_from_the_list(self, web_driver, github_dashboard_page):
 &gt;       repo_page = github_dashboard_page.explore_repos_page \
@@ -105,8 +105,8 @@ pages/base_page.py:40: in _wait_for_all_elements_visible
     return WebDriverWait(self.driver, time_seconds).until(EC.visibility_of_all_elements_located(by_locator))
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = &lt;selenium.webdriver.support.wait.WebDriverWait (session="339e53afd6222e43d46ec918a489853e")&gt;
-method = &lt;function visibility_of_all_elements_located.&lt;locals&gt;._predicate at 0x7fefbff1ab80&gt;
+self = &lt;selenium.webdriver.support.wait.WebDriverWait (session="83fd002d36a04325f52df91618bc1a9b")&gt;
+method = &lt;function visibility_of_all_elements_located.&lt;locals&gt;._predicate at 0x7ff0e3415b80&gt;
 message = ''
 
     def until(self, method, message=''):
@@ -138,9 +138,9 @@ message = ''
 &gt;       raise TimeoutException(message, screen, stacktrace)
 E       selenium.common.exceptions.TimeoutException: Message:
 
-../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:89: TimeoutException</failure></testcase><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_open_explore_repos_dashboard_page" time="32.308"><failure message="selenium.common.exceptions.TimeoutException: Message: &#10;Stacktrace:&#10;#0 0x559b48704f93 &lt;unknown&gt;&#10;#1 0x559b481df908 &lt;unknown&gt;&#10;#2 0x559b4821566a &lt;unknown&gt;&#10;#3 0x559b48247ff4 &lt;unknown&gt;&#10;#4 0x559b48232aad &lt;unknown&gt;&#10;#5 0x559b48245c91 &lt;unknown&gt;&#10;#6 0x559b48232973 &lt;unknown&gt;&#10;#7 0x559b48208df4 &lt;unknown&gt;&#10;#8 0x559b48209de5 &lt;unknown&gt;&#10;#9 0x559b487342be &lt;unknown&gt;&#10;#10 0x559b48749ba0 &lt;unknown&gt;&#10;#11 0x559b48735215 &lt;unknown&gt;&#10;#12 0x559b4874afe8 &lt;unknown&gt;&#10;#13 0x559b487299db &lt;unknown&gt;&#10;#14 0x559b48766218 &lt;unknown&gt;&#10;#15 0x559b48766398 &lt;unknown&gt;&#10;#16 0x559b487816cd &lt;unknown&gt;&#10;#17 0x7f3b1b5e5609 &lt;unknown&gt;">self = &lt;tests.github_dashoboard_test.TestGitHubDashboard object at 0x7fefbfeef310&gt;
-web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="339e53afd6222e43d46ec918a489853e")&gt;
-github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7fefbffdcf10&gt;
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:89: TimeoutException</failure></testcase><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_open_explore_repos_dashboard_page" time="32.718"><failure message="selenium.common.exceptions.TimeoutException: Message: &#10;Stacktrace:&#10;#0 0x558b5f904f93 &lt;unknown&gt;&#10;#1 0x558b5f3df908 &lt;unknown&gt;&#10;#2 0x558b5f41566a &lt;unknown&gt;&#10;#3 0x558b5f447ff4 &lt;unknown&gt;&#10;#4 0x558b5f432aad &lt;unknown&gt;&#10;#5 0x558b5f445c91 &lt;unknown&gt;&#10;#6 0x558b5f432973 &lt;unknown&gt;&#10;#7 0x558b5f408df4 &lt;unknown&gt;&#10;#8 0x558b5f409de5 &lt;unknown&gt;&#10;#9 0x558b5f9342be &lt;unknown&gt;&#10;#10 0x558b5f949ba0 &lt;unknown&gt;&#10;#11 0x558b5f935215 &lt;unknown&gt;&#10;#12 0x558b5f94afe8 &lt;unknown&gt;&#10;#13 0x558b5f9299db &lt;unknown&gt;&#10;#14 0x558b5f966218 &lt;unknown&gt;&#10;#15 0x558b5f966398 &lt;unknown&gt;&#10;#16 0x558b5f9816cd &lt;unknown&gt;&#10;#17 0x7fdd87e56609 &lt;unknown&gt;">self = &lt;tests.github_dashoboard_test.TestGitHubDashboard object at 0x7ff0e33e9310&gt;
+web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="83fd002d36a04325f52df91618bc1a9b")&gt;
+github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7ff0e34d5f70&gt;
 search_and_open_repo = None
 
     def test_open_explore_repos_dashboard_page(self, web_driver, github_dashboard_page, search_and_open_repo):
@@ -156,8 +156,8 @@ pages/base_page.py:16: in _wait_for_visible_element
     return WebDriverWait(self.driver, time_seconds).until(EC.visibility_of_element_located(by_locator))
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = &lt;selenium.webdriver.support.wait.WebDriverWait (session="339e53afd6222e43d46ec918a489853e")&gt;
-method = &lt;function visibility_of_element_located.&lt;locals&gt;._predicate at 0x7fefbff33a60&gt;
+self = &lt;selenium.webdriver.support.wait.WebDriverWait (session="83fd002d36a04325f52df91618bc1a9b")&gt;
+method = &lt;function visibility_of_element_located.&lt;locals&gt;._predicate at 0x7ff0e342da60&gt;
 message = ''
 
     def until(self, method, message=''):
@@ -189,23 +189,23 @@ message = ''
 &gt;       raise TimeoutException(message, screen, stacktrace)
 E       selenium.common.exceptions.TimeoutException: Message: 
 E       Stacktrace:
-E       #0 0x559b48704f93 &lt;unknown&gt;
-E       #1 0x559b481df908 &lt;unknown&gt;
-E       #2 0x559b4821566a &lt;unknown&gt;
-E       #3 0x559b48247ff4 &lt;unknown&gt;
-E       #4 0x559b48232aad &lt;unknown&gt;
-E       #5 0x559b48245c91 &lt;unknown&gt;
-E       #6 0x559b48232973 &lt;unknown&gt;
-E       #7 0x559b48208df4 &lt;unknown&gt;
-E       #8 0x559b48209de5 &lt;unknown&gt;
-E       #9 0x559b487342be &lt;unknown&gt;
-E       #10 0x559b48749ba0 &lt;unknown&gt;
-E       #11 0x559b48735215 &lt;unknown&gt;
-E       #12 0x559b4874afe8 &lt;unknown&gt;
-E       #13 0x559b487299db &lt;unknown&gt;
-E       #14 0x559b48766218 &lt;unknown&gt;
-E       #15 0x559b48766398 &lt;unknown&gt;
-E       #16 0x559b487816cd &lt;unknown&gt;
-E       #17 0x7f3b1b5e5609 &lt;unknown&gt;
+E       #0 0x558b5f904f93 &lt;unknown&gt;
+E       #1 0x558b5f3df908 &lt;unknown&gt;
+E       #2 0x558b5f41566a &lt;unknown&gt;
+E       #3 0x558b5f447ff4 &lt;unknown&gt;
+E       #4 0x558b5f432aad &lt;unknown&gt;
+E       #5 0x558b5f445c91 &lt;unknown&gt;
+E       #6 0x558b5f432973 &lt;unknown&gt;
+E       #7 0x558b5f408df4 &lt;unknown&gt;
+E       #8 0x558b5f409de5 &lt;unknown&gt;
+E       #9 0x558b5f9342be &lt;unknown&gt;
+E       #10 0x558b5f949ba0 &lt;unknown&gt;
+E       #11 0x558b5f935215 &lt;unknown&gt;
+E       #12 0x558b5f94afe8 &lt;unknown&gt;
+E       #13 0x558b5f9299db &lt;unknown&gt;
+E       #14 0x558b5f966218 &lt;unknown&gt;
+E       #15 0x558b5f966398 &lt;unknown&gt;
+E       #16 0x558b5f9816cd &lt;unknown&gt;
+E       #17 0x7fdd87e56609 &lt;unknown&gt;
 
 ../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:89: TimeoutException</failure></testcase></testsuite></testsuites>
