@@ -39,10 +39,10 @@ class TestGitHubDashboard:
         github_dashboard_page.click_continue_yourself_button() \
             .click_commit_new_file_button() \
             .get_file_web_element_by_file_name("README.md")
+        print(web_driver.page_source)
         repo = github_dashboard_page.open_url() \
             .repositories_list \
             .get_repo_by_name(Secrets.USERNAME, Secrets.USERNAME)
-        print(web_driver.page_source)
         assert_that(repo, not_none())
 
     def test_open_explore_repo_from_the_list(self, web_driver, github_dashboard_page):
