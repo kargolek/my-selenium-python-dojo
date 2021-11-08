@@ -44,6 +44,10 @@ class TestGitHubDashboard:
         #     .repositories_list \
         #     .get_repo_by_name(Secrets.USERNAME, Secrets.USERNAME)
         # assert_that(repo, not_none())
+
+        github_dashboard_page.open_url() \
+            .repositories_list \
+            .get_repo_by_name(Secrets.USERNAME, Secrets.USERNAME)
         github_dashboard_page.open_url().repositories_list.click_first_repo_on_repositories()
 
     def test_open_explore_repo_from_the_list(self, web_driver, github_dashboard_page, search_and_open_repo):
