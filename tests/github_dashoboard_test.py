@@ -49,7 +49,7 @@ class TestGitHubDashboard:
             .click_first_explore_repo_item()
         assert_that(repo_page.content_list_page.is_content_container_visible(), equal_to(True))
 
-    def test_open_explore_repos_dashboard_page(self, web_driver, github_dashboard_page):
+    def test_open_explore_repos_dashboard_page(self, web_driver, github_dashboard_page, search_and_open_repo):
         explore_dashboard_page = github_dashboard_page.open_url() \
             .explore_repos_page \
             .click_explore_more()

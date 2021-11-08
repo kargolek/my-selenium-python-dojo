@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 from pages.github_pages.dashboard.repository_dashboard.explore_repos_page import ExploreReposPage
 from pages.github_pages.dashboard.repository_dashboard.repositories_page import RepositoriesListPage
+from pages.github_pages.github_main_bar_page import GitHubMainBarPage
 from pages.github_pages.repository.code.edit_mode.github_edit_mode_page import GitHubEditModePage
 
 
@@ -20,6 +21,7 @@ class GitHubDashboardPage(BasePage):
         super().__init__(driver)
         self.repositories_list = RepositoriesListPage(driver)
         self.explore_repos_page = ExploreReposPage(driver)
+        self.top_main_bar = GitHubMainBarPage(driver)
         self.baseUrl = "https://github.com"
 
     def open_url(self):

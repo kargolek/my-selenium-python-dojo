@@ -155,3 +155,13 @@ def delete_all_repos(web_driver, github_dashboard_page, github_confirm_password_
 def delete_all_repos_after_all_tests(web_driver, github_dashboard_page, github_confirm_password_page):
     yield
     delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page)
+
+
+@pytest.fixture()
+def search_and_open_repo(web_driver, github_dashboard_page):
+    github_dashboard_page.open_url() \
+        .top_main_bar \
+        .input_text_to_search("Python") \
+        .click_first_repo_result() \
+        .content_list_page \
+        .is_content_container_visible()
