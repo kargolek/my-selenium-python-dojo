@@ -42,6 +42,7 @@ class TestGitHubDashboard:
         repo = github_dashboard_page.open_url() \
             .repositories_list \
             .get_repo_by_name(Secrets.USERNAME, Secrets.USERNAME)
+        print(web_driver.page_source)
         assert_that(repo, not_none())
 
     def test_open_explore_repo_from_the_list(self, web_driver, github_dashboard_page):
