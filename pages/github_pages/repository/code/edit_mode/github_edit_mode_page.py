@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
 from pages.github_pages.repository.code.github_content_list_page import GitHubContentListPage
+from utilities.logger.test_logger.test_step import TestStep
 
 
 class GitHubEditModePage(BasePage):
@@ -11,6 +12,7 @@ class GitHubEditModePage(BasePage):
     def __init__(self, driver: webdriver):
         super().__init__(driver)
 
+    @TestStep.step
     def click_commit_new_file_button(self):
         self._wait_for_visible_element(self.COMMIT_FILE_BUTTON, 5).click()
         return GitHubContentListPage(self.driver)
