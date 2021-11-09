@@ -10,6 +10,7 @@ class ExploreReposPage(BasePage):
     REPOSITORIES_ITEMS = \
         (By.XPATH, ".//aside[contains(@class, 'team-left-column')]//a[contains(@class, 'text-bold Link--primary')]")
     EXPLORE_MORE_BUTTON = (By.XPATH, ".//a[@href='/explore' and contains(text(), 'Explore more')]")
+    EXPLORE_BUTTON = (By.XPATH, ".//a[@class='btn btn-outline mt-2']")
 
     def __init__(self, driver: webdriver):
         super().__init__(driver)
@@ -20,4 +21,8 @@ class ExploreReposPage(BasePage):
 
     def click_explore_more(self):
         super()._wait_for_visible_element(self.EXPLORE_MORE_BUTTON, 10).click()
+        return GitHubExploreDashboardPage(self.driver)
+
+    def click_activities_explore_button(self):
+        super()._wait_for_visible_element(self.EXPLORE_BUTTON, 10).click()
         return GitHubExploreDashboardPage(self.driver)
