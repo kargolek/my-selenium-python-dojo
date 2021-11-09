@@ -5,6 +5,7 @@ from pages.github_pages.dashboard.repository_dashboard.explore_repos_page import
 from pages.github_pages.dashboard.repository_dashboard.repositories_page import RepositoriesListPage
 from pages.github_pages.github_main_bar_page import GitHubMainBarPage
 from pages.github_pages.repository.code.edit_mode.github_edit_mode_page import GitHubEditModePage
+from utilities.logger.test_logger.test_step import TestStep
 
 
 class GitHelloWorldLandPage(BasePage):
@@ -24,17 +25,21 @@ class GitHubDashboardPage(BasePage):
         self.top_main_bar = GitHubMainBarPage(driver)
         self.baseUrl = "https://github.com"
 
+    @TestStep.step
     def open_url(self):
         self.driver.get(self.baseUrl)
         return self
 
+    @TestStep.step
     def get_read_guide_button(self):
         return super()._wait_for_visible_element(self.READ_GUIDE_BUTTON, 10)
 
+    @TestStep.step
     def click_read_guid_button(self):
         self.get_read_guide_button().click()
         return GitHelloWorldLandPage(self.driver)
 
+    @TestStep.step
     def click_continue_yourself_button(self):
         super()._wait_for_visible_element(self.INTRODUCE_CONTINUE_BUTTON, 5).click()
         return GitHubEditModePage(self.driver)

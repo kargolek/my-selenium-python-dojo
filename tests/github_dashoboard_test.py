@@ -2,6 +2,7 @@ import pytest
 from hamcrest import assert_that, equal_to, not_none
 
 from utilities.credentials.secrets import Secrets
+from utilities.logger.logger import Logger
 
 
 @pytest.mark.usefixtures("login_to_github_account", "set_cookies", "add_cookies", "delete_all_repos_after_all_tests")
@@ -30,7 +31,6 @@ class TestGitHubDashboard:
             .click_read_guid_button()
         web_driver.switch_to.window(web_driver.window_handles[1])
         is_guide_url = github_guid_land_page.is_driver_set_proper_url()
-        print(f"CURRENT URL: {web_driver.current_url}")
         web_driver.close()
         web_driver.switch_to.window(web_driver.window_handles[0])
         assert_that(is_guide_url, equal_to(True))
