@@ -1,1 +1,74 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="10" time="192.318" timestamp="2021-11-09T13:09:23.197498" hostname="fv-az77-654"><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_is_git_repo_list_available" time="11.330" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_create_new_repo" time="10.753" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_import_repo_page" time="5.107" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_hello_world_read_guide_page" time="1.646" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_create_repo_form_introduce_yourself_activity" time="9.626" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_open_explore_repos_dashboard_page" time="1.910" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_find_repo_by_exact_name_one_match" time="25.077" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_find_repo_by_partial_name_one_match" time="33.597" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_find_repo_by_partial_name_multi_match" time="33.090" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_find_repo_by_partial_name_not_match" time="57.490" /></testsuite></testsuites>
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="1" failures="0" skipped="0" tests="10" time="164.229" timestamp="2021-11-09T13:14:59.341206" hostname="fv-az28-213"><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_is_git_repo_list_available" time="10.570" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_create_new_repo" time="4.969" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_import_repo_page" time="4.848" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_hello_world_read_guide_page" time="1.157" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_create_repo_form_introduce_yourself_activity" time="8.186" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_open_explore_repos_dashboard_page" time="1.666" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_find_repo_by_exact_name_one_match" time="21.460"><error message="failed on setup with &quot;selenium.common.exceptions.TimeoutException: Message: &#10;Stacktrace:&#10;#0 0x556c0208cf93 &lt;unknown&gt;&#10;#1 0x556c01b67908 &lt;unknown&gt;&#10;#2 0x556c01b9d66a &lt;unknown&gt;&#10;#3 0x556c01bcfff4 &lt;unknown&gt;&#10;#4 0x556c01bbaaad &lt;unknown&gt;&#10;#5 0x556c01bcdc91 &lt;unknown&gt;&#10;#6 0x556c01bba973 &lt;unknown&gt;&#10;#7 0x556c01b90df4 &lt;unknown&gt;&#10;#8 0x556c01b91de5 &lt;unknown&gt;&#10;#9 0x556c020bc2be &lt;unknown&gt;&#10;#10 0x556c020d1ba0 &lt;unknown&gt;&#10;#11 0x556c020bd215 &lt;unknown&gt;&#10;#12 0x556c020d2fe8 &lt;unknown&gt;&#10;#13 0x556c020b19db &lt;unknown&gt;&#10;#14 0x556c020ee218 &lt;unknown&gt;&#10;#15 0x556c020ee398 &lt;unknown&gt;&#10;#16 0x556c021096cd &lt;unknown&gt;&#10;#17 0x7fa9e2e23609 &lt;unknown&gt;&quot;">web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="b72a81a4fa4a546f9db502a71d88c4be")&gt;
+github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7f42e6520d60&gt;
+delete_all_repos = None
+
+    @pytest.fixture()
+    def create_repos_test_1_and_test_2(web_driver, github_dashboard_page, delete_all_repos):
+        for i in range(1, 3):
+&gt;           github_dashboard_page.open_url() \
+                .repositories_list \
+                .click_create_repository() \
+                .input_repo_name(f"test_{i}") \
+                .click_create_repository_button().settings_tab()
+
+tests/conftest.py:175: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+pages/github_pages/repository/github_repo_main_page.py:17: in settings_tab
+    return self._wait_for_visible_element(self.SETTINGS_TAB, 5)
+pages/base_page.py:16: in _wait_for_visible_element
+    return WebDriverWait(self.driver, time_seconds).until(EC.visibility_of_element_located(by_locator))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;selenium.webdriver.support.wait.WebDriverWait (session="b72a81a4fa4a546f9db502a71d88c4be")&gt;
+method = &lt;function visibility_of_element_located.&lt;locals&gt;._predicate at 0x7f42e65c54c0&gt;
+message = ''
+
+    def until(self, method, message=''):
+        """Calls the method provided with the driver as an argument until the \
+        return value does not evaluate to ``False``.
+    
+        :param method: callable(WebDriver)
+        :param message: optional message for :exc:`TimeoutException`
+        :returns: the result of the last call to `method`
+        :raises: :exc:`selenium.common.exceptions.TimeoutException` if timeout occurs
+        """
+        screen = None
+        stacktrace = None
+    
+        end_time = time.time() + self._timeout
+        while True:
+            try:
+                value = method(self._driver)
+                if value:
+                    return value
+            except InvalidSelectorException as e:
+                raise e
+            except self._ignored_exceptions as exc:
+                screen = getattr(exc, 'screen', None)
+                stacktrace = getattr(exc, 'stacktrace', None)
+            time.sleep(self._poll)
+            if time.time() &gt; end_time:
+                break
+&gt;       raise TimeoutException(message, screen, stacktrace)
+E       selenium.common.exceptions.TimeoutException: Message: 
+E       Stacktrace:
+E       #0 0x556c0208cf93 &lt;unknown&gt;
+E       #1 0x556c01b67908 &lt;unknown&gt;
+E       #2 0x556c01b9d66a &lt;unknown&gt;
+E       #3 0x556c01bcfff4 &lt;unknown&gt;
+E       #4 0x556c01bbaaad &lt;unknown&gt;
+E       #5 0x556c01bcdc91 &lt;unknown&gt;
+E       #6 0x556c01bba973 &lt;unknown&gt;
+E       #7 0x556c01b90df4 &lt;unknown&gt;
+E       #8 0x556c01b91de5 &lt;unknown&gt;
+E       #9 0x556c020bc2be &lt;unknown&gt;
+E       #10 0x556c020d1ba0 &lt;unknown&gt;
+E       #11 0x556c020bd215 &lt;unknown&gt;
+E       #12 0x556c020d2fe8 &lt;unknown&gt;
+E       #13 0x556c020b19db &lt;unknown&gt;
+E       #14 0x556c020ee218 &lt;unknown&gt;
+E       #15 0x556c020ee398 &lt;unknown&gt;
+E       #16 0x556c021096cd &lt;unknown&gt;
+E       #17 0x7fa9e2e23609 &lt;unknown&gt;
+
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:89: TimeoutException</error></testcase><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_find_repo_by_partial_name_one_match" time="22.491" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_find_repo_by_partial_name_multi_match" time="31.953" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_find_repo_by_partial_name_not_match" time="54.729" /></testsuite></testsuites>
