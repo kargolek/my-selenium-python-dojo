@@ -5,7 +5,6 @@ from pages.base_page import BasePage
 
 
 class GitHubContentListPage(BasePage):
-
     CONTENT_CONTAINER = (By.XPATH, ".//div[@role='grid' and @aria-labelledby='files']")
 
     def __init__(self, driver: webdriver):

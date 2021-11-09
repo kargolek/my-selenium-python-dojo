@@ -21,7 +21,7 @@ class TestGitHubDashboard:
     def test_should_open_import_repo_page(self, web_driver, github_dashboard_page, delete_all_repos):
         import_button = github_dashboard_page.open_url() \
             .repositories_list.click_import_repository() \
-            .get_begin_import_button()
+            .get_vcs_url_input()
         assert_that(web_driver.current_url, "https://github.com/new/import")
         assert_that(import_button, not_none())
 

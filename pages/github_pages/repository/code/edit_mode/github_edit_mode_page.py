@@ -6,7 +6,6 @@ from pages.github_pages.repository.code.github_content_list_page import GitHubCo
 
 
 class GitHubEditModePage(BasePage):
-
     COMMIT_FILE_BUTTON = (By.ID, "submit-file")
 
     def __init__(self, driver: webdriver):
@@ -15,6 +14,3 @@ class GitHubEditModePage(BasePage):
     def click_commit_new_file_button(self):
         self._wait_for_visible_element(self.COMMIT_FILE_BUTTON, 5).click()
         return GitHubContentListPage(self.driver)
-
-
-

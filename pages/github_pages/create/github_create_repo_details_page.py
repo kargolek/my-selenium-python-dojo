@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 
 
-class GitHubRepositoryDetailsPage(BasePage):
+class GitHubCreateRepoDetailsPage(BasePage):
     REPO_OWNER_DROPDOWN = (By.ID, "repository-owner")
     REPO_NAME_INPUT = (By.ID, "repository_name")
     PRIVACY_PUBLIC_CHECKBOX = (By.ID, "repository_visibility_public")

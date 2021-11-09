@@ -2,15 +2,15 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
-from pages.github_pages.github_create_new_repository_page import GitHubCreateNewGitHubRepositoryPage
-from pages.github_pages.github_import_repository_page import GitHubImportGitHubRepositoryPage
+from pages.github_pages.create.import_page.github_import_repo_page import GitHubImportRepoPage
+from pages.github_pages.create.new.github_create_new_repo_page import GitHubCreateNewCreateRepoPage
 from pages.github_pages.repository.github_repo_main_page import GitHubRepoMainPage
 
 
 class RepositoriesListPage(BasePage):
     REPO_CONTAINER = (By.ID, "dashboard-repos-container")
     CREATE_REPOSITORY_BUTTON = (By.XPATH, ".//div[@id='repos-container']//a[@href='/new']")
-    IMPORT_REPOSITORY_BUTTON = (By.XPATH, ".//a[@href='/new/import' and text()='Import repository']")
+    IMPORT_REPOSITORY_BUTTON = (By.LINK_TEXT, "Import repository")
     REPO_ITEMS = (By.XPATH, ".//aside//div[@class='wb-break-word']//a[@href]")
     FIND_REPO_INPUT = (By.ID, "dashboard-repos-filter-left")
 
@@ -23,11 +23,11 @@ class RepositoriesListPage(BasePage):
 
     def click_create_repository(self):
         super()._wait_for_visible_element(self.CREATE_REPOSITORY_BUTTON, 10).click()
-        return GitHubCreateNewGitHubRepositoryPage(self.driver)
+        return GitHubCreateNewCreateRepoPage(self.driver)
 
     def click_import_repository(self):
         super()._wait_for_visible_element(self.IMPORT_REPOSITORY_BUTTON, 10).click()
-        return GitHubImportGitHubRepositoryPage(self.driver)
+        return GitHubImportRepoPage(self.driver)
 
     def get_locator_repo_name(self, account_name, repo_name):
         self.locator_repo_name = \
