@@ -15,7 +15,7 @@ class GitHubMainBarPage(BasePage):
         super().__init__(driver)
 
     def is_user_menu_available(self):
-        return super()._is_element_presence_after_wait(self.USER_MENU_BUTTON, 5)
+        return super()._is_one_element_presence_after_wait(self.USER_MENU_BUTTON, 5)
 
     def click_sign_out_button(self):
         super()._wait_for_visible_element(self.USER_MENU_BUTTON, 10).click()

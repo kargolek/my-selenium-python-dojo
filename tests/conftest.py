@@ -167,3 +167,13 @@ def search_and_open_repo(web_driver, github_dashboard_page):
         .content_list_page \
         .is_content_container_visible()
     assert_that(is_content_opened, equal_to(True))
+
+
+@pytest.fixture()
+def create_repos_test_1_and_test_2(web_driver, github_dashboard_page, delete_all_repos):
+    for i in range(1, 3):
+        github_dashboard_page.open_url() \
+            .repositories_list \
+            .click_create_repository() \
+            .input_repo_name(f"test_{i}") \
+            .click_create_repository_button().settings_tab()

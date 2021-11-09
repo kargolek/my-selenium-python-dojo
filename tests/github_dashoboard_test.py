@@ -14,7 +14,7 @@ class TestGitHubDashboard:
     def test_should_open_create_new_repo(self, web_driver, github_dashboard_page, delete_all_repos):
         create_repo_button = github_dashboard_page.open_url() \
             .repositories_list.click_create_repository() \
-            .get_create_repository_button()
+            .get_repo_name_input()
         assert_that(web_driver.current_url, "https://github.com/new")
         assert_that(create_repo_button, not_none())
 
@@ -25,7 +25,7 @@ class TestGitHubDashboard:
         assert_that(web_driver.current_url, "https://github.com/new/import")
         assert_that(import_button, not_none())
 
-    def test_should_open_hello_world_page(self, web_driver, github_dashboard_page, github_guid_land_page):
+    def test_should_open_hello_world_read_guide_page(self, web_driver, github_dashboard_page, github_guid_land_page):
         github_dashboard_page.open_url() \
             .click_read_guid_button()
         web_driver.switch_to.window(web_driver.window_handles[1])
@@ -50,3 +50,43 @@ class TestGitHubDashboard:
             .explore_repos_page \
             .click_activities_explore_button()
         assert_that(explore_dashboard_page.get_account_name(Secrets.USERNAME), not_none())
+
+    def test_find_repo_by_exact_name_one_match(self, github_dashboard_page, create_repos_test_1_and_test_2):
+        github_dashboard_page.open_url() \
+            .repositories_list \
+            .input_text_find_repo("test_1")
+
+        assert_that(github_dashboard_page.repositories_list.is_repo_name_invisible_on_the_list(
+            Secrets.USERNAME, "test_2"), equal_to(True))
+        assert_that(github_dashboard_page.repositories_list.is_repo_name_exist_on_the_list(Secrets.USERNAME, "test_1"),
+                    equal_to(True))
+
+    def test_find_repo_by_partial_name_one_match(self, github_dashboard_page, create_repos_test_1_and_test_2):
+        github_dashboard_page.open_url() \
+            .repositories_list \
+            .input_text_find_repo("t_2")
+
+        assert_that(github_dashboard_page.repositories_list.is_repo_name_invisible_on_the_list(
+            Secrets.USERNAME, "test_1"), equal_to(True))
+        assert_that(github_dashboard_page.repositories_list.is_repo_name_exist_on_the_list(Secrets.USERNAME, "test_2"),
+                    equal_to(True))
+
+    def test_find_repo_by_partial_name_multi_match(self, github_dashboard_page, create_repos_test_1_and_test_2):
+        github_dashboard_page.open_url() \
+            .repositories_list \
+            .input_text_find_repo("test")
+
+        assert_that(github_dashboard_page.repositories_list.is_repo_name_exist_on_the_list(Secrets.USERNAME, "test_1"),
+                    equal_to(True))
+        assert_that(github_dashboard_page.repositories_list.is_repo_name_exist_on_the_list(Secrets.USERNAME, "test_2"),
+                    equal_to(True))
+
+    def test_find_repo_by_partial_name_not_match(self, github_dashboard_page, create_repos_test_1_and_test_2):
+        github_dashboard_page.open_url() \
+            .repositories_list \
+            .input_text_find_repo("test34")
+
+        assert_that(github_dashboard_page.repositories_list.is_repo_name_invisible_on_the_list(
+            Secrets.USERNAME, "test_1"), equal_to(True))
+        assert_that(github_dashboard_page.repositories_list.is_repo_name_invisible_on_the_list(
+            Secrets.USERNAME, "test_2"), equal_to(True))

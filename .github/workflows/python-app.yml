@@ -22,10 +22,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install pytest
         pip install -r requirements.txt;
-    - name: Sleep for 15s
-      uses: juliangruber/sleep-action@v1
-      with:
-        time: 15s
     - name: Check hub status
       run: |
         curl -L http://localhost:4444/wd/hub/status

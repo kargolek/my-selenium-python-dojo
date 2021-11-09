@@ -18,9 +18,23 @@ class BasePage:
     def _wait_for_clickable_element(self, by_locator, time_seconds) -> WebElement:
         return WebDriverWait(self.driver, time_seconds).until(EC.element_to_be_clickable(by_locator))
 
-    def _is_element_presence_after_wait(self, by_locator, time_seconds) -> bool:
+    def _is_one_element_presence_after_wait(self, by_locator, time_seconds) -> bool:
         try:
             WebDriverWait(self.driver, time_seconds).until(EC.presence_of_element_located(by_locator))
+            return True
+        except TimeoutException:
+            return False
+
+    def _is_one_element_visible_after_wait(self, by_locator, time_seconds) -> bool:
+        try:
+            WebDriverWait(self.driver, time_seconds).until(EC.visibility_of_element_located(by_locator))
+            return True
+        except TimeoutException:
+            return False
+
+    def _is_one_element_invisible_after_wait(self, by_locator, time_seconds) -> bool:
+        try:
+            WebDriverWait(self.driver, time_seconds).until(EC.invisibility_of_element_located(by_locator))
             return True
         except TimeoutException:
             return False

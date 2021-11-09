@@ -1,5 +1,3 @@
-import time
-
 from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
@@ -17,7 +15,7 @@ class GitHelloWorldLandPage(BasePage):
 
 class GitHubDashboardPage(BasePage):
     INTRODUCE_CONTINUE_BUTTON = (By.XPATH, ".//form[@class='button_to']//input[@value='Continue']")
-    READ_GUIDE_BUTTON = (By.XPATH, ".//a[@class='btn btn-primary mr-2' and text()='Read the guide']")
+    READ_GUIDE_BUTTON = (By.LINK_TEXT, "Read the guide")
 
     def __init__(self, driver):
         super().__init__(driver)

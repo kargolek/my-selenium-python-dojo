@@ -23,3 +23,7 @@ class GitHubRepositoryDetailsPage(BasePage):
 
     def get_privacy_private_checkbox(self):
         return super()._wait_for_visible_element(self.PRIVACY_PRIVATE_CHECKBOX, 10)
+
+    def input_repo_name(self, repo_name):
+        self.get_repo_name_input().send_keys(repo_name)
+        return self

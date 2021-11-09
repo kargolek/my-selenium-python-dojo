@@ -12,7 +12,7 @@ class GitHubConfirmPasswordPage(BasePage):
         super().__init__(driver)
 
     def is_password_input_exist(self):
-        return self._is_element_presence_after_wait(self.PASSWORD_INPUT, 5)
+        return self._is_one_element_presence_after_wait(self.PASSWORD_INPUT, 5)
 
     def input_password(self, password: str):
         self._wait_for_visible_element(self.PASSWORD_INPUT, 5).send_keys(password)
