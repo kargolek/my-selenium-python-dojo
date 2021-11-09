@@ -39,7 +39,6 @@ class RepositoriesListPage(BasePage):
         return super()._wait_for_visible_element(self.get_locator_repo_name(account_name, repo_name), 5)
 
     def is_repo_name_exist_on_the_list(self, account_name: str, repo_name: str):
-        print(f"/{account_name}/{repo_name}")
         return super()._is_one_element_visible_after_wait(self.get_locator_repo_name(account_name, repo_name), 5)
 
     def is_repo_name_invisible_on_the_list(self, account_name, repo_name):
