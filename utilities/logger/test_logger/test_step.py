@@ -10,17 +10,17 @@ _TFunc = TypeVar("_TFunc", bound=Callable[..., Any])
 logger = Logger.prepare_logger()
 
 
-def test_step(title):
-    if callable(title):
-        return StepContext(title.__name__, {})(title)
+def test_step(arg):
+    if callable(arg):
+        return StepContext(arg.__name__, {})(arg)
     else:
-        return StepContext(title, {})
+        return StepContext(arg, {})
 
 
 class StepContext:
 
-    def __init__(self, title, params):
-        self.title = title
+    def __init__(self, arg, params):
+        self.title = arg
         self.params = params
 
     def __call__(self, func: _TFunc) -> _TFunc:
