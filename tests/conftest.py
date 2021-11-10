@@ -5,6 +5,7 @@ import pytest
 from hamcrest import assert_that, equal_to
 from selenium import webdriver
 
+from pages.github_pages.create.new.github_create_new_repo_page import GitHubCreateNewRepoPage
 from pages.github_pages.dashboard.github_dashboard_page import GitHubDashboardPage
 from pages.github_pages.github_device_verification_page import GitHubDeviceVerificationPage
 from pages.github_pages.github_login_page import GitHubLoginPage
@@ -15,6 +16,7 @@ from utilities.credentials.secrets import Secrets
 from utilities.datetime.date_time import get_naive_utc_current_dt
 from utilities.driver.driver_factory import DriverFactory
 from utilities.driver.driver_utils import DriverUtils
+from utilities.generator.random_data import generate_random_string
 
 GITHUB_COM = "https://github.com"
 
@@ -84,11 +86,6 @@ def login_to_github_account(web_driver):
     return login_page
 
 
-@pytest.fixture(scope="class")
-def github_main_bar_page(web_driver):
-    return GitHubMainBarPage(web_driver)
-
-
 @pytest.fixture
 def sign_out_github(github_main_bar_page):
     yield github_main_bar_page
@@ -108,6 +105,11 @@ def add_cookies(web_driver):
     web_driver.get(GITHUB_COM)
     DriverUtils(web_driver).add_cookie(COOKIES, {"name": "__Host-user_session_same_site"})
     web_driver.refresh()
+
+
+@pytest.fixture(scope="class")
+def github_main_bar_page(web_driver):
+    return GitHubMainBarPage(web_driver)
 
 
 @pytest.fixture(scope="session")
@@ -133,6 +135,11 @@ def github_guid_land_page(web_driver):
 @pytest.fixture(scope="session")
 def github_confirm_password_page(web_driver):
     return GitHubConfirmPasswordPage(web_driver)
+
+
+@pytest.fixture(scope="session")
+def github_create_new_repo_page(web_driver):
+    return GitHubCreateNewRepoPage(web_driver)
 
 
 def delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page):
@@ -177,3 +184,8 @@ def create_repos_test_1_and_test_2(web_driver, github_dashboard_page, delete_all
             .click_create_repository() \
             .input_repo_name(f"test_{i}") \
             .click_create_repository_button().settings_tab()
+
+
+@pytest.fixture()
+def random_string():
+    return generate_random_string()

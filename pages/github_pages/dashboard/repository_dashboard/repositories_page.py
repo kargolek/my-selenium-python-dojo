@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
 from pages.github_pages.create.import_page.github_import_repo_page import GitHubImportRepoPage
-from pages.github_pages.create.new.github_create_new_repo_page import GitHubCreateNewCreateRepoPage
+from pages.github_pages.create.new.github_create_new_repo_page import GitHubCreateNewRepoPage
 from pages.github_pages.repository.github_repo_main_page import GitHubRepoMainPage
 from utilities.logger.test_logger.test_step import TestStep
 
@@ -26,7 +26,7 @@ class RepositoriesListPage(BasePage):
     @TestStep.step
     def click_create_repository(self):
         super()._wait_for_visible_element(self.CREATE_REPOSITORY_BUTTON, 10).click()
-        return GitHubCreateNewCreateRepoPage(self.driver)
+        return GitHubCreateNewRepoPage(self.driver)
 
     @TestStep.step
     def click_import_repository(self):

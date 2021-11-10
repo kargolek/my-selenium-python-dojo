@@ -5,7 +5,7 @@ from pages.github_pages.repository.github_repo_main_page import GitHubRepoMainPa
 from utilities.logger.test_logger.test_step import TestStep
 
 
-class GitHubCreateNewCreateRepoPage(GitHubCreateRepoDetailsPage):
+class GitHubCreateNewRepoPage(GitHubCreateRepoDetailsPage):
     CREATE_REPOSITORY_BUTTON = (By.XPATH, ".//button[@type='submit' and contains(text(), 'Create repository')]")
 
     def __init__(self, driver):
@@ -15,7 +15,7 @@ class GitHubCreateNewCreateRepoPage(GitHubCreateRepoDetailsPage):
     @TestStep.step
     def open_url(self):
         self.driver.get(self.baseUrl)
-        return self
+        return GitHubCreateNewRepoPage(self.driver)
 
     @TestStep.step
     def get_create_repository_button(self):
