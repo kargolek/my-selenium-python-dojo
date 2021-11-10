@@ -1,5 +1,5 @@
 import time
-from collections import Callable
+from typing import Callable
 from functools import wraps
 from typing import TypeVar, Any
 
