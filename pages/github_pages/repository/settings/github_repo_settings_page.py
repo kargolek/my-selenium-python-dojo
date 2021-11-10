@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
 from pages.github_pages.repository.settings.github_settings_options_page import GitHubSettingsOptionsPage
-from utilities.logger.test_logger.test_step import TestStep
+from utilities.logger.test_logger.test_step import step
 
 
 class GitHubRepoSettingsPage(BasePage):
@@ -14,11 +14,11 @@ class GitHubRepoSettingsPage(BasePage):
     def __init__(self, driver: webdriver):
         super().__init__(driver)
 
-    @TestStep.step
+    @step
     def options_side_setting(self):
         return self._wait_for_visible_element(self.OPTIONS_SIDE_SETTING, 10)
 
-    @TestStep.step
+    @step
     def click_options_side_setting(self):
         self.options_side_setting().click()
         time.sleep(2)
