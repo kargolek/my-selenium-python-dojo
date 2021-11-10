@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 
 from pages.github_pages.create.github_create_repo_details_page import GitHubCreateRepoDetailsPage
 from pages.github_pages.repository.github_repo_main_page import GitHubRepoMainPage
-from utilities.logger.test_logger.test_step import TestStep
+from utilities.logger.test_logger.test_step import test_step
 
 
 class GitHubCreateNewCreateRepoPage(GitHubCreateRepoDetailsPage):
@@ -12,16 +12,16 @@ class GitHubCreateNewCreateRepoPage(GitHubCreateRepoDetailsPage):
         super().__init__(driver)
         self.baseUrl = "https://github.com/new"
 
-    @TestStep.step
+    @test_step
     def open_url(self):
         self.driver.get(self.baseUrl)
         return self
 
-    @TestStep.step
+    @test_step
     def get_create_repository_button(self):
         return super()._wait_for_clickable_element(self.CREATE_REPOSITORY_BUTTON, 10)
 
-    @TestStep.step
+    @test_step
     def click_create_repository_button(self):
         self.get_create_repository_button().click()
         return GitHubRepoMainPage(self.driver)

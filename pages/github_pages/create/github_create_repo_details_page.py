@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
-from utilities.logger.test_logger.test_step import TestStep
+from utilities.logger.test_logger.test_step import test_step
 
 
 class GitHubCreateRepoDetailsPage(BasePage):
@@ -13,23 +13,23 @@ class GitHubCreateRepoDetailsPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
-    @TestStep.step
+    @test_step
     def get_repo_owner_dropdown(self):
         return super()._wait_for_visible_element(self.REPO_OWNER_DROPDOWN, 10)
 
-    @TestStep.step
+    @test_step
     def get_repo_name_input(self):
         return super()._wait_for_visible_element(self.REPO_NAME_INPUT, 10)
 
-    @TestStep.step
+    @test_step
     def get_privacy_public_checkbox(self):
         return super()._wait_for_visible_element(self.PRIVACY_PUBLIC_CHECKBOX, 10)
 
-    @TestStep.step
+    @test_step
     def get_privacy_private_checkbox(self):
         return super()._wait_for_visible_element(self.PRIVACY_PRIVATE_CHECKBOX, 10)
 
-    @TestStep.step
+    @test_step
     def input_repo_name(self, repo_name):
         self.get_repo_name_input().send_keys(repo_name)
         return self

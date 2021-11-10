@@ -1,21 +1,36 @@
-import logging
 import time
+from collections import Callable
+from functools import wraps
+from typing import TypeVar, Any
 
 from utilities.logger.logger import Logger
 
+_TFunc = TypeVar("_TFunc", bound=Callable[..., Any])
 
-class TestStep:
-    logger = Logger.prepare_logger()
+logger = Logger.prepare_logger()
 
-    @staticmethod
-    def step(func):
-        def print_step(*args, **kwargs):
+
+def test_step(title):
+    if callable(title):
+        return StepContext(title.__name__, {})(title)
+    else:
+        return StepContext(title, {})
+
+
+class StepContext:
+
+    def __init__(self, title, params):
+        self.title = title
+        self.params = params
+
+    def __call__(self, func: _TFunc) -> _TFunc:
+        @wraps(func)
+        def impl(*args, **kw):
             time_start = time.time()
-            result = func(*args, **kwargs)
+            params = func(*args, **kw)
             time_end = time.time()
             method_name = func.__qualname__.replace("_", " ").replace(".", ": ")
-            logging.getLogger("TEST_LOGGER").info(
-                f"Step: {method_name} | time:{round((time_end - time_start) * 1000, 1)}ms")
-            return result
+            logger.info(f"Step: {method_name} | time:{round((time_end - time_start) * 1000, 1)}ms")
+            return params
 
-        return print_step
+        return impl
