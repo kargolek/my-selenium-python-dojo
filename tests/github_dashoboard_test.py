@@ -2,7 +2,6 @@ import pytest
 from hamcrest import assert_that, equal_to, not_none
 
 from utilities.credentials.secrets import Secrets
-from utilities.logger.logger import Logger
 
 
 @pytest.mark.usefixtures("login_to_github_account", "set_cookies", "add_cookies", "delete_all_repos_after_all_tests")

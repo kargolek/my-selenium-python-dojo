@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
-from utilities.logger.test_logger.test_step import test_step
+from utilities.logger.test_logger.test_step import step
 
 
 class GitHubConfirmPasswordPage(BasePage):
@@ -12,21 +12,21 @@ class GitHubConfirmPasswordPage(BasePage):
     def __init__(self, driver: webdriver):
         super().__init__(driver)
 
-    @test_step
+    @step
     def is_password_input_exist(self):
         return self._is_one_element_presence_after_wait(self.PASSWORD_INPUT, 5)
 
-    @test_step
+    @step
     def input_password(self, password: str):
         self._wait_for_visible_element(self.PASSWORD_INPUT, 5).send_keys(password)
         return self
 
-    @test_step
+    @step
     def click_confirm_button(self):
         self._wait_for_visible_element(self.CONFIRM_BUTTON, 5).click()
         return self
 
-    @test_step
+    @step
     def input_password_if_confirm_necessary(self, password: str):
         if self.is_password_input_exist():
             self.input_password(password)

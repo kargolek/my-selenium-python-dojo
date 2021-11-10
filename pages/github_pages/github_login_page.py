@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
 from pages.github_pages.dashboard.github_dashboard_page import GitHubDashboardPage
-from utilities.logger.test_logger.test_step import test_step
+from utilities.logger.test_logger.test_step import step
 
 
 class GitHubLoginPage(BasePage):
@@ -15,26 +15,26 @@ class GitHubLoginPage(BasePage):
         super().__init__(driver)
         self.github_dashboard_page = GitHubDashboardPage(self.driver)
 
-    @test_step
+    @step
     def input_login(self, login_name):
         super()._wait_for_visible_element(self.LOGIN_FIELD, 10).send_keys(login_name)
         return self
 
-    @test_step
+    @step
     def input_password(self, password):
         super()._wait_for_visible_element(self.PASSWORD_FIELD, 10).send_keys(password)
         return self
 
-    @test_step
+    @step
     def click_sign_in_button(self):
         super()._wait_for_visible_element(self.SIGN_IN_BUTTON, 10).click()
         return self
 
-    @test_step
+    @step
     def is_login_in_error_displayed(self):
         return super()._wait_for_visible_element(self.INCORRECT_LOGIN_PASSWORD, 10).is_displayed()
 
-    @test_step
+    @step
     def sign_in_github_account(self, username, password):
         self.input_login(username)
         self.input_password(password)
