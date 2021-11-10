@@ -429,7 +429,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>index.html</h1>
-    <p>Report generated on 10-Nov-2021 at 20:38:54 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
+    <p>Report generated on 10-Nov-2021 at 21:26:23 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -451,8 +451,8 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <td>Python</td>
         <td>3.8.10</td></tr></table>
     <h2>Summary</h2>
-    <p>10 tests ran in 174.27 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">10 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">1 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>10 tests ran in 185.34 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">10 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -463,356 +463,347 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
           <th class="sortable links" col="links">Links</th></tr>
         <tr hidden="true" id="not-found-message">
           <th colspan="4">No results found. Try to check the filters</th></tr></thead>
-      <tbody class="error results-table-row">
-        <tr>
-          <td class="col-result">Error</td>
-          <td class="col-name">utilities/logger/test_logger/test_step.py::test_step::setup</td>
-          <td class="col-duration">22.94</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log">file /home/runner/work/my-selenium-python-dojo/my-selenium-python-dojo/utilities/logger/test_logger/test_step.py, line 13<br/>  def test_step(arg):<br/><span class="error">E       fixture &#x27;arg&#x27; not found</span><br/>&gt;       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, doctest_namespace, extra, include_metadata_in_junit_xml, metadata, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory<br/>&gt;       use &#x27;pytest --fixtures [testpath]&#x27; for help on them.<br/><br/>/home/runner/work/my-selenium-python-dojo/my-selenium-python-dojo/utilities/logger/test_logger/test_step.py:13<br/> ----------------------------Captured stdout teardown---------------------------- <br/>10-11-2021 20:38:32 : Step: RepositoriesListPage: is repositories contains repo | time:578.4ms
-10-11-2021 20:38:33 : Step: RepositoriesListPage: click first repo on repositories | time:422.9ms
-10-11-2021 20:38:33 : Step: GitHubRepoMainPage: settings tab | time:50.9ms
-10-11-2021 20:38:33 : Step: GitHubRepoMainPage: click settings tab | time:101.6ms
-10-11-2021 20:38:33 : Step: GitHubRepoSettingsPage: options side setting | time:572.9ms
-10-11-2021 20:38:35 : Step: GitHubRepoSettingsPage: click options side setting | time:2636.6ms
-10-11-2021 20:38:36 : Step: GitHubSettingsOptionsPage: click delete repository button | time:109.3ms
-10-11-2021 20:38:36 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:44.0ms
-10-11-2021 20:38:36 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:52.5ms
-10-11-2021 20:38:36 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:148.2ms
-10-11-2021 20:38:36 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:49.6ms
-10-11-2021 20:38:36 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:700.0ms
-10-11-2021 20:38:42 : Step: GitHubConfirmPasswordPage: is password input exist | time:5279.0ms
-10-11-2021 20:38:42 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:5279.3ms
-10-11-2021 20:38:42 : Step: RepositoriesListPage: is repositories contains repo | time:26.8ms
-10-11-2021 20:38:42 : Step: RepositoriesListPage: click first repo on repositories | time:426.0ms
-10-11-2021 20:38:42 : Step: GitHubRepoMainPage: settings tab | time:31.8ms
-10-11-2021 20:38:42 : Step: GitHubRepoMainPage: click settings tab | time:74.9ms
-10-11-2021 20:38:43 : Step: GitHubRepoSettingsPage: options side setting | time:566.6ms
-10-11-2021 20:38:45 : Step: GitHubRepoSettingsPage: click options side setting | time:2627.1ms
-10-11-2021 20:38:45 : Step: GitHubSettingsOptionsPage: click delete repository button | time:80.8ms
-10-11-2021 20:38:45 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:35.2ms
-10-11-2021 20:38:45 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:100.9ms
-10-11-2021 20:38:45 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:191.0ms
-10-11-2021 20:38:45 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:40.2ms
-10-11-2021 20:38:46 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:747.1ms
-10-11-2021 20:38:51 : Step: GitHubConfirmPasswordPage: is password input exist | time:5258.1ms
-10-11-2021 20:38:51 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:5258.3ms
-10-11-2021 20:38:54 : Step: RepositoriesListPage: is repositories contains repo | time:3080.2ms
-<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_is_git_repo_list_available</td>
-          <td class="col-duration">11.57</td>
+          <td class="col-duration">10.91</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_is_git_repo_list_available.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>10-11-2021 20:36:05 : Step: GitHubLoginPage: input login | time:132.9ms
-10-11-2021 20:36:05 : Step: GitHubLoginPage: input password | time:140.1ms
-10-11-2021 20:36:06 : Step: GitHubLoginPage: click sign in button | time:519.1ms
-10-11-2021 20:36:06 : Step: GitHubLoginPage: sign in github account | time:792.6ms
-10-11-2021 20:36:06 : Step: GitHubDeviceVerificationPage: is input device code present | time:26.5ms
-10-11-2021 20:36:10 : Step: GitHubDeviceVerificationPage: input device code | time:1015.4ms
-10-11-2021 20:36:10 : Step: GitHubDeviceVerificationPage: input otp code if verification present | time:3556.8ms
-10-11-2021 20:36:10 : Step: RepositoriesListPage: is repo list container visible | time:102.9ms
-<br/> ------------------------------Captured stdout call------------------------------ <br/>10-11-2021 20:36:11 : Step: GitHubDashboardPage: open url | time:338.4ms
-10-11-2021 20:36:12 : Step: RepositoriesListPage: is repo list container visible | time:595.3ms
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>10-11-2021 21:23:21 : Step: GitHubLoginPage: input login | time:167.3ms
+10-11-2021 21:23:21 : Step: GitHubLoginPage: input password | time:196.7ms
+10-11-2021 21:23:22 : Step: GitHubLoginPage: click sign in button | time:718.8ms
+10-11-2021 21:23:22 : Step: GitHubLoginPage: sign in github account | time:1083.4ms
+10-11-2021 21:23:22 : Step: GitHubDeviceVerificationPage: is input device code present | time:29.5ms
+10-11-2021 21:23:26 : Step: GitHubDeviceVerificationPage: input device code | time:998.5ms
+10-11-2021 21:23:26 : Step: GitHubDeviceVerificationPage: input otp code if verification present | time:4361.5ms
+10-11-2021 21:23:27 : Step: RepositoriesListPage: is repo list container visible | time:619.9ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>10-11-2021 21:23:28 : Step: GitHubDashboardPage: open url | time:463.0ms
+10-11-2021 21:23:29 : Step: RepositoriesListPage: is repo list container visible | time:607.5ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_should_open_create_new_repo</td>
-          <td class="col-duration">4.97</td>
+          <td class="col-duration">5.47</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_should_open_create_new_repo.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>10-11-2021 20:36:15 : Step: RepositoriesListPage: is repositories contains repo | time:3118.8ms
-<br/> ------------------------------Captured stdout call------------------------------ <br/>10-11-2021 20:36:16 : Step: GitHubDashboardPage: open url | time:344.4ms
-10-11-2021 20:36:17 : Step: RepositoriesListPage: click create repository | time:1122.8ms
-10-11-2021 20:36:17 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:47.0ms
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>10-11-2021 21:23:33 : Step: RepositoriesListPage: is repositories contains repo | time:3139.7ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>10-11-2021 21:23:34 : Step: GitHubDashboardPage: open url | time:695.8ms
+10-11-2021 21:23:35 : Step: RepositoriesListPage: click create repository | time:1137.4ms
+10-11-2021 21:23:35 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:51.2ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_should_open_import_repo_page</td>
-          <td class="col-duration">4.76</td>
+          <td class="col-duration">5.12</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_should_open_import_repo_page.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>10-11-2021 20:36:21 : Step: RepositoriesListPage: is repositories contains repo | time:3143.9ms
-<br/> ------------------------------Captured stdout call------------------------------ <br/>10-11-2021 20:36:21 : Step: GitHubDashboardPage: open url | time:324.0ms
-10-11-2021 20:36:22 : Step: RepositoriesListPage: click import repository | time:890.7ms
-10-11-2021 20:36:22 : Step: GitHubImportRepoPage: get vcs url input | time:47.8ms
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>10-11-2021 21:23:39 : Step: RepositoriesListPage: is repositories contains repo | time:3140.9ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>10-11-2021 21:23:39 : Step: GitHubDashboardPage: open url | time:404.0ms
+10-11-2021 21:23:40 : Step: RepositoriesListPage: click import repository | time:1002.8ms
+10-11-2021 21:23:40 : Step: GitHubImportRepoPage: get vcs url input | time:76.8ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_should_open_hello_world_read_guide_page</td>
-          <td class="col-duration">1.02</td>
+          <td class="col-duration">1.83</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_should_open_hello_world_read_guide_page.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>10-11-2021 20:36:22 : Step: GitHubDashboardPage: open url | time:319.9ms
-10-11-2021 20:36:22 : Step: GitHubDashboardPage: get read guide button | time:80.6ms
-10-11-2021 20:36:22 : Step: GitHubDashboardPage: click read guid button | time:141.6ms
-10-11-2021 20:36:23 : Step: GuidesGitHubLandPage: is driver set proper url | time:279.1ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>10-11-2021 21:23:41 : Step: GitHubDashboardPage: open url | time:419.7ms
+10-11-2021 21:23:41 : Step: GitHubDashboardPage: get read guide button | time:78.7ms
+10-11-2021 21:23:41 : Step: GitHubDashboardPage: click read guid button | time:147.3ms
+10-11-2021 21:23:42 : Step: GuidesGitHubLandPage: is driver set proper url | time:470.2ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_should_create_repo_form_introduce_yourself_activity</td>
-          <td class="col-duration">9.20</td>
+          <td class="col-duration">9.18</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_should_create_repo_form_introduce_yourself_activity.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>10-11-2021 20:36:27 : Step: RepositoriesListPage: is repositories contains repo | time:3140.1ms
-<br/> ------------------------------Captured stdout call------------------------------ <br/>10-11-2021 20:36:30 : Step: GitHubDashboardPage: click continue yourself button | time:3145.3ms
-10-11-2021 20:36:31 : Step: GitHubEditModePage: click commit new file button | time:985.4ms
-10-11-2021 20:36:31 : Step: GitHubContentListPage: get file web element by file name | time:611.7ms
-10-11-2021 20:36:32 : Step: GitHubDashboardPage: open url | time:337.7ms
-10-11-2021 20:36:32 : Step: RepositoriesListPage: is repo list container visible | time:605.8ms
-10-11-2021 20:36:32 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-10-11-2021 20:36:32 : Step: RepositoriesListPage: get repo by name | time:642.7ms
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>10-11-2021 21:23:46 : Step: RepositoriesListPage: is repositories contains repo | time:3129.2ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>10-11-2021 21:23:49 : Step: GitHubDashboardPage: click continue yourself button | time:3262.1ms
+10-11-2021 21:23:50 : Step: GitHubEditModePage: click commit new file button | time:1207.8ms
+10-11-2021 21:23:50 : Step: GitHubContentListPage: get file web element by file name | time:54.3ms
+10-11-2021 21:23:51 : Step: GitHubDashboardPage: open url | time:448.2ms
+10-11-2021 21:23:51 : Step: RepositoriesListPage: is repo list container visible | time:610.5ms
+10-11-2021 21:23:51 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+10-11-2021 21:23:52 : Step: RepositoriesListPage: get repo by name | time:649.6ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_open_explore_repos_dashboard_page</td>
-          <td class="col-duration">3.02</td>
+          <td class="col-duration">1.85</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_open_explore_repos_dashboard_page.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>10-11-2021 20:36:33 : Step: GitHubDashboardPage: open url | time:315.3ms
-10-11-2021 20:36:36 : Step: ExploreReposPage: click activities explore button | time:2657.4ms
-10-11-2021 20:36:36 : Step: GitHubExploreDashboardPage: get account name | time:51.8ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>10-11-2021 21:23:52 : Step: GitHubDashboardPage: open url | time:414.5ms
+10-11-2021 21:23:54 : Step: ExploreReposPage: click activities explore button | time:1358.1ms
+10-11-2021 21:23:54 : Step: GitHubExploreDashboardPage: get account name | time:83.4ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_exact_name_one_match</td>
-          <td class="col-duration">22.37</td>
+          <td class="col-duration">23.93</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_find_repo_by_exact_name_one_match.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>10-11-2021 20:36:37 : Step: RepositoriesListPage: is repositories contains repo | time:560.0ms
-10-11-2021 20:36:37 : Step: RepositoriesListPage: click first repo on repositories | time:614.3ms
-10-11-2021 20:36:37 : Step: GitHubRepoMainPage: settings tab | time:58.1ms
-10-11-2021 20:36:38 : Step: GitHubRepoMainPage: click settings tab | time:111.3ms
-10-11-2021 20:36:38 : Step: GitHubRepoSettingsPage: options side setting | time:577.5ms
-10-11-2021 20:36:40 : Step: GitHubRepoSettingsPage: click options side setting | time:2624.5ms
-10-11-2021 20:36:40 : Step: GitHubSettingsOptionsPage: click delete repository button | time:138.7ms
-10-11-2021 20:36:40 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:81.1ms
-10-11-2021 20:36:40 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:75.2ms
-10-11-2021 20:36:41 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:223.1ms
-10-11-2021 20:36:41 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:59.1ms
-10-11-2021 20:36:41 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:692.7ms
-10-11-2021 20:36:46 : Step: GitHubConfirmPasswordPage: is password input exist | time:5226.8ms
-10-11-2021 20:36:46 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:5227.1ms
-10-11-2021 20:36:50 : Step: RepositoriesListPage: is repositories contains repo | time:3114.5ms
-10-11-2021 20:36:50 : Step: GitHubDashboardPage: open url | time:409.1ms
-10-11-2021 20:36:51 : Step: RepositoriesListPage: click create repository | time:977.1ms
-10-11-2021 20:36:51 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:51.9ms
-10-11-2021 20:36:51 : Step: GitHubCreateRepoDetailsPage: input repo name | time:107.7ms
-10-11-2021 20:36:52 : Step: GitHubCreateNewCreateRepoPage: get create repository button | time:642.8ms
-10-11-2021 20:36:53 : Step: GitHubCreateNewCreateRepoPage: click create repository button | time:2077.9ms
-10-11-2021 20:36:53 : Step: GitHubRepoMainPage: settings tab | time:56.0ms
-10-11-2021 20:36:54 : Step: GitHubDashboardPage: open url | time:360.6ms
-10-11-2021 20:36:54 : Step: RepositoriesListPage: click create repository | time:936.9ms
-10-11-2021 20:36:55 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:45.4ms
-10-11-2021 20:36:55 : Step: GitHubCreateRepoDetailsPage: input repo name | time:178.5ms
-10-11-2021 20:36:55 : Step: GitHubCreateNewCreateRepoPage: get create repository button | time:609.2ms
-10-11-2021 20:36:57 : Step: GitHubCreateNewCreateRepoPage: click create repository button | time:1959.8ms
-10-11-2021 20:36:57 : Step: GitHubRepoMainPage: settings tab | time:54.0ms
-<br/> ------------------------------Captured stdout call------------------------------ <br/>10-11-2021 20:36:57 : Step: GitHubDashboardPage: open url | time:310.7ms
-10-11-2021 20:36:58 : Step: RepositoriesListPage: input text find repo | time:644.1ms
-10-11-2021 20:36:58 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-10-11-2021 20:36:58 : Step: RepositoriesListPage: is repo name invisible on the list | time:598.1ms
-10-11-2021 20:36:58 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-10-11-2021 20:36:58 : Step: RepositoriesListPage: is repo name exist on the list | time:40.3ms
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>10-11-2021 21:23:55 : Step: RepositoriesListPage: is repositories contains repo | time:563.6ms
+10-11-2021 21:23:56 : Step: RepositoriesListPage: click first repo on repositories | time:810.1ms
+10-11-2021 21:23:56 : Step: GitHubRepoMainPage: settings tab | time:51.7ms
+10-11-2021 21:23:56 : Step: GitHubRepoMainPage: click settings tab | time:124.6ms
+10-11-2021 21:23:57 : Step: GitHubRepoSettingsPage: options side setting | time:604.9ms
+10-11-2021 21:23:59 : Step: GitHubRepoSettingsPage: click options side setting | time:2667.5ms
+10-11-2021 21:23:59 : Step: GitHubSettingsOptionsPage: click delete repository button | time:137.1ms
+10-11-2021 21:23:59 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:52.2ms
+10-11-2021 21:23:59 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:69.8ms
+10-11-2021 21:23:59 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:190.1ms
+10-11-2021 21:23:59 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:64.1ms
+10-11-2021 21:24:00 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:868.4ms
+10-11-2021 21:24:05 : Step: GitHubConfirmPasswordPage: is password input exist | time:5284.0ms
+10-11-2021 21:24:05 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:5284.3ms
+10-11-2021 21:24:09 : Step: RepositoriesListPage: is repositories contains repo | time:3122.3ms
+10-11-2021 21:24:09 : Step: GitHubDashboardPage: open url | time:449.0ms
+10-11-2021 21:24:10 : Step: RepositoriesListPage: click create repository | time:1177.9ms
+10-11-2021 21:24:10 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:48.9ms
+10-11-2021 21:24:10 : Step: GitHubCreateRepoDetailsPage: input repo name | time:116.8ms
+10-11-2021 21:24:11 : Step: GitHubCreateNewCreateRepoPage: get create repository button | time:646.1ms
+10-11-2021 21:24:12 : Step: GitHubCreateNewCreateRepoPage: click create repository button | time:2110.1ms
+10-11-2021 21:24:12 : Step: GitHubRepoMainPage: settings tab | time:59.0ms
+10-11-2021 21:24:13 : Step: GitHubDashboardPage: open url | time:525.2ms
+10-11-2021 21:24:14 : Step: RepositoriesListPage: click create repository | time:1050.8ms
+10-11-2021 21:24:14 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:39.7ms
+10-11-2021 21:24:14 : Step: GitHubCreateRepoDetailsPage: input repo name | time:118.7ms
+10-11-2021 21:24:15 : Step: GitHubCreateNewCreateRepoPage: get create repository button | time:648.6ms
+10-11-2021 21:24:16 : Step: GitHubCreateNewCreateRepoPage: click create repository button | time:2331.1ms
+10-11-2021 21:24:16 : Step: GitHubRepoMainPage: settings tab | time:32.8ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>10-11-2021 21:24:17 : Step: GitHubDashboardPage: open url | time:454.5ms
+10-11-2021 21:24:18 : Step: RepositoriesListPage: input text find repo | time:683.9ms
+10-11-2021 21:24:18 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+10-11-2021 21:24:18 : Step: RepositoriesListPage: is repo name invisible on the list | time:592.5ms
+10-11-2021 21:24:18 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+10-11-2021 21:24:18 : Step: RepositoriesListPage: is repo name exist on the list | time:38.6ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_partial_name_one_match</td>
-          <td class="col-duration">31.88</td>
+          <td class="col-duration">33.38</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_find_repo_by_partial_name_one_match.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>10-11-2021 20:36:59 : Step: RepositoriesListPage: is repositories contains repo | time:598.1ms
-10-11-2021 20:37:00 : Step: RepositoriesListPage: click first repo on repositories | time:459.7ms
-10-11-2021 20:37:00 : Step: GitHubRepoMainPage: settings tab | time:59.5ms
-10-11-2021 20:37:00 : Step: GitHubRepoMainPage: click settings tab | time:104.1ms
-10-11-2021 20:37:01 : Step: GitHubRepoSettingsPage: options side setting | time:579.9ms
-10-11-2021 20:37:03 : Step: GitHubRepoSettingsPage: click options side setting | time:2635.5ms
-10-11-2021 20:37:03 : Step: GitHubSettingsOptionsPage: click delete repository button | time:115.8ms
-10-11-2021 20:37:03 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:72.5ms
-10-11-2021 20:37:03 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:62.3ms
-10-11-2021 20:37:03 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:188.9ms
-10-11-2021 20:37:03 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:74.3ms
-10-11-2021 20:37:04 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:761.5ms
-10-11-2021 20:37:09 : Step: GitHubConfirmPasswordPage: is password input exist | time:5259.1ms
-10-11-2021 20:37:09 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:5259.4ms
-10-11-2021 20:37:09 : Step: RepositoriesListPage: is repositories contains repo | time:34.1ms
-10-11-2021 20:37:09 : Step: RepositoriesListPage: click first repo on repositories | time:399.8ms
-10-11-2021 20:37:09 : Step: GitHubRepoMainPage: settings tab | time:68.5ms
-10-11-2021 20:37:09 : Step: GitHubRepoMainPage: click settings tab | time:112.1ms
-10-11-2021 20:37:10 : Step: GitHubRepoSettingsPage: options side setting | time:576.2ms
-10-11-2021 20:37:12 : Step: GitHubRepoSettingsPage: click options side setting | time:2639.6ms
-10-11-2021 20:37:12 : Step: GitHubSettingsOptionsPage: click delete repository button | time:117.6ms
-10-11-2021 20:37:12 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:49.7ms
-10-11-2021 20:37:12 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:48.5ms
-10-11-2021 20:37:12 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:145.5ms
-10-11-2021 20:37:12 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:47.7ms
-10-11-2021 20:37:13 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:664.6ms
-10-11-2021 20:37:18 : Step: GitHubConfirmPasswordPage: is password input exist | time:5244.1ms
-10-11-2021 20:37:18 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:5244.3ms
-10-11-2021 20:37:21 : Step: RepositoriesListPage: is repositories contains repo | time:3091.9ms
-10-11-2021 20:37:22 : Step: GitHubDashboardPage: open url | time:351.9ms
-10-11-2021 20:37:23 : Step: RepositoriesListPage: click create repository | time:934.4ms
-10-11-2021 20:37:23 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:44.7ms
-10-11-2021 20:37:23 : Step: GitHubCreateRepoDetailsPage: input repo name | time:100.8ms
-10-11-2021 20:37:23 : Step: GitHubCreateNewCreateRepoPage: get create repository button | time:606.0ms
-10-11-2021 20:37:25 : Step: GitHubCreateNewCreateRepoPage: click create repository button | time:1916.3ms
-10-11-2021 20:37:25 : Step: GitHubRepoMainPage: settings tab | time:71.0ms
-10-11-2021 20:37:25 : Step: GitHubDashboardPage: open url | time:332.0ms
-10-11-2021 20:37:26 : Step: RepositoriesListPage: click create repository | time:919.6ms
-10-11-2021 20:37:26 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:38.6ms
-10-11-2021 20:37:26 : Step: GitHubCreateRepoDetailsPage: input repo name | time:106.0ms
-10-11-2021 20:37:27 : Step: GitHubCreateNewCreateRepoPage: get create repository button | time:605.8ms
-10-11-2021 20:37:29 : Step: GitHubCreateNewCreateRepoPage: click create repository button | time:2595.8ms
-10-11-2021 20:37:29 : Step: GitHubRepoMainPage: settings tab | time:31.8ms
-<br/> ------------------------------Captured stdout call------------------------------ <br/>10-11-2021 20:37:29 : Step: GitHubDashboardPage: open url | time:371.5ms
-10-11-2021 20:37:30 : Step: RepositoriesListPage: input text find repo | time:626.7ms
-10-11-2021 20:37:30 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-10-11-2021 20:37:30 : Step: RepositoriesListPage: is repo name invisible on the list | time:568.9ms
-10-11-2021 20:37:30 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-10-11-2021 20:37:30 : Step: RepositoriesListPage: is repo name exist on the list | time:32.9ms
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>10-11-2021 21:24:20 : Step: RepositoriesListPage: is repositories contains repo | time:600.6ms
+10-11-2021 21:24:20 : Step: RepositoriesListPage: click first repo on repositories | time:536.3ms
+10-11-2021 21:24:20 : Step: GitHubRepoMainPage: settings tab | time:47.5ms
+10-11-2021 21:24:20 : Step: GitHubRepoMainPage: click settings tab | time:99.5ms
+10-11-2021 21:24:21 : Step: GitHubRepoSettingsPage: options side setting | time:569.1ms
+10-11-2021 21:24:23 : Step: GitHubRepoSettingsPage: click options side setting | time:2634.6ms
+10-11-2021 21:24:23 : Step: GitHubSettingsOptionsPage: click delete repository button | time:114.5ms
+10-11-2021 21:24:23 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:53.1ms
+10-11-2021 21:24:23 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:77.0ms
+10-11-2021 21:24:23 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:203.0ms
+10-11-2021 21:24:23 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:56.3ms
+10-11-2021 21:24:24 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:859.1ms
+10-11-2021 21:24:29 : Step: GitHubConfirmPasswordPage: is password input exist | time:5287.0ms
+10-11-2021 21:24:29 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:5287.3ms
+10-11-2021 21:24:29 : Step: RepositoriesListPage: is repositories contains repo | time:41.7ms
+10-11-2021 21:24:30 : Step: RepositoriesListPage: click first repo on repositories | time:552.8ms
+10-11-2021 21:24:30 : Step: GitHubRepoMainPage: settings tab | time:45.1ms
+10-11-2021 21:24:30 : Step: GitHubRepoMainPage: click settings tab | time:97.8ms
+10-11-2021 21:24:31 : Step: GitHubRepoSettingsPage: options side setting | time:593.5ms
+10-11-2021 21:24:33 : Step: GitHubRepoSettingsPage: click options side setting | time:2673.2ms
+10-11-2021 21:24:33 : Step: GitHubSettingsOptionsPage: click delete repository button | time:110.6ms
+10-11-2021 21:24:33 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:41.2ms
+10-11-2021 21:24:33 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:64.8ms
+10-11-2021 21:24:33 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:178.3ms
+10-11-2021 21:24:33 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:72.5ms
+10-11-2021 21:24:34 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:890.4ms
+10-11-2021 21:24:39 : Step: GitHubConfirmPasswordPage: is password input exist | time:5283.2ms
+10-11-2021 21:24:39 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:5283.5ms
+10-11-2021 21:24:42 : Step: RepositoriesListPage: is repositories contains repo | time:3104.0ms
+10-11-2021 21:24:43 : Step: GitHubDashboardPage: open url | time:495.4ms
+10-11-2021 21:24:44 : Step: RepositoriesListPage: click create repository | time:1130.4ms
+10-11-2021 21:24:44 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:40.8ms
+10-11-2021 21:24:44 : Step: GitHubCreateRepoDetailsPage: input repo name | time:113.4ms
+10-11-2021 21:24:45 : Step: GitHubCreateNewCreateRepoPage: get create repository button | time:616.4ms
+10-11-2021 21:24:46 : Step: GitHubCreateNewCreateRepoPage: click create repository button | time:2055.1ms
+10-11-2021 21:24:46 : Step: GitHubRepoMainPage: settings tab | time:47.0ms
+10-11-2021 21:24:46 : Step: GitHubDashboardPage: open url | time:460.9ms
+10-11-2021 21:24:48 : Step: RepositoriesListPage: click create repository | time:1065.5ms
+10-11-2021 21:24:48 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:61.2ms
+10-11-2021 21:24:48 : Step: GitHubCreateRepoDetailsPage: input repo name | time:124.9ms
+10-11-2021 21:24:48 : Step: GitHubCreateNewCreateRepoPage: get create repository button | time:602.6ms
+10-11-2021 21:24:50 : Step: GitHubCreateNewCreateRepoPage: click create repository button | time:2428.9ms
+10-11-2021 21:24:50 : Step: GitHubRepoMainPage: settings tab | time:34.4ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>10-11-2021 21:24:51 : Step: GitHubDashboardPage: open url | time:452.5ms
+10-11-2021 21:24:51 : Step: RepositoriesListPage: input text find repo | time:638.0ms
+10-11-2021 21:24:51 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+10-11-2021 21:24:52 : Step: RepositoriesListPage: is repo name invisible on the list | time:583.3ms
+10-11-2021 21:24:52 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+10-11-2021 21:24:52 : Step: RepositoriesListPage: is repo name exist on the list | time:33.5ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_partial_name_multi_match</td>
-          <td class="col-duration">29.59</td>
+          <td class="col-duration">32.88</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_find_repo_by_partial_name_multi_match.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>10-11-2021 20:37:31 : Step: RepositoriesListPage: is repositories contains repo | time:588.1ms
-10-11-2021 20:37:32 : Step: RepositoriesListPage: click first repo on repositories | time:393.8ms
-10-11-2021 20:37:32 : Step: GitHubRepoMainPage: settings tab | time:46.1ms
-10-11-2021 20:37:32 : Step: GitHubRepoMainPage: click settings tab | time:99.6ms
-10-11-2021 20:37:33 : Step: GitHubRepoSettingsPage: options side setting | time:594.0ms
-10-11-2021 20:37:35 : Step: GitHubRepoSettingsPage: click options side setting | time:2644.5ms
-10-11-2021 20:37:35 : Step: GitHubSettingsOptionsPage: click delete repository button | time:101.0ms
-10-11-2021 20:37:35 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:45.7ms
-10-11-2021 20:37:35 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:67.3ms
-10-11-2021 20:37:35 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:189.4ms
-10-11-2021 20:37:35 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:67.7ms
-10-11-2021 20:37:36 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:635.0ms
-10-11-2021 20:37:41 : Step: GitHubConfirmPasswordPage: is password input exist | time:5241.3ms
-10-11-2021 20:37:41 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:5241.6ms
-10-11-2021 20:37:41 : Step: RepositoriesListPage: is repositories contains repo | time:32.7ms
-10-11-2021 20:37:41 : Step: RepositoriesListPage: click first repo on repositories | time:402.1ms
-10-11-2021 20:37:41 : Step: GitHubRepoMainPage: settings tab | time:41.0ms
-10-11-2021 20:37:41 : Step: GitHubRepoMainPage: click settings tab | time:92.8ms
-10-11-2021 20:37:42 : Step: GitHubRepoSettingsPage: options side setting | time:567.1ms
-10-11-2021 20:37:44 : Step: GitHubRepoSettingsPage: click options side setting | time:2626.8ms
-10-11-2021 20:37:44 : Step: GitHubSettingsOptionsPage: click delete repository button | time:141.8ms
-10-11-2021 20:37:44 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:42.0ms
-10-11-2021 20:37:44 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:63.1ms
-10-11-2021 20:37:44 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:152.7ms
-10-11-2021 20:37:44 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:57.7ms
-10-11-2021 20:37:45 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:785.9ms
-10-11-2021 20:37:50 : Step: GitHubConfirmPasswordPage: is password input exist | time:5242.5ms
-10-11-2021 20:37:50 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:5242.7ms
-10-11-2021 20:37:53 : Step: RepositoriesListPage: is repositories contains repo | time:3093.8ms
-10-11-2021 20:37:54 : Step: GitHubDashboardPage: open url | time:397.3ms
-10-11-2021 20:37:54 : Step: RepositoriesListPage: click create repository | time:448.4ms
-10-11-2021 20:37:54 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:45.2ms
-10-11-2021 20:37:54 : Step: GitHubCreateRepoDetailsPage: input repo name | time:99.0ms
-10-11-2021 20:37:55 : Step: GitHubCreateNewCreateRepoPage: get create repository button | time:594.4ms
-10-11-2021 20:37:56 : Step: GitHubCreateNewCreateRepoPage: click create repository button | time:1903.0ms
-10-11-2021 20:37:56 : Step: GitHubRepoMainPage: settings tab | time:39.6ms
-10-11-2021 20:37:57 : Step: GitHubDashboardPage: open url | time:385.7ms
-10-11-2021 20:37:57 : Step: RepositoriesListPage: click create repository | time:475.4ms
-10-11-2021 20:37:57 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:34.3ms
-10-11-2021 20:37:57 : Step: GitHubCreateRepoDetailsPage: input repo name | time:93.3ms
-10-11-2021 20:37:58 : Step: GitHubCreateNewCreateRepoPage: get create repository button | time:623.8ms
-10-11-2021 20:37:59 : Step: GitHubCreateNewCreateRepoPage: click create repository button | time:1818.9ms
-10-11-2021 20:37:59 : Step: GitHubRepoMainPage: settings tab | time:36.3ms
-<br/> ------------------------------Captured stdout call------------------------------ <br/>10-11-2021 20:37:59 : Step: GitHubDashboardPage: open url | time:377.7ms
-10-11-2021 20:38:00 : Step: RepositoriesListPage: input text find repo | time:627.7ms
-10-11-2021 20:38:00 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-10-11-2021 20:38:00 : Step: RepositoriesListPage: is repo name exist on the list | time:49.9ms
-10-11-2021 20:38:00 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-10-11-2021 20:38:00 : Step: RepositoriesListPage: is repo name exist on the list | time:32.4ms
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>10-11-2021 21:24:53 : Step: RepositoriesListPage: is repositories contains repo | time:585.4ms
+10-11-2021 21:24:54 : Step: RepositoriesListPage: click first repo on repositories | time:510.7ms
+10-11-2021 21:24:54 : Step: GitHubRepoMainPage: settings tab | time:40.2ms
+10-11-2021 21:24:54 : Step: GitHubRepoMainPage: click settings tab | time:126.2ms
+10-11-2021 21:24:54 : Step: GitHubRepoSettingsPage: options side setting | time:609.6ms
+10-11-2021 21:24:56 : Step: GitHubRepoSettingsPage: click options side setting | time:2662.3ms
+10-11-2021 21:24:57 : Step: GitHubSettingsOptionsPage: click delete repository button | time:119.0ms
+10-11-2021 21:24:57 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:60.0ms
+10-11-2021 21:24:57 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:73.3ms
+10-11-2021 21:24:57 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:220.5ms
+10-11-2021 21:24:57 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:51.8ms
+10-11-2021 21:24:58 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:907.7ms
+10-11-2021 21:25:03 : Step: GitHubConfirmPasswordPage: is password input exist | time:5293.8ms
+10-11-2021 21:25:03 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:5294.0ms
+10-11-2021 21:25:03 : Step: RepositoriesListPage: is repositories contains repo | time:38.8ms
+10-11-2021 21:25:04 : Step: RepositoriesListPage: click first repo on repositories | time:642.7ms
+10-11-2021 21:25:04 : Step: GitHubRepoMainPage: settings tab | time:44.8ms
+10-11-2021 21:25:04 : Step: GitHubRepoMainPage: click settings tab | time:100.3ms
+10-11-2021 21:25:04 : Step: GitHubRepoSettingsPage: options side setting | time:586.6ms
+10-11-2021 21:25:06 : Step: GitHubRepoSettingsPage: click options side setting | time:2663.0ms
+10-11-2021 21:25:07 : Step: GitHubSettingsOptionsPage: click delete repository button | time:133.2ms
+10-11-2021 21:25:07 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:63.9ms
+10-11-2021 21:25:07 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:67.7ms
+10-11-2021 21:25:07 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:193.6ms
+10-11-2021 21:25:07 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:64.0ms
+10-11-2021 21:25:08 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:994.0ms
+10-11-2021 21:25:13 : Step: GitHubConfirmPasswordPage: is password input exist | time:5292.8ms
+10-11-2021 21:25:13 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:5293.1ms
+10-11-2021 21:25:16 : Step: RepositoriesListPage: is repositories contains repo | time:3102.1ms
+10-11-2021 21:25:17 : Step: GitHubDashboardPage: open url | time:444.5ms
+10-11-2021 21:25:18 : Step: RepositoriesListPage: click create repository | time:1156.3ms
+10-11-2021 21:25:18 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:55.3ms
+10-11-2021 21:25:18 : Step: GitHubCreateRepoDetailsPage: input repo name | time:116.3ms
+10-11-2021 21:25:18 : Step: GitHubCreateNewCreateRepoPage: get create repository button | time:622.5ms
+10-11-2021 21:25:20 : Step: GitHubCreateNewCreateRepoPage: click create repository button | time:2131.9ms
+10-11-2021 21:25:20 : Step: GitHubRepoMainPage: settings tab | time:36.2ms
+10-11-2021 21:25:20 : Step: GitHubDashboardPage: open url | time:452.8ms
+10-11-2021 21:25:21 : Step: RepositoriesListPage: click create repository | time:1021.5ms
+10-11-2021 21:25:22 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:35.1ms
+10-11-2021 21:25:22 : Step: GitHubCreateRepoDetailsPage: input repo name | time:98.3ms
+10-11-2021 21:25:22 : Step: GitHubCreateNewCreateRepoPage: get create repository button | time:607.8ms
+10-11-2021 21:25:24 : Step: GitHubCreateNewCreateRepoPage: click create repository button | time:2159.3ms
+10-11-2021 21:25:24 : Step: GitHubRepoMainPage: settings tab | time:44.1ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>10-11-2021 21:25:24 : Step: GitHubDashboardPage: open url | time:465.4ms
+10-11-2021 21:25:25 : Step: RepositoriesListPage: input text find repo | time:630.9ms
+10-11-2021 21:25:25 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+10-11-2021 21:25:25 : Step: RepositoriesListPage: is repo name exist on the list | time:64.0ms
+10-11-2021 21:25:25 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+10-11-2021 21:25:25 : Step: RepositoriesListPage: is repo name exist on the list | time:34.9ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_partial_name_not_match</td>
-          <td class="col-duration">30.85</td>
+          <td class="col-duration">57.93</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_find_repo_by_partial_name_not_match.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>10-11-2021 20:38:01 : Step: RepositoriesListPage: is repositories contains repo | time:572.8ms
-10-11-2021 20:38:02 : Step: RepositoriesListPage: click first repo on repositories | time:509.8ms
-10-11-2021 20:38:02 : Step: GitHubRepoMainPage: settings tab | time:34.0ms
-10-11-2021 20:38:02 : Step: GitHubRepoMainPage: click settings tab | time:95.9ms
-10-11-2021 20:38:02 : Step: GitHubRepoSettingsPage: options side setting | time:586.3ms
-10-11-2021 20:38:05 : Step: GitHubRepoSettingsPage: click options side setting | time:2638.1ms
-10-11-2021 20:38:05 : Step: GitHubSettingsOptionsPage: click delete repository button | time:108.8ms
-10-11-2021 20:38:05 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:45.7ms
-10-11-2021 20:38:05 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:57.2ms
-10-11-2021 20:38:05 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:149.2ms
-10-11-2021 20:38:05 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:48.8ms
-10-11-2021 20:38:05 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:639.8ms
-10-11-2021 20:38:11 : Step: GitHubConfirmPasswordPage: is password input exist | time:5275.3ms
-10-11-2021 20:38:11 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:5275.6ms
-10-11-2021 20:38:11 : Step: RepositoriesListPage: is repositories contains repo | time:39.8ms
-10-11-2021 20:38:11 : Step: RepositoriesListPage: click first repo on repositories | time:446.6ms
-10-11-2021 20:38:11 : Step: GitHubRepoMainPage: settings tab | time:45.2ms
-10-11-2021 20:38:11 : Step: GitHubRepoMainPage: click settings tab | time:109.5ms
-10-11-2021 20:38:12 : Step: GitHubRepoSettingsPage: options side setting | time:577.6ms
-10-11-2021 20:38:14 : Step: GitHubRepoSettingsPage: click options side setting | time:2622.6ms
-10-11-2021 20:38:14 : Step: GitHubSettingsOptionsPage: click delete repository button | time:94.3ms
-10-11-2021 20:38:14 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:52.9ms
-10-11-2021 20:38:14 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:95.8ms
-10-11-2021 20:38:14 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:192.6ms
-10-11-2021 20:38:14 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:46.0ms
-10-11-2021 20:38:15 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:720.0ms
-10-11-2021 20:38:20 : Step: GitHubConfirmPasswordPage: is password input exist | time:5256.9ms
-10-11-2021 20:38:20 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:5257.2ms
-10-11-2021 20:38:23 : Step: RepositoriesListPage: is repositories contains repo | time:3080.8ms
-10-11-2021 20:38:24 : Step: GitHubDashboardPage: open url | time:399.2ms
-10-11-2021 20:38:24 : Step: RepositoriesListPage: click create repository | time:512.3ms
-10-11-2021 20:38:24 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:40.2ms
-10-11-2021 20:38:24 : Step: GitHubCreateRepoDetailsPage: input repo name | time:94.9ms
-10-11-2021 20:38:25 : Step: GitHubCreateNewCreateRepoPage: get create repository button | time:604.0ms
-10-11-2021 20:38:26 : Step: GitHubCreateNewCreateRepoPage: click create repository button | time:2016.9ms
-10-11-2021 20:38:26 : Step: GitHubRepoMainPage: settings tab | time:45.4ms
-10-11-2021 20:38:27 : Step: GitHubDashboardPage: open url | time:331.9ms
-10-11-2021 20:38:28 : Step: RepositoriesListPage: click create repository | time:937.2ms
-10-11-2021 20:38:28 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:31.4ms
-10-11-2021 20:38:28 : Step: GitHubCreateRepoDetailsPage: input repo name | time:88.9ms
-10-11-2021 20:38:28 : Step: GitHubCreateNewCreateRepoPage: get create repository button | time:602.0ms
-10-11-2021 20:38:30 : Step: GitHubCreateNewCreateRepoPage: click create repository button | time:1847.7ms
-10-11-2021 20:38:30 : Step: GitHubRepoMainPage: settings tab | time:33.2ms
-<br/> ------------------------------Captured stdout call------------------------------ <br/>10-11-2021 20:38:30 : Step: GitHubDashboardPage: open url | time:368.8ms
-10-11-2021 20:38:31 : Step: RepositoriesListPage: input text find repo | time:628.2ms
-10-11-2021 20:38:31 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-10-11-2021 20:38:31 : Step: RepositoriesListPage: is repo name invisible on the list | time:575.1ms
-10-11-2021 20:38:31 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-10-11-2021 20:38:31 : Step: RepositoriesListPage: is repo name invisible on the list | time:27.0ms
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>10-11-2021 21:25:26 : Step: RepositoriesListPage: is repositories contains repo | time:588.8ms
+10-11-2021 21:25:27 : Step: RepositoriesListPage: click first repo on repositories | time:530.8ms
+10-11-2021 21:25:27 : Step: GitHubRepoMainPage: settings tab | time:35.1ms
+10-11-2021 21:25:27 : Step: GitHubRepoMainPage: click settings tab | time:107.6ms
+10-11-2021 21:25:27 : Step: GitHubRepoSettingsPage: options side setting | time:598.6ms
+10-11-2021 21:25:30 : Step: GitHubRepoSettingsPage: click options side setting | time:2651.9ms
+10-11-2021 21:25:30 : Step: GitHubSettingsOptionsPage: click delete repository button | time:99.2ms
+10-11-2021 21:25:30 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:40.0ms
+10-11-2021 21:25:30 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:56.5ms
+10-11-2021 21:25:30 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:175.8ms
+10-11-2021 21:25:30 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:49.0ms
+10-11-2021 21:25:31 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:866.5ms
+10-11-2021 21:25:36 : Step: GitHubConfirmPasswordPage: is password input exist | time:5320.9ms
+10-11-2021 21:25:36 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:5321.2ms
+10-11-2021 21:25:36 : Step: RepositoriesListPage: is repositories contains repo | time:36.5ms
+10-11-2021 21:25:37 : Step: RepositoriesListPage: click first repo on repositories | time:534.4ms
+10-11-2021 21:25:37 : Step: GitHubRepoMainPage: settings tab | time:58.1ms
+10-11-2021 21:25:37 : Step: GitHubRepoMainPage: click settings tab | time:108.0ms
+10-11-2021 21:25:37 : Step: GitHubRepoSettingsPage: options side setting | time:600.4ms
+10-11-2021 21:25:39 : Step: GitHubRepoSettingsPage: click options side setting | time:2670.9ms
+10-11-2021 21:25:39 : Step: GitHubSettingsOptionsPage: click delete repository button | time:117.4ms
+10-11-2021 21:25:39 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:47.3ms
+10-11-2021 21:25:40 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:64.5ms
+10-11-2021 21:25:40 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:172.9ms
+10-11-2021 21:25:40 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:51.6ms
+10-11-2021 21:25:41 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:1207.0ms
+10-11-2021 21:25:46 : Step: GitHubConfirmPasswordPage: is password input exist | time:5296.0ms
+10-11-2021 21:25:46 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:5296.3ms
+10-11-2021 21:25:49 : Step: RepositoriesListPage: is repositories contains repo | time:3085.1ms
+10-11-2021 21:25:50 : Step: GitHubDashboardPage: open url | time:494.6ms
+10-11-2021 21:25:51 : Step: RepositoriesListPage: click create repository | time:1051.0ms
+10-11-2021 21:25:51 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:46.5ms
+10-11-2021 21:25:51 : Step: GitHubCreateRepoDetailsPage: input repo name | time:112.1ms
+10-11-2021 21:25:51 : Step: GitHubCreateNewCreateRepoPage: get create repository button | time:614.3ms
+10-11-2021 21:25:53 : Step: GitHubCreateNewCreateRepoPage: click create repository button | time:2112.7ms
+10-11-2021 21:25:53 : Step: GitHubRepoMainPage: settings tab | time:40.8ms
+10-11-2021 21:25:53 : Step: GitHubDashboardPage: open url | time:465.3ms
+10-11-2021 21:25:55 : Step: RepositoriesListPage: click create repository | time:1028.1ms
+10-11-2021 21:25:55 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:42.4ms
+10-11-2021 21:25:55 : Step: GitHubCreateRepoDetailsPage: input repo name | time:105.3ms
+10-11-2021 21:25:55 : Step: GitHubCreateNewCreateRepoPage: get create repository button | time:605.4ms
+10-11-2021 21:25:57 : Step: GitHubCreateNewCreateRepoPage: click create repository button | time:2875.6ms
+10-11-2021 21:25:58 : Step: GitHubRepoMainPage: settings tab | time:41.9ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>10-11-2021 21:25:58 : Step: GitHubDashboardPage: open url | time:472.6ms
+10-11-2021 21:25:59 : Step: RepositoriesListPage: input text find repo | time:644.2ms
+10-11-2021 21:25:59 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+10-11-2021 21:25:59 : Step: RepositoriesListPage: is repo name invisible on the list | time:577.9ms
+10-11-2021 21:25:59 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+10-11-2021 21:25:59 : Step: RepositoriesListPage: is repo name invisible on the list | time:46.8ms
+<br/> ----------------------------Captured stdout teardown---------------------------- <br/>10-11-2021 21:26:01 : Step: RepositoriesListPage: is repositories contains repo | time:580.9ms
+10-11-2021 21:26:01 : Step: RepositoriesListPage: click first repo on repositories | time:634.9ms
+10-11-2021 21:26:01 : Step: GitHubRepoMainPage: settings tab | time:38.8ms
+10-11-2021 21:26:01 : Step: GitHubRepoMainPage: click settings tab | time:86.5ms
+10-11-2021 21:26:02 : Step: GitHubRepoSettingsPage: options side setting | time:589.1ms
+10-11-2021 21:26:04 : Step: GitHubRepoSettingsPage: click options side setting | time:2656.7ms
+10-11-2021 21:26:04 : Step: GitHubSettingsOptionsPage: click delete repository button | time:106.2ms
+10-11-2021 21:26:04 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:51.5ms
+10-11-2021 21:26:04 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:77.5ms
+10-11-2021 21:26:04 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:179.0ms
+10-11-2021 21:26:04 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:70.4ms
+10-11-2021 21:26:05 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:885.2ms
+10-11-2021 21:26:10 : Step: GitHubConfirmPasswordPage: is password input exist | time:5305.2ms
+10-11-2021 21:26:10 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:5305.5ms
+10-11-2021 21:26:10 : Step: RepositoriesListPage: is repositories contains repo | time:40.2ms
+10-11-2021 21:26:11 : Step: RepositoriesListPage: click first repo on repositories | time:532.8ms
+10-11-2021 21:26:11 : Step: GitHubRepoMainPage: settings tab | time:44.8ms
+10-11-2021 21:26:11 : Step: GitHubRepoMainPage: click settings tab | time:127.7ms
+10-11-2021 21:26:12 : Step: GitHubRepoSettingsPage: options side setting | time:583.4ms
+10-11-2021 21:26:14 : Step: GitHubRepoSettingsPage: click options side setting | time:2635.0ms
+10-11-2021 21:26:14 : Step: GitHubSettingsOptionsPage: click delete repository button | time:114.1ms
+10-11-2021 21:26:14 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:52.5ms
+10-11-2021 21:26:14 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:51.7ms
+10-11-2021 21:26:14 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:161.3ms
+10-11-2021 21:26:14 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:69.6ms
+10-11-2021 21:26:15 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:846.0ms
+10-11-2021 21:26:20 : Step: GitHubConfirmPasswordPage: is password input exist | time:5301.6ms
+10-11-2021 21:26:20 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:5302.0ms
+10-11-2021 21:26:23 : Step: RepositoriesListPage: is repositories contains repo | time:3104.1ms
 <br/></div></td></tr></tbody></table></body></html>
