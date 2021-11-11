@@ -1,1 +1,56 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="20" time="260.223" timestamp="2021-11-11T20:30:09.172490" hostname="fv-az123-400"><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_name_author_should_match" time="18.565" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_match_public_as_default" time="6.797" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_match_clone_default_url" time="6.867" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_match_license_file" time="11.007" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_match_readme_file" time="10.121" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_match_gitignore" time="10.741" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_match_privacy_private" time="9.498" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_not_create_if_name_exist" time="8.017" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_description_match" time="10.052" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_open_import_repo_page" time="0.842" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_is_git_repo_list_available" time="74.975" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_create_new_repo" time="5.624" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_import_repo_page" time="5.603" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_hello_world_read_guide_page" time="1.435" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_create_repo_form_introduce_yourself_activity" time="9.558" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_open_explore_repos_dashboard_page" time="1.711" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_find_repo_by_exact_name_one_match" time="26.896" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_find_repo_by_partial_name_one_match" time="3.709" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_find_repo_by_partial_name_multi_match" time="3.050" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_find_repo_by_partial_name_not_match" time="31.161" /></testsuite></testsuites>
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="1" failures="0" skipped="0" tests="20" time="279.951" timestamp="2021-11-11T21:18:40.676471" hostname="fv-az123-400"><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_name_author_should_match" time="22.098" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_match_public_as_default" time="7.027" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_match_clone_default_url" time="7.028" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_match_license_file" time="10.861" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_match_readme_file" time="10.039" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_match_gitignore" time="10.883" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_match_privacy_private" time="9.461" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_not_create_if_name_exist" time="8.354" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_description_match" time="10.126" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_open_import_repo_page" time="0.943" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_is_git_repo_list_available" time="75.015" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_create_new_repo" time="5.419" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_import_repo_page" time="5.416" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_hello_world_read_guide_page" time="1.480" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_create_repo_form_introduce_yourself_activity" time="9.373" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_open_explore_repos_dashboard_page" time="1.755" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_find_repo_by_exact_name_one_match" time="26.969" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_find_repo_by_partial_name_one_match" time="19.818"><error message="failed on setup with &quot;selenium.common.exceptions.TimeoutException: Message:&quot;">web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="31e19b4e82682c4c9f562ae7f86a5399")&gt;
+github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7f4ff2207f10&gt;
+github_create_new_repo_page = &lt;pages.github_pages.create.new.github_create_new_repo_page.GitHubCreateNewRepoPage object at 0x7f4ff2207d30&gt;
+
+    @pytest.fixture()
+    def create_repos_test_1_and_test_2(web_driver, github_dashboard_page, github_create_new_repo_page):
+        repo_list_page = github_dashboard_page.open_url().repositories_list
+        if not repo_list_page.is_repo_name_exist_on_the_list(Secrets.USERNAME, "test_1"):
+            github_create_new_repo_page.open_url().create_repo_details_page \
+                .input_repo_name("test_1")
+&gt;           github_create_new_repo_page.click_create_repository_button()
+
+tests/conftest.py:196: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+utilities/logger/test_logger/test_step.py:28: in impl
+    params = func(*args, **kw)
+pages/github_pages/create/new/github_create_new_repo_page.py:47: in click_create_repository_button
+    super()._wait_for_clickable_element(self.CREATE_REPOSITORY_BUTTON, 10).click()
+pages/base_page.py:19: in _wait_for_clickable_element
+    return WebDriverWait(self.driver, time_seconds).until(EC.element_to_be_clickable(by_locator))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;selenium.webdriver.support.wait.WebDriverWait (session="31e19b4e82682c4c9f562ae7f86a5399")&gt;
+method = &lt;function element_to_be_clickable.&lt;locals&gt;._predicate at 0x7f4ff2250790&gt;
+message = ''
+
+    def until(self, method, message=''):
+        """Calls the method provided with the driver as an argument until the \
+        return value does not evaluate to ``False``.
+    
+        :param method: callable(WebDriver)
+        :param message: optional message for :exc:`TimeoutException`
+        :returns: the result of the last call to `method`
+        :raises: :exc:`selenium.common.exceptions.TimeoutException` if timeout occurs
+        """
+        screen = None
+        stacktrace = None
+    
+        end_time = time.time() + self._timeout
+        while True:
+            try:
+                value = method(self._driver)
+                if value:
+                    return value
+            except InvalidSelectorException as e:
+                raise e
+            except self._ignored_exceptions as exc:
+                screen = getattr(exc, 'screen', None)
+                stacktrace = getattr(exc, 'stacktrace', None)
+            time.sleep(self._poll)
+            if time.time() &gt; end_time:
+                break
+&gt;       raise TimeoutException(message, screen, stacktrace)
+E       selenium.common.exceptions.TimeoutException: Message:
+
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:89: TimeoutException</error></testcase><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_find_repo_by_partial_name_multi_match" time="3.103" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_find_repo_by_partial_name_not_match" time="31.123" /></testsuite></testsuites>
