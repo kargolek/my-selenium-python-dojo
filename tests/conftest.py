@@ -11,6 +11,7 @@ from pages.github_pages.github_login_page import GitHubLoginPage
 from pages.github_pages.github_main_bar_page import GitHubMainBarPage
 from pages.github_pages.guides.guides_github_land_page import GuidesGitHubLandPage
 from pages.github_pages.repository.settings.github_confirm_password_page import GitHubConfirmPasswordPage
+from utilities.api.github.github_api_service import GitHubApiService
 from utilities.credentials.secrets import Secrets
 from utilities.datetime.date_time import get_naive_utc_current_dt
 from utilities.driver.driver_factory import DriverFactory
@@ -135,6 +136,11 @@ def github_confirm_password_page(web_driver):
     return GitHubConfirmPasswordPage(web_driver)
 
 
+@pytest.fixture(scope="session")
+def github_api_service():
+    return GitHubApiService(Secrets.TOKEN, Secrets.USERNAME)
+
+
 def delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page):
     web_driver.get(GITHUB_COM)
     while github_dashboard_page.repositories_list.is_repositories_contains_repo():
@@ -148,14 +154,16 @@ def delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_conf
 
 
 @pytest.fixture()
-def delete_all_repos(web_driver, github_dashboard_page, github_confirm_password_page):
-    delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page)
+def delete_all_repos(github_api_service, web_driver, github_dashboard_page, github_confirm_password_page):
+    # delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page)
+    github_api_service.delete_all_account_repos()
 
 
 @pytest.fixture(scope="session")
 def delete_all_repos_after_all_tests(web_driver, github_dashboard_page, github_confirm_password_page):
     yield
-    delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page)
+    # delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page)
+    github_api_service.delete_all_account_repos()
 
 
 @pytest.fixture()
