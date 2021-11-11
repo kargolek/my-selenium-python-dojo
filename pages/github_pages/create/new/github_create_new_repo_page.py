@@ -56,17 +56,17 @@ class GitHubCreateNewRepoPage(BasePage):
 
     @step
     def click_readme_checkbox(self):
-        super()._wait_for_visible_element(self.ADD_READ_ME_FILE_CHECKBOX, 5).click()
+        super()._wait_for_clickable_element(self.ADD_READ_ME_FILE_CHECKBOX, 5).click()
         return self
 
     @step
     def click_gitignore_checkbox(self):
-        super()._wait_for_visible_element(self.ADD_GITIGNORE_FILE_CHECKBOX, 5).click()
+        super()._wait_for_clickable_element(self.ADD_GITIGNORE_FILE_CHECKBOX, 5).click()
         return self
 
     @step
     def click_select_gitignore_template(self):
-        super()._wait_for_visible_element(self.SELECT_GITIGNORE_DROPDOWN_BUTTON, 5).click()
+        super()._wait_for_clickable_element(self.SELECT_GITIGNORE_DROPDOWN_BUTTON, 5).click()
         return self
 
     @step
@@ -76,7 +76,7 @@ class GitHubCreateNewRepoPage(BasePage):
 
     @step
     def click_choose_license_checkbox(self):
-        super()._wait_for_visible_element(self.CHOOSE_LICENSE_CHECKBOX, 5).click()
+        super()._wait_for_clickable_element(self.CHOOSE_LICENSE_CHECKBOX, 5).click()
         return self
 
     @step
