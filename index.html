@@ -429,7 +429,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>index.html</h1>
-    <p>Report generated on 11-Nov-2021 at 19:43:02 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
+    <p>Report generated on 11-Nov-2021 at 19:53:14 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -451,8 +451,8 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <td>Python</td>
         <td>3.8.10</td></tr></table>
     <h2>Summary</h2>
-    <p>10 tests ran in 188.50 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">10 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">10 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>20 tests ran in 260.16 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">20 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -463,417 +463,553 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
           <th class="sortable links" col="links">Links</th></tr>
         <tr hidden="true" id="not-found-message">
           <th colspan="4">No results found. Try to check the filters</th></tr></thead>
-      <tbody class="error results-table-row">
-        <tr>
-          <td class="col-result">Error</td>
-          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_is_git_repo_list_available::setup</td>
-          <td class="col-duration">84.56</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log">web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session=&quot;b5688be7284107006bd2b2f413b53f9c&quot;)&gt;<br/>github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7feac769cee0&gt;<br/>github_confirm_password_page = &lt;pages.github_pages.repository.settings.github_confirm_password_page.GitHubConfirmPasswordPage object at 0x7feac769cfd0&gt;<br/><br/>    @pytest.fixture(scope=&quot;class&quot;)<br/>    def delete_all_repos_before_class(web_driver, github_dashboard_page, github_confirm_password_page):<br/>&gt;       delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page)<br/><br/>tests/conftest.py:170: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>tests/conftest.py:154: in delete_all_repos_on_dashboard<br/>    github_dashboard_page.repositories_list.click_first_repo_on_repositories() \<br/>utilities/logger/test_logger/test_step.py:28: in impl<br/>    params = func(*args, **kw)<br/>pages/github_pages/repository/github_repo_main_page.py:46: in click_settings_tab<br/>    self.settings_tab().click()<br/>utilities/logger/test_logger/test_step.py:28: in impl<br/>    params = func(*args, **kw)<br/>pages/github_pages/repository/github_repo_main_page.py:42: in settings_tab<br/>    return self._wait_for_visible_element(self.SETTINGS_TAB, 10)<br/>pages/base_page.py:16: in _wait_for_visible_element<br/>    return WebDriverWait(self.driver, time_seconds).until(EC.visibility_of_element_located(by_locator))<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;selenium.webdriver.support.wait.WebDriverWait (session=&quot;b5688be7284107006bd2b2f413b53f9c&quot;)&gt;<br/>method = &lt;function visibility_of_element_located.&lt;locals&gt;._predicate at 0x7feac76e8790&gt;<br/>message = &#x27;&#x27;<br/><br/>    def until(self, method, message=&#x27;&#x27;):<br/>        &quot;&quot;&quot;Calls the method provided with the driver as an argument until the \<br/>        return value does not evaluate to ``False``.<br/>    <br/>        :param method: callable(WebDriver)<br/>        :param message: optional message for :exc:`TimeoutException`<br/>        :returns: the result of the last call to `method`<br/>        :raises: :exc:`selenium.common.exceptions.TimeoutException` if timeout occurs<br/>        &quot;&quot;&quot;<br/>        screen = None<br/>        stacktrace = None<br/>    <br/>        end_time = time.time() + self._timeout<br/>        while True:<br/>            try:<br/>                value = method(self._driver)<br/>                if value:<br/>                    return value<br/>            except InvalidSelectorException as e:<br/>                raise e<br/>            except self._ignored_exceptions as exc:<br/>                screen = getattr(exc, &#x27;screen&#x27;, None)<br/>                stacktrace = getattr(exc, &#x27;stacktrace&#x27;, None)<br/>            time.sleep(self._poll)<br/>            if time.time() &gt; end_time:<br/>                break<br/>&gt;       raise TimeoutException(message, screen, stacktrace)<br/><span class="error">E       selenium.common.exceptions.TimeoutException: Message: </span><br/><span class="error">E       Stacktrace:</span><br/><span class="error">E       #0 0x556aa9d6df93 &lt;unknown&gt;</span><br/><span class="error">E       #1 0x556aa9848908 &lt;unknown&gt;</span><br/><span class="error">E       #2 0x556aa987e66a &lt;unknown&gt;</span><br/><span class="error">E       #3 0x556aa98b0ff4 &lt;unknown&gt;</span><br/><span class="error">E       #4 0x556aa989baad &lt;unknown&gt;</span><br/><span class="error">E       #5 0x556aa98aec91 &lt;unknown&gt;</span><br/><span class="error">E       #6 0x556aa989b973 &lt;unknown&gt;</span><br/><span class="error">E       #7 0x556aa9871df4 &lt;unknown&gt;</span><br/><span class="error">E       #8 0x556aa9872de5 &lt;unknown&gt;</span><br/><span class="error">E       #9 0x556aa9d9d2be &lt;unknown&gt;</span><br/><span class="error">E       #10 0x556aa9db2ba0 &lt;unknown&gt;</span><br/><span class="error">E       #11 0x556aa9d9e215 &lt;unknown&gt;</span><br/><span class="error">E       #12 0x556aa9db3fe8 &lt;unknown&gt;</span><br/><span class="error">E       #13 0x556aa9d929db &lt;unknown&gt;</span><br/><span class="error">E       #14 0x556aa9dcf218 &lt;unknown&gt;</span><br/><span class="error">E       #15 0x556aa9dcf398 &lt;unknown&gt;</span><br/><span class="error">E       #16 0x556aa9dea6cd &lt;unknown&gt;</span><br/><span class="error">E       #17 0x7f8b22b99609 &lt;unknown&gt;</span><br/><br/>../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:89: TimeoutException<br/> -----------------------------Captured stdout setup------------------------------ <br/>11-11-2021 19:41:35 : Step: RepositoriesListPage: is repositories contains repo | time:721.9ms
-11-11-2021 19:41:36 : Step: RepositoriesListPage: click first repo on repositories | time:958.8ms
-11-11-2021 19:41:36 : Step: GitHubRepoMainPage: settings tab | time:66.4ms
-11-11-2021 19:41:36 : Step: GitHubRepoMainPage: click settings tab | time:243.6ms
-11-11-2021 19:41:37 : Step: GitHubRepoSettingsPage: options side setting | time:640.1ms
-11-11-2021 19:41:39 : Step: GitHubRepoSettingsPage: click options side setting | time:2704.5ms
-11-11-2021 19:41:39 : Step: GitHubSettingsOptionsPage: click delete repository button | time:124.7ms
-11-11-2021 19:41:39 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:52.7ms
-11-11-2021 19:41:39 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:62.2ms
-11-11-2021 19:41:39 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:202.8ms
-11-11-2021 19:41:39 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:97.1ms
-11-11-2021 19:41:40 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:927.3ms
-11-11-2021 19:41:43 : Step: GitHubConfirmPasswordPage: is password input exist | time:3159.0ms
-11-11-2021 19:41:43 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3159.3ms
-11-11-2021 19:41:44 : Step: RepositoriesListPage: is repositories contains repo | time:264.5ms
-11-11-2021 19:41:44 : Step: RepositoriesListPage: click first repo on repositories | time:644.8ms
-11-11-2021 19:41:44 : Step: GitHubRepoMainPage: settings tab | time:37.3ms
-11-11-2021 19:41:44 : Step: GitHubRepoMainPage: click settings tab | time:102.9ms
-11-11-2021 19:41:45 : Step: GitHubRepoSettingsPage: options side setting | time:581.2ms
-11-11-2021 19:41:47 : Step: GitHubRepoSettingsPage: click options side setting | time:2643.5ms
-11-11-2021 19:41:47 : Step: GitHubSettingsOptionsPage: click delete repository button | time:133.3ms
-11-11-2021 19:41:47 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:45.9ms
-11-11-2021 19:41:47 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:63.5ms
-11-11-2021 19:41:47 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:197.1ms
-11-11-2021 19:41:47 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:57.9ms
-11-11-2021 19:41:48 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:899.2ms
-11-11-2021 19:41:51 : Step: GitHubConfirmPasswordPage: is password input exist | time:3144.6ms
-11-11-2021 19:41:51 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3145.0ms
-11-11-2021 19:41:51 : Step: RepositoriesListPage: is repositories contains repo | time:169.8ms
-11-11-2021 19:41:52 : Step: RepositoriesListPage: click first repo on repositories | time:654.7ms
-11-11-2021 19:41:52 : Step: GitHubRepoMainPage: settings tab | time:42.0ms
-11-11-2021 19:41:52 : Step: GitHubRepoMainPage: click settings tab | time:106.2ms
-11-11-2021 19:41:53 : Step: GitHubRepoSettingsPage: options side setting | time:624.4ms
-11-11-2021 19:41:55 : Step: GitHubRepoSettingsPage: click options side setting | time:2685.2ms
-11-11-2021 19:41:55 : Step: GitHubSettingsOptionsPage: click delete repository button | time:127.4ms
-11-11-2021 19:41:55 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:62.4ms
-11-11-2021 19:41:55 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:65.0ms
-11-11-2021 19:41:55 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:216.2ms
-11-11-2021 19:41:55 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:49.0ms
-11-11-2021 19:41:56 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:934.3ms
-11-11-2021 19:41:59 : Step: GitHubConfirmPasswordPage: is password input exist | time:3157.9ms
-11-11-2021 19:41:59 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3158.3ms
-11-11-2021 19:41:59 : Step: RepositoriesListPage: is repositories contains repo | time:130.4ms
-11-11-2021 19:42:00 : Step: RepositoriesListPage: click first repo on repositories | time:917.2ms
-11-11-2021 19:42:00 : Step: GitHubRepoMainPage: settings tab | time:60.8ms
-11-11-2021 19:42:01 : Step: GitHubRepoMainPage: click settings tab | time:160.7ms
-11-11-2021 19:42:01 : Step: GitHubRepoSettingsPage: options side setting | time:601.2ms
-11-11-2021 19:42:03 : Step: GitHubRepoSettingsPage: click options side setting | time:2659.0ms
-11-11-2021 19:42:03 : Step: GitHubSettingsOptionsPage: click delete repository button | time:101.7ms
-11-11-2021 19:42:03 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:53.3ms
-11-11-2021 19:42:03 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:69.0ms
-11-11-2021 19:42:04 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:263.2ms
-11-11-2021 19:42:04 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:58.0ms
-11-11-2021 19:42:04 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:911.5ms
-11-11-2021 19:42:08 : Step: GitHubConfirmPasswordPage: is password input exist | time:3162.1ms
-11-11-2021 19:42:08 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3162.3ms
-11-11-2021 19:42:08 : Step: RepositoriesListPage: is repositories contains repo | time:145.8ms
-11-11-2021 19:42:09 : Step: RepositoriesListPage: click first repo on repositories | time:986.7ms
-11-11-2021 19:42:09 : Step: GitHubRepoMainPage: settings tab | time:94.9ms
-11-11-2021 19:42:09 : Step: GitHubRepoMainPage: click settings tab | time:201.6ms
-11-11-2021 19:42:10 : Step: GitHubRepoSettingsPage: options side setting | time:578.0ms
-11-11-2021 19:42:12 : Step: GitHubRepoSettingsPage: click options side setting | time:2632.9ms
-11-11-2021 19:42:12 : Step: GitHubSettingsOptionsPage: click delete repository button | time:136.6ms
-11-11-2021 19:42:12 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:43.2ms
-11-11-2021 19:42:12 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:51.2ms
-11-11-2021 19:42:12 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:195.3ms
-11-11-2021 19:42:12 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:67.8ms
-11-11-2021 19:42:13 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:915.6ms
-11-11-2021 19:42:16 : Step: GitHubConfirmPasswordPage: is password input exist | time:3178.2ms
-11-11-2021 19:42:16 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3178.4ms
-11-11-2021 19:42:16 : Step: RepositoriesListPage: is repositories contains repo | time:86.6ms
-11-11-2021 19:42:17 : Step: RepositoriesListPage: click first repo on repositories | time:928.4ms
-11-11-2021 19:42:17 : Step: GitHubRepoMainPage: settings tab | time:52.1ms
-11-11-2021 19:42:17 : Step: GitHubRepoMainPage: click settings tab | time:169.7ms
-11-11-2021 19:42:18 : Step: GitHubRepoSettingsPage: options side setting | time:608.3ms
-11-11-2021 19:42:20 : Step: GitHubRepoSettingsPage: click options side setting | time:2680.9ms
-11-11-2021 19:42:20 : Step: GitHubSettingsOptionsPage: click delete repository button | time:105.5ms
-11-11-2021 19:42:20 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:51.9ms
-11-11-2021 19:42:20 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:63.8ms
-11-11-2021 19:42:20 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:223.1ms
-11-11-2021 19:42:20 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:87.7ms
-11-11-2021 19:42:21 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:954.1ms
-11-11-2021 19:42:24 : Step: GitHubConfirmPasswordPage: is password input exist | time:3158.1ms
-11-11-2021 19:42:24 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3158.3ms
-11-11-2021 19:42:24 : Step: RepositoriesListPage: is repositories contains repo | time:89.8ms
-11-11-2021 19:42:25 : Step: RepositoriesListPage: click first repo on repositories | time:556.9ms
-11-11-2021 19:42:25 : Step: GitHubRepoMainPage: settings tab | time:42.3ms
-11-11-2021 19:42:25 : Step: GitHubRepoMainPage: click settings tab | time:97.1ms
-11-11-2021 19:42:26 : Step: GitHubRepoSettingsPage: options side setting | time:579.4ms
-11-11-2021 19:42:28 : Step: GitHubRepoSettingsPage: click options side setting | time:2631.6ms
-11-11-2021 19:42:28 : Step: GitHubSettingsOptionsPage: click delete repository button | time:104.9ms
-11-11-2021 19:42:28 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:50.6ms
-11-11-2021 19:42:28 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:98.5ms
-11-11-2021 19:42:28 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:258.2ms
-11-11-2021 19:42:28 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:56.5ms
-11-11-2021 19:42:29 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:848.1ms
-11-11-2021 19:42:32 : Step: GitHubConfirmPasswordPage: is password input exist | time:3167.6ms
-11-11-2021 19:42:32 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3167.9ms
-11-11-2021 19:42:32 : Step: RepositoriesListPage: is repositories contains repo | time:66.9ms
-11-11-2021 19:42:33 : Step: RepositoriesListPage: click first repo on repositories | time:632.9ms
-11-11-2021 19:42:33 : Step: GitHubRepoMainPage: settings tab | time:36.0ms
-11-11-2021 19:42:33 : Step: GitHubRepoMainPage: click settings tab | time:90.2ms
-11-11-2021 19:42:34 : Step: GitHubRepoSettingsPage: options side setting | time:607.4ms
-11-11-2021 19:42:36 : Step: GitHubRepoSettingsPage: click options side setting | time:2668.9ms
-11-11-2021 19:42:36 : Step: GitHubSettingsOptionsPage: click delete repository button | time:127.0ms
-11-11-2021 19:42:36 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:79.5ms
-11-11-2021 19:42:36 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:63.0ms
-11-11-2021 19:42:36 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:232.7ms
-11-11-2021 19:42:36 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:44.7ms
-11-11-2021 19:42:37 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:844.3ms
-11-11-2021 19:42:40 : Step: GitHubConfirmPasswordPage: is password input exist | time:3154.7ms
-11-11-2021 19:42:40 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3154.9ms
-11-11-2021 19:42:40 : Step: RepositoriesListPage: is repositories contains repo | time:66.1ms
-11-11-2021 19:42:41 : Step: RepositoriesListPage: click first repo on repositories | time:610.5ms
-11-11-2021 19:42:41 : Step: GitHubRepoMainPage: settings tab | time:39.7ms
-11-11-2021 19:42:41 : Step: GitHubRepoMainPage: click settings tab | time:93.1ms
-11-11-2021 19:42:41 : Step: GitHubRepoSettingsPage: options side setting | time:577.2ms
-11-11-2021 19:42:43 : Step: GitHubRepoSettingsPage: click options side setting | time:2656.7ms
-11-11-2021 19:42:43 : Step: GitHubSettingsOptionsPage: click delete repository button | time:111.2ms
-11-11-2021 19:42:44 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:58.7ms
-11-11-2021 19:42:44 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:67.8ms
-11-11-2021 19:42:44 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:206.8ms
-11-11-2021 19:42:44 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:105.4ms
-11-11-2021 19:42:45 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:942.6ms
-11-11-2021 19:42:48 : Step: GitHubConfirmPasswordPage: is password input exist | time:3161.4ms
-11-11-2021 19:42:48 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3161.6ms
-11-11-2021 19:42:48 : Step: RepositoriesListPage: is repositories contains repo | time:38.0ms
-11-11-2021 19:42:48 : Step: RepositoriesListPage: click first repo on repositories | time:491.4ms
-<br/></div></td></tr></tbody>
-      <tbody class="error results-table-row">
-        <tr>
-          <td class="col-result">Error</td>
-          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_should_open_create_new_repo::setup</td>
-          <td class="col-duration">0.00</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log">web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session=&quot;b5688be7284107006bd2b2f413b53f9c&quot;)&gt;<br/>github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7feac769cee0&gt;<br/>github_confirm_password_page = &lt;pages.github_pages.repository.settings.github_confirm_password_page.GitHubConfirmPasswordPage object at 0x7feac769cfd0&gt;<br/><br/>    @pytest.fixture(scope=&quot;class&quot;)<br/>    def delete_all_repos_before_class(web_driver, github_dashboard_page, github_confirm_password_page):<br/>&gt;       delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page)<br/><br/>tests/conftest.py:170: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>tests/conftest.py:154: in delete_all_repos_on_dashboard<br/>    github_dashboard_page.repositories_list.click_first_repo_on_repositories() \<br/>utilities/logger/test_logger/test_step.py:28: in impl<br/>    params = func(*args, **kw)<br/>pages/github_pages/repository/github_repo_main_page.py:46: in click_settings_tab<br/>    self.settings_tab().click()<br/>utilities/logger/test_logger/test_step.py:28: in impl<br/>    params = func(*args, **kw)<br/>pages/github_pages/repository/github_repo_main_page.py:42: in settings_tab<br/>    return self._wait_for_visible_element(self.SETTINGS_TAB, 10)<br/>pages/base_page.py:16: in _wait_for_visible_element<br/>    return WebDriverWait(self.driver, time_seconds).until(EC.visibility_of_element_located(by_locator))<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;selenium.webdriver.support.wait.WebDriverWait (session=&quot;b5688be7284107006bd2b2f413b53f9c&quot;)&gt;<br/>method = &lt;function visibility_of_element_located.&lt;locals&gt;._predicate at 0x7feac76e8790&gt;<br/>message = &#x27;&#x27;<br/><br/>    def until(self, method, message=&#x27;&#x27;):<br/>        &quot;&quot;&quot;Calls the method provided with the driver as an argument until the \<br/>        return value does not evaluate to ``False``.<br/>    <br/>        :param method: callable(WebDriver)<br/>        :param message: optional message for :exc:`TimeoutException`<br/>        :returns: the result of the last call to `method`<br/>        :raises: :exc:`selenium.common.exceptions.TimeoutException` if timeout occurs<br/>        &quot;&quot;&quot;<br/>        screen = None<br/>        stacktrace = None<br/>    <br/>        end_time = time.time() + self._timeout<br/>        while True:<br/>            try:<br/>                value = method(self._driver)<br/>                if value:<br/>                    return value<br/>            except InvalidSelectorException as e:<br/>                raise e<br/>            except self._ignored_exceptions as exc:<br/>                screen = getattr(exc, &#x27;screen&#x27;, None)<br/>                stacktrace = getattr(exc, &#x27;stacktrace&#x27;, None)<br/>            time.sleep(self._poll)<br/>            if time.time() &gt; end_time:<br/>                break<br/>&gt;       raise TimeoutException(message, screen, stacktrace)<br/><span class="error">E       selenium.common.exceptions.TimeoutException: Message: </span><br/><span class="error">E       Stacktrace:</span><br/><span class="error">E       #0 0x556aa9d6df93 &lt;unknown&gt;</span><br/><span class="error">E       #1 0x556aa9848908 &lt;unknown&gt;</span><br/><span class="error">E       #2 0x556aa987e66a &lt;unknown&gt;</span><br/><span class="error">E       #3 0x556aa98b0ff4 &lt;unknown&gt;</span><br/><span class="error">E       #4 0x556aa989baad &lt;unknown&gt;</span><br/><span class="error">E       #5 0x556aa98aec91 &lt;unknown&gt;</span><br/><span class="error">E       #6 0x556aa989b973 &lt;unknown&gt;</span><br/><span class="error">E       #7 0x556aa9871df4 &lt;unknown&gt;</span><br/><span class="error">E       #8 0x556aa9872de5 &lt;unknown&gt;</span><br/><span class="error">E       #9 0x556aa9d9d2be &lt;unknown&gt;</span><br/><span class="error">E       #10 0x556aa9db2ba0 &lt;unknown&gt;</span><br/><span class="error">E       #11 0x556aa9d9e215 &lt;unknown&gt;</span><br/><span class="error">E       #12 0x556aa9db3fe8 &lt;unknown&gt;</span><br/><span class="error">E       #13 0x556aa9d929db &lt;unknown&gt;</span><br/><span class="error">E       #14 0x556aa9dcf218 &lt;unknown&gt;</span><br/><span class="error">E       #15 0x556aa9dcf398 &lt;unknown&gt;</span><br/><span class="error">E       #16 0x556aa9dea6cd &lt;unknown&gt;</span><br/><span class="error">E       #17 0x7f8b22b99609 &lt;unknown&gt;</span><br/><br/>../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:89: TimeoutException<br/></div></td></tr></tbody>
-      <tbody class="error results-table-row">
-        <tr>
-          <td class="col-result">Error</td>
-          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_should_open_import_repo_page::setup</td>
-          <td class="col-duration">0.00</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log">web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session=&quot;b5688be7284107006bd2b2f413b53f9c&quot;)&gt;<br/>github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7feac769cee0&gt;<br/>github_confirm_password_page = &lt;pages.github_pages.repository.settings.github_confirm_password_page.GitHubConfirmPasswordPage object at 0x7feac769cfd0&gt;<br/><br/>    @pytest.fixture(scope=&quot;class&quot;)<br/>    def delete_all_repos_before_class(web_driver, github_dashboard_page, github_confirm_password_page):<br/>&gt;       delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page)<br/><br/>tests/conftest.py:170: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>tests/conftest.py:154: in delete_all_repos_on_dashboard<br/>    github_dashboard_page.repositories_list.click_first_repo_on_repositories() \<br/>utilities/logger/test_logger/test_step.py:28: in impl<br/>    params = func(*args, **kw)<br/>pages/github_pages/repository/github_repo_main_page.py:46: in click_settings_tab<br/>    self.settings_tab().click()<br/>utilities/logger/test_logger/test_step.py:28: in impl<br/>    params = func(*args, **kw)<br/>pages/github_pages/repository/github_repo_main_page.py:42: in settings_tab<br/>    return self._wait_for_visible_element(self.SETTINGS_TAB, 10)<br/>pages/base_page.py:16: in _wait_for_visible_element<br/>    return WebDriverWait(self.driver, time_seconds).until(EC.visibility_of_element_located(by_locator))<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;selenium.webdriver.support.wait.WebDriverWait (session=&quot;b5688be7284107006bd2b2f413b53f9c&quot;)&gt;<br/>method = &lt;function visibility_of_element_located.&lt;locals&gt;._predicate at 0x7feac76e8790&gt;<br/>message = &#x27;&#x27;<br/><br/>    def until(self, method, message=&#x27;&#x27;):<br/>        &quot;&quot;&quot;Calls the method provided with the driver as an argument until the \<br/>        return value does not evaluate to ``False``.<br/>    <br/>        :param method: callable(WebDriver)<br/>        :param message: optional message for :exc:`TimeoutException`<br/>        :returns: the result of the last call to `method`<br/>        :raises: :exc:`selenium.common.exceptions.TimeoutException` if timeout occurs<br/>        &quot;&quot;&quot;<br/>        screen = None<br/>        stacktrace = None<br/>    <br/>        end_time = time.time() + self._timeout<br/>        while True:<br/>            try:<br/>                value = method(self._driver)<br/>                if value:<br/>                    return value<br/>            except InvalidSelectorException as e:<br/>                raise e<br/>            except self._ignored_exceptions as exc:<br/>                screen = getattr(exc, &#x27;screen&#x27;, None)<br/>                stacktrace = getattr(exc, &#x27;stacktrace&#x27;, None)<br/>            time.sleep(self._poll)<br/>            if time.time() &gt; end_time:<br/>                break<br/>&gt;       raise TimeoutException(message, screen, stacktrace)<br/><span class="error">E       selenium.common.exceptions.TimeoutException: Message: </span><br/><span class="error">E       Stacktrace:</span><br/><span class="error">E       #0 0x556aa9d6df93 &lt;unknown&gt;</span><br/><span class="error">E       #1 0x556aa9848908 &lt;unknown&gt;</span><br/><span class="error">E       #2 0x556aa987e66a &lt;unknown&gt;</span><br/><span class="error">E       #3 0x556aa98b0ff4 &lt;unknown&gt;</span><br/><span class="error">E       #4 0x556aa989baad &lt;unknown&gt;</span><br/><span class="error">E       #5 0x556aa98aec91 &lt;unknown&gt;</span><br/><span class="error">E       #6 0x556aa989b973 &lt;unknown&gt;</span><br/><span class="error">E       #7 0x556aa9871df4 &lt;unknown&gt;</span><br/><span class="error">E       #8 0x556aa9872de5 &lt;unknown&gt;</span><br/><span class="error">E       #9 0x556aa9d9d2be &lt;unknown&gt;</span><br/><span class="error">E       #10 0x556aa9db2ba0 &lt;unknown&gt;</span><br/><span class="error">E       #11 0x556aa9d9e215 &lt;unknown&gt;</span><br/><span class="error">E       #12 0x556aa9db3fe8 &lt;unknown&gt;</span><br/><span class="error">E       #13 0x556aa9d929db &lt;unknown&gt;</span><br/><span class="error">E       #14 0x556aa9dcf218 &lt;unknown&gt;</span><br/><span class="error">E       #15 0x556aa9dcf398 &lt;unknown&gt;</span><br/><span class="error">E       #16 0x556aa9dea6cd &lt;unknown&gt;</span><br/><span class="error">E       #17 0x7f8b22b99609 &lt;unknown&gt;</span><br/><br/>../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:89: TimeoutException<br/></div></td></tr></tbody>
-      <tbody class="error results-table-row">
-        <tr>
-          <td class="col-result">Error</td>
-          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_should_open_hello_world_read_guide_page::setup</td>
-          <td class="col-duration">0.00</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log">web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session=&quot;b5688be7284107006bd2b2f413b53f9c&quot;)&gt;<br/>github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7feac769cee0&gt;<br/>github_confirm_password_page = &lt;pages.github_pages.repository.settings.github_confirm_password_page.GitHubConfirmPasswordPage object at 0x7feac769cfd0&gt;<br/><br/>    @pytest.fixture(scope=&quot;class&quot;)<br/>    def delete_all_repos_before_class(web_driver, github_dashboard_page, github_confirm_password_page):<br/>&gt;       delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page)<br/><br/>tests/conftest.py:170: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>tests/conftest.py:154: in delete_all_repos_on_dashboard<br/>    github_dashboard_page.repositories_list.click_first_repo_on_repositories() \<br/>utilities/logger/test_logger/test_step.py:28: in impl<br/>    params = func(*args, **kw)<br/>pages/github_pages/repository/github_repo_main_page.py:46: in click_settings_tab<br/>    self.settings_tab().click()<br/>utilities/logger/test_logger/test_step.py:28: in impl<br/>    params = func(*args, **kw)<br/>pages/github_pages/repository/github_repo_main_page.py:42: in settings_tab<br/>    return self._wait_for_visible_element(self.SETTINGS_TAB, 10)<br/>pages/base_page.py:16: in _wait_for_visible_element<br/>    return WebDriverWait(self.driver, time_seconds).until(EC.visibility_of_element_located(by_locator))<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;selenium.webdriver.support.wait.WebDriverWait (session=&quot;b5688be7284107006bd2b2f413b53f9c&quot;)&gt;<br/>method = &lt;function visibility_of_element_located.&lt;locals&gt;._predicate at 0x7feac76e8790&gt;<br/>message = &#x27;&#x27;<br/><br/>    def until(self, method, message=&#x27;&#x27;):<br/>        &quot;&quot;&quot;Calls the method provided with the driver as an argument until the \<br/>        return value does not evaluate to ``False``.<br/>    <br/>        :param method: callable(WebDriver)<br/>        :param message: optional message for :exc:`TimeoutException`<br/>        :returns: the result of the last call to `method`<br/>        :raises: :exc:`selenium.common.exceptions.TimeoutException` if timeout occurs<br/>        &quot;&quot;&quot;<br/>        screen = None<br/>        stacktrace = None<br/>    <br/>        end_time = time.time() + self._timeout<br/>        while True:<br/>            try:<br/>                value = method(self._driver)<br/>                if value:<br/>                    return value<br/>            except InvalidSelectorException as e:<br/>                raise e<br/>            except self._ignored_exceptions as exc:<br/>                screen = getattr(exc, &#x27;screen&#x27;, None)<br/>                stacktrace = getattr(exc, &#x27;stacktrace&#x27;, None)<br/>            time.sleep(self._poll)<br/>            if time.time() &gt; end_time:<br/>                break<br/>&gt;       raise TimeoutException(message, screen, stacktrace)<br/><span class="error">E       selenium.common.exceptions.TimeoutException: Message: </span><br/><span class="error">E       Stacktrace:</span><br/><span class="error">E       #0 0x556aa9d6df93 &lt;unknown&gt;</span><br/><span class="error">E       #1 0x556aa9848908 &lt;unknown&gt;</span><br/><span class="error">E       #2 0x556aa987e66a &lt;unknown&gt;</span><br/><span class="error">E       #3 0x556aa98b0ff4 &lt;unknown&gt;</span><br/><span class="error">E       #4 0x556aa989baad &lt;unknown&gt;</span><br/><span class="error">E       #5 0x556aa98aec91 &lt;unknown&gt;</span><br/><span class="error">E       #6 0x556aa989b973 &lt;unknown&gt;</span><br/><span class="error">E       #7 0x556aa9871df4 &lt;unknown&gt;</span><br/><span class="error">E       #8 0x556aa9872de5 &lt;unknown&gt;</span><br/><span class="error">E       #9 0x556aa9d9d2be &lt;unknown&gt;</span><br/><span class="error">E       #10 0x556aa9db2ba0 &lt;unknown&gt;</span><br/><span class="error">E       #11 0x556aa9d9e215 &lt;unknown&gt;</span><br/><span class="error">E       #12 0x556aa9db3fe8 &lt;unknown&gt;</span><br/><span class="error">E       #13 0x556aa9d929db &lt;unknown&gt;</span><br/><span class="error">E       #14 0x556aa9dcf218 &lt;unknown&gt;</span><br/><span class="error">E       #15 0x556aa9dcf398 &lt;unknown&gt;</span><br/><span class="error">E       #16 0x556aa9dea6cd &lt;unknown&gt;</span><br/><span class="error">E       #17 0x7f8b22b99609 &lt;unknown&gt;</span><br/><br/>../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:89: TimeoutException<br/></div></td></tr></tbody>
-      <tbody class="error results-table-row">
-        <tr>
-          <td class="col-result">Error</td>
-          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_should_create_repo_form_introduce_yourself_activity::setup</td>
-          <td class="col-duration">0.00</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log">web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session=&quot;b5688be7284107006bd2b2f413b53f9c&quot;)&gt;<br/>github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7feac769cee0&gt;<br/>github_confirm_password_page = &lt;pages.github_pages.repository.settings.github_confirm_password_page.GitHubConfirmPasswordPage object at 0x7feac769cfd0&gt;<br/><br/>    @pytest.fixture(scope=&quot;class&quot;)<br/>    def delete_all_repos_before_class(web_driver, github_dashboard_page, github_confirm_password_page):<br/>&gt;       delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page)<br/><br/>tests/conftest.py:170: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>tests/conftest.py:154: in delete_all_repos_on_dashboard<br/>    github_dashboard_page.repositories_list.click_first_repo_on_repositories() \<br/>utilities/logger/test_logger/test_step.py:28: in impl<br/>    params = func(*args, **kw)<br/>pages/github_pages/repository/github_repo_main_page.py:46: in click_settings_tab<br/>    self.settings_tab().click()<br/>utilities/logger/test_logger/test_step.py:28: in impl<br/>    params = func(*args, **kw)<br/>pages/github_pages/repository/github_repo_main_page.py:42: in settings_tab<br/>    return self._wait_for_visible_element(self.SETTINGS_TAB, 10)<br/>pages/base_page.py:16: in _wait_for_visible_element<br/>    return WebDriverWait(self.driver, time_seconds).until(EC.visibility_of_element_located(by_locator))<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;selenium.webdriver.support.wait.WebDriverWait (session=&quot;b5688be7284107006bd2b2f413b53f9c&quot;)&gt;<br/>method = &lt;function visibility_of_element_located.&lt;locals&gt;._predicate at 0x7feac76e8790&gt;<br/>message = &#x27;&#x27;<br/><br/>    def until(self, method, message=&#x27;&#x27;):<br/>        &quot;&quot;&quot;Calls the method provided with the driver as an argument until the \<br/>        return value does not evaluate to ``False``.<br/>    <br/>        :param method: callable(WebDriver)<br/>        :param message: optional message for :exc:`TimeoutException`<br/>        :returns: the result of the last call to `method`<br/>        :raises: :exc:`selenium.common.exceptions.TimeoutException` if timeout occurs<br/>        &quot;&quot;&quot;<br/>        screen = None<br/>        stacktrace = None<br/>    <br/>        end_time = time.time() + self._timeout<br/>        while True:<br/>            try:<br/>                value = method(self._driver)<br/>                if value:<br/>                    return value<br/>            except InvalidSelectorException as e:<br/>                raise e<br/>            except self._ignored_exceptions as exc:<br/>                screen = getattr(exc, &#x27;screen&#x27;, None)<br/>                stacktrace = getattr(exc, &#x27;stacktrace&#x27;, None)<br/>            time.sleep(self._poll)<br/>            if time.time() &gt; end_time:<br/>                break<br/>&gt;       raise TimeoutException(message, screen, stacktrace)<br/><span class="error">E       selenium.common.exceptions.TimeoutException: Message: </span><br/><span class="error">E       Stacktrace:</span><br/><span class="error">E       #0 0x556aa9d6df93 &lt;unknown&gt;</span><br/><span class="error">E       #1 0x556aa9848908 &lt;unknown&gt;</span><br/><span class="error">E       #2 0x556aa987e66a &lt;unknown&gt;</span><br/><span class="error">E       #3 0x556aa98b0ff4 &lt;unknown&gt;</span><br/><span class="error">E       #4 0x556aa989baad &lt;unknown&gt;</span><br/><span class="error">E       #5 0x556aa98aec91 &lt;unknown&gt;</span><br/><span class="error">E       #6 0x556aa989b973 &lt;unknown&gt;</span><br/><span class="error">E       #7 0x556aa9871df4 &lt;unknown&gt;</span><br/><span class="error">E       #8 0x556aa9872de5 &lt;unknown&gt;</span><br/><span class="error">E       #9 0x556aa9d9d2be &lt;unknown&gt;</span><br/><span class="error">E       #10 0x556aa9db2ba0 &lt;unknown&gt;</span><br/><span class="error">E       #11 0x556aa9d9e215 &lt;unknown&gt;</span><br/><span class="error">E       #12 0x556aa9db3fe8 &lt;unknown&gt;</span><br/><span class="error">E       #13 0x556aa9d929db &lt;unknown&gt;</span><br/><span class="error">E       #14 0x556aa9dcf218 &lt;unknown&gt;</span><br/><span class="error">E       #15 0x556aa9dcf398 &lt;unknown&gt;</span><br/><span class="error">E       #16 0x556aa9dea6cd &lt;unknown&gt;</span><br/><span class="error">E       #17 0x7f8b22b99609 &lt;unknown&gt;</span><br/><br/>../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:89: TimeoutException<br/></div></td></tr></tbody>
-      <tbody class="error results-table-row">
-        <tr>
-          <td class="col-result">Error</td>
-          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_open_explore_repos_dashboard_page::setup</td>
-          <td class="col-duration">0.00</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log">web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session=&quot;b5688be7284107006bd2b2f413b53f9c&quot;)&gt;<br/>github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7feac769cee0&gt;<br/>github_confirm_password_page = &lt;pages.github_pages.repository.settings.github_confirm_password_page.GitHubConfirmPasswordPage object at 0x7feac769cfd0&gt;<br/><br/>    @pytest.fixture(scope=&quot;class&quot;)<br/>    def delete_all_repos_before_class(web_driver, github_dashboard_page, github_confirm_password_page):<br/>&gt;       delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page)<br/><br/>tests/conftest.py:170: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>tests/conftest.py:154: in delete_all_repos_on_dashboard<br/>    github_dashboard_page.repositories_list.click_first_repo_on_repositories() \<br/>utilities/logger/test_logger/test_step.py:28: in impl<br/>    params = func(*args, **kw)<br/>pages/github_pages/repository/github_repo_main_page.py:46: in click_settings_tab<br/>    self.settings_tab().click()<br/>utilities/logger/test_logger/test_step.py:28: in impl<br/>    params = func(*args, **kw)<br/>pages/github_pages/repository/github_repo_main_page.py:42: in settings_tab<br/>    return self._wait_for_visible_element(self.SETTINGS_TAB, 10)<br/>pages/base_page.py:16: in _wait_for_visible_element<br/>    return WebDriverWait(self.driver, time_seconds).until(EC.visibility_of_element_located(by_locator))<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;selenium.webdriver.support.wait.WebDriverWait (session=&quot;b5688be7284107006bd2b2f413b53f9c&quot;)&gt;<br/>method = &lt;function visibility_of_element_located.&lt;locals&gt;._predicate at 0x7feac76e8790&gt;<br/>message = &#x27;&#x27;<br/><br/>    def until(self, method, message=&#x27;&#x27;):<br/>        &quot;&quot;&quot;Calls the method provided with the driver as an argument until the \<br/>        return value does not evaluate to ``False``.<br/>    <br/>        :param method: callable(WebDriver)<br/>        :param message: optional message for :exc:`TimeoutException`<br/>        :returns: the result of the last call to `method`<br/>        :raises: :exc:`selenium.common.exceptions.TimeoutException` if timeout occurs<br/>        &quot;&quot;&quot;<br/>        screen = None<br/>        stacktrace = None<br/>    <br/>        end_time = time.time() + self._timeout<br/>        while True:<br/>            try:<br/>                value = method(self._driver)<br/>                if value:<br/>                    return value<br/>            except InvalidSelectorException as e:<br/>                raise e<br/>            except self._ignored_exceptions as exc:<br/>                screen = getattr(exc, &#x27;screen&#x27;, None)<br/>                stacktrace = getattr(exc, &#x27;stacktrace&#x27;, None)<br/>            time.sleep(self._poll)<br/>            if time.time() &gt; end_time:<br/>                break<br/>&gt;       raise TimeoutException(message, screen, stacktrace)<br/><span class="error">E       selenium.common.exceptions.TimeoutException: Message: </span><br/><span class="error">E       Stacktrace:</span><br/><span class="error">E       #0 0x556aa9d6df93 &lt;unknown&gt;</span><br/><span class="error">E       #1 0x556aa9848908 &lt;unknown&gt;</span><br/><span class="error">E       #2 0x556aa987e66a &lt;unknown&gt;</span><br/><span class="error">E       #3 0x556aa98b0ff4 &lt;unknown&gt;</span><br/><span class="error">E       #4 0x556aa989baad &lt;unknown&gt;</span><br/><span class="error">E       #5 0x556aa98aec91 &lt;unknown&gt;</span><br/><span class="error">E       #6 0x556aa989b973 &lt;unknown&gt;</span><br/><span class="error">E       #7 0x556aa9871df4 &lt;unknown&gt;</span><br/><span class="error">E       #8 0x556aa9872de5 &lt;unknown&gt;</span><br/><span class="error">E       #9 0x556aa9d9d2be &lt;unknown&gt;</span><br/><span class="error">E       #10 0x556aa9db2ba0 &lt;unknown&gt;</span><br/><span class="error">E       #11 0x556aa9d9e215 &lt;unknown&gt;</span><br/><span class="error">E       #12 0x556aa9db3fe8 &lt;unknown&gt;</span><br/><span class="error">E       #13 0x556aa9d929db &lt;unknown&gt;</span><br/><span class="error">E       #14 0x556aa9dcf218 &lt;unknown&gt;</span><br/><span class="error">E       #15 0x556aa9dcf398 &lt;unknown&gt;</span><br/><span class="error">E       #16 0x556aa9dea6cd &lt;unknown&gt;</span><br/><span class="error">E       #17 0x7f8b22b99609 &lt;unknown&gt;</span><br/><br/>../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:89: TimeoutException<br/></div></td></tr></tbody>
-      <tbody class="error results-table-row">
-        <tr>
-          <td class="col-result">Error</td>
-          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_exact_name_one_match::setup</td>
-          <td class="col-duration">0.00</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log">web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session=&quot;b5688be7284107006bd2b2f413b53f9c&quot;)&gt;<br/>github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7feac769cee0&gt;<br/>github_confirm_password_page = &lt;pages.github_pages.repository.settings.github_confirm_password_page.GitHubConfirmPasswordPage object at 0x7feac769cfd0&gt;<br/><br/>    @pytest.fixture(scope=&quot;class&quot;)<br/>    def delete_all_repos_before_class(web_driver, github_dashboard_page, github_confirm_password_page):<br/>&gt;       delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page)<br/><br/>tests/conftest.py:170: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>tests/conftest.py:154: in delete_all_repos_on_dashboard<br/>    github_dashboard_page.repositories_list.click_first_repo_on_repositories() \<br/>utilities/logger/test_logger/test_step.py:28: in impl<br/>    params = func(*args, **kw)<br/>pages/github_pages/repository/github_repo_main_page.py:46: in click_settings_tab<br/>    self.settings_tab().click()<br/>utilities/logger/test_logger/test_step.py:28: in impl<br/>    params = func(*args, **kw)<br/>pages/github_pages/repository/github_repo_main_page.py:42: in settings_tab<br/>    return self._wait_for_visible_element(self.SETTINGS_TAB, 10)<br/>pages/base_page.py:16: in _wait_for_visible_element<br/>    return WebDriverWait(self.driver, time_seconds).until(EC.visibility_of_element_located(by_locator))<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;selenium.webdriver.support.wait.WebDriverWait (session=&quot;b5688be7284107006bd2b2f413b53f9c&quot;)&gt;<br/>method = &lt;function visibility_of_element_located.&lt;locals&gt;._predicate at 0x7feac76e8790&gt;<br/>message = &#x27;&#x27;<br/><br/>    def until(self, method, message=&#x27;&#x27;):<br/>        &quot;&quot;&quot;Calls the method provided with the driver as an argument until the \<br/>        return value does not evaluate to ``False``.<br/>    <br/>        :param method: callable(WebDriver)<br/>        :param message: optional message for :exc:`TimeoutException`<br/>        :returns: the result of the last call to `method`<br/>        :raises: :exc:`selenium.common.exceptions.TimeoutException` if timeout occurs<br/>        &quot;&quot;&quot;<br/>        screen = None<br/>        stacktrace = None<br/>    <br/>        end_time = time.time() + self._timeout<br/>        while True:<br/>            try:<br/>                value = method(self._driver)<br/>                if value:<br/>                    return value<br/>            except InvalidSelectorException as e:<br/>                raise e<br/>            except self._ignored_exceptions as exc:<br/>                screen = getattr(exc, &#x27;screen&#x27;, None)<br/>                stacktrace = getattr(exc, &#x27;stacktrace&#x27;, None)<br/>            time.sleep(self._poll)<br/>            if time.time() &gt; end_time:<br/>                break<br/>&gt;       raise TimeoutException(message, screen, stacktrace)<br/><span class="error">E       selenium.common.exceptions.TimeoutException: Message: </span><br/><span class="error">E       Stacktrace:</span><br/><span class="error">E       #0 0x556aa9d6df93 &lt;unknown&gt;</span><br/><span class="error">E       #1 0x556aa9848908 &lt;unknown&gt;</span><br/><span class="error">E       #2 0x556aa987e66a &lt;unknown&gt;</span><br/><span class="error">E       #3 0x556aa98b0ff4 &lt;unknown&gt;</span><br/><span class="error">E       #4 0x556aa989baad &lt;unknown&gt;</span><br/><span class="error">E       #5 0x556aa98aec91 &lt;unknown&gt;</span><br/><span class="error">E       #6 0x556aa989b973 &lt;unknown&gt;</span><br/><span class="error">E       #7 0x556aa9871df4 &lt;unknown&gt;</span><br/><span class="error">E       #8 0x556aa9872de5 &lt;unknown&gt;</span><br/><span class="error">E       #9 0x556aa9d9d2be &lt;unknown&gt;</span><br/><span class="error">E       #10 0x556aa9db2ba0 &lt;unknown&gt;</span><br/><span class="error">E       #11 0x556aa9d9e215 &lt;unknown&gt;</span><br/><span class="error">E       #12 0x556aa9db3fe8 &lt;unknown&gt;</span><br/><span class="error">E       #13 0x556aa9d929db &lt;unknown&gt;</span><br/><span class="error">E       #14 0x556aa9dcf218 &lt;unknown&gt;</span><br/><span class="error">E       #15 0x556aa9dcf398 &lt;unknown&gt;</span><br/><span class="error">E       #16 0x556aa9dea6cd &lt;unknown&gt;</span><br/><span class="error">E       #17 0x7f8b22b99609 &lt;unknown&gt;</span><br/><br/>../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:89: TimeoutException<br/></div></td></tr></tbody>
-      <tbody class="error results-table-row">
-        <tr>
-          <td class="col-result">Error</td>
-          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_partial_name_one_match::setup</td>
-          <td class="col-duration">0.00</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log">web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session=&quot;b5688be7284107006bd2b2f413b53f9c&quot;)&gt;<br/>github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7feac769cee0&gt;<br/>github_confirm_password_page = &lt;pages.github_pages.repository.settings.github_confirm_password_page.GitHubConfirmPasswordPage object at 0x7feac769cfd0&gt;<br/><br/>    @pytest.fixture(scope=&quot;class&quot;)<br/>    def delete_all_repos_before_class(web_driver, github_dashboard_page, github_confirm_password_page):<br/>&gt;       delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page)<br/><br/>tests/conftest.py:170: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>tests/conftest.py:154: in delete_all_repos_on_dashboard<br/>    github_dashboard_page.repositories_list.click_first_repo_on_repositories() \<br/>utilities/logger/test_logger/test_step.py:28: in impl<br/>    params = func(*args, **kw)<br/>pages/github_pages/repository/github_repo_main_page.py:46: in click_settings_tab<br/>    self.settings_tab().click()<br/>utilities/logger/test_logger/test_step.py:28: in impl<br/>    params = func(*args, **kw)<br/>pages/github_pages/repository/github_repo_main_page.py:42: in settings_tab<br/>    return self._wait_for_visible_element(self.SETTINGS_TAB, 10)<br/>pages/base_page.py:16: in _wait_for_visible_element<br/>    return WebDriverWait(self.driver, time_seconds).until(EC.visibility_of_element_located(by_locator))<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;selenium.webdriver.support.wait.WebDriverWait (session=&quot;b5688be7284107006bd2b2f413b53f9c&quot;)&gt;<br/>method = &lt;function visibility_of_element_located.&lt;locals&gt;._predicate at 0x7feac76e8790&gt;<br/>message = &#x27;&#x27;<br/><br/>    def until(self, method, message=&#x27;&#x27;):<br/>        &quot;&quot;&quot;Calls the method provided with the driver as an argument until the \<br/>        return value does not evaluate to ``False``.<br/>    <br/>        :param method: callable(WebDriver)<br/>        :param message: optional message for :exc:`TimeoutException`<br/>        :returns: the result of the last call to `method`<br/>        :raises: :exc:`selenium.common.exceptions.TimeoutException` if timeout occurs<br/>        &quot;&quot;&quot;<br/>        screen = None<br/>        stacktrace = None<br/>    <br/>        end_time = time.time() + self._timeout<br/>        while True:<br/>            try:<br/>                value = method(self._driver)<br/>                if value:<br/>                    return value<br/>            except InvalidSelectorException as e:<br/>                raise e<br/>            except self._ignored_exceptions as exc:<br/>                screen = getattr(exc, &#x27;screen&#x27;, None)<br/>                stacktrace = getattr(exc, &#x27;stacktrace&#x27;, None)<br/>            time.sleep(self._poll)<br/>            if time.time() &gt; end_time:<br/>                break<br/>&gt;       raise TimeoutException(message, screen, stacktrace)<br/><span class="error">E       selenium.common.exceptions.TimeoutException: Message: </span><br/><span class="error">E       Stacktrace:</span><br/><span class="error">E       #0 0x556aa9d6df93 &lt;unknown&gt;</span><br/><span class="error">E       #1 0x556aa9848908 &lt;unknown&gt;</span><br/><span class="error">E       #2 0x556aa987e66a &lt;unknown&gt;</span><br/><span class="error">E       #3 0x556aa98b0ff4 &lt;unknown&gt;</span><br/><span class="error">E       #4 0x556aa989baad &lt;unknown&gt;</span><br/><span class="error">E       #5 0x556aa98aec91 &lt;unknown&gt;</span><br/><span class="error">E       #6 0x556aa989b973 &lt;unknown&gt;</span><br/><span class="error">E       #7 0x556aa9871df4 &lt;unknown&gt;</span><br/><span class="error">E       #8 0x556aa9872de5 &lt;unknown&gt;</span><br/><span class="error">E       #9 0x556aa9d9d2be &lt;unknown&gt;</span><br/><span class="error">E       #10 0x556aa9db2ba0 &lt;unknown&gt;</span><br/><span class="error">E       #11 0x556aa9d9e215 &lt;unknown&gt;</span><br/><span class="error">E       #12 0x556aa9db3fe8 &lt;unknown&gt;</span><br/><span class="error">E       #13 0x556aa9d929db &lt;unknown&gt;</span><br/><span class="error">E       #14 0x556aa9dcf218 &lt;unknown&gt;</span><br/><span class="error">E       #15 0x556aa9dcf398 &lt;unknown&gt;</span><br/><span class="error">E       #16 0x556aa9dea6cd &lt;unknown&gt;</span><br/><span class="error">E       #17 0x7f8b22b99609 &lt;unknown&gt;</span><br/><br/>../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:89: TimeoutException<br/></div></td></tr></tbody>
-      <tbody class="error results-table-row">
-        <tr>
-          <td class="col-result">Error</td>
-          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_partial_name_multi_match::setup</td>
-          <td class="col-duration">0.00</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log">web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session=&quot;b5688be7284107006bd2b2f413b53f9c&quot;)&gt;<br/>github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7feac769cee0&gt;<br/>github_confirm_password_page = &lt;pages.github_pages.repository.settings.github_confirm_password_page.GitHubConfirmPasswordPage object at 0x7feac769cfd0&gt;<br/><br/>    @pytest.fixture(scope=&quot;class&quot;)<br/>    def delete_all_repos_before_class(web_driver, github_dashboard_page, github_confirm_password_page):<br/>&gt;       delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page)<br/><br/>tests/conftest.py:170: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>tests/conftest.py:154: in delete_all_repos_on_dashboard<br/>    github_dashboard_page.repositories_list.click_first_repo_on_repositories() \<br/>utilities/logger/test_logger/test_step.py:28: in impl<br/>    params = func(*args, **kw)<br/>pages/github_pages/repository/github_repo_main_page.py:46: in click_settings_tab<br/>    self.settings_tab().click()<br/>utilities/logger/test_logger/test_step.py:28: in impl<br/>    params = func(*args, **kw)<br/>pages/github_pages/repository/github_repo_main_page.py:42: in settings_tab<br/>    return self._wait_for_visible_element(self.SETTINGS_TAB, 10)<br/>pages/base_page.py:16: in _wait_for_visible_element<br/>    return WebDriverWait(self.driver, time_seconds).until(EC.visibility_of_element_located(by_locator))<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;selenium.webdriver.support.wait.WebDriverWait (session=&quot;b5688be7284107006bd2b2f413b53f9c&quot;)&gt;<br/>method = &lt;function visibility_of_element_located.&lt;locals&gt;._predicate at 0x7feac76e8790&gt;<br/>message = &#x27;&#x27;<br/><br/>    def until(self, method, message=&#x27;&#x27;):<br/>        &quot;&quot;&quot;Calls the method provided with the driver as an argument until the \<br/>        return value does not evaluate to ``False``.<br/>    <br/>        :param method: callable(WebDriver)<br/>        :param message: optional message for :exc:`TimeoutException`<br/>        :returns: the result of the last call to `method`<br/>        :raises: :exc:`selenium.common.exceptions.TimeoutException` if timeout occurs<br/>        &quot;&quot;&quot;<br/>        screen = None<br/>        stacktrace = None<br/>    <br/>        end_time = time.time() + self._timeout<br/>        while True:<br/>            try:<br/>                value = method(self._driver)<br/>                if value:<br/>                    return value<br/>            except InvalidSelectorException as e:<br/>                raise e<br/>            except self._ignored_exceptions as exc:<br/>                screen = getattr(exc, &#x27;screen&#x27;, None)<br/>                stacktrace = getattr(exc, &#x27;stacktrace&#x27;, None)<br/>            time.sleep(self._poll)<br/>            if time.time() &gt; end_time:<br/>                break<br/>&gt;       raise TimeoutException(message, screen, stacktrace)<br/><span class="error">E       selenium.common.exceptions.TimeoutException: Message: </span><br/><span class="error">E       Stacktrace:</span><br/><span class="error">E       #0 0x556aa9d6df93 &lt;unknown&gt;</span><br/><span class="error">E       #1 0x556aa9848908 &lt;unknown&gt;</span><br/><span class="error">E       #2 0x556aa987e66a &lt;unknown&gt;</span><br/><span class="error">E       #3 0x556aa98b0ff4 &lt;unknown&gt;</span><br/><span class="error">E       #4 0x556aa989baad &lt;unknown&gt;</span><br/><span class="error">E       #5 0x556aa98aec91 &lt;unknown&gt;</span><br/><span class="error">E       #6 0x556aa989b973 &lt;unknown&gt;</span><br/><span class="error">E       #7 0x556aa9871df4 &lt;unknown&gt;</span><br/><span class="error">E       #8 0x556aa9872de5 &lt;unknown&gt;</span><br/><span class="error">E       #9 0x556aa9d9d2be &lt;unknown&gt;</span><br/><span class="error">E       #10 0x556aa9db2ba0 &lt;unknown&gt;</span><br/><span class="error">E       #11 0x556aa9d9e215 &lt;unknown&gt;</span><br/><span class="error">E       #12 0x556aa9db3fe8 &lt;unknown&gt;</span><br/><span class="error">E       #13 0x556aa9d929db &lt;unknown&gt;</span><br/><span class="error">E       #14 0x556aa9dcf218 &lt;unknown&gt;</span><br/><span class="error">E       #15 0x556aa9dcf398 &lt;unknown&gt;</span><br/><span class="error">E       #16 0x556aa9dea6cd &lt;unknown&gt;</span><br/><span class="error">E       #17 0x7f8b22b99609 &lt;unknown&gt;</span><br/><br/>../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:89: TimeoutException<br/></div></td></tr></tbody>
-      <tbody class="error results-table-row">
-        <tr>
-          <td class="col-result">Error</td>
-          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_partial_name_not_match::setup</td>
-          <td class="col-duration">3.75</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log">web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session=&quot;b5688be7284107006bd2b2f413b53f9c&quot;)&gt;<br/>github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7feac769cee0&gt;<br/>github_confirm_password_page = &lt;pages.github_pages.repository.settings.github_confirm_password_page.GitHubConfirmPasswordPage object at 0x7feac769cfd0&gt;<br/><br/>    @pytest.fixture(scope=&quot;class&quot;)<br/>    def delete_all_repos_before_class(web_driver, github_dashboard_page, github_confirm_password_page):<br/>&gt;       delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page)<br/><br/>tests/conftest.py:170: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>tests/conftest.py:154: in delete_all_repos_on_dashboard<br/>    github_dashboard_page.repositories_list.click_first_repo_on_repositories() \<br/>utilities/logger/test_logger/test_step.py:28: in impl<br/>    params = func(*args, **kw)<br/>pages/github_pages/repository/github_repo_main_page.py:46: in click_settings_tab<br/>    self.settings_tab().click()<br/>utilities/logger/test_logger/test_step.py:28: in impl<br/>    params = func(*args, **kw)<br/>pages/github_pages/repository/github_repo_main_page.py:42: in settings_tab<br/>    return self._wait_for_visible_element(self.SETTINGS_TAB, 10)<br/>pages/base_page.py:16: in _wait_for_visible_element<br/>    return WebDriverWait(self.driver, time_seconds).until(EC.visibility_of_element_located(by_locator))<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;selenium.webdriver.support.wait.WebDriverWait (session=&quot;b5688be7284107006bd2b2f413b53f9c&quot;)&gt;<br/>method = &lt;function visibility_of_element_located.&lt;locals&gt;._predicate at 0x7feac76e8790&gt;<br/>message = &#x27;&#x27;<br/><br/>    def until(self, method, message=&#x27;&#x27;):<br/>        &quot;&quot;&quot;Calls the method provided with the driver as an argument until the \<br/>        return value does not evaluate to ``False``.<br/>    <br/>        :param method: callable(WebDriver)<br/>        :param message: optional message for :exc:`TimeoutException`<br/>        :returns: the result of the last call to `method`<br/>        :raises: :exc:`selenium.common.exceptions.TimeoutException` if timeout occurs<br/>        &quot;&quot;&quot;<br/>        screen = None<br/>        stacktrace = None<br/>    <br/>        end_time = time.time() + self._timeout<br/>        while True:<br/>            try:<br/>                value = method(self._driver)<br/>                if value:<br/>                    return value<br/>            except InvalidSelectorException as e:<br/>                raise e<br/>            except self._ignored_exceptions as exc:<br/>                screen = getattr(exc, &#x27;screen&#x27;, None)<br/>                stacktrace = getattr(exc, &#x27;stacktrace&#x27;, None)<br/>            time.sleep(self._poll)<br/>            if time.time() &gt; end_time:<br/>                break<br/>&gt;       raise TimeoutException(message, screen, stacktrace)<br/><span class="error">E       selenium.common.exceptions.TimeoutException: Message: </span><br/><span class="error">E       Stacktrace:</span><br/><span class="error">E       #0 0x556aa9d6df93 &lt;unknown&gt;</span><br/><span class="error">E       #1 0x556aa9848908 &lt;unknown&gt;</span><br/><span class="error">E       #2 0x556aa987e66a &lt;unknown&gt;</span><br/><span class="error">E       #3 0x556aa98b0ff4 &lt;unknown&gt;</span><br/><span class="error">E       #4 0x556aa989baad &lt;unknown&gt;</span><br/><span class="error">E       #5 0x556aa98aec91 &lt;unknown&gt;</span><br/><span class="error">E       #6 0x556aa989b973 &lt;unknown&gt;</span><br/><span class="error">E       #7 0x556aa9871df4 &lt;unknown&gt;</span><br/><span class="error">E       #8 0x556aa9872de5 &lt;unknown&gt;</span><br/><span class="error">E       #9 0x556aa9d9d2be &lt;unknown&gt;</span><br/><span class="error">E       #10 0x556aa9db2ba0 &lt;unknown&gt;</span><br/><span class="error">E       #11 0x556aa9d9e215 &lt;unknown&gt;</span><br/><span class="error">E       #12 0x556aa9db3fe8 &lt;unknown&gt;</span><br/><span class="error">E       #13 0x556aa9d929db &lt;unknown&gt;</span><br/><span class="error">E       #14 0x556aa9dcf218 &lt;unknown&gt;</span><br/><span class="error">E       #15 0x556aa9dcf398 &lt;unknown&gt;</span><br/><span class="error">E       #16 0x556aa9dea6cd &lt;unknown&gt;</span><br/><span class="error">E       #17 0x7f8b22b99609 &lt;unknown&gt;</span><br/><br/>../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:89: TimeoutException<br/> ----------------------------Captured stdout teardown---------------------------- <br/>11-11-2021 19:43:02 : Step: RepositoriesListPage: is repositories contains repo | time:3098.4ms
-<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_name_author_should_match</td>
-          <td class="col-duration">20.70</td>
+          <td class="col-duration">17.97</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_name_author_should_match.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>11-11-2021 19:39:57 : Step: GitHubLoginPage: input login | time:199.5ms
-11-11-2021 19:39:57 : Step: GitHubLoginPage: input password | time:185.2ms
-11-11-2021 19:39:58 : Step: GitHubLoginPage: click sign in button | time:726.2ms
-11-11-2021 19:39:58 : Step: GitHubLoginPage: sign in github account | time:1111.6ms
-11-11-2021 19:39:58 : Step: GitHubDeviceVerificationPage: is input device code present | time:34.4ms
-11-11-2021 19:40:05 : Step: GitHubDeviceVerificationPage: input device code | time:1043.4ms
-11-11-2021 19:40:05 : Step: GitHubDeviceVerificationPage: input otp code if verification present | time:7467.8ms
-11-11-2021 19:40:06 : Step: RepositoriesListPage: is repo list container visible | time:645.5ms
-<br/> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:40:08 : Step: GitHubCreateNewRepoPage: open url | time:534.7ms
-11-11-2021 19:40:08 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:82.3ms
-11-11-2021 19:40:08 : Step: GitHubCreateRepoDetailsPage: input repo name | time:182.0ms
-11-11-2021 19:40:09 : Step: GitHubCreateRepoDetailsPage: is name success | time:616.9ms
-11-11-2021 19:40:14 : Step: GitHubRepoMainPage: is error page message | time:4223.2ms
-11-11-2021 19:40:14 : Step: GitHubCreateNewRepoPage: click create repository button | time:6483.7ms
-11-11-2021 19:40:14 : Step: GitHubRepoMainPage: get author name text | time:79.0ms
-11-11-2021 19:40:15 : Step: GitHubRepoMainPage: get repo name text | time:107.9ms
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>11-11-2021 19:48:59 : Step: GitHubLoginPage: input login | time:184.5ms
+11-11-2021 19:48:59 : Step: GitHubLoginPage: input password | time:157.8ms
+11-11-2021 19:48:59 : Step: GitHubLoginPage: click sign in button | time:642.1ms
+11-11-2021 19:48:59 : Step: GitHubLoginPage: sign in github account | time:985.0ms
+11-11-2021 19:48:59 : Step: GitHubDeviceVerificationPage: is input device code present | time:32.2ms
+11-11-2021 19:49:03 : Step: GitHubDeviceVerificationPage: input device code | time:995.8ms
+11-11-2021 19:49:03 : Step: GitHubDeviceVerificationPage: input otp code if verification present | time:3979.8ms
+11-11-2021 19:49:04 : Step: RepositoriesListPage: is repo list container visible | time:623.9ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:49:06 : Step: GitHubCreateNewRepoPage: open url | time:794.4ms
+11-11-2021 19:49:06 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:58.4ms
+11-11-2021 19:49:06 : Step: GitHubCreateRepoDetailsPage: input repo name | time:143.9ms
+11-11-2021 19:49:06 : Step: GitHubCreateRepoDetailsPage: is name success | time:585.6ms
+11-11-2021 19:49:12 : Step: GitHubRepoMainPage: is error page message | time:4210.5ms
+11-11-2021 19:49:12 : Step: GitHubCreateNewRepoPage: click create repository button | time:6316.7ms
+11-11-2021 19:49:12 : Step: GitHubRepoMainPage: get author name text | time:74.1ms
+11-11-2021 19:49:12 : Step: GitHubRepoMainPage: get repo name text | time:73.4ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_should_match_public_as_default</td>
-          <td class="col-duration">7.16</td>
+          <td class="col-duration">6.95</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_should_match_public_as_default.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:40:15 : Step: GitHubCreateNewRepoPage: open url | time:548.7ms
-11-11-2021 19:40:15 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:71.6ms
-11-11-2021 19:40:16 : Step: GitHubCreateRepoDetailsPage: input repo name | time:178.4ms
-11-11-2021 19:40:16 : Step: GitHubCreateRepoDetailsPage: is name success | time:587.6ms
-11-11-2021 19:40:22 : Step: GitHubRepoMainPage: is error page message | time:4222.8ms
-11-11-2021 19:40:22 : Step: GitHubCreateNewRepoPage: click create repository button | time:6388.8ms
-11-11-2021 19:40:22 : Step: GitHubRepoMainPage: is privacy banner public | time:47.1ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:49:13 : Step: GitHubCreateNewRepoPage: open url | time:418.5ms
+11-11-2021 19:49:13 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:65.1ms
+11-11-2021 19:49:13 : Step: GitHubCreateRepoDetailsPage: input repo name | time:186.2ms
+11-11-2021 19:49:14 : Step: GitHubCreateRepoDetailsPage: is name success | time:577.3ms
+11-11-2021 19:49:19 : Step: GitHubRepoMainPage: is error page message | time:4195.0ms
+11-11-2021 19:49:19 : Step: GitHubCreateNewRepoPage: click create repository button | time:6291.1ms
+11-11-2021 19:49:19 : Step: GitHubRepoMainPage: is privacy banner public | time:56.4ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_should_match_clone_default_url</td>
-          <td class="col-duration">7.06</td>
+          <td class="col-duration">7.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_should_match_clone_default_url.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:40:23 : Step: GitHubCreateNewRepoPage: open url | time:455.2ms
-11-11-2021 19:40:23 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:63.6ms
-11-11-2021 19:40:23 : Step: GitHubCreateRepoDetailsPage: input repo name | time:170.7ms
-11-11-2021 19:40:23 : Step: GitHubCreateRepoDetailsPage: is name success | time:581.1ms
-11-11-2021 19:40:29 : Step: GitHubRepoMainPage: is error page message | time:4219.2ms
-11-11-2021 19:40:29 : Step: GitHubCreateNewRepoPage: click create repository button | time:6353.0ms
-11-11-2021 19:40:29 : Step: GitHubEmptyContentPage: get clone url | time:79.4ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:49:20 : Step: GitHubCreateNewRepoPage: open url | time:400.6ms
+11-11-2021 19:49:20 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:67.0ms
+11-11-2021 19:49:20 : Step: GitHubCreateRepoDetailsPage: input repo name | time:159.3ms
+11-11-2021 19:49:21 : Step: GitHubCreateRepoDetailsPage: is name success | time:571.0ms
+11-11-2021 19:49:27 : Step: GitHubRepoMainPage: is error page message | time:4191.8ms
+11-11-2021 19:49:27 : Step: GitHubCreateNewRepoPage: click create repository button | time:6408.6ms
+11-11-2021 19:49:27 : Step: GitHubEmptyContentPage: get clone url | time:84.4ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_should_match_license_file</td>
-          <td class="col-duration">11.61</td>
+          <td class="col-duration">11.34</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_should_match_license_file.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:40:30 : Step: GitHubCreateNewRepoPage: open url | time:417.2ms
-11-11-2021 19:40:30 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:61.8ms
-11-11-2021 19:40:30 : Step: GitHubCreateRepoDetailsPage: input repo name | time:178.8ms
-11-11-2021 19:40:30 : Step: GitHubCreateNewRepoPage: click choose license checkbox | time:161.7ms
-11-11-2021 19:40:30 : Step: GitHubCreateNewRepoPage: click select license dropdown | time:144.3ms
-11-11-2021 19:40:31 : Step: GitHubCreateNewRepoPage: click license type dropdown item | time:669.1ms
-11-11-2021 19:40:34 : Step: GitHubCreateRepoDetailsPage: is name success | time:3279.8ms
-11-11-2021 19:40:40 : Step: GitHubRepoMainPage: is error page message | time:4195.2ms
-11-11-2021 19:40:40 : Step: GitHubCreateNewRepoPage: click create repository button | time:9340.3ms
-11-11-2021 19:40:40 : Step: GitHubContentListPage: get file web element by file name | time:53.3ms
-11-11-2021 19:40:40 : Step: GitHubContentListPage: click file by name | time:117.6ms
-11-11-2021 19:40:41 : Step: GitHubContentViewPage: is license type by name visible | time:587.4ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:49:27 : Step: GitHubCreateNewRepoPage: open url | time:376.3ms
+11-11-2021 19:49:27 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:52.7ms
+11-11-2021 19:49:27 : Step: GitHubCreateRepoDetailsPage: input repo name | time:146.4ms
+11-11-2021 19:49:27 : Step: GitHubCreateNewRepoPage: click choose license checkbox | time:127.1ms
+11-11-2021 19:49:28 : Step: GitHubCreateNewRepoPage: click select license dropdown | time:132.8ms
+11-11-2021 19:49:28 : Step: GitHubCreateNewRepoPage: click license type dropdown item | time:142.5ms
+11-11-2021 19:49:31 : Step: GitHubCreateRepoDetailsPage: is name success | time:3255.7ms
+11-11-2021 19:49:37 : Step: GitHubRepoMainPage: is error page message | time:4210.8ms
+11-11-2021 19:49:37 : Step: GitHubCreateNewRepoPage: click create repository button | time:9732.8ms
+11-11-2021 19:49:38 : Step: GitHubContentListPage: get file web element by file name | time:40.9ms
+11-11-2021 19:49:38 : Step: GitHubContentListPage: click file by name | time:95.8ms
+11-11-2021 19:49:38 : Step: GitHubContentViewPage: is license type by name visible | time:587.5ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_should_match_readme_file</td>
-          <td class="col-duration">10.24</td>
+          <td class="col-duration">10.40</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_should_match_readme_file.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:40:42 : Step: GitHubCreateNewRepoPage: open url | time:457.9ms
-11-11-2021 19:40:42 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:54.1ms
-11-11-2021 19:40:42 : Step: GitHubCreateRepoDetailsPage: input repo name | time:151.1ms
-11-11-2021 19:40:42 : Step: GitHubCreateNewRepoPage: click readme checkbox | time:138.8ms
-11-11-2021 19:40:45 : Step: GitHubCreateRepoDetailsPage: is name success | time:3279.3ms
-11-11-2021 19:40:51 : Step: GitHubRepoMainPage: is error page message | time:4228.4ms
-11-11-2021 19:40:51 : Step: GitHubCreateNewRepoPage: click create repository button | time:9415.1ms
-11-11-2021 19:40:52 : Step: GitHubContentListPage: get readme text | time:82.1ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:49:39 : Step: GitHubCreateNewRepoPage: open url | time:442.0ms
+11-11-2021 19:49:39 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:39.4ms
+11-11-2021 19:49:39 : Step: GitHubCreateRepoDetailsPage: input repo name | time:128.0ms
+11-11-2021 19:49:39 : Step: GitHubCreateNewRepoPage: click readme checkbox | time:148.6ms
+11-11-2021 19:49:42 : Step: GitHubCreateRepoDetailsPage: is name success | time:3244.8ms
+11-11-2021 19:49:49 : Step: GitHubRepoMainPage: is error page message | time:4207.8ms
+11-11-2021 19:49:49 : Step: GitHubCreateNewRepoPage: click create repository button | time:9616.3ms
+11-11-2021 19:49:49 : Step: GitHubContentListPage: get readme text | time:67.7ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_should_match_gitignore</td>
-          <td class="col-duration">11.16</td>
+          <td class="col-duration">11.22</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_should_match_gitignore.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:40:52 : Step: GitHubCreateNewRepoPage: open url | time:474.0ms
-11-11-2021 19:40:52 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:56.7ms
-11-11-2021 19:40:52 : Step: GitHubCreateRepoDetailsPage: input repo name | time:144.4ms
-11-11-2021 19:40:53 : Step: GitHubCreateNewRepoPage: click gitignore checkbox | time:119.6ms
-11-11-2021 19:40:53 : Step: GitHubCreateNewRepoPage: click select gitignore template | time:168.1ms
-11-11-2021 19:40:53 : Step: GitHubCreateNewRepoPage: click gitignore type dropdown item | time:139.5ms
-11-11-2021 19:40:56 : Step: GitHubCreateRepoDetailsPage: is name success | time:3225.7ms
-11-11-2021 19:41:02 : Step: GitHubRepoMainPage: is error page message | time:4216.3ms
-11-11-2021 19:41:02 : Step: GitHubCreateNewRepoPage: click create repository button | time:9425.3ms
-11-11-2021 19:41:02 : Step: GitHubContentListPage: get file web element by file name | time:40.0ms
-11-11-2021 19:41:02 : Step: GitHubContentListPage: click file by name | time:104.1ms
-11-11-2021 19:41:03 : Step: GitHubContentViewPage: is content viewer contains text | time:582.4ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:49:49 : Step: GitHubCreateNewRepoPage: open url | time:434.6ms
+11-11-2021 19:49:49 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:49.7ms
+11-11-2021 19:49:50 : Step: GitHubCreateRepoDetailsPage: input repo name | time:134.0ms
+11-11-2021 19:49:50 : Step: GitHubCreateNewRepoPage: click gitignore checkbox | time:126.0ms
+11-11-2021 19:49:50 : Step: GitHubCreateNewRepoPage: click select gitignore template | time:130.8ms
+11-11-2021 19:49:50 : Step: GitHubCreateNewRepoPage: click gitignore type dropdown item | time:138.9ms
+11-11-2021 19:49:53 : Step: GitHubCreateRepoDetailsPage: is name success | time:3249.8ms
+11-11-2021 19:50:00 : Step: GitHubRepoMainPage: is error page message | time:4227.3ms
+11-11-2021 19:50:00 : Step: GitHubCreateNewRepoPage: click create repository button | time:9578.9ms
+11-11-2021 19:50:00 : Step: GitHubContentListPage: get file web element by file name | time:40.8ms
+11-11-2021 19:50:00 : Step: GitHubContentListPage: click file by name | time:99.1ms
+11-11-2021 19:50:00 : Step: GitHubContentViewPage: is content viewer contains text | time:576.9ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_should_match_privacy_private</td>
-          <td class="col-duration">9.87</td>
+          <td class="col-duration">9.85</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_should_match_privacy_private.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:41:04 : Step: GitHubCreateNewRepoPage: open url | time:410.7ms
-11-11-2021 19:41:04 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:39.2ms
-11-11-2021 19:41:04 : Step: GitHubCreateRepoDetailsPage: input repo name | time:128.9ms
-11-11-2021 19:41:04 : Step: GitHubCreateRepoDetailsPage: get privacy private checkbox | time:49.2ms
-11-11-2021 19:41:04 : Step: GitHubCreateRepoDetailsPage: click privacy private checkbox | time:118.7ms
-11-11-2021 19:41:07 : Step: GitHubCreateRepoDetailsPage: is name success | time:3272.8ms
-11-11-2021 19:41:13 : Step: GitHubRepoMainPage: is error page message | time:4204.5ms
-11-11-2021 19:41:13 : Step: GitHubCreateNewRepoPage: click create repository button | time:9156.2ms
-11-11-2021 19:41:13 : Step: GitHubRepoMainPage: is privacy banner private | time:55.0ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:50:01 : Step: GitHubCreateNewRepoPage: open url | time:457.6ms
+11-11-2021 19:50:01 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:41.0ms
+11-11-2021 19:50:01 : Step: GitHubCreateRepoDetailsPage: input repo name | time:122.4ms
+11-11-2021 19:50:01 : Step: GitHubCreateRepoDetailsPage: get privacy private checkbox | time:47.4ms
+11-11-2021 19:50:01 : Step: GitHubCreateRepoDetailsPage: click privacy private checkbox | time:106.8ms
+11-11-2021 19:50:04 : Step: GitHubCreateRepoDetailsPage: is name success | time:3232.1ms
+11-11-2021 19:50:10 : Step: GitHubRepoMainPage: is error page message | time:4231.8ms
+11-11-2021 19:50:10 : Step: GitHubCreateNewRepoPage: click create repository button | time:9124.2ms
+11-11-2021 19:50:10 : Step: GitHubRepoMainPage: is privacy banner private | time:46.1ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_should_not_create_if_name_exist</td>
-          <td class="col-duration">8.26</td>
+          <td class="col-duration">8.37</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_should_not_create_if_name_exist.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:41:14 : Step: GitHubCreateNewRepoPage: open url | time:464.2ms
-11-11-2021 19:41:14 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:55.4ms
-11-11-2021 19:41:14 : Step: GitHubCreateRepoDetailsPage: input repo name | time:156.7ms
-11-11-2021 19:41:14 : Step: GitHubCreateRepoDetailsPage: is name success | time:605.1ms
-11-11-2021 19:41:20 : Step: GitHubRepoMainPage: is error page message | time:4207.2ms
-11-11-2021 19:41:20 : Step: GitHubCreateNewRepoPage: click create repository button | time:6418.0ms
-11-11-2021 19:41:21 : Step: GitHubCreateNewRepoPage: open url | time:434.2ms
-11-11-2021 19:41:21 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:48.4ms
-11-11-2021 19:41:21 : Step: GitHubCreateRepoDetailsPage: input repo name | time:153.3ms
-11-11-2021 19:41:21 : Step: GitHubCreateRepoDetailsPage: is name error | time:569.0ms
-11-11-2021 19:41:21 : Step: GitHubCreateNewRepoPage: get create repository button | time:31.5ms
-11-11-2021 19:41:22 : Step: GitHubCreateNewRepoPage: is enable create repository button | time:66.4ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:50:11 : Step: GitHubCreateNewRepoPage: open url | time:470.7ms
+11-11-2021 19:50:11 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:39.5ms
+11-11-2021 19:50:11 : Step: GitHubCreateRepoDetailsPage: input repo name | time:124.9ms
+11-11-2021 19:50:12 : Step: GitHubCreateRepoDetailsPage: is name success | time:565.1ms
+11-11-2021 19:50:18 : Step: GitHubRepoMainPage: is error page message | time:4188.7ms
+11-11-2021 19:50:18 : Step: GitHubCreateNewRepoPage: click create repository button | time:6614.0ms
+11-11-2021 19:50:18 : Step: GitHubCreateNewRepoPage: open url | time:411.9ms
+11-11-2021 19:50:18 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:35.0ms
+11-11-2021 19:50:18 : Step: GitHubCreateRepoDetailsPage: input repo name | time:112.9ms
+11-11-2021 19:50:19 : Step: GitHubCreateRepoDetailsPage: is name error | time:565.7ms
+11-11-2021 19:50:19 : Step: GitHubCreateNewRepoPage: get create repository button | time:36.8ms
+11-11-2021 19:50:19 : Step: GitHubCreateNewRepoPage: is enable create repository button | time:75.0ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_should_description_match</td>
-          <td class="col-duration">10.58</td>
+          <td class="col-duration">6.31</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_should_description_match.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:41:22 : Step: GitHubCreateNewRepoPage: open url | time:419.9ms
-11-11-2021 19:41:22 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:66.6ms
-11-11-2021 19:41:22 : Step: GitHubCreateRepoDetailsPage: input repo name | time:162.1ms
-11-11-2021 19:41:23 : Step: GitHubCreateNewRepoPage: input description | time:182.6ms
-11-11-2021 19:41:23 : Step: GitHubCreateNewRepoPage: click readme checkbox | time:109.9ms
-11-11-2021 19:41:26 : Step: GitHubCreateRepoDetailsPage: is name success | time:3253.8ms
-11-11-2021 19:41:32 : Step: GitHubRepoMainPage: is error page message | time:4196.0ms
-11-11-2021 19:41:32 : Step: GitHubCreateNewRepoPage: click create repository button | time:9633.8ms
-11-11-2021 19:41:32 : Step: GitHubRepoMainPage: get about description text | time:75.8ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:50:19 : Step: GitHubCreateNewRepoPage: open url | time:407.3ms
+11-11-2021 19:50:20 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:55.9ms
+11-11-2021 19:50:20 : Step: GitHubCreateRepoDetailsPage: input repo name | time:142.3ms
+11-11-2021 19:50:20 : Step: GitHubCreateNewRepoPage: input description | time:153.9ms
+11-11-2021 19:50:20 : Step: GitHubCreateNewRepoPage: click readme checkbox | time:110.4ms
+11-11-2021 19:50:23 : Step: GitHubCreateRepoDetailsPage: is name success | time:3206.0ms
+11-11-2021 19:50:25 : Step: GitHubRepoMainPage: is error page message | time:38.2ms
+11-11-2021 19:50:25 : Step: GitHubCreateNewRepoPage: click create repository button | time:5417.4ms
+11-11-2021 19:50:25 : Step: GitHubRepoMainPage: get about description text | time:83.3ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_should_open_import_repo_page</td>
-          <td class="col-duration">1.00</td>
+          <td class="col-duration">1.01</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_should_open_import_repo_page.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:41:33 : Step: GitHubCreateNewRepoPage: open url | time:496.7ms
-11-11-2021 19:41:34 : Step: GitHubCreateNewRepoPage: click import repo button | time:459.9ms
-11-11-2021 19:41:34 : Step: GitHubImportRepoPage: is vsc url input visible | time:51.2ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:50:26 : Step: GitHubCreateNewRepoPage: open url | time:441.7ms
+11-11-2021 19:50:27 : Step: GitHubCreateNewRepoPage: click import repo button | time:532.5ms
+11-11-2021 19:50:27 : Step: GitHubImportRepoPage: is vsc url input visible | time:43.8ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_is_git_repo_list_available</td>
+          <td class="col-duration">77.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_is_git_repo_list_available.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>11-11-2021 19:50:28 : Step: RepositoriesListPage: is repositories contains repo | time:695.3ms
+11-11-2021 19:50:29 : Step: RepositoriesListPage: click first repo on repositories | time:922.5ms
+11-11-2021 19:50:29 : Step: GitHubRepoMainPage: settings tab | time:54.4ms
+11-11-2021 19:50:29 : Step: GitHubRepoMainPage: click settings tab | time:113.5ms
+11-11-2021 19:50:30 : Step: GitHubRepoSettingsPage: options side setting | time:596.4ms
+11-11-2021 19:50:32 : Step: GitHubRepoSettingsPage: click options side setting | time:2649.6ms
+11-11-2021 19:50:32 : Step: GitHubSettingsOptionsPage: click delete repository button | time:138.4ms
+11-11-2021 19:50:32 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:56.9ms
+11-11-2021 19:50:32 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:77.6ms
+11-11-2021 19:50:32 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:254.9ms
+11-11-2021 19:50:32 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:96.8ms
+11-11-2021 19:50:33 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:893.1ms
+11-11-2021 19:50:36 : Step: GitHubConfirmPasswordPage: is password input exist | time:3145.5ms
+11-11-2021 19:50:36 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3145.8ms
+11-11-2021 19:50:36 : Step: RepositoriesListPage: is repositories contains repo | time:218.2ms
+11-11-2021 19:50:37 : Step: RepositoriesListPage: click first repo on repositories | time:692.0ms
+11-11-2021 19:50:37 : Step: GitHubRepoMainPage: settings tab | time:33.7ms
+11-11-2021 19:50:37 : Step: GitHubRepoMainPage: click settings tab | time:93.9ms
+11-11-2021 19:50:38 : Step: GitHubRepoSettingsPage: options side setting | time:580.7ms
+11-11-2021 19:50:40 : Step: GitHubRepoSettingsPage: click options side setting | time:2630.3ms
+11-11-2021 19:50:40 : Step: GitHubSettingsOptionsPage: click delete repository button | time:102.9ms
+11-11-2021 19:50:40 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:47.7ms
+11-11-2021 19:50:40 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:84.6ms
+11-11-2021 19:50:40 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:206.7ms
+11-11-2021 19:50:40 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:50.8ms
+11-11-2021 19:50:41 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:888.6ms
+11-11-2021 19:50:44 : Step: GitHubConfirmPasswordPage: is password input exist | time:3139.8ms
+11-11-2021 19:50:44 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3140.0ms
+11-11-2021 19:50:44 : Step: RepositoriesListPage: is repositories contains repo | time:155.9ms
+11-11-2021 19:50:45 : Step: RepositoriesListPage: click first repo on repositories | time:662.5ms
+11-11-2021 19:50:45 : Step: GitHubRepoMainPage: settings tab | time:38.5ms
+11-11-2021 19:50:45 : Step: GitHubRepoMainPage: click settings tab | time:117.1ms
+11-11-2021 19:50:46 : Step: GitHubRepoSettingsPage: options side setting | time:576.6ms
+11-11-2021 19:50:48 : Step: GitHubRepoSettingsPage: click options side setting | time:2641.8ms
+11-11-2021 19:50:48 : Step: GitHubSettingsOptionsPage: click delete repository button | time:142.1ms
+11-11-2021 19:50:48 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:72.7ms
+11-11-2021 19:50:48 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:94.6ms
+11-11-2021 19:50:48 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:282.1ms
+11-11-2021 19:50:48 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:65.7ms
+11-11-2021 19:50:49 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:806.3ms
+11-11-2021 19:50:52 : Step: GitHubConfirmPasswordPage: is password input exist | time:3184.7ms
+11-11-2021 19:50:52 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3185.0ms
+11-11-2021 19:50:52 : Step: RepositoriesListPage: is repositories contains repo | time:169.4ms
+11-11-2021 19:50:53 : Step: RepositoriesListPage: click first repo on repositories | time:704.4ms
+11-11-2021 19:50:53 : Step: GitHubRepoMainPage: settings tab | time:38.0ms
+11-11-2021 19:50:53 : Step: GitHubRepoMainPage: click settings tab | time:136.1ms
+11-11-2021 19:50:54 : Step: GitHubRepoSettingsPage: options side setting | time:612.4ms
+11-11-2021 19:50:56 : Step: GitHubRepoSettingsPage: click options side setting | time:2687.6ms
+11-11-2021 19:50:56 : Step: GitHubSettingsOptionsPage: click delete repository button | time:106.4ms
+11-11-2021 19:50:56 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:34.7ms
+11-11-2021 19:50:56 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:57.8ms
+11-11-2021 19:50:56 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:170.2ms
+11-11-2021 19:50:56 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:64.4ms
+11-11-2021 19:50:57 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:891.0ms
+11-11-2021 19:51:00 : Step: GitHubConfirmPasswordPage: is password input exist | time:3147.8ms
+11-11-2021 19:51:00 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3148.1ms
+11-11-2021 19:51:00 : Step: RepositoriesListPage: is repositories contains repo | time:116.6ms
+11-11-2021 19:51:01 : Step: RepositoriesListPage: click first repo on repositories | time:1264.1ms
+11-11-2021 19:51:01 : Step: GitHubRepoMainPage: settings tab | time:52.1ms
+11-11-2021 19:51:02 : Step: GitHubRepoMainPage: click settings tab | time:125.6ms
+11-11-2021 19:51:02 : Step: GitHubRepoSettingsPage: options side setting | time:588.7ms
+11-11-2021 19:51:04 : Step: GitHubRepoSettingsPage: click options side setting | time:2649.4ms
+11-11-2021 19:51:04 : Step: GitHubSettingsOptionsPage: click delete repository button | time:100.2ms
+11-11-2021 19:51:04 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:42.9ms
+11-11-2021 19:51:04 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:55.5ms
+11-11-2021 19:51:04 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:184.6ms
+11-11-2021 19:51:05 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:68.8ms
+11-11-2021 19:51:05 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:886.2ms
+11-11-2021 19:51:09 : Step: GitHubConfirmPasswordPage: is password input exist | time:3165.4ms
+11-11-2021 19:51:09 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3165.6ms
+11-11-2021 19:51:09 : Step: RepositoriesListPage: is repositories contains repo | time:103.7ms
+11-11-2021 19:51:09 : Step: RepositoriesListPage: click first repo on repositories | time:826.9ms
+11-11-2021 19:51:10 : Step: GitHubRepoMainPage: settings tab | time:85.8ms
+11-11-2021 19:51:10 : Step: GitHubRepoMainPage: click settings tab | time:157.1ms
+11-11-2021 19:51:10 : Step: GitHubRepoSettingsPage: options side setting | time:587.0ms
+11-11-2021 19:51:12 : Step: GitHubRepoSettingsPage: click options side setting | time:2639.8ms
+11-11-2021 19:51:12 : Step: GitHubSettingsOptionsPage: click delete repository button | time:119.5ms
+11-11-2021 19:51:12 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:38.6ms
+11-11-2021 19:51:13 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:70.6ms
+11-11-2021 19:51:13 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:214.7ms
+11-11-2021 19:51:13 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:107.6ms
+11-11-2021 19:51:14 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:971.6ms
+11-11-2021 19:51:17 : Step: GitHubConfirmPasswordPage: is password input exist | time:3154.4ms
+11-11-2021 19:51:17 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3154.7ms
+11-11-2021 19:51:17 : Step: RepositoriesListPage: is repositories contains repo | time:75.6ms
+11-11-2021 19:51:17 : Step: RepositoriesListPage: click first repo on repositories | time:530.5ms
+11-11-2021 19:51:17 : Step: GitHubRepoMainPage: settings tab | time:56.8ms
+11-11-2021 19:51:17 : Step: GitHubRepoMainPage: click settings tab | time:110.2ms
+11-11-2021 19:51:18 : Step: GitHubRepoSettingsPage: options side setting | time:594.8ms
+11-11-2021 19:51:20 : Step: GitHubRepoSettingsPage: click options side setting | time:2658.8ms
+11-11-2021 19:51:20 : Step: GitHubSettingsOptionsPage: click delete repository button | time:109.4ms
+11-11-2021 19:51:20 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:36.9ms
+11-11-2021 19:51:20 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:49.6ms
+11-11-2021 19:51:20 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:153.5ms
+11-11-2021 19:51:20 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:58.9ms
+11-11-2021 19:51:21 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:806.3ms
+11-11-2021 19:51:24 : Step: GitHubConfirmPasswordPage: is password input exist | time:3161.9ms
+11-11-2021 19:51:24 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3162.2ms
+11-11-2021 19:51:24 : Step: RepositoriesListPage: is repositories contains repo | time:48.6ms
+11-11-2021 19:51:25 : Step: RepositoriesListPage: click first repo on repositories | time:507.2ms
+11-11-2021 19:51:25 : Step: GitHubRepoMainPage: settings tab | time:36.4ms
+11-11-2021 19:51:25 : Step: GitHubRepoMainPage: click settings tab | time:99.0ms
+11-11-2021 19:51:26 : Step: GitHubRepoSettingsPage: options side setting | time:592.7ms
+11-11-2021 19:51:28 : Step: GitHubRepoSettingsPage: click options side setting | time:2652.9ms
+11-11-2021 19:51:28 : Step: GitHubSettingsOptionsPage: click delete repository button | time:118.2ms
+11-11-2021 19:51:28 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:38.9ms
+11-11-2021 19:51:28 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:65.0ms
+11-11-2021 19:51:28 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:166.6ms
+11-11-2021 19:51:28 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:44.5ms
+11-11-2021 19:51:29 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:988.3ms
+11-11-2021 19:51:32 : Step: GitHubConfirmPasswordPage: is password input exist | time:3180.5ms
+11-11-2021 19:51:32 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3180.7ms
+11-11-2021 19:51:32 : Step: RepositoriesListPage: is repositories contains repo | time:34.5ms
+11-11-2021 19:51:33 : Step: RepositoriesListPage: click first repo on repositories | time:457.5ms
+11-11-2021 19:51:33 : Step: GitHubRepoMainPage: settings tab | time:29.6ms
+11-11-2021 19:51:33 : Step: GitHubRepoMainPage: click settings tab | time:72.4ms
+11-11-2021 19:51:33 : Step: GitHubRepoSettingsPage: options side setting | time:581.7ms
+11-11-2021 19:51:35 : Step: GitHubRepoSettingsPage: click options side setting | time:2637.7ms
+11-11-2021 19:51:35 : Step: GitHubSettingsOptionsPage: click delete repository button | time:99.5ms
+11-11-2021 19:51:35 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:62.1ms
+11-11-2021 19:51:36 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:74.7ms
+11-11-2021 19:51:36 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:208.8ms
+11-11-2021 19:51:36 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:55.6ms
+11-11-2021 19:51:37 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:905.5ms
+11-11-2021 19:51:40 : Step: GitHubConfirmPasswordPage: is password input exist | time:3166.2ms
+11-11-2021 19:51:40 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3166.5ms
+11-11-2021 19:51:43 : Step: RepositoriesListPage: is repositories contains repo | time:3089.5ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:51:43 : Step: GitHubDashboardPage: open url | time:429.8ms
+11-11-2021 19:51:44 : Step: RepositoriesListPage: is repo list container visible | time:583.7ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_should_open_create_new_repo</td>
+          <td class="col-duration">5.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_should_open_create_new_repo.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>11-11-2021 19:51:48 : Step: RepositoriesListPage: is repositories contains repo | time:3096.0ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:51:48 : Step: GitHubDashboardPage: open url | time:376.5ms
+11-11-2021 19:51:49 : Step: RepositoriesListPage: click create repository | time:1047.3ms
+11-11-2021 19:51:49 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:38.9ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_should_open_import_repo_page</td>
+          <td class="col-duration">5.11</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_should_open_import_repo_page.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>11-11-2021 19:51:53 : Step: RepositoriesListPage: is repositories contains repo | time:3082.0ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:51:53 : Step: GitHubDashboardPage: open url | time:538.1ms
+11-11-2021 19:51:54 : Step: RepositoriesListPage: click import repository | time:972.1ms
+11-11-2021 19:51:54 : Step: GitHubImportRepoPage: get vcs url input | time:62.8ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_should_open_hello_world_read_guide_page</td>
+          <td class="col-duration">1.38</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_should_open_hello_world_read_guide_page.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:51:55 : Step: GitHubDashboardPage: open url | time:423.4ms
+11-11-2021 19:51:55 : Step: GitHubDashboardPage: get read guide button | time:58.6ms
+11-11-2021 19:51:55 : Step: GitHubDashboardPage: click read guid button | time:152.1ms
+11-11-2021 19:51:56 : Step: GuidesGitHubLandPage: is driver set proper url | time:292.0ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_should_create_repo_form_introduce_yourself_activity</td>
+          <td class="col-duration">9.16</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_should_create_repo_form_introduce_yourself_activity.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>11-11-2021 19:52:00 : Step: RepositoriesListPage: is repositories contains repo | time:3092.8ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:52:03 : Step: GitHubDashboardPage: click continue yourself button | time:3288.1ms
+11-11-2021 19:52:04 : Step: GitHubEditModePage: click commit new file button | time:1290.7ms
+11-11-2021 19:52:04 : Step: GitHubContentListPage: get file web element by file name | time:41.5ms
+11-11-2021 19:52:05 : Step: GitHubDashboardPage: open url | time:413.0ms
+11-11-2021 19:52:05 : Step: RepositoriesListPage: is repo list container visible | time:594.6ms
+11-11-2021 19:52:05 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+11-11-2021 19:52:05 : Step: RepositoriesListPage: get repo by name | time:628.4ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_open_explore_repos_dashboard_page</td>
+          <td class="col-duration">1.92</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_open_explore_repos_dashboard_page.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:52:06 : Step: GitHubDashboardPage: open url | time:430.5ms
+11-11-2021 19:52:07 : Step: ExploreReposPage: click activities explore button | time:1457.9ms
+11-11-2021 19:52:07 : Step: GitHubExploreDashboardPage: get account name | time:36.5ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_exact_name_one_match</td>
+          <td class="col-duration">27.54</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_find_repo_by_exact_name_one_match.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>11-11-2021 19:52:08 : Step: GitHubDashboardPage: open url | time:486.5ms
+11-11-2021 19:52:08 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+11-11-2021 19:52:13 : Step: RepositoriesListPage: is repo name exist on the list | time:5294.0ms
+11-11-2021 19:52:14 : Step: GitHubCreateNewRepoPage: open url | time:479.5ms
+11-11-2021 19:52:14 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:40.1ms
+11-11-2021 19:52:14 : Step: GitHubCreateRepoDetailsPage: input repo name | time:115.4ms
+11-11-2021 19:52:15 : Step: GitHubCreateRepoDetailsPage: is name success | time:576.3ms
+11-11-2021 19:52:21 : Step: GitHubRepoMainPage: is error page message | time:4239.0ms
+11-11-2021 19:52:21 : Step: GitHubCreateNewRepoPage: click create repository button | time:6785.0ms
+11-11-2021 19:52:21 : Step: GitHubDashboardPage: open url | time:456.6ms
+11-11-2021 19:52:21 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+11-11-2021 19:52:27 : Step: RepositoriesListPage: is repo name exist on the list | time:5344.4ms
+11-11-2021 19:52:27 : Step: GitHubCreateNewRepoPage: open url | time:430.1ms
+11-11-2021 19:52:27 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:42.3ms
+11-11-2021 19:52:27 : Step: GitHubCreateRepoDetailsPage: input repo name | time:115.6ms
+11-11-2021 19:52:28 : Step: GitHubCreateRepoDetailsPage: is name success | time:579.0ms
+11-11-2021 19:52:34 : Step: GitHubRepoMainPage: is error page message | time:4239.9ms
+11-11-2021 19:52:34 : Step: GitHubCreateNewRepoPage: click create repository button | time:6316.9ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:52:34 : Step: GitHubDashboardPage: open url | time:436.5ms
+11-11-2021 19:52:35 : Step: RepositoriesListPage: input text find repo | time:657.1ms
+11-11-2021 19:52:35 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+11-11-2021 19:52:35 : Step: RepositoriesListPage: is repo name invisible on the list | time:582.9ms
+11-11-2021 19:52:35 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+11-11-2021 19:52:35 : Step: RepositoriesListPage: is repo name exist on the list | time:38.2ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_partial_name_one_match</td>
+          <td class="col-duration">3.77</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_find_repo_by_partial_name_one_match.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>11-11-2021 19:52:36 : Step: GitHubDashboardPage: open url | time:468.8ms
+11-11-2021 19:52:36 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+11-11-2021 19:52:37 : Step: RepositoriesListPage: is repo name exist on the list | time:604.1ms
+11-11-2021 19:52:37 : Step: GitHubDashboardPage: open url | time:435.0ms
+11-11-2021 19:52:37 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+11-11-2021 19:52:38 : Step: RepositoriesListPage: is repo name exist on the list | time:585.1ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:52:38 : Step: GitHubDashboardPage: open url | time:439.2ms
+11-11-2021 19:52:39 : Step: RepositoriesListPage: input text find repo | time:640.4ms
+11-11-2021 19:52:39 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+11-11-2021 19:52:39 : Step: RepositoriesListPage: is repo name invisible on the list | time:571.0ms
+11-11-2021 19:52:39 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+11-11-2021 19:52:39 : Step: RepositoriesListPage: is repo name exist on the list | time:29.1ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_partial_name_multi_match</td>
+          <td class="col-duration">3.18</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_find_repo_by_partial_name_multi_match.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>11-11-2021 19:52:40 : Step: GitHubDashboardPage: open url | time:419.7ms
+11-11-2021 19:52:40 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+11-11-2021 19:52:40 : Step: RepositoriesListPage: is repo name exist on the list | time:573.9ms
+11-11-2021 19:52:41 : Step: GitHubDashboardPage: open url | time:396.3ms
+11-11-2021 19:52:41 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+11-11-2021 19:52:41 : Step: RepositoriesListPage: is repo name exist on the list | time:604.4ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:52:42 : Step: GitHubDashboardPage: open url | time:465.6ms
+11-11-2021 19:52:43 : Step: RepositoriesListPage: input text find repo | time:662.6ms
+11-11-2021 19:52:43 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+11-11-2021 19:52:43 : Step: RepositoriesListPage: is repo name exist on the list | time:29.7ms
+11-11-2021 19:52:43 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+11-11-2021 19:52:43 : Step: RepositoriesListPage: is repo name exist on the list | time:31.6ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_partial_name_not_match</td>
+          <td class="col-duration">31.23</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_find_repo_by_partial_name_not_match.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>11-11-2021 19:52:43 : Step: GitHubDashboardPage: open url | time:381.4ms
+11-11-2021 19:52:43 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+11-11-2021 19:52:44 : Step: RepositoriesListPage: is repo name exist on the list | time:568.6ms
+11-11-2021 19:52:44 : Step: GitHubDashboardPage: open url | time:390.5ms
+11-11-2021 19:52:44 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+11-11-2021 19:52:45 : Step: RepositoriesListPage: is repo name exist on the list | time:593.5ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>11-11-2021 19:52:45 : Step: GitHubDashboardPage: open url | time:392.6ms
+11-11-2021 19:52:46 : Step: RepositoriesListPage: input text find repo | time:631.9ms
+11-11-2021 19:52:46 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+11-11-2021 19:52:46 : Step: RepositoriesListPage: is repo name invisible on the list | time:602.8ms
+11-11-2021 19:52:46 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+11-11-2021 19:52:46 : Step: RepositoriesListPage: is repo name invisible on the list | time:37.4ms
+<br/> ----------------------------Captured stdout teardown---------------------------- <br/>11-11-2021 19:52:48 : Step: RepositoriesListPage: is repositories contains repo | time:619.3ms
+11-11-2021 19:52:48 : Step: RepositoriesListPage: click first repo on repositories | time:593.8ms
+11-11-2021 19:52:48 : Step: GitHubRepoMainPage: settings tab | time:39.8ms
+11-11-2021 19:52:48 : Step: GitHubRepoMainPage: click settings tab | time:111.9ms
+11-11-2021 19:52:49 : Step: GitHubRepoSettingsPage: options side setting | time:615.2ms
+11-11-2021 19:52:51 : Step: GitHubRepoSettingsPage: click options side setting | time:2660.7ms
+11-11-2021 19:52:51 : Step: GitHubSettingsOptionsPage: click delete repository button | time:94.4ms
+11-11-2021 19:52:51 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:65.2ms
+11-11-2021 19:52:51 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:66.3ms
+11-11-2021 19:52:51 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:214.5ms
+11-11-2021 19:52:51 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:57.1ms
+11-11-2021 19:52:52 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:806.0ms
+11-11-2021 19:52:55 : Step: GitHubConfirmPasswordPage: is password input exist | time:3210.0ms
+11-11-2021 19:52:55 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3210.3ms
+11-11-2021 19:52:55 : Step: RepositoriesListPage: is repositories contains repo | time:50.9ms
+11-11-2021 19:52:56 : Step: RepositoriesListPage: click first repo on repositories | time:485.1ms
+11-11-2021 19:52:56 : Step: GitHubRepoMainPage: settings tab | time:32.4ms
+11-11-2021 19:52:56 : Step: GitHubRepoMainPage: click settings tab | time:77.7ms
+11-11-2021 19:52:57 : Step: GitHubRepoSettingsPage: options side setting | time:616.6ms
+11-11-2021 19:52:59 : Step: GitHubRepoSettingsPage: click options side setting | time:2678.2ms
+11-11-2021 19:52:59 : Step: GitHubSettingsOptionsPage: click delete repository button | time:108.1ms
+11-11-2021 19:52:59 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:46.9ms
+11-11-2021 19:52:59 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:78.6ms
+11-11-2021 19:52:59 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:180.3ms
+11-11-2021 19:52:59 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:45.0ms
+11-11-2021 19:53:00 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:826.5ms
+11-11-2021 19:53:03 : Step: GitHubConfirmPasswordPage: is password input exist | time:3187.4ms
+11-11-2021 19:53:03 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3187.7ms
+11-11-2021 19:53:03 : Step: RepositoriesListPage: is repositories contains repo | time:28.2ms
+11-11-2021 19:53:04 : Step: RepositoriesListPage: click first repo on repositories | time:899.0ms
+11-11-2021 19:53:04 : Step: GitHubRepoMainPage: settings tab | time:64.1ms
+11-11-2021 19:53:04 : Step: GitHubRepoMainPage: click settings tab | time:128.1ms
+11-11-2021 19:53:05 : Step: GitHubRepoSettingsPage: options side setting | time:582.7ms
+11-11-2021 19:53:07 : Step: GitHubRepoSettingsPage: click options side setting | time:2640.7ms
+11-11-2021 19:53:07 : Step: GitHubSettingsOptionsPage: click delete repository button | time:138.4ms
+11-11-2021 19:53:07 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:67.4ms
+11-11-2021 19:53:07 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:76.4ms
+11-11-2021 19:53:07 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:228.8ms
+11-11-2021 19:53:07 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:85.9ms
+11-11-2021 19:53:08 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:853.0ms
+11-11-2021 19:53:11 : Step: GitHubConfirmPasswordPage: is password input exist | time:3200.4ms
+11-11-2021 19:53:11 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3200.7ms
+11-11-2021 19:53:14 : Step: RepositoriesListPage: is repositories contains repo | time:3071.6ms
 <br/></div></td></tr></tbody></table></body></html>
