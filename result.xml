@@ -1,1 +1,237 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="20" time="258.554" timestamp="2021-11-11T20:07:33.171295" hostname="fv-az135-978"><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_name_author_should_match" time="18.687" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_match_public_as_default" time="6.864" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_match_clone_default_url" time="6.880" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_match_license_file" time="10.857" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_match_readme_file" time="10.811" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_match_gitignore" time="10.878" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_match_privacy_private" time="9.522" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_not_create_if_name_exist" time="7.857" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_description_match" time="10.356" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_open_import_repo_page" time="0.890" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_is_git_repo_list_available" time="74.536" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_create_new_repo" time="5.073" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_import_repo_page" time="4.850" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_hello_world_read_guide_page" time="1.634" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_create_repo_form_introduce_yourself_activity" time="8.907" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_open_explore_repos_dashboard_page" time="1.715" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_find_repo_by_exact_name_one_match" time="26.523" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_find_repo_by_partial_name_one_match" time="3.698" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_find_repo_by_partial_name_multi_match" time="2.989" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_find_repo_by_partial_name_not_match" time="31.160" /></testsuite></testsuites>
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="1" failures="2" skipped="0" tests="21" time="281.493" timestamp="2021-11-11T20:16:16.803802" hostname="fv-az28-281"><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_name_author_should_match" time="16.955" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_match_public_as_default" time="6.746" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_match_clone_default_url" time="6.816" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_match_license_file" time="10.913" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_match_readme_file" time="15.479"><failure message="selenium.common.exceptions.TimeoutException: Message: &#10;Stacktrace:&#10;#0 0x55803ea81f93 &lt;unknown&gt;&#10;#1 0x55803e55c908 &lt;unknown&gt;&#10;#2 0x55803e59266a &lt;unknown&gt;&#10;#3 0x55803e5c4ff4 &lt;unknown&gt;&#10;#4 0x55803e5afaad &lt;unknown&gt;&#10;#5 0x55803e5c2c91 &lt;unknown&gt;&#10;#6 0x55803e5af973 &lt;unknown&gt;&#10;#7 0x55803e585df4 &lt;unknown&gt;&#10;#8 0x55803e586de5 &lt;unknown&gt;&#10;#9 0x55803eab12be &lt;unknown&gt;&#10;#10 0x55803eac6ba0 &lt;unknown&gt;&#10;#11 0x55803eab2215 &lt;unknown&gt;&#10;#12 0x55803eac7fe8 &lt;unknown&gt;&#10;#13 0x55803eaa69db &lt;unknown&gt;&#10;#14 0x55803eae3218 &lt;unknown&gt;&#10;#15 0x55803eae3398 &lt;unknown&gt;&#10;#16 0x55803eafe6cd &lt;unknown&gt;&#10;#17 0x7f5f14eba609 &lt;unknown&gt;">self = &lt;tests.github_create_repo_test.TestGitHubCreateRepo object at 0x7f38744a6e50&gt;
+github_create_new_repo_page = &lt;pages.github_pages.create.new.github_create_new_repo_page.GitHubCreateNewRepoPage object at 0x7f3874524a60&gt;
+github_repo_main_page = &lt;pages.github_pages.repository.github_repo_main_page.GitHubRepoMainPage object at 0x7f3874524d60&gt;
+random_string = '0a2c24415d'
+
+    def test_create_repo_should_match_readme_file(self, github_create_new_repo_page, github_repo_main_page,
+                                                  random_string):
+        repo_name = f"test_repo_{random_string}"
+        github_create_new_repo_page.open_url().create_repo_details_page \
+            .input_repo_name(repo_name)
+        github_create_new_repo_page.click_readme_checkbox() \
+            .click_create_repository_button()
+&gt;       assert_that(github_repo_main_page.content_list_page.get_readme_text(), equal_to(repo_name))
+
+tests/github_create_repo_test.py:56: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+utilities/logger/test_logger/test_step.py:28: in impl
+    params = func(*args, **kw)
+pages/github_pages/repository/code/github_content_list_page.py:34: in get_readme_text
+    return super()._wait_for_visible_element(self.READ_ME_VIEW, 5).get_attribute("innerText")
+pages/base_page.py:16: in _wait_for_visible_element
+    return WebDriverWait(self.driver, time_seconds).until(EC.visibility_of_element_located(by_locator))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;selenium.webdriver.support.wait.WebDriverWait (session="572ae604e2815f043a603f89a9968b2d")&gt;
+method = &lt;function visibility_of_element_located.&lt;locals&gt;._predicate at 0x7f3874576dc0&gt;
+message = ''
+
+    def until(self, method, message=''):
+        """Calls the method provided with the driver as an argument until the \
+        return value does not evaluate to ``False``.
+    
+        :param method: callable(WebDriver)
+        :param message: optional message for :exc:`TimeoutException`
+        :returns: the result of the last call to `method`
+        :raises: :exc:`selenium.common.exceptions.TimeoutException` if timeout occurs
+        """
+        screen = None
+        stacktrace = None
+    
+        end_time = time.time() + self._timeout
+        while True:
+            try:
+                value = method(self._driver)
+                if value:
+                    return value
+            except InvalidSelectorException as e:
+                raise e
+            except self._ignored_exceptions as exc:
+                screen = getattr(exc, 'screen', None)
+                stacktrace = getattr(exc, 'stacktrace', None)
+            time.sleep(self._poll)
+            if time.time() &gt; end_time:
+                break
+&gt;       raise TimeoutException(message, screen, stacktrace)
+E       selenium.common.exceptions.TimeoutException: Message: 
+E       Stacktrace:
+E       #0 0x55803ea81f93 &lt;unknown&gt;
+E       #1 0x55803e55c908 &lt;unknown&gt;
+E       #2 0x55803e59266a &lt;unknown&gt;
+E       #3 0x55803e5c4ff4 &lt;unknown&gt;
+E       #4 0x55803e5afaad &lt;unknown&gt;
+E       #5 0x55803e5c2c91 &lt;unknown&gt;
+E       #6 0x55803e5af973 &lt;unknown&gt;
+E       #7 0x55803e585df4 &lt;unknown&gt;
+E       #8 0x55803e586de5 &lt;unknown&gt;
+E       #9 0x55803eab12be &lt;unknown&gt;
+E       #10 0x55803eac6ba0 &lt;unknown&gt;
+E       #11 0x55803eab2215 &lt;unknown&gt;
+E       #12 0x55803eac7fe8 &lt;unknown&gt;
+E       #13 0x55803eaa69db &lt;unknown&gt;
+E       #14 0x55803eae3218 &lt;unknown&gt;
+E       #15 0x55803eae3398 &lt;unknown&gt;
+E       #16 0x55803eafe6cd &lt;unknown&gt;
+E       #17 0x7f5f14eba609 &lt;unknown&gt;
+
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:89: TimeoutException</failure></testcase><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_match_gitignore" time="20.363"><failure message="selenium.common.exceptions.TimeoutException: Message: &#10;Stacktrace:&#10;#0 0x55803ea81f93 &lt;unknown&gt;&#10;#1 0x55803e55c908 &lt;unknown&gt;&#10;#2 0x55803e59266a &lt;unknown&gt;&#10;#3 0x55803e5c4ff4 &lt;unknown&gt;&#10;#4 0x55803e5afaad &lt;unknown&gt;&#10;#5 0x55803e5c2c91 &lt;unknown&gt;&#10;#6 0x55803e5af973 &lt;unknown&gt;&#10;#7 0x55803e585df4 &lt;unknown&gt;&#10;#8 0x55803e586de5 &lt;unknown&gt;&#10;#9 0x55803eab12be &lt;unknown&gt;&#10;#10 0x55803eac6ba0 &lt;unknown&gt;&#10;#11 0x55803eab2215 &lt;unknown&gt;&#10;#12 0x55803eac7fe8 &lt;unknown&gt;&#10;#13 0x55803eaa69db &lt;unknown&gt;&#10;#14 0x55803eae3218 &lt;unknown&gt;&#10;#15 0x55803eae3398 &lt;unknown&gt;&#10;#16 0x55803eafe6cd &lt;unknown&gt;&#10;#17 0x7f5f14eba609 &lt;unknown&gt;">self = &lt;tests.github_create_repo_test.TestGitHubCreateRepo object at 0x7f38744291f0&gt;
+github_create_new_repo_page = &lt;pages.github_pages.create.new.github_create_new_repo_page.GitHubCreateNewRepoPage object at 0x7f3874524a60&gt;
+github_repo_main_page = &lt;pages.github_pages.repository.github_repo_main_page.GitHubRepoMainPage object at 0x7f3874524d60&gt;
+random_string = 'd8326b1193'
+
+    def test_create_repo_should_match_gitignore(self, github_create_new_repo_page, github_repo_main_page,
+                                                random_string):
+        repo_name = f"test_repo_{random_string}"
+        github_create_new_repo_page.open_url().create_repo_details_page \
+            .input_repo_name(repo_name)
+        github_create_new_repo_page.click_gitignore_checkbox() \
+            .click_select_gitignore_template() \
+            .click_gitignore_type_dropdown_item("Java") \
+            .click_create_repository_button()
+&gt;       is_content_viewer_contains_text = github_repo_main_page.content_list_page.click_file_by_name(".gitignore") \
+            .is_content_viewer_contains_text(".class")
+
+tests/github_create_repo_test.py:67: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+utilities/logger/test_logger/test_step.py:28: in impl
+    params = func(*args, **kw)
+pages/github_pages/repository/code/github_content_list_page.py:25: in click_file_by_name
+    self.get_file_web_element_by_file_name(file_name).click()
+utilities/logger/test_logger/test_step.py:28: in impl
+    params = func(*args, **kw)
+pages/github_pages/repository/code/github_content_list_page.py:20: in get_file_web_element_by_file_name
+    return self._wait_for_visible_element(
+pages/base_page.py:16: in _wait_for_visible_element
+    return WebDriverWait(self.driver, time_seconds).until(EC.visibility_of_element_located(by_locator))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;selenium.webdriver.support.wait.WebDriverWait (session="572ae604e2815f043a603f89a9968b2d")&gt;
+method = &lt;function visibility_of_element_located.&lt;locals&gt;._predicate at 0x7f3874576790&gt;
+message = ''
+
+    def until(self, method, message=''):
+        """Calls the method provided with the driver as an argument until the \
+        return value does not evaluate to ``False``.
+    
+        :param method: callable(WebDriver)
+        :param message: optional message for :exc:`TimeoutException`
+        :returns: the result of the last call to `method`
+        :raises: :exc:`selenium.common.exceptions.TimeoutException` if timeout occurs
+        """
+        screen = None
+        stacktrace = None
+    
+        end_time = time.time() + self._timeout
+        while True:
+            try:
+                value = method(self._driver)
+                if value:
+                    return value
+            except InvalidSelectorException as e:
+                raise e
+            except self._ignored_exceptions as exc:
+                screen = getattr(exc, 'screen', None)
+                stacktrace = getattr(exc, 'stacktrace', None)
+            time.sleep(self._poll)
+            if time.time() &gt; end_time:
+                break
+&gt;       raise TimeoutException(message, screen, stacktrace)
+E       selenium.common.exceptions.TimeoutException: Message: 
+E       Stacktrace:
+E       #0 0x55803ea81f93 &lt;unknown&gt;
+E       #1 0x55803e55c908 &lt;unknown&gt;
+E       #2 0x55803e59266a &lt;unknown&gt;
+E       #3 0x55803e5c4ff4 &lt;unknown&gt;
+E       #4 0x55803e5afaad &lt;unknown&gt;
+E       #5 0x55803e5c2c91 &lt;unknown&gt;
+E       #6 0x55803e5af973 &lt;unknown&gt;
+E       #7 0x55803e585df4 &lt;unknown&gt;
+E       #8 0x55803e586de5 &lt;unknown&gt;
+E       #9 0x55803eab12be &lt;unknown&gt;
+E       #10 0x55803eac6ba0 &lt;unknown&gt;
+E       #11 0x55803eab2215 &lt;unknown&gt;
+E       #12 0x55803eac7fe8 &lt;unknown&gt;
+E       #13 0x55803eaa69db &lt;unknown&gt;
+E       #14 0x55803eae3218 &lt;unknown&gt;
+E       #15 0x55803eae3398 &lt;unknown&gt;
+E       #16 0x55803eafe6cd &lt;unknown&gt;
+E       #17 0x7f5f14eba609 &lt;unknown&gt;
+
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:89: TimeoutException</failure></testcase><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_match_privacy_private" time="9.575" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_not_create_if_name_exist" time="7.667" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_description_match" time="10.113" /><testcase classname="tests.github_create_repo_test.TestGitHubCreateRepo" name="test_create_repo_should_open_import_repo_page" time="0.849" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_is_git_repo_list_available" time="75.396" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_create_new_repo" time="5.158" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_import_repo_page" time="4.833" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_open_hello_world_read_guide_page" time="1.156" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_should_create_repo_form_introduce_yourself_activity" time="10.727" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_open_explore_repos_dashboard_page" time="1.567" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_find_repo_by_exact_name_one_match" time="26.259" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_find_repo_by_partial_name_one_match" time="3.702" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_find_repo_by_partial_name_multi_match" time="3.128" /><testcase classname="tests.github_dashoboard_test.TestGitHubDashboard" name="test_find_repo_by_partial_name_not_match" time="39.637"><error message="failed on teardown with &quot;selenium.common.exceptions.TimeoutException: Message: &#10;Stacktrace:&#10;#0 0x55803ea81f93 &lt;unknown&gt;&#10;#1 0x55803e55c908 &lt;unknown&gt;&#10;#2 0x55803e59266a &lt;unknown&gt;&#10;#3 0x55803e5c4ff4 &lt;unknown&gt;&#10;#4 0x55803e5afaad &lt;unknown&gt;&#10;#5 0x55803e5c2c91 &lt;unknown&gt;&#10;#6 0x55803e5af973 &lt;unknown&gt;&#10;#7 0x55803e585df4 &lt;unknown&gt;&#10;#8 0x55803e586de5 &lt;unknown&gt;&#10;#9 0x55803eab12be &lt;unknown&gt;&#10;#10 0x55803eac6ba0 &lt;unknown&gt;&#10;#11 0x55803eab2215 &lt;unknown&gt;&#10;#12 0x55803eac7fe8 &lt;unknown&gt;&#10;#13 0x55803eaa69db &lt;unknown&gt;&#10;#14 0x55803eae3218 &lt;unknown&gt;&#10;#15 0x55803eae3398 &lt;unknown&gt;&#10;#16 0x55803eafe6cd &lt;unknown&gt;&#10;#17 0x7f5f14eba609 &lt;unknown&gt;&quot;">web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session="572ae604e2815f043a603f89a9968b2d")&gt;
+github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7f3874524e80&gt;
+github_confirm_password_page = &lt;pages.github_pages.repository.settings.github_confirm_password_page.GitHubConfirmPasswordPage object at 0x7f3874524e50&gt;
+
+    @pytest.fixture(scope="session")
+    def delete_all_repos_after_all_tests(web_driver, github_dashboard_page, github_confirm_password_page):
+        yield
+&gt;       delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page)
+
+tests/conftest.py:176: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/conftest.py:154: in delete_all_repos_on_dashboard
+    github_dashboard_page.repositories_list.click_first_repo_on_repositories() \
+utilities/logger/test_logger/test_step.py:28: in impl
+    params = func(*args, **kw)
+pages/github_pages/repository/github_repo_main_page.py:46: in click_settings_tab
+    self.settings_tab().click()
+utilities/logger/test_logger/test_step.py:28: in impl
+    params = func(*args, **kw)
+pages/github_pages/repository/github_repo_main_page.py:42: in settings_tab
+    return self._wait_for_visible_element(self.SETTINGS_TAB, 10)
+pages/base_page.py:16: in _wait_for_visible_element
+    return WebDriverWait(self.driver, time_seconds).until(EC.visibility_of_element_located(by_locator))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;selenium.webdriver.support.wait.WebDriverWait (session="572ae604e2815f043a603f89a9968b2d")&gt;
+method = &lt;function visibility_of_element_located.&lt;locals&gt;._predicate at 0x7f387442e3a0&gt;
+message = ''
+
+    def until(self, method, message=''):
+        """Calls the method provided with the driver as an argument until the \
+        return value does not evaluate to ``False``.
+    
+        :param method: callable(WebDriver)
+        :param message: optional message for :exc:`TimeoutException`
+        :returns: the result of the last call to `method`
+        :raises: :exc:`selenium.common.exceptions.TimeoutException` if timeout occurs
+        """
+        screen = None
+        stacktrace = None
+    
+        end_time = time.time() + self._timeout
+        while True:
+            try:
+                value = method(self._driver)
+                if value:
+                    return value
+            except InvalidSelectorException as e:
+                raise e
+            except self._ignored_exceptions as exc:
+                screen = getattr(exc, 'screen', None)
+                stacktrace = getattr(exc, 'stacktrace', None)
+            time.sleep(self._poll)
+            if time.time() &gt; end_time:
+                break
+&gt;       raise TimeoutException(message, screen, stacktrace)
+E       selenium.common.exceptions.TimeoutException: Message: 
+E       Stacktrace:
+E       #0 0x55803ea81f93 &lt;unknown&gt;
+E       #1 0x55803e55c908 &lt;unknown&gt;
+E       #2 0x55803e59266a &lt;unknown&gt;
+E       #3 0x55803e5c4ff4 &lt;unknown&gt;
+E       #4 0x55803e5afaad &lt;unknown&gt;
+E       #5 0x55803e5c2c91 &lt;unknown&gt;
+E       #6 0x55803e5af973 &lt;unknown&gt;
+E       #7 0x55803e585df4 &lt;unknown&gt;
+E       #8 0x55803e586de5 &lt;unknown&gt;
+E       #9 0x55803eab12be &lt;unknown&gt;
+E       #10 0x55803eac6ba0 &lt;unknown&gt;
+E       #11 0x55803eab2215 &lt;unknown&gt;
+E       #12 0x55803eac7fe8 &lt;unknown&gt;
+E       #13 0x55803eaa69db &lt;unknown&gt;
+E       #14 0x55803eae3218 &lt;unknown&gt;
+E       #15 0x55803eae3398 &lt;unknown&gt;
+E       #16 0x55803eafe6cd &lt;unknown&gt;
+E       #17 0x7f5f14eba609 &lt;unknown&gt;
+
+../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:89: TimeoutException</error></testcase></testsuite></testsuites>
