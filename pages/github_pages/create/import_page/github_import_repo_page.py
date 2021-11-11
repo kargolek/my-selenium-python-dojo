@@ -16,5 +16,6 @@ class GitHubImportRepoPage(BasePage):
     def get_vcs_url_input(self):
         return super()._wait_for_visible_element(self.VCS_URL_INPUT, 10)
 
+    @step
     def is_vsc_url_input_visible(self) -> bool:
         return super()._is_one_element_visible_after_wait(self.VCS_URL_INPUT, 5)

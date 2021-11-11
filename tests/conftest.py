@@ -165,6 +165,11 @@ def delete_all_repos(web_driver, github_dashboard_page, github_confirm_password_
     delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page)
 
 
+@pytest.fixture(scope="class")
+def delete_all_repos_before_class(web_driver, github_dashboard_page, github_confirm_password_page):
+    delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page)
+
+
 @pytest.fixture(scope="session")
 def delete_all_repos_after_all_tests(web_driver, github_dashboard_page, github_confirm_password_page):
     yield
@@ -183,13 +188,17 @@ def search_and_open_repo(web_driver, github_dashboard_page):
 
 
 @pytest.fixture()
-def create_repos_test_1_and_test_2(web_driver, github_dashboard_page, delete_all_repos):
-    for i in range(1, 3):
-        github_dashboard_page.open_url() \
-            .repositories_list \
-            .click_create_repository() \
-            .input_repo_name(f"test_{i}") \
-            .click_create_repository_button().settings_tab()
+def create_repos_test_1_and_test_2(web_driver, github_dashboard_page, github_create_new_repo_page):
+    repo_list_page = github_dashboard_page.open_url().repositories_list
+    if not repo_list_page.is_repo_name_exist_on_the_list(Secrets.USERNAME, "test_1"):
+        github_create_new_repo_page.open_url().create_repo_details_page \
+            .input_repo_name("test_1")
+        github_create_new_repo_page.click_create_repository_button()
+    github_dashboard_page.open_url()
+    if not repo_list_page.is_repo_name_exist_on_the_list(Secrets.USERNAME, "test_2"):
+        github_create_new_repo_page.open_url().create_repo_details_page \
+            .input_repo_name("test_2")
+        github_create_new_repo_page.click_create_repository_button()
 
 
 @pytest.fixture()

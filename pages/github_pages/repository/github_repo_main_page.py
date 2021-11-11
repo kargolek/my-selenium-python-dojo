@@ -15,6 +15,8 @@ class GitHubRepoMainPage(BasePage):
     REPO_PRIVACY_PRIVATE = (By.XPATH, ".//div[@id='repository-container-header']//span[text()='Private']")
     ABOUT_DESCRIPTION = (By.XPATH, ".//div[@class='BorderGrid-cell']//p")
 
+    ERROR_MESSAGE = (By.XPATH, ".//img[contains(@alt, 'This is not the web page')]")
+
     def __init__(self, driver: webdriver):
         super().__init__(driver)
         self.content_list_page = GitHubContentListPage(driver)
@@ -47,3 +49,7 @@ class GitHubRepoMainPage(BasePage):
     @step
     def get_about_description_text(self):
         return super()._wait_for_visible_element(self.ABOUT_DESCRIPTION, 10).get_attribute("innerText")
+
+    @step
+    def is_error_page_message(self):
+        return super()._is_one_element_visible_after_wait(self.ERROR_MESSAGE, 4)

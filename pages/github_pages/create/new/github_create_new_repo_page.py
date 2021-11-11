@@ -2,8 +2,8 @@ from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
 from pages.github_pages.create.github_create_repo_details_page import GitHubCreateRepoDetailsPage
-from pages.github_pages.repository.github_repo_main_page import GitHubRepoMainPage
 from pages.github_pages.create.import_page.github_import_repo_page import GitHubImportRepoPage
+from pages.github_pages.repository.github_repo_main_page import GitHubRepoMainPage
 from utilities.logger.test_logger.test_step import step
 
 
@@ -45,7 +45,10 @@ class GitHubCreateNewRepoPage(BasePage):
     def click_create_repository_button(self):
         self.create_repo_details_page.is_name_success()
         super()._wait_for_clickable_element(self.CREATE_REPOSITORY_BUTTON, 10).click()
-        return GitHubRepoMainPage(self.driver)
+        github_repo_main_page = GitHubRepoMainPage(self.driver)
+        if github_repo_main_page.is_error_page_message():
+            self.driver.refresh()
+        return github_repo_main_page
 
     @step
     def is_enable_create_repository_button(self):

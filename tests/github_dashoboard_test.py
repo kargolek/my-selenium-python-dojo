@@ -4,7 +4,8 @@ from hamcrest import assert_that, equal_to, not_none
 from utilities.credentials.secrets import Secrets
 
 
-@pytest.mark.usefixtures("login_to_github_account", "set_cookies", "add_cookies", "delete_all_repos_after_all_tests")
+@pytest.mark.usefixtures("login_to_github_account", "set_cookies", "add_cookies", "delete_all_repos_before_class",
+                         "delete_all_repos_after_all_tests")
 class TestGitHubDashboard:
 
     def test_is_git_repo_list_available(self, web_driver, github_dashboard_page):
@@ -13,7 +14,7 @@ class TestGitHubDashboard:
 
     def test_should_open_create_new_repo(self, web_driver, github_dashboard_page, delete_all_repos):
         create_repo_button = github_dashboard_page.open_url() \
-            .repositories_list.click_create_repository() \
+            .repositories_list.click_create_repository().create_repo_details_page \
             .get_repo_name_input()
         assert_that(web_driver.current_url, "https://github.com/new")
         assert_that(create_repo_button, not_none())
