@@ -11,6 +11,7 @@ from pages.github_pages.github_device_verification_page import GitHubDeviceVerif
 from pages.github_pages.github_login_page import GitHubLoginPage
 from pages.github_pages.github_main_bar_page import GitHubMainBarPage
 from pages.github_pages.guides.guides_github_land_page import GuidesGitHubLandPage
+from pages.github_pages.repository.github_repo_main_page import GitHubRepoMainPage
 from pages.github_pages.repository.settings.github_confirm_password_page import GitHubConfirmPasswordPage
 from utilities.credentials.secrets import Secrets
 from utilities.datetime.date_time import get_naive_utc_current_dt
@@ -140,6 +141,11 @@ def github_confirm_password_page(web_driver):
 @pytest.fixture(scope="session")
 def github_create_new_repo_page(web_driver):
     return GitHubCreateNewRepoPage(web_driver)
+
+
+@pytest.fixture(scope="session")
+def github_repo_main_page(web_driver):
+    return GitHubRepoMainPage(web_driver)
 
 
 def delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page):
