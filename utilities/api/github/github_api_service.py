@@ -1,17 +1,18 @@
 from github import Github
-
-from utilities.credentials.secrets import Secrets
+from github import GithubException
 
 
 class GitHubApiService:
 
     def __init__(self, api_token, api_user):
-        self.api_token = api_token
-        self.api_user = api_user
+        self.__api_user = api_user
         self.__github_conn = Github(api_token)
 
-    def delete_all_account_repos(self):
-        self.__github_conn.rate_limiting_resettime
-        user = self.__github_conn.get_user(Secrets.USERNAME)
-        for repo in user.get_repos():
-            print(repo)
+    def delete_all_account_repos(self) -> bool:
+        try:
+            user = self.__github_conn.get_user(self.__api_user)
+            for repo in user.get_repos():
+                repo.delete()
+            return True
+        except GithubException:
+            return False

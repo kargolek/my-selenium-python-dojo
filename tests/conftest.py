@@ -163,7 +163,7 @@ def delete_all_repos(github_api_service, web_driver, github_dashboard_page, gith
 def delete_all_repos_after_all_tests(web_driver, github_dashboard_page, github_confirm_password_page):
     yield
     # delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page)
-    github_api_service.delete_all_account_repos()
+    # github_api_service.delete_all_account_repos()
 
 
 @pytest.fixture()
@@ -178,7 +178,7 @@ def search_and_open_repo(web_driver, github_dashboard_page):
 
 
 @pytest.fixture()
-def create_repos_test_1_and_test_2(web_driver, github_dashboard_page, delete_all_repos):
+def create_repos_test_1_and_test_2(web_driver, github_dashboard_page):
     for i in range(1, 3):
         github_dashboard_page.open_url() \
             .repositories_list \
