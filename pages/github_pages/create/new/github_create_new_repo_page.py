@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
@@ -44,10 +46,12 @@ class GitHubCreateNewRepoPage(BasePage):
     @step
     def click_create_repository_button(self):
         self.create_repo_details_page.is_name_success()
+        time.sleep(1)
         super()._wait_for_clickable_element(self.CREATE_REPOSITORY_BUTTON, 10).click()
         github_repo_main_page = GitHubRepoMainPage(self.driver)
         if github_repo_main_page.is_error_page_message():
             self.driver.refresh()
+            github_repo_main_page.is_error_page_message()
         return github_repo_main_page
 
     @step
@@ -57,11 +61,17 @@ class GitHubCreateNewRepoPage(BasePage):
     @step
     def click_readme_checkbox(self):
         super()._wait_for_clickable_element(self.ADD_READ_ME_FILE_CHECKBOX, 5).click()
+        is_checked = super()._wait_for_visible_element(self.ADD_READ_ME_FILE_CHECKBOX, 5).is_selected()
+        if not is_checked:
+            super()._wait_for_clickable_element(self.ADD_READ_ME_FILE_CHECKBOX, 5).click()
         return self
 
     @step
     def click_gitignore_checkbox(self):
         super()._wait_for_clickable_element(self.ADD_GITIGNORE_FILE_CHECKBOX, 5).click()
+        is_checked = super()._wait_for_visible_element(self.ADD_GITIGNORE_FILE_CHECKBOX, 5).is_selected()
+        if not is_checked:
+            super()._wait_for_clickable_element(self.ADD_GITIGNORE_FILE_CHECKBOX, 5).click()
         return self
 
     @step
@@ -77,6 +87,9 @@ class GitHubCreateNewRepoPage(BasePage):
     @step
     def click_choose_license_checkbox(self):
         super()._wait_for_clickable_element(self.CHOOSE_LICENSE_CHECKBOX, 5).click()
+        is_checked = super()._wait_for_visible_element(self.CHOOSE_LICENSE_CHECKBOX, 5).is_selected()
+        if not is_checked:
+            super()._wait_for_clickable_element(self.CHOOSE_LICENSE_CHECKBOX, 5).click()
         return self
 
     @step

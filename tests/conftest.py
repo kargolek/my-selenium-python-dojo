@@ -13,6 +13,7 @@ from pages.github_pages.github_main_bar_page import GitHubMainBarPage
 from pages.github_pages.guides.guides_github_land_page import GuidesGitHubLandPage
 from pages.github_pages.repository.github_repo_main_page import GitHubRepoMainPage
 from pages.github_pages.repository.settings.github_confirm_password_page import GitHubConfirmPasswordPage
+from pages.github_pages.repository.settings.github_settings_options_page import GitHubSettingsOptionsPage
 from utilities.credentials.secrets import Secrets
 from utilities.datetime.date_time import get_naive_utc_current_dt
 from utilities.driver.driver_factory import DriverFactory
@@ -148,32 +149,41 @@ def github_repo_main_page(web_driver):
     return GitHubRepoMainPage(web_driver)
 
 
-def delete_all_repos_on_dashboard(github_dashboard_page, github_confirm_password_page):
-    github_dashboard_page.open_url().repositories_list.is_repo_list_container_visible()
-    while github_dashboard_page.repositories_list.is_repositories_contains_repo():
-        github_dashboard_page.repositories_list.click_first_repo_on_repositories() \
-            .click_settings_tab() \
-            .click_options_side_setting() \
-            .click_delete_repository_button() \
+@pytest.fixture(scope="session")
+def github_settings_options_page(web_driver):
+    return GitHubSettingsOptionsPage(web_driver)
+
+
+def delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page,
+                                  github_settings_options_page):
+    while github_dashboard_page.open_url().repositories_list.is_repositories_contains_repo():
+        repo_href = github_dashboard_page.repositories_list.get_first_repo_href()
+        web_driver.get(f"{repo_href}/settings")
+        github_settings_options_page.click_delete_repository_button() \
             .type_confirm_security_text() \
             .click_confirm_delete_repo_button()
         github_confirm_password_page.input_password_if_confirm_necessary(Secrets.PASSWORD)
 
 
 @pytest.fixture()
-def delete_all_repos(github_dashboard_page, github_confirm_password_page):
-    delete_all_repos_on_dashboard(github_dashboard_page, github_confirm_password_page)
+def delete_all_repos(web_driver, github_dashboard_page, github_confirm_password_page, github_settings_options_page):
+    delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page,
+                                  github_settings_options_page)
 
 
 @pytest.fixture(scope="class")
-def delete_all_repos_before_class(github_dashboard_page, github_confirm_password_page):
-    delete_all_repos_on_dashboard(github_dashboard_page, github_confirm_password_page)
+def delete_all_repos_before_class(web_driver, github_dashboard_page, github_confirm_password_page,
+                                  github_settings_options_page):
+    delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page,
+                                  github_settings_options_page)
 
 
 @pytest.fixture(scope="session")
-def delete_all_repos_after_all_tests(github_dashboard_page, github_confirm_password_page):
+def delete_all_repos_after_all_tests(web_driver, github_dashboard_page, github_confirm_password_page,
+                                     github_settings_options_page):
     yield
-    delete_all_repos_on_dashboard(github_dashboard_page, github_confirm_password_page)
+    delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page,
+                                  github_settings_options_page)
 
 
 @pytest.fixture()

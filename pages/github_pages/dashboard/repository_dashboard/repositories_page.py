@@ -63,6 +63,10 @@ class RepositoriesListPage(BasePage):
         return GitHubRepoMainPage(self.driver)
 
     @step
+    def get_first_repo_href(self):
+        return super()._wait_for_all_elements_visible(self.REPO_ITEMS, 5)[0].get_attribute("href")
+
+    @step
     def is_repositories_contains_repo(self):
         return super()._is_elements_visible_after_wait(self.REPO_ITEMS, 3)
 
