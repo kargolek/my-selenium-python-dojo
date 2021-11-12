@@ -28,7 +28,7 @@ jobs:
         EMAIL_GIT_TEST: ${{ secrets.EMAIL_GIT_TEST }}
         USER_GIT_TEST: ${{ secrets.USER_GIT_TEST }}
       run: |
-        pytest -v --html=report.html --self-contained-html --junitxml="tests/reports/result.xml"
+        pytest -v --html=report.html --self-contained-html --junitxml="tests/reports/result.xml" --reruns 1 --reruns-delay 2
     - name: Stop containers
       if: always()
       run: |
