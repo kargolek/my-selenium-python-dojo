@@ -9,11 +9,13 @@ from utilities.logger.test_logger.test_step import step
 
 
 class RepositoriesListPage(BasePage):
-    REPO_CONTAINER = (By.ID, "dashboard-repos-container")
+    REPO_CONTAINER = (By.XPATH, ".//aside//*[@id='dashboard-repos-container']")
     CREATE_REPOSITORY_BUTTON = (By.XPATH, ".//div[@id='repos-container']//a[@href='/new']")
     IMPORT_REPOSITORY_BUTTON = (By.LINK_TEXT, "Import repository")
     REPO_ITEMS = (By.XPATH, ".//aside//div[@class='wb-break-word']//a[@href]")
     FIND_REPO_INPUT = (By.ID, "dashboard-repos-filter-left")
+    REPO_SINGLE_ITEM = (By.XPATH,
+                        ".//ul[contains(@data-filterable-for, 'dashboard-repos')]//div[@class='wb-break-word']")
 
     def __init__(self, driver: webdriver):
         super().__init__(driver)
@@ -74,3 +76,7 @@ class RepositoriesListPage(BasePage):
     def input_text_find_repo(self, text: str):
         super()._wait_for_visible_element(self.FIND_REPO_INPUT, 5).send_keys(text)
         return self
+
+    @step
+    def get_number_of_repo_items(self) -> int:
+        return super()._count_occur_after_wait_visibility(self.REPO_CONTAINER, self.REPO_SINGLE_ITEM, 10)
