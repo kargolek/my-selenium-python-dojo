@@ -429,7 +429,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>index.html</h1>
-    <p>Report generated on 12-Nov-2021 at 11:08:04 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
+    <p>Report generated on 13-Nov-2021 at 03:06:22 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -446,13 +446,13 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <td>Linux-5.11.0-1020-azure-x86_64-with-glibc2.29</td></tr>
       <tr>
         <td>Plugins</td>
-        <td>{"html": "3.1.1", "metadata": "1.11.0"}</td></tr>
+        <td>{"html": "3.1.1", "metadata": "1.11.0", "rerunfailures": "10.2"}</td></tr>
       <tr>
         <td>Python</td>
         <td>3.8.10</td></tr></table>
     <h2>Summary</h2>
-    <p>9 tests ran in 167.48 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">9 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">1 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>16 tests ran in 221.53 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">16 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">4 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>, <input checked="true" class="filter" data-test-result="rerun" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="rerun">4 rerun</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -466,296 +466,628 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="error results-table-row">
         <tr>
           <td class="col-result">Error</td>
-          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_partial_name_one_match::setup</td>
-          <td class="col-duration">12.02</td>
+          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_exact_name_one_match::setup</td>
+          <td class="col-duration">0.01</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session=&quot;860d4df8afcd79a52de9cf673395066b&quot;)&gt;<br/>github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7f0723eb3a90&gt;<br/>github_confirm_password_page = &lt;pages.github_pages.repository.settings.github_confirm_password_page.GitHubConfirmPasswordPage object at 0x7f0723eb38b0&gt;<br/><br/>    @pytest.fixture()<br/>    def delete_all_repos(web_driver, github_dashboard_page, github_confirm_password_page):<br/>&gt;       delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page)<br/><br/>tests/conftest.py:152: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>tests/conftest.py:141: in delete_all_repos_on_dashboard<br/>    github_dashboard_page.repositories_list.click_first_repo_on_repositories() \<br/>utilities/logger/test_logger/test_step.py:29: in impl<br/>    params = func(*args, **kw)<br/>pages/github_pages/repository/github_repo_main_page.py:23: in click_settings_tab<br/>    self.settings_tab().click()<br/>utilities/logger/test_logger/test_step.py:29: in impl<br/>    params = func(*args, **kw)<br/>pages/github_pages/repository/github_repo_main_page.py:19: in settings_tab<br/>    return self._wait_for_visible_element(self.SETTINGS_TAB, 10)<br/>pages/base_page.py:16: in _wait_for_visible_element<br/>    return WebDriverWait(self.driver, time_seconds).until(EC.visibility_of_element_located(by_locator))<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;selenium.webdriver.support.wait.WebDriverWait (session=&quot;860d4df8afcd79a52de9cf673395066b&quot;)&gt;<br/>method = &lt;function visibility_of_element_located.&lt;locals&gt;._predicate at 0x7f0723e9b670&gt;<br/>message = &#x27;&#x27;<br/><br/>    def until(self, method, message=&#x27;&#x27;):<br/>        &quot;&quot;&quot;Calls the method provided with the driver as an argument until the \<br/>        return value does not evaluate to ``False``.<br/>    <br/>        :param method: callable(WebDriver)<br/>        :param message: optional message for :exc:`TimeoutException`<br/>        :returns: the result of the last call to `method`<br/>        :raises: :exc:`selenium.common.exceptions.TimeoutException` if timeout occurs<br/>        &quot;&quot;&quot;<br/>        screen = None<br/>        stacktrace = None<br/>    <br/>        end_time = time.time() + self._timeout<br/>        while True:<br/>            try:<br/>                value = method(self._driver)<br/>                if value:<br/>                    return value<br/>            except InvalidSelectorException as e:<br/>                raise e<br/>            except self._ignored_exceptions as exc:<br/>                screen = getattr(exc, &#x27;screen&#x27;, None)<br/>                stacktrace = getattr(exc, &#x27;stacktrace&#x27;, None)<br/>            time.sleep(self._poll)<br/>            if time.time() &gt; end_time:<br/>                break<br/>&gt;       raise TimeoutException(message, screen, stacktrace)<br/><span class="error">E       selenium.common.exceptions.TimeoutException: Message: </span><br/><span class="error">E       Stacktrace:</span><br/><span class="error">E       #0 0x55d35c5d5f93 &lt;unknown&gt;</span><br/><span class="error">E       #1 0x55d35c0b0908 &lt;unknown&gt;</span><br/><span class="error">E       #2 0x55d35c0e666a &lt;unknown&gt;</span><br/><span class="error">E       #3 0x55d35c118ff4 &lt;unknown&gt;</span><br/><span class="error">E       #4 0x55d35c103aad &lt;unknown&gt;</span><br/><span class="error">E       #5 0x55d35c116c91 &lt;unknown&gt;</span><br/><span class="error">E       #6 0x55d35c103973 &lt;unknown&gt;</span><br/><span class="error">E       #7 0x55d35c0d9df4 &lt;unknown&gt;</span><br/><span class="error">E       #8 0x55d35c0dade5 &lt;unknown&gt;</span><br/><span class="error">E       #9 0x55d35c6052be &lt;unknown&gt;</span><br/><span class="error">E       #10 0x55d35c61aba0 &lt;unknown&gt;</span><br/><span class="error">E       #11 0x55d35c606215 &lt;unknown&gt;</span><br/><span class="error">E       #12 0x55d35c61bfe8 &lt;unknown&gt;</span><br/><span class="error">E       #13 0x55d35c5fa9db &lt;unknown&gt;</span><br/><span class="error">E       #14 0x55d35c637218 &lt;unknown&gt;</span><br/><span class="error">E       #15 0x55d35c637398 &lt;unknown&gt;</span><br/><span class="error">E       #16 0x55d35c6526cd &lt;unknown&gt;</span><br/><span class="error">E       #17 0x7fd90160e609 &lt;unknown&gt;</span><br/><br/>../../../.local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py:89: TimeoutException<br/> -----------------------------Captured stdout setup------------------------------ <br/>12-11-2021 11:06:22 : Step: RepositoriesListPage: is repositories contains repo | time:560.5ms
-12-11-2021 11:06:22 : Step: RepositoriesListPage: click first repo on repositories | time:500.7ms
+            <div class="log">web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session=&quot;4a5e43af7196cfbc4ac405e9ca1861c8&quot;)&gt;<br/>github_api_service = &lt;utilities.api.github.github_api_service.GitHubApiService object at 0x7fa7e81399d0&gt;<br/>github_fixtures = &lt;fixtures.github.github_fixtures.GitHubFixtures object at 0x7fa7e819e6d0&gt;<br/>github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7fa7e8139130&gt;<br/>github_create_new_repo_page = &lt;pages.github_pages.create.new.github_create_new_repo_page.GitHubCreateNewRepoPage object at 0x7fa7e8139880&gt;<br/><br/>    @pytest.fixture()<br/>    def create_repos_test_1_and_test_2_if_not_exist(web_driver, github_api_service,<br/>                                                    github_fixtures, github_dashboard_page, github_create_new_repo_page):<br/>&gt;       repos = github_fixtures.create_public_repo_if_not_exist(&quot;test_1&quot;, github_api_service, github_dashboard_page)<br/><br/>tests/conftest.py:206: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>fixtures/github/github_fixtures.py:63: in create_public_repo_if_not_exist<br/>    filtered_repos = [repo.name for repo in repos if repo.name == repo_name]<br/>fixtures/github/github_fixtures.py:63: in &lt;listcomp&gt;<br/>    filtered_repos = [repo.name for repo in repos if repo.name == repo_name]<br/>../../../.local/lib/python3.8/site-packages/github/PaginatedList.py:56: in __iter__<br/>    newElements = self._grow()<br/>../../../.local/lib/python3.8/site-packages/github/PaginatedList.py:67: in _grow<br/>    newElements = self._fetchNextPage()<br/>../../../.local/lib/python3.8/site-packages/github/PaginatedList.py:199: in _fetchNextPage<br/>    headers, data = self.__requester.requestJsonAndCheck(<br/>../../../.local/lib/python3.8/site-packages/github/Requester.py:353: in requestJsonAndCheck<br/>    return self.__check(<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;github.Requester.Requester object at 0x7fa7e8139c70&gt;, status = 401<br/>responseHeaders = {&#x27;access-control-allow-origin&#x27;: &#x27;*&#x27;, &#x27;access-control-expose-headers&#x27;: &#x27;ETag, Link, Location, Retry-After, X-GitHub-OTP...GitHub-Media-Type, Deprecation, Sunset&#x27;, &#x27;content-length&#x27;: &#x27;149&#x27;, &#x27;content-security-policy&#x27;: &quot;default-src &#x27;none&#x27;&quot;, ...}<br/>output = {&#x27;documentation_url&#x27;: &#x27;https://docs.github.com/rest/reference/repos#list-repositories-for-the-authenticated-user&#x27;, &#x27;message&#x27;: &#x27;Requires authentication&#x27;}<br/><br/>    def __check(self, status, responseHeaders, output):<br/>        output = self.__structuredFromJson(output)<br/>        if status &gt;= 400:<br/>&gt;           raise self.__createException(status, responseHeaders, output)<br/><span class="error">E           github.GithubException.GithubException: 401 {&quot;message&quot;: &quot;Requires authentication&quot;, &quot;documentation_url&quot;: &quot;https://docs.github.com/rest/reference/repos#list-repositories-for-the-authenticated-user&quot;}</span><br/><br/>../../../.local/lib/python3.8/site-packages/github/Requester.py:378: GithubException<br/> -----------------------------Captured stdout setup------------------------------ <br/>13-11-2021 03:05:45 : Step: GitHubApiService: get repos | time:0.1ms
+<br/> -----------------------------Captured stdout setup------------------------------ <br/>13-11-2021 03:05:47 : Step: GitHubApiService: get repos | time:0.1ms
+<br/></div></td></tr></tbody>
+      <tbody class="error results-table-row">
+        <tr>
+          <td class="col-result">Error</td>
+          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_partial_name_one_match::setup</td>
+          <td class="col-duration">0.01</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session=&quot;4a5e43af7196cfbc4ac405e9ca1861c8&quot;)&gt;<br/>github_api_service = &lt;utilities.api.github.github_api_service.GitHubApiService object at 0x7fa7e81399d0&gt;<br/>github_fixtures = &lt;fixtures.github.github_fixtures.GitHubFixtures object at 0x7fa7e819e6d0&gt;<br/>github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7fa7e8139130&gt;<br/>github_create_new_repo_page = &lt;pages.github_pages.create.new.github_create_new_repo_page.GitHubCreateNewRepoPage object at 0x7fa7e8139880&gt;<br/><br/>    @pytest.fixture()<br/>    def create_repos_test_1_and_test_2_if_not_exist(web_driver, github_api_service,<br/>                                                    github_fixtures, github_dashboard_page, github_create_new_repo_page):<br/>&gt;       repos = github_fixtures.create_public_repo_if_not_exist(&quot;test_1&quot;, github_api_service, github_dashboard_page)<br/><br/>tests/conftest.py:206: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>fixtures/github/github_fixtures.py:63: in create_public_repo_if_not_exist<br/>    filtered_repos = [repo.name for repo in repos if repo.name == repo_name]<br/>fixtures/github/github_fixtures.py:63: in &lt;listcomp&gt;<br/>    filtered_repos = [repo.name for repo in repos if repo.name == repo_name]<br/>../../../.local/lib/python3.8/site-packages/github/PaginatedList.py:56: in __iter__<br/>    newElements = self._grow()<br/>../../../.local/lib/python3.8/site-packages/github/PaginatedList.py:67: in _grow<br/>    newElements = self._fetchNextPage()<br/>../../../.local/lib/python3.8/site-packages/github/PaginatedList.py:199: in _fetchNextPage<br/>    headers, data = self.__requester.requestJsonAndCheck(<br/>../../../.local/lib/python3.8/site-packages/github/Requester.py:353: in requestJsonAndCheck<br/>    return self.__check(<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;github.Requester.Requester object at 0x7fa7e8139c70&gt;, status = 401<br/>responseHeaders = {&#x27;access-control-allow-origin&#x27;: &#x27;*&#x27;, &#x27;access-control-expose-headers&#x27;: &#x27;ETag, Link, Location, Retry-After, X-GitHub-OTP...GitHub-Media-Type, Deprecation, Sunset&#x27;, &#x27;content-length&#x27;: &#x27;149&#x27;, &#x27;content-security-policy&#x27;: &quot;default-src &#x27;none&#x27;&quot;, ...}<br/>output = {&#x27;documentation_url&#x27;: &#x27;https://docs.github.com/rest/reference/repos#list-repositories-for-the-authenticated-user&#x27;, &#x27;message&#x27;: &#x27;Requires authentication&#x27;}<br/><br/>    def __check(self, status, responseHeaders, output):<br/>        output = self.__structuredFromJson(output)<br/>        if status &gt;= 400:<br/>&gt;           raise self.__createException(status, responseHeaders, output)<br/><span class="error">E           github.GithubException.GithubException: 401 {&quot;message&quot;: &quot;Requires authentication&quot;, &quot;documentation_url&quot;: &quot;https://docs.github.com/rest/reference/repos#list-repositories-for-the-authenticated-user&quot;}</span><br/><br/>../../../.local/lib/python3.8/site-packages/github/Requester.py:378: GithubException<br/> -----------------------------Captured stdout setup------------------------------ <br/>13-11-2021 03:05:48 : Step: GitHubApiService: get repos | time:0.0ms
+<br/> -----------------------------Captured stdout setup------------------------------ <br/>13-11-2021 03:05:50 : Step: GitHubApiService: get repos | time:0.1ms
+<br/></div></td></tr></tbody>
+      <tbody class="error results-table-row">
+        <tr>
+          <td class="col-result">Error</td>
+          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_partial_name_multi_match::setup</td>
+          <td class="col-duration">0.01</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session=&quot;4a5e43af7196cfbc4ac405e9ca1861c8&quot;)&gt;<br/>github_api_service = &lt;utilities.api.github.github_api_service.GitHubApiService object at 0x7fa7e81399d0&gt;<br/>github_fixtures = &lt;fixtures.github.github_fixtures.GitHubFixtures object at 0x7fa7e819e6d0&gt;<br/>github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7fa7e8139130&gt;<br/>github_create_new_repo_page = &lt;pages.github_pages.create.new.github_create_new_repo_page.GitHubCreateNewRepoPage object at 0x7fa7e8139880&gt;<br/><br/>    @pytest.fixture()<br/>    def create_repos_test_1_and_test_2_if_not_exist(web_driver, github_api_service,<br/>                                                    github_fixtures, github_dashboard_page, github_create_new_repo_page):<br/>&gt;       repos = github_fixtures.create_public_repo_if_not_exist(&quot;test_1&quot;, github_api_service, github_dashboard_page)<br/><br/>tests/conftest.py:206: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>fixtures/github/github_fixtures.py:63: in create_public_repo_if_not_exist<br/>    filtered_repos = [repo.name for repo in repos if repo.name == repo_name]<br/>fixtures/github/github_fixtures.py:63: in &lt;listcomp&gt;<br/>    filtered_repos = [repo.name for repo in repos if repo.name == repo_name]<br/>../../../.local/lib/python3.8/site-packages/github/PaginatedList.py:56: in __iter__<br/>    newElements = self._grow()<br/>../../../.local/lib/python3.8/site-packages/github/PaginatedList.py:67: in _grow<br/>    newElements = self._fetchNextPage()<br/>../../../.local/lib/python3.8/site-packages/github/PaginatedList.py:199: in _fetchNextPage<br/>    headers, data = self.__requester.requestJsonAndCheck(<br/>../../../.local/lib/python3.8/site-packages/github/Requester.py:353: in requestJsonAndCheck<br/>    return self.__check(<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;github.Requester.Requester object at 0x7fa7e8139c70&gt;, status = 401<br/>responseHeaders = {&#x27;access-control-allow-origin&#x27;: &#x27;*&#x27;, &#x27;access-control-expose-headers&#x27;: &#x27;ETag, Link, Location, Retry-After, X-GitHub-OTP...GitHub-Media-Type, Deprecation, Sunset&#x27;, &#x27;content-length&#x27;: &#x27;149&#x27;, &#x27;content-security-policy&#x27;: &quot;default-src &#x27;none&#x27;&quot;, ...}<br/>output = {&#x27;documentation_url&#x27;: &#x27;https://docs.github.com/rest/reference/repos#list-repositories-for-the-authenticated-user&#x27;, &#x27;message&#x27;: &#x27;Requires authentication&#x27;}<br/><br/>    def __check(self, status, responseHeaders, output):<br/>        output = self.__structuredFromJson(output)<br/>        if status &gt;= 400:<br/>&gt;           raise self.__createException(status, responseHeaders, output)<br/><span class="error">E           github.GithubException.GithubException: 401 {&quot;message&quot;: &quot;Requires authentication&quot;, &quot;documentation_url&quot;: &quot;https://docs.github.com/rest/reference/repos#list-repositories-for-the-authenticated-user&quot;}</span><br/><br/>../../../.local/lib/python3.8/site-packages/github/Requester.py:378: GithubException<br/> -----------------------------Captured stdout setup------------------------------ <br/>13-11-2021 03:05:50 : Step: GitHubApiService: get repos | time:0.0ms
+<br/> -----------------------------Captured stdout setup------------------------------ <br/>13-11-2021 03:05:52 : Step: GitHubApiService: get repos | time:0.1ms
+<br/></div></td></tr></tbody>
+      <tbody class="error results-table-row">
+        <tr>
+          <td class="col-result">Error</td>
+          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_partial_name_not_match::setup</td>
+          <td class="col-duration">16.69</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session=&quot;50364388aa577898687269e00bfa6877&quot;)&gt;<br/>github_api_service = &lt;utilities.api.github.github_api_service.GitHubApiService object at 0x7fa7e80a3d30&gt;<br/>github_fixtures = &lt;fixtures.github.github_fixtures.GitHubFixtures object at 0x7fa7e817f100&gt;<br/>github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7fa7e80a3880&gt;<br/>github_create_new_repo_page = &lt;pages.github_pages.create.new.github_create_new_repo_page.GitHubCreateNewRepoPage object at 0x7fa7e80a3df0&gt;<br/><br/>    @pytest.fixture()<br/>    def create_repos_test_1_and_test_2_if_not_exist(web_driver, github_api_service,<br/>                                                    github_fixtures, github_dashboard_page, github_create_new_repo_page):<br/>&gt;       repos = github_fixtures.create_public_repo_if_not_exist(&quot;test_1&quot;, github_api_service, github_dashboard_page)<br/><br/>tests/conftest.py:206: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>fixtures/github/github_fixtures.py:63: in create_public_repo_if_not_exist<br/>    filtered_repos = [repo.name for repo in repos if repo.name == repo_name]<br/>fixtures/github/github_fixtures.py:63: in &lt;listcomp&gt;<br/>    filtered_repos = [repo.name for repo in repos if repo.name == repo_name]<br/>../../../.local/lib/python3.8/site-packages/github/PaginatedList.py:56: in __iter__<br/>    newElements = self._grow()<br/>../../../.local/lib/python3.8/site-packages/github/PaginatedList.py:67: in _grow<br/>    newElements = self._fetchNextPage()<br/>../../../.local/lib/python3.8/site-packages/github/PaginatedList.py:199: in _fetchNextPage<br/>    headers, data = self.__requester.requestJsonAndCheck(<br/>../../../.local/lib/python3.8/site-packages/github/Requester.py:353: in requestJsonAndCheck<br/>    return self.__check(<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;github.Requester.Requester object at 0x7fa7e80a3f10&gt;, status = 401<br/>responseHeaders = {&#x27;access-control-allow-origin&#x27;: &#x27;*&#x27;, &#x27;access-control-expose-headers&#x27;: &#x27;ETag, Link, Location, Retry-After, X-GitHub-OTP...GitHub-Media-Type, Deprecation, Sunset&#x27;, &#x27;content-length&#x27;: &#x27;149&#x27;, &#x27;content-security-policy&#x27;: &quot;default-src &#x27;none&#x27;&quot;, ...}<br/>output = {&#x27;documentation_url&#x27;: &#x27;https://docs.github.com/rest/reference/repos#list-repositories-for-the-authenticated-user&#x27;, &#x27;message&#x27;: &#x27;Requires authentication&#x27;}<br/><br/>    def __check(self, status, responseHeaders, output):<br/>        output = self.__structuredFromJson(output)<br/>        if status &gt;= 400:<br/>&gt;           raise self.__createException(status, responseHeaders, output)<br/><span class="error">E           github.GithubException.GithubException: 401 {&quot;message&quot;: &quot;Requires authentication&quot;, &quot;documentation_url&quot;: &quot;https://docs.github.com/rest/reference/repos#list-repositories-for-the-authenticated-user&quot;}</span><br/><br/>../../../.local/lib/python3.8/site-packages/github/Requester.py:378: GithubException<br/> -----------------------------Captured stdout setup------------------------------ <br/>13-11-2021 03:05:52 : Step: GitHubApiService: get repos | time:0.0ms
+<br/> ----------------------------Captured stdout teardown---------------------------- <br/>Traceback (most recent call last):
+  File &quot;/home/runner/work/my-selenium-python-dojo/my-selenium-python-dojo/utilities/api/github/github_api_service.py&quot;, line 20, in api_call_delete_all_account_repos
+    for repo in repos:
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/PaginatedList.py&quot;, line 56, in __iter__
+    newElements = self._grow()
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/PaginatedList.py&quot;, line 67, in _grow
+    newElements = self._fetchNextPage()
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/PaginatedList.py&quot;, line 199, in _fetchNextPage
+    headers, data = self.__requester.requestJsonAndCheck(
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/Requester.py&quot;, line 353, in requestJsonAndCheck
+    return self.__check(
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/Requester.py&quot;, line 378, in __check
+    raise self.__createException(status, responseHeaders, output)
+github.GithubException.GithubException: 401 {&quot;message&quot;: &quot;Requires authentication&quot;, &quot;documentation_url&quot;: &quot;https://docs.github.com/rest/reference/repos#list-repositories-for-the-authenticated-user&quot;}
+
+13-11-2021 03:05:52 : Step: GitHubApiService: api call delete all account repos | time:11.0ms
+13-11-2021 03:05:52 : Step: GitHubDashboardPage: open url | time:428.0ms
+13-11-2021 03:05:53 : Step: RepositoriesListPage: get number of repo items | time:592.8ms
+Traceback (most recent call last):
+  File &quot;/home/runner/work/my-selenium-python-dojo/my-selenium-python-dojo/utilities/api/github/github_api_service.py&quot;, line 20, in api_call_delete_all_account_repos
+    for repo in repos:
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/PaginatedList.py&quot;, line 56, in __iter__
+    newElements = self._grow()
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/PaginatedList.py&quot;, line 67, in _grow
+    newElements = self._fetchNextPage()
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/PaginatedList.py&quot;, line 199, in _fetchNextPage
+    headers, data = self.__requester.requestJsonAndCheck(
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/Requester.py&quot;, line 353, in requestJsonAndCheck
+    return self.__check(
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/Requester.py&quot;, line 378, in __check
+    raise self.__createException(status, responseHeaders, output)
+github.GithubException.GithubException: 401 {&quot;message&quot;: &quot;Requires authentication&quot;, &quot;documentation_url&quot;: &quot;https://docs.github.com/rest/reference/repos#list-repositories-for-the-authenticated-user&quot;}
+
+13-11-2021 03:05:53 : Step: GitHubApiService: api call delete all account repos | time:13.3ms
+13-11-2021 03:05:53 : Step: GitHubDashboardPage: open url | time:389.3ms
+13-11-2021 03:05:54 : Step: RepositoriesListPage: get number of repo items | time:588.4ms
+13-11-2021 03:05:54 : Step: GitHubDashboardPage: open url | time:397.3ms
+13-11-2021 03:05:55 : Step: RepositoriesListPage: is repositories contains repo | time:547.1ms
+13-11-2021 03:05:55 : Step: RepositoriesListPage: get first repo href | time:45.6ms
+13-11-2021 03:05:55 : Step: GitHubSettingsOptionsPage: click delete repository button | time:189.3ms
+13-11-2021 03:05:56 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:87.4ms
+13-11-2021 03:05:56 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:69.5ms
+13-11-2021 03:05:56 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:226.7ms
+13-11-2021 03:05:56 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:46.0ms
+13-11-2021 03:05:56 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:764.7ms
+13-11-2021 03:06:00 : Step: GitHubConfirmPasswordPage: is password input exist | time:3183.6ms
+13-11-2021 03:06:00 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3183.9ms
+13-11-2021 03:06:00 : Step: GitHubDashboardPage: open url | time:388.3ms
+13-11-2021 03:06:03 : Step: RepositoriesListPage: is repositories contains repo | time:3086.5ms
+<br/> -----------------------------Captured stdout setup------------------------------ <br/>13-11-2021 03:06:10 : Step: GitHubLoginPage: open url | time:416.0ms
+13-11-2021 03:06:10 : Step: GitHubLoginPage: input login | time:157.0ms
+13-11-2021 03:06:10 : Step: GitHubLoginPage: input password | time:154.9ms
+13-11-2021 03:06:11 : Step: GitHubLoginPage: click sign in button | time:1116.2ms
+13-11-2021 03:06:11 : Step: GitHubLoginPage: sign in github account | time:1428.6ms
+13-11-2021 03:06:20 : Step: GitHubDeviceVerificationPage: is input device code present | time:8304.4ms
+13-11-2021 03:06:20 : Step: GitHubDeviceVerificationPage: input otp code if verification present | time:8304.7ms
+13-11-2021 03:06:20 : Step: RepositoriesListPage: is repo list container visible | time:59.4ms
+13-11-2021 03:06:21 : Step: GitHubApiService: get repos | time:0.1ms
+<br/> ----------------------------Captured stdout teardown---------------------------- <br/>Traceback (most recent call last):
+  File &quot;/home/runner/work/my-selenium-python-dojo/my-selenium-python-dojo/utilities/api/github/github_api_service.py&quot;, line 20, in api_call_delete_all_account_repos
+    for repo in repos:
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/PaginatedList.py&quot;, line 56, in __iter__
+    newElements = self._grow()
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/PaginatedList.py&quot;, line 67, in _grow
+    newElements = self._fetchNextPage()
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/PaginatedList.py&quot;, line 199, in _fetchNextPage
+    headers, data = self.__requester.requestJsonAndCheck(
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/Requester.py&quot;, line 353, in requestJsonAndCheck
+    return self.__check(
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/Requester.py&quot;, line 378, in __check
+    raise self.__createException(status, responseHeaders, output)
+github.GithubException.GithubException: 401 {&quot;message&quot;: &quot;Requires authentication&quot;, &quot;documentation_url&quot;: &quot;https://docs.github.com/rest/reference/repos#list-repositories-for-the-authenticated-user&quot;}
+
+13-11-2021 03:06:21 : Step: GitHubApiService: api call delete all account repos | time:11.7ms
+13-11-2021 03:06:21 : Step: GitHubDashboardPage: open url | time:434.8ms
+13-11-2021 03:06:22 : Step: RepositoriesListPage: get number of repo items | time:578.2ms
+<br/></div></td></tr></tbody>
+      <tbody class="rerun results-table-row">
+        <tr>
+          <td class="col-result">Rerun</td>
+          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_exact_name_one_match::setup</td>
+          <td class="col-duration">0.01</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session=&quot;4a5e43af7196cfbc4ac405e9ca1861c8&quot;)&gt;<br/>github_api_service = &lt;utilities.api.github.github_api_service.GitHubApiService object at 0x7fa7e81399d0&gt;<br/>github_fixtures = &lt;fixtures.github.github_fixtures.GitHubFixtures object at 0x7fa7e819e6d0&gt;<br/>github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7fa7e8139130&gt;<br/>github_create_new_repo_page = &lt;pages.github_pages.create.new.github_create_new_repo_page.GitHubCreateNewRepoPage object at 0x7fa7e8139880&gt;<br/><br/>    @pytest.fixture()<br/>    def create_repos_test_1_and_test_2_if_not_exist(web_driver, github_api_service,<br/>                                                    github_fixtures, github_dashboard_page, github_create_new_repo_page):<br/>&gt;       repos = github_fixtures.create_public_repo_if_not_exist(&quot;test_1&quot;, github_api_service, github_dashboard_page)<br/><br/>tests/conftest.py:206: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>fixtures/github/github_fixtures.py:63: in create_public_repo_if_not_exist<br/>    filtered_repos = [repo.name for repo in repos if repo.name == repo_name]<br/>fixtures/github/github_fixtures.py:63: in &lt;listcomp&gt;<br/>    filtered_repos = [repo.name for repo in repos if repo.name == repo_name]<br/>../../../.local/lib/python3.8/site-packages/github/PaginatedList.py:56: in __iter__<br/>    newElements = self._grow()<br/>../../../.local/lib/python3.8/site-packages/github/PaginatedList.py:67: in _grow<br/>    newElements = self._fetchNextPage()<br/>../../../.local/lib/python3.8/site-packages/github/PaginatedList.py:199: in _fetchNextPage<br/>    headers, data = self.__requester.requestJsonAndCheck(<br/>../../../.local/lib/python3.8/site-packages/github/Requester.py:353: in requestJsonAndCheck<br/>    return self.__check(<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;github.Requester.Requester object at 0x7fa7e8139c70&gt;, status = 401<br/>responseHeaders = {&#x27;access-control-allow-origin&#x27;: &#x27;*&#x27;, &#x27;access-control-expose-headers&#x27;: &#x27;ETag, Link, Location, Retry-After, X-GitHub-OTP...GitHub-Media-Type, Deprecation, Sunset&#x27;, &#x27;content-length&#x27;: &#x27;149&#x27;, &#x27;content-security-policy&#x27;: &quot;default-src &#x27;none&#x27;&quot;, ...}<br/>output = {&#x27;documentation_url&#x27;: &#x27;https://docs.github.com/rest/reference/repos#list-repositories-for-the-authenticated-user&#x27;, &#x27;message&#x27;: &#x27;Requires authentication&#x27;}<br/><br/>    def __check(self, status, responseHeaders, output):<br/>        output = self.__structuredFromJson(output)<br/>        if status &gt;= 400:<br/>&gt;           raise self.__createException(status, responseHeaders, output)<br/><span class="error">E           github.GithubException.GithubException: 401 {&quot;message&quot;: &quot;Requires authentication&quot;, &quot;documentation_url&quot;: &quot;https://docs.github.com/rest/reference/repos#list-repositories-for-the-authenticated-user&quot;}</span><br/><br/>../../../.local/lib/python3.8/site-packages/github/Requester.py:378: GithubException<br/> -----------------------------Captured stdout setup------------------------------ <br/>13-11-2021 03:05:45 : Step: GitHubApiService: get repos | time:0.1ms
+<br/></div></td></tr></tbody>
+      <tbody class="rerun results-table-row">
+        <tr>
+          <td class="col-result">Rerun</td>
+          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_partial_name_one_match::setup</td>
+          <td class="col-duration">0.01</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session=&quot;4a5e43af7196cfbc4ac405e9ca1861c8&quot;)&gt;<br/>github_api_service = &lt;utilities.api.github.github_api_service.GitHubApiService object at 0x7fa7e81399d0&gt;<br/>github_fixtures = &lt;fixtures.github.github_fixtures.GitHubFixtures object at 0x7fa7e819e6d0&gt;<br/>github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7fa7e8139130&gt;<br/>github_create_new_repo_page = &lt;pages.github_pages.create.new.github_create_new_repo_page.GitHubCreateNewRepoPage object at 0x7fa7e8139880&gt;<br/><br/>    @pytest.fixture()<br/>    def create_repos_test_1_and_test_2_if_not_exist(web_driver, github_api_service,<br/>                                                    github_fixtures, github_dashboard_page, github_create_new_repo_page):<br/>&gt;       repos = github_fixtures.create_public_repo_if_not_exist(&quot;test_1&quot;, github_api_service, github_dashboard_page)<br/><br/>tests/conftest.py:206: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>fixtures/github/github_fixtures.py:63: in create_public_repo_if_not_exist<br/>    filtered_repos = [repo.name for repo in repos if repo.name == repo_name]<br/>fixtures/github/github_fixtures.py:63: in &lt;listcomp&gt;<br/>    filtered_repos = [repo.name for repo in repos if repo.name == repo_name]<br/>../../../.local/lib/python3.8/site-packages/github/PaginatedList.py:56: in __iter__<br/>    newElements = self._grow()<br/>../../../.local/lib/python3.8/site-packages/github/PaginatedList.py:67: in _grow<br/>    newElements = self._fetchNextPage()<br/>../../../.local/lib/python3.8/site-packages/github/PaginatedList.py:199: in _fetchNextPage<br/>    headers, data = self.__requester.requestJsonAndCheck(<br/>../../../.local/lib/python3.8/site-packages/github/Requester.py:353: in requestJsonAndCheck<br/>    return self.__check(<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;github.Requester.Requester object at 0x7fa7e8139c70&gt;, status = 401<br/>responseHeaders = {&#x27;access-control-allow-origin&#x27;: &#x27;*&#x27;, &#x27;access-control-expose-headers&#x27;: &#x27;ETag, Link, Location, Retry-After, X-GitHub-OTP...GitHub-Media-Type, Deprecation, Sunset&#x27;, &#x27;content-length&#x27;: &#x27;149&#x27;, &#x27;content-security-policy&#x27;: &quot;default-src &#x27;none&#x27;&quot;, ...}<br/>output = {&#x27;documentation_url&#x27;: &#x27;https://docs.github.com/rest/reference/repos#list-repositories-for-the-authenticated-user&#x27;, &#x27;message&#x27;: &#x27;Requires authentication&#x27;}<br/><br/>    def __check(self, status, responseHeaders, output):<br/>        output = self.__structuredFromJson(output)<br/>        if status &gt;= 400:<br/>&gt;           raise self.__createException(status, responseHeaders, output)<br/><span class="error">E           github.GithubException.GithubException: 401 {&quot;message&quot;: &quot;Requires authentication&quot;, &quot;documentation_url&quot;: &quot;https://docs.github.com/rest/reference/repos#list-repositories-for-the-authenticated-user&quot;}</span><br/><br/>../../../.local/lib/python3.8/site-packages/github/Requester.py:378: GithubException<br/> -----------------------------Captured stdout setup------------------------------ <br/>13-11-2021 03:05:48 : Step: GitHubApiService: get repos | time:0.0ms
+<br/></div></td></tr></tbody>
+      <tbody class="rerun results-table-row">
+        <tr>
+          <td class="col-result">Rerun</td>
+          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_partial_name_multi_match::setup</td>
+          <td class="col-duration">0.01</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session=&quot;4a5e43af7196cfbc4ac405e9ca1861c8&quot;)&gt;<br/>github_api_service = &lt;utilities.api.github.github_api_service.GitHubApiService object at 0x7fa7e81399d0&gt;<br/>github_fixtures = &lt;fixtures.github.github_fixtures.GitHubFixtures object at 0x7fa7e819e6d0&gt;<br/>github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7fa7e8139130&gt;<br/>github_create_new_repo_page = &lt;pages.github_pages.create.new.github_create_new_repo_page.GitHubCreateNewRepoPage object at 0x7fa7e8139880&gt;<br/><br/>    @pytest.fixture()<br/>    def create_repos_test_1_and_test_2_if_not_exist(web_driver, github_api_service,<br/>                                                    github_fixtures, github_dashboard_page, github_create_new_repo_page):<br/>&gt;       repos = github_fixtures.create_public_repo_if_not_exist(&quot;test_1&quot;, github_api_service, github_dashboard_page)<br/><br/>tests/conftest.py:206: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>fixtures/github/github_fixtures.py:63: in create_public_repo_if_not_exist<br/>    filtered_repos = [repo.name for repo in repos if repo.name == repo_name]<br/>fixtures/github/github_fixtures.py:63: in &lt;listcomp&gt;<br/>    filtered_repos = [repo.name for repo in repos if repo.name == repo_name]<br/>../../../.local/lib/python3.8/site-packages/github/PaginatedList.py:56: in __iter__<br/>    newElements = self._grow()<br/>../../../.local/lib/python3.8/site-packages/github/PaginatedList.py:67: in _grow<br/>    newElements = self._fetchNextPage()<br/>../../../.local/lib/python3.8/site-packages/github/PaginatedList.py:199: in _fetchNextPage<br/>    headers, data = self.__requester.requestJsonAndCheck(<br/>../../../.local/lib/python3.8/site-packages/github/Requester.py:353: in requestJsonAndCheck<br/>    return self.__check(<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;github.Requester.Requester object at 0x7fa7e8139c70&gt;, status = 401<br/>responseHeaders = {&#x27;access-control-allow-origin&#x27;: &#x27;*&#x27;, &#x27;access-control-expose-headers&#x27;: &#x27;ETag, Link, Location, Retry-After, X-GitHub-OTP...GitHub-Media-Type, Deprecation, Sunset&#x27;, &#x27;content-length&#x27;: &#x27;149&#x27;, &#x27;content-security-policy&#x27;: &quot;default-src &#x27;none&#x27;&quot;, ...}<br/>output = {&#x27;documentation_url&#x27;: &#x27;https://docs.github.com/rest/reference/repos#list-repositories-for-the-authenticated-user&#x27;, &#x27;message&#x27;: &#x27;Requires authentication&#x27;}<br/><br/>    def __check(self, status, responseHeaders, output):<br/>        output = self.__structuredFromJson(output)<br/>        if status &gt;= 400:<br/>&gt;           raise self.__createException(status, responseHeaders, output)<br/><span class="error">E           github.GithubException.GithubException: 401 {&quot;message&quot;: &quot;Requires authentication&quot;, &quot;documentation_url&quot;: &quot;https://docs.github.com/rest/reference/repos#list-repositories-for-the-authenticated-user&quot;}</span><br/><br/>../../../.local/lib/python3.8/site-packages/github/Requester.py:378: GithubException<br/> -----------------------------Captured stdout setup------------------------------ <br/>13-11-2021 03:05:50 : Step: GitHubApiService: get repos | time:0.0ms
+<br/></div></td></tr></tbody>
+      <tbody class="rerun results-table-row">
+        <tr>
+          <td class="col-result">Rerun</td>
+          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_partial_name_not_match::setup</td>
+          <td class="col-duration">0.01</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session=&quot;4a5e43af7196cfbc4ac405e9ca1861c8&quot;)&gt;<br/>github_api_service = &lt;utilities.api.github.github_api_service.GitHubApiService object at 0x7fa7e81399d0&gt;<br/>github_fixtures = &lt;fixtures.github.github_fixtures.GitHubFixtures object at 0x7fa7e819e6d0&gt;<br/>github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7fa7e8139130&gt;<br/>github_create_new_repo_page = &lt;pages.github_pages.create.new.github_create_new_repo_page.GitHubCreateNewRepoPage object at 0x7fa7e8139880&gt;<br/><br/>    @pytest.fixture()<br/>    def create_repos_test_1_and_test_2_if_not_exist(web_driver, github_api_service,<br/>                                                    github_fixtures, github_dashboard_page, github_create_new_repo_page):<br/>&gt;       repos = github_fixtures.create_public_repo_if_not_exist(&quot;test_1&quot;, github_api_service, github_dashboard_page)<br/><br/>tests/conftest.py:206: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>fixtures/github/github_fixtures.py:63: in create_public_repo_if_not_exist<br/>    filtered_repos = [repo.name for repo in repos if repo.name == repo_name]<br/>fixtures/github/github_fixtures.py:63: in &lt;listcomp&gt;<br/>    filtered_repos = [repo.name for repo in repos if repo.name == repo_name]<br/>../../../.local/lib/python3.8/site-packages/github/PaginatedList.py:56: in __iter__<br/>    newElements = self._grow()<br/>../../../.local/lib/python3.8/site-packages/github/PaginatedList.py:67: in _grow<br/>    newElements = self._fetchNextPage()<br/>../../../.local/lib/python3.8/site-packages/github/PaginatedList.py:199: in _fetchNextPage<br/>    headers, data = self.__requester.requestJsonAndCheck(<br/>../../../.local/lib/python3.8/site-packages/github/Requester.py:353: in requestJsonAndCheck<br/>    return self.__check(<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;github.Requester.Requester object at 0x7fa7e8139c70&gt;, status = 401<br/>responseHeaders = {&#x27;access-control-allow-origin&#x27;: &#x27;*&#x27;, &#x27;access-control-expose-headers&#x27;: &#x27;ETag, Link, Location, Retry-After, X-GitHub-OTP...GitHub-Media-Type, Deprecation, Sunset&#x27;, &#x27;content-length&#x27;: &#x27;149&#x27;, &#x27;content-security-policy&#x27;: &quot;default-src &#x27;none&#x27;&quot;, ...}<br/>output = {&#x27;documentation_url&#x27;: &#x27;https://docs.github.com/rest/reference/repos#list-repositories-for-the-authenticated-user&#x27;, &#x27;message&#x27;: &#x27;Requires authentication&#x27;}<br/><br/>    def __check(self, status, responseHeaders, output):<br/>        output = self.__structuredFromJson(output)<br/>        if status &gt;= 400:<br/>&gt;           raise self.__createException(status, responseHeaders, output)<br/><span class="error">E           github.GithubException.GithubException: 401 {&quot;message&quot;: &quot;Requires authentication&quot;, &quot;documentation_url&quot;: &quot;https://docs.github.com/rest/reference/repos#list-repositories-for-the-authenticated-user&quot;}</span><br/><br/>../../../.local/lib/python3.8/site-packages/github/Requester.py:378: GithubException<br/> -----------------------------Captured stdout setup------------------------------ <br/>13-11-2021 03:05:52 : Step: GitHubApiService: get repos | time:0.0ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_name_author_should_match</td>
+          <td class="col-duration">20.79</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_name_author_should_match.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>13-11-2021 03:02:45 : Step: GitHubLoginPage: open url | time:584.5ms
+13-11-2021 03:02:46 : Step: GitHubLoginPage: input login | time:145.9ms
+13-11-2021 03:02:46 : Step: GitHubLoginPage: input password | time:150.4ms
+13-11-2021 03:02:46 : Step: GitHubLoginPage: click sign in button | time:634.2ms
+13-11-2021 03:02:46 : Step: GitHubLoginPage: sign in github account | time:931.1ms
+13-11-2021 03:02:46 : Step: GitHubDeviceVerificationPage: is input device code present | time:34.0ms
+13-11-2021 03:02:50 : Step: GitHubDeviceVerificationPage: input device code | time:946.2ms
+13-11-2021 03:02:50 : Step: GitHubDeviceVerificationPage: input otp code if verification present | time:4042.2ms
+13-11-2021 03:02:51 : Step: RepositoriesListPage: is repo list container visible | time:615.7ms
+Traceback (most recent call last):
+  File &quot;/home/runner/work/my-selenium-python-dojo/my-selenium-python-dojo/utilities/api/github/github_api_service.py&quot;, line 20, in api_call_delete_all_account_repos
+    for repo in repos:
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/PaginatedList.py&quot;, line 56, in __iter__
+    newElements = self._grow()
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/PaginatedList.py&quot;, line 67, in _grow
+    newElements = self._fetchNextPage()
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/PaginatedList.py&quot;, line 199, in _fetchNextPage
+    headers, data = self.__requester.requestJsonAndCheck(
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/Requester.py&quot;, line 353, in requestJsonAndCheck
+    return self.__check(
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/Requester.py&quot;, line 378, in __check
+    raise self.__createException(status, responseHeaders, output)
+github.GithubException.GithubException: 401 {&quot;message&quot;: &quot;Requires authentication&quot;, &quot;documentation_url&quot;: &quot;https://docs.github.com/rest/reference/repos#list-repositories-for-the-authenticated-user&quot;}
+
+13-11-2021 03:02:52 : Step: GitHubApiService: api call delete all account repos | time:141.4ms
+13-11-2021 03:02:53 : Step: GitHubDashboardPage: open url | time:602.6ms
+13-11-2021 03:02:53 : Step: RepositoriesListPage: get number of repo items | time:601.5ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>13-11-2021 03:02:54 : Step: GitHubCreateNewRepoPage: open url | time:531.1ms
+13-11-2021 03:02:54 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:61.2ms
+13-11-2021 03:02:54 : Step: GitHubCreateRepoDetailsPage: input repo name | time:151.8ms
+13-11-2021 03:02:54 : Step: GitHubCreateRepoDetailsPage: is name success | time:579.4ms
+13-11-2021 03:03:01 : Step: GitHubRepoMainPage: is error page message | time:4209.4ms
+13-11-2021 03:03:01 : Step: GitHubCreateNewRepoPage: click create repository button | time:7335.2ms
+13-11-2021 03:03:01 : Step: GitHubRepoMainPage: get author name text | time:83.2ms
+13-11-2021 03:03:01 : Step: GitHubRepoMainPage: get repo name text | time:80.3ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_should_match_public_as_default</td>
+          <td class="col-duration">7.88</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_should_match_public_as_default.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>13-11-2021 03:03:02 : Step: GitHubCreateNewRepoPage: open url | time:453.8ms
+13-11-2021 03:03:02 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:80.7ms
+13-11-2021 03:03:02 : Step: GitHubCreateRepoDetailsPage: input repo name | time:173.7ms
+13-11-2021 03:03:03 : Step: GitHubCreateRepoDetailsPage: is name success | time:576.5ms
+13-11-2021 03:03:09 : Step: GitHubRepoMainPage: is error page message | time:4199.2ms
+13-11-2021 03:03:09 : Step: GitHubCreateNewRepoPage: click create repository button | time:7206.8ms
+13-11-2021 03:03:09 : Step: GitHubRepoMainPage: is privacy banner public | time:48.9ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_should_match_clone_default_url</td>
+          <td class="col-duration">8.04</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_should_match_clone_default_url.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>13-11-2021 03:03:10 : Step: GitHubCreateNewRepoPage: open url | time:435.2ms
+13-11-2021 03:03:10 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:43.7ms
+13-11-2021 03:03:10 : Step: GitHubCreateRepoDetailsPage: input repo name | time:135.2ms
+13-11-2021 03:03:11 : Step: GitHubCreateRepoDetailsPage: is name success | time:584.0ms
+13-11-2021 03:03:18 : Step: GitHubRepoMainPage: is error page message | time:4222.6ms
+13-11-2021 03:03:18 : Step: GitHubCreateNewRepoPage: click create repository button | time:7390.4ms
+13-11-2021 03:03:18 : Step: GitHubEmptyContentPage: get clone url | time:78.9ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_should_match_license_file</td>
+          <td class="col-duration">12.11</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_should_match_license_file.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>13-11-2021 03:03:18 : Step: GitHubCreateNewRepoPage: open url | time:414.2ms
+13-11-2021 03:03:18 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:51.3ms
+13-11-2021 03:03:18 : Step: GitHubCreateRepoDetailsPage: input repo name | time:138.7ms
+13-11-2021 03:03:19 : Step: GitHubCreateNewRepoPage: click choose license checkbox | time:218.4ms
+13-11-2021 03:03:19 : Step: GitHubCreateNewRepoPage: click select license dropdown | time:118.1ms
+13-11-2021 03:03:19 : Step: GitHubCreateNewRepoPage: click license type dropdown item | time:178.4ms
+13-11-2021 03:03:22 : Step: GitHubCreateRepoDetailsPage: is name success | time:3226.1ms
+13-11-2021 03:03:29 : Step: GitHubRepoMainPage: is error page message | time:4226.9ms
+13-11-2021 03:03:29 : Step: GitHubCreateNewRepoPage: click create repository button | time:10367.3ms
+13-11-2021 03:03:29 : Step: GitHubContentListPage: get file web element by file name | time:40.8ms
+13-11-2021 03:03:29 : Step: GitHubContentListPage: click file by name | time:95.4ms
+13-11-2021 03:03:30 : Step: GitHubContentViewPage: is license type by name visible | time:576.9ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_should_match_readme_file</td>
+          <td class="col-duration">11.16</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_should_match_readme_file.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>13-11-2021 03:03:31 : Step: GitHubCreateNewRepoPage: open url | time:409.8ms
+13-11-2021 03:03:31 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:43.9ms
+13-11-2021 03:03:31 : Step: GitHubCreateRepoDetailsPage: input repo name | time:128.4ms
+13-11-2021 03:03:31 : Step: GitHubCreateNewRepoPage: click readme checkbox | time:211.8ms
+13-11-2021 03:03:34 : Step: GitHubCreateRepoDetailsPage: is name success | time:3270.2ms
+13-11-2021 03:03:41 : Step: GitHubRepoMainPage: is error page message | time:4213.3ms
+13-11-2021 03:03:41 : Step: GitHubCreateNewRepoPage: click create repository button | time:10341.4ms
+13-11-2021 03:03:41 : Step: GitHubContentListPage: get readme text | time:69.5ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_should_match_gitignore</td>
+          <td class="col-duration">12.07</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_should_match_gitignore.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>13-11-2021 03:03:42 : Step: GitHubCreateNewRepoPage: open url | time:447.0ms
+13-11-2021 03:03:42 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:51.4ms
+13-11-2021 03:03:42 : Step: GitHubCreateRepoDetailsPage: input repo name | time:135.9ms
+13-11-2021 03:03:42 : Step: GitHubCreateNewRepoPage: click gitignore checkbox | time:196.6ms
+13-11-2021 03:03:42 : Step: GitHubCreateNewRepoPage: click select gitignore template | time:143.4ms
+13-11-2021 03:03:43 : Step: GitHubCreateNewRepoPage: click gitignore type dropdown item | time:117.6ms
+13-11-2021 03:03:46 : Step: GitHubCreateRepoDetailsPage: is name success | time:3228.7ms
+13-11-2021 03:03:53 : Step: GitHubRepoMainPage: is error page message | time:4187.4ms
+13-11-2021 03:03:53 : Step: GitHubCreateNewRepoPage: click create repository button | time:10327.0ms
+13-11-2021 03:03:53 : Step: GitHubContentListPage: get file web element by file name | time:38.6ms
+13-11-2021 03:03:53 : Step: GitHubContentListPage: click file by name | time:99.2ms
+13-11-2021 03:03:54 : Step: GitHubContentViewPage: is content viewer contains text | time:609.2ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_should_match_privacy_private</td>
+          <td class="col-duration">10.57</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_should_match_privacy_private.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>13-11-2021 03:03:54 : Step: GitHubCreateNewRepoPage: open url | time:415.6ms
+13-11-2021 03:03:54 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:46.7ms
+13-11-2021 03:03:54 : Step: GitHubCreateRepoDetailsPage: input repo name | time:133.1ms
+13-11-2021 03:03:54 : Step: GitHubCreateRepoDetailsPage: get privacy private checkbox | time:46.5ms
+13-11-2021 03:03:55 : Step: GitHubCreateRepoDetailsPage: click privacy private checkbox | time:122.6ms
+13-11-2021 03:03:58 : Step: GitHubCreateRepoDetailsPage: is name success | time:3222.8ms
+13-11-2021 03:04:04 : Step: GitHubRepoMainPage: is error page message | time:4206.7ms
+13-11-2021 03:04:04 : Step: GitHubCreateNewRepoPage: click create repository button | time:9860.9ms
+13-11-2021 03:04:04 : Step: GitHubRepoMainPage: is privacy banner private | time:40.7ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_should_not_create_if_name_exist</td>
+          <td class="col-duration">9.06</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_should_not_create_if_name_exist.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>13-11-2021 03:04:05 : Step: GitHubCreateNewRepoPage: open url | time:429.3ms
+13-11-2021 03:04:05 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:40.5ms
+13-11-2021 03:04:05 : Step: GitHubCreateRepoDetailsPage: input repo name | time:117.4ms
+13-11-2021 03:04:06 : Step: GitHubCreateRepoDetailsPage: is name success | time:572.2ms
+13-11-2021 03:04:12 : Step: GitHubRepoMainPage: is error page message | time:4222.8ms
+13-11-2021 03:04:12 : Step: GitHubCreateNewRepoPage: click create repository button | time:7334.0ms
+13-11-2021 03:04:13 : Step: GitHubCreateNewRepoPage: open url | time:431.0ms
+13-11-2021 03:04:13 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:37.0ms
+13-11-2021 03:04:13 : Step: GitHubCreateRepoDetailsPage: input repo name | time:120.0ms
+13-11-2021 03:04:14 : Step: GitHubCreateRepoDetailsPage: is name error | time:572.7ms
+13-11-2021 03:04:14 : Step: GitHubCreateNewRepoPage: get create repository button | time:45.2ms
+13-11-2021 03:04:14 : Step: GitHubCreateNewRepoPage: is enable create repository button | time:58.4ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_should_description_match</td>
+          <td class="col-duration">11.03</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_should_description_match.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>13-11-2021 03:04:14 : Step: GitHubCreateNewRepoPage: open url | time:415.3ms
+13-11-2021 03:04:14 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:39.5ms
+13-11-2021 03:04:14 : Step: GitHubCreateRepoDetailsPage: input repo name | time:122.0ms
+13-11-2021 03:04:15 : Step: GitHubCreateNewRepoPage: input description | time:137.9ms
+13-11-2021 03:04:15 : Step: GitHubCreateNewRepoPage: click readme checkbox | time:202.9ms
+13-11-2021 03:04:18 : Step: GitHubCreateRepoDetailsPage: is name success | time:3196.0ms
+13-11-2021 03:04:25 : Step: GitHubRepoMainPage: is error page message | time:4198.8ms
+13-11-2021 03:04:25 : Step: GitHubCreateNewRepoPage: click create repository button | time:10098.0ms
+13-11-2021 03:04:25 : Step: GitHubRepoMainPage: get about description text | time:55.8ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_should_open_import_repo_page</td>
+          <td class="col-duration">0.95</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_should_open_import_repo_page.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>13-11-2021 03:04:26 : Step: GitHubCreateNewRepoPage: open url | time:451.3ms
+13-11-2021 03:04:26 : Step: GitHubCreateNewRepoPage: click import repo button | time:460.4ms
+13-11-2021 03:04:26 : Step: GitHubImportRepoPage: is vsc url input visible | time:38.3ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_is_git_repo_list_available</td>
-          <td class="col-duration">14.20</td>
+          <td class="col-duration">1.04</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_is_git_repo_list_available.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>12-11-2021 11:05:23 : Step: GitHubLoginPage: input login | time:172.6ms
-12-11-2021 11:05:23 : Step: GitHubLoginPage: input password | time:160.6ms
-12-11-2021 11:05:24 : Step: GitHubLoginPage: click sign in button | time:691.6ms
-12-11-2021 11:05:24 : Step: GitHubLoginPage: sign in github account | time:1025.4ms
-12-11-2021 11:05:24 : Step: GitHubDeviceVerificationPage: is input device code present | time:31.0ms
-12-11-2021 11:05:28 : Step: GitHubDeviceVerificationPage: input device code | time:1018.0ms
-12-11-2021 11:05:28 : Step: GitHubDeviceVerificationPage: input otp code if verification present | time:4095.5ms
-12-11-2021 11:05:29 : Step: RepositoriesListPage: is repo list container visible | time:615.0ms
-<br/> ------------------------------Captured stdout call------------------------------ <br/>12-11-2021 11:05:30 : Step: GitHubDashboardPage: open url | time:442.9ms
-12-11-2021 11:05:31 : Step: RepositoriesListPage: is repo list container visible | time:612.2ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>13-11-2021 03:04:27 : Step: GitHubDashboardPage: open url | time:453.7ms
+13-11-2021 03:04:27 : Step: RepositoriesListPage: is repo list container visible | time:592.4ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_should_open_create_new_repo</td>
-          <td class="col-duration">5.25</td>
+          <td class="col-duration">64.78</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_should_open_create_new_repo.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>12-11-2021 11:05:35 : Step: RepositoriesListPage: is repositories contains repo | time:3169.9ms
-<br/> ------------------------------Captured stdout call------------------------------ <br/>12-11-2021 11:05:35 : Step: GitHubDashboardPage: open url | time:447.0ms
-12-11-2021 11:05:36 : Step: RepositoriesListPage: click create repository | time:1108.1ms
-12-11-2021 11:05:36 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:52.9ms
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>Traceback (most recent call last):
+  File &quot;/home/runner/work/my-selenium-python-dojo/my-selenium-python-dojo/utilities/api/github/github_api_service.py&quot;, line 20, in api_call_delete_all_account_repos
+    for repo in repos:
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/PaginatedList.py&quot;, line 56, in __iter__
+    newElements = self._grow()
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/PaginatedList.py&quot;, line 67, in _grow
+    newElements = self._fetchNextPage()
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/PaginatedList.py&quot;, line 199, in _fetchNextPage
+    headers, data = self.__requester.requestJsonAndCheck(
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/Requester.py&quot;, line 353, in requestJsonAndCheck
+    return self.__check(
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/Requester.py&quot;, line 378, in __check
+    raise self.__createException(status, responseHeaders, output)
+github.GithubException.GithubException: 401 {&quot;message&quot;: &quot;Requires authentication&quot;, &quot;documentation_url&quot;: &quot;https://docs.github.com/rest/reference/repos#list-repositories-for-the-authenticated-user&quot;}
+
+13-11-2021 03:04:28 : Step: GitHubApiService: api call delete all account repos | time:93.0ms
+13-11-2021 03:04:28 : Step: GitHubDashboardPage: open url | time:401.4ms
+13-11-2021 03:04:29 : Step: RepositoriesListPage: get number of repo items | time:581.3ms
+Traceback (most recent call last):
+  File &quot;/home/runner/work/my-selenium-python-dojo/my-selenium-python-dojo/utilities/api/github/github_api_service.py&quot;, line 20, in api_call_delete_all_account_repos
+    for repo in repos:
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/PaginatedList.py&quot;, line 56, in __iter__
+    newElements = self._grow()
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/PaginatedList.py&quot;, line 67, in _grow
+    newElements = self._fetchNextPage()
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/PaginatedList.py&quot;, line 199, in _fetchNextPage
+    headers, data = self.__requester.requestJsonAndCheck(
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/Requester.py&quot;, line 353, in requestJsonAndCheck
+    return self.__check(
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/Requester.py&quot;, line 378, in __check
+    raise self.__createException(status, responseHeaders, output)
+github.GithubException.GithubException: 401 {&quot;message&quot;: &quot;Requires authentication&quot;, &quot;documentation_url&quot;: &quot;https://docs.github.com/rest/reference/repos#list-repositories-for-the-authenticated-user&quot;}
+
+13-11-2021 03:04:29 : Step: GitHubApiService: api call delete all account repos | time:10.8ms
+13-11-2021 03:04:29 : Step: GitHubDashboardPage: open url | time:384.5ms
+13-11-2021 03:04:30 : Step: RepositoriesListPage: get number of repo items | time:583.3ms
+13-11-2021 03:04:30 : Step: GitHubDashboardPage: open url | time:440.6ms
+13-11-2021 03:04:31 : Step: RepositoriesListPage: is repositories contains repo | time:709.1ms
+13-11-2021 03:04:31 : Step: RepositoriesListPage: get first repo href | time:193.8ms
+13-11-2021 03:04:32 : Step: GitHubSettingsOptionsPage: click delete repository button | time:224.6ms
+13-11-2021 03:04:32 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:61.5ms
+13-11-2021 03:04:32 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:61.5ms
+13-11-2021 03:04:32 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:189.4ms
+13-11-2021 03:04:32 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:50.6ms
+13-11-2021 03:04:33 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:742.8ms
+13-11-2021 03:04:36 : Step: GitHubConfirmPasswordPage: is password input exist | time:3150.1ms
+13-11-2021 03:04:36 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3150.4ms
+13-11-2021 03:04:36 : Step: GitHubDashboardPage: open url | time:398.4ms
+13-11-2021 03:04:37 : Step: RepositoriesListPage: is repositories contains repo | time:674.0ms
+13-11-2021 03:04:37 : Step: RepositoriesListPage: get first repo href | time:153.2ms
+13-11-2021 03:04:38 : Step: GitHubSettingsOptionsPage: click delete repository button | time:216.6ms
+13-11-2021 03:04:38 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:64.2ms
+13-11-2021 03:04:38 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:69.7ms
+13-11-2021 03:04:38 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:197.8ms
+13-11-2021 03:04:38 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:47.8ms
+13-11-2021 03:04:39 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:820.6ms
+13-11-2021 03:04:42 : Step: GitHubConfirmPasswordPage: is password input exist | time:3149.5ms
+13-11-2021 03:04:42 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3149.7ms
+13-11-2021 03:04:42 : Step: GitHubDashboardPage: open url | time:430.6ms
+13-11-2021 03:04:43 : Step: RepositoriesListPage: is repositories contains repo | time:700.4ms
+13-11-2021 03:04:43 : Step: RepositoriesListPage: get first repo href | time:147.1ms
+13-11-2021 03:04:44 : Step: GitHubSettingsOptionsPage: click delete repository button | time:196.0ms
+13-11-2021 03:04:44 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:59.4ms
+13-11-2021 03:04:44 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:77.3ms
+13-11-2021 03:04:44 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:213.0ms
+13-11-2021 03:04:44 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:64.9ms
+13-11-2021 03:04:45 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:847.6ms
+13-11-2021 03:04:48 : Step: GitHubConfirmPasswordPage: is password input exist | time:3168.8ms
+13-11-2021 03:04:48 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3169.1ms
+13-11-2021 03:04:49 : Step: GitHubDashboardPage: open url | time:426.0ms
+13-11-2021 03:04:49 : Step: RepositoriesListPage: is repositories contains repo | time:674.0ms
+13-11-2021 03:04:49 : Step: RepositoriesListPage: get first repo href | time:122.8ms
+13-11-2021 03:04:50 : Step: GitHubSettingsOptionsPage: click delete repository button | time:187.3ms
+13-11-2021 03:04:50 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:111.5ms
+13-11-2021 03:04:50 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:70.1ms
+13-11-2021 03:04:50 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:295.0ms
+13-11-2021 03:04:51 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:49.1ms
+13-11-2021 03:04:51 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:753.2ms
+13-11-2021 03:04:54 : Step: GitHubConfirmPasswordPage: is password input exist | time:3157.7ms
+13-11-2021 03:04:54 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3158.0ms
+13-11-2021 03:04:55 : Step: GitHubDashboardPage: open url | time:413.7ms
+13-11-2021 03:04:55 : Step: RepositoriesListPage: is repositories contains repo | time:625.1ms
+13-11-2021 03:04:56 : Step: RepositoriesListPage: get first repo href | time:142.9ms
+13-11-2021 03:04:56 : Step: GitHubSettingsOptionsPage: click delete repository button | time:168.5ms
+13-11-2021 03:04:56 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:59.6ms
+13-11-2021 03:04:57 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:63.8ms
+13-11-2021 03:04:57 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:193.9ms
+13-11-2021 03:04:57 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:73.2ms
+13-11-2021 03:04:57 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:863.2ms
+13-11-2021 03:05:01 : Step: GitHubConfirmPasswordPage: is password input exist | time:3157.5ms
+13-11-2021 03:05:01 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3157.7ms
+13-11-2021 03:05:01 : Step: GitHubDashboardPage: open url | time:500.8ms
+13-11-2021 03:05:02 : Step: RepositoriesListPage: is repositories contains repo | time:600.5ms
+13-11-2021 03:05:02 : Step: RepositoriesListPage: get first repo href | time:124.3ms
+13-11-2021 03:05:03 : Step: GitHubSettingsOptionsPage: click delete repository button | time:158.6ms
+13-11-2021 03:05:03 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:87.4ms
+13-11-2021 03:05:03 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:78.1ms
+13-11-2021 03:05:03 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:243.7ms
+13-11-2021 03:05:03 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:87.4ms
+13-11-2021 03:05:04 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:857.0ms
+13-11-2021 03:05:07 : Step: GitHubConfirmPasswordPage: is password input exist | time:3159.1ms
+13-11-2021 03:05:07 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3159.4ms
+13-11-2021 03:05:08 : Step: GitHubDashboardPage: open url | time:379.7ms
+13-11-2021 03:05:08 : Step: RepositoriesListPage: is repositories contains repo | time:607.5ms
+13-11-2021 03:05:08 : Step: RepositoriesListPage: get first repo href | time:145.3ms
+13-11-2021 03:05:09 : Step: GitHubSettingsOptionsPage: click delete repository button | time:171.2ms
+13-11-2021 03:05:09 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:60.6ms
+13-11-2021 03:05:09 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:52.3ms
+13-11-2021 03:05:09 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:204.8ms
+13-11-2021 03:05:09 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:73.8ms
+13-11-2021 03:05:11 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:2038.8ms
+13-11-2021 03:05:14 : Step: GitHubConfirmPasswordPage: is password input exist | time:3171.9ms
+13-11-2021 03:05:14 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3172.2ms
+13-11-2021 03:05:15 : Step: GitHubDashboardPage: open url | time:511.2ms
+13-11-2021 03:05:15 : Step: RepositoriesListPage: is repositories contains repo | time:584.2ms
+13-11-2021 03:05:16 : Step: RepositoriesListPage: get first repo href | time:72.6ms
+13-11-2021 03:05:16 : Step: GitHubSettingsOptionsPage: click delete repository button | time:180.1ms
+13-11-2021 03:05:16 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:68.5ms
+13-11-2021 03:05:17 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:93.4ms
+13-11-2021 03:05:17 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:270.0ms
+13-11-2021 03:05:17 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:105.4ms
+13-11-2021 03:05:18 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:894.2ms
+13-11-2021 03:05:21 : Step: GitHubConfirmPasswordPage: is password input exist | time:3159.1ms
+13-11-2021 03:05:21 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3159.4ms
+13-11-2021 03:05:21 : Step: GitHubDashboardPage: open url | time:422.7ms
+13-11-2021 03:05:22 : Step: RepositoriesListPage: is repositories contains repo | time:550.6ms
+13-11-2021 03:05:22 : Step: RepositoriesListPage: get first repo href | time:51.1ms
+13-11-2021 03:05:22 : Step: GitHubSettingsOptionsPage: click delete repository button | time:186.9ms
+13-11-2021 03:05:23 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:564.7ms
+13-11-2021 03:05:23 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:47.8ms
+13-11-2021 03:05:23 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:688.5ms
+13-11-2021 03:05:23 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:44.7ms
+13-11-2021 03:05:24 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:754.6ms
+13-11-2021 03:05:27 : Step: GitHubConfirmPasswordPage: is password input exist | time:3189.0ms
+13-11-2021 03:05:27 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:3189.3ms
+13-11-2021 03:05:28 : Step: GitHubDashboardPage: open url | time:417.9ms
+13-11-2021 03:05:31 : Step: RepositoriesListPage: is repositories contains repo | time:3109.0ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>13-11-2021 03:05:31 : Step: GitHubDashboardPage: open url | time:511.8ms
+13-11-2021 03:05:32 : Step: RepositoriesListPage: click create repository | time:1050.8ms
+13-11-2021 03:05:32 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:39.7ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_should_open_import_repo_page</td>
-          <td class="col-duration">5.09</td>
+          <td class="col-duration">2.50</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_should_open_import_repo_page.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>12-11-2021 11:05:40 : Step: RepositoriesListPage: is repositories contains repo | time:3141.0ms
-<br/> ------------------------------Captured stdout call------------------------------ <br/>12-11-2021 11:05:41 : Step: GitHubDashboardPage: open url | time:435.1ms
-12-11-2021 11:05:42 : Step: RepositoriesListPage: click import repository | time:1016.6ms
-12-11-2021 11:05:42 : Step: GitHubImportRepoPage: get vcs url input | time:58.2ms
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>Traceback (most recent call last):
+  File &quot;/home/runner/work/my-selenium-python-dojo/my-selenium-python-dojo/utilities/api/github/github_api_service.py&quot;, line 20, in api_call_delete_all_account_repos
+    for repo in repos:
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/PaginatedList.py&quot;, line 56, in __iter__
+    newElements = self._grow()
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/PaginatedList.py&quot;, line 67, in _grow
+    newElements = self._fetchNextPage()
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/PaginatedList.py&quot;, line 199, in _fetchNextPage
+    headers, data = self.__requester.requestJsonAndCheck(
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/Requester.py&quot;, line 353, in requestJsonAndCheck
+    return self.__check(
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/Requester.py&quot;, line 378, in __check
+    raise self.__createException(status, responseHeaders, output)
+github.GithubException.GithubException: 401 {&quot;message&quot;: &quot;Requires authentication&quot;, &quot;documentation_url&quot;: &quot;https://docs.github.com/rest/reference/repos#list-repositories-for-the-authenticated-user&quot;}
+
+13-11-2021 03:05:33 : Step: GitHubApiService: api call delete all account repos | time:90.2ms
+13-11-2021 03:05:33 : Step: GitHubDashboardPage: open url | time:406.4ms
+13-11-2021 03:05:34 : Step: RepositoriesListPage: get number of repo items | time:584.4ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>13-11-2021 03:05:34 : Step: GitHubDashboardPage: open url | time:364.9ms
+13-11-2021 03:05:35 : Step: RepositoriesListPage: click import repository | time:980.8ms
+13-11-2021 03:05:35 : Step: GitHubImportRepoPage: get vcs url input | time:52.4ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_should_open_hello_world_read_guide_page</td>
-          <td class="col-duration">2.02</td>
+          <td class="col-duration">1.67</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_should_open_hello_world_read_guide_page.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>12-11-2021 11:05:42 : Step: GitHubDashboardPage: open url | time:449.1ms
-12-11-2021 11:05:42 : Step: GitHubDashboardPage: get read guide button | time:87.0ms
-12-11-2021 11:05:43 : Step: GitHubDashboardPage: click read guid button | time:180.0ms
-12-11-2021 11:05:44 : Step: GuidesGitHubLandPage: is driver set proper url | time:589.3ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>13-11-2021 03:05:36 : Step: GitHubDashboardPage: open url | time:405.9ms
+13-11-2021 03:05:36 : Step: GitHubDashboardPage: get read guide button | time:57.6ms
+13-11-2021 03:05:36 : Step: GitHubDashboardPage: click read guid button | time:136.9ms
+13-11-2021 03:05:37 : Step: GuidesGitHubLandPage: is driver set proper url | time:597.7ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_should_create_repo_form_introduce_yourself_activity</td>
-          <td class="col-duration">9.44</td>
+          <td class="col-duration">6.09</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_should_create_repo_form_introduce_yourself_activity.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>12-11-2021 11:05:48 : Step: RepositoriesListPage: is repositories contains repo | time:3129.8ms
-<br/> ------------------------------Captured stdout call------------------------------ <br/>12-11-2021 11:05:51 : Step: GitHubDashboardPage: click continue yourself button | time:3283.4ms
-12-11-2021 11:05:52 : Step: GitHubEditModePage: click commit new file button | time:1296.8ms
-12-11-2021 11:05:52 : Step: GitHubContentListPage: get file web element by file name | time:56.1ms
-12-11-2021 11:05:53 : Step: GitHubDashboardPage: open url | time:541.1ms
-12-11-2021 11:05:54 : Step: RepositoriesListPage: is repo list container visible | time:639.8ms
-12-11-2021 11:05:54 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-12-11-2021 11:05:54 : Step: RepositoriesListPage: get repo by name | time:681.6ms
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>Traceback (most recent call last):
+  File &quot;/home/runner/work/my-selenium-python-dojo/my-selenium-python-dojo/utilities/api/github/github_api_service.py&quot;, line 20, in api_call_delete_all_account_repos
+    for repo in repos:
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/PaginatedList.py&quot;, line 56, in __iter__
+    newElements = self._grow()
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/PaginatedList.py&quot;, line 67, in _grow
+    newElements = self._fetchNextPage()
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/PaginatedList.py&quot;, line 199, in _fetchNextPage
+    headers, data = self.__requester.requestJsonAndCheck(
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/Requester.py&quot;, line 353, in requestJsonAndCheck
+    return self.__check(
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/Requester.py&quot;, line 378, in __check
+    raise self.__createException(status, responseHeaders, output)
+github.GithubException.GithubException: 401 {&quot;message&quot;: &quot;Requires authentication&quot;, &quot;documentation_url&quot;: &quot;https://docs.github.com/rest/reference/repos#list-repositories-for-the-authenticated-user&quot;}
+
+13-11-2021 03:05:37 : Step: GitHubApiService: api call delete all account repos | time:10.9ms
+13-11-2021 03:05:37 : Step: GitHubDashboardPage: open url | time:393.4ms
+13-11-2021 03:05:38 : Step: RepositoriesListPage: get number of repo items | time:590.9ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>13-11-2021 03:05:41 : Step: GitHubDashboardPage: click continue yourself button | time:2985.9ms
+13-11-2021 03:05:42 : Step: GitHubEditModePage: click commit new file button | time:1099.4ms
+13-11-2021 03:05:42 : Step: GitHubContentListPage: get file web element by file name | time:40.1ms
+13-11-2021 03:05:42 : Step: GitHubDashboardPage: open url | time:360.8ms
+13-11-2021 03:05:43 : Step: RepositoriesListPage: is repo list container visible | time:580.4ms
+13-11-2021 03:05:43 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+13-11-2021 03:05:43 : Step: RepositoriesListPage: get repo by name | time:611.1ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_open_explore_repos_dashboard_page</td>
-          <td class="col-duration">1.88</td>
+          <td class="col-duration">1.77</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_open_explore_repos_dashboard_page.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>12-11-2021 11:05:54 : Step: GitHubDashboardPage: open url | time:435.3ms
-12-11-2021 11:05:56 : Step: ExploreReposPage: click activities explore button | time:1395.6ms
-12-11-2021 11:05:56 : Step: GitHubExploreDashboardPage: get account name | time:53.9ms
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_exact_name_one_match</td>
-          <td class="col-duration">24.40</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_find_repo_by_exact_name_one_match.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>12-11-2021 11:05:57 : Step: RepositoriesListPage: is repositories contains repo | time:582.8ms
-12-11-2021 11:05:58 : Step: RepositoriesListPage: click first repo on repositories | time:821.7ms
-12-11-2021 11:05:58 : Step: GitHubRepoMainPage: settings tab | time:51.4ms
-12-11-2021 11:05:58 : Step: GitHubRepoMainPage: click settings tab | time:139.2ms
-12-11-2021 11:05:59 : Step: GitHubRepoSettingsPage: options side setting | time:623.1ms
-12-11-2021 11:06:01 : Step: GitHubRepoSettingsPage: click options side setting | time:2683.1ms
-12-11-2021 11:06:01 : Step: GitHubSettingsOptionsPage: click delete repository button | time:127.1ms
-12-11-2021 11:06:01 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:59.9ms
-12-11-2021 11:06:01 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:92.9ms
-12-11-2021 11:06:01 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:239.3ms
-12-11-2021 11:06:01 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:71.6ms
-12-11-2021 11:06:02 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:1031.5ms
-12-11-2021 11:06:07 : Step: GitHubConfirmPasswordPage: is password input exist | time:5250.3ms
-12-11-2021 11:06:07 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:5250.5ms
-12-11-2021 11:06:11 : Step: RepositoriesListPage: is repositories contains repo | time:3124.6ms
-12-11-2021 11:06:11 : Step: GitHubDashboardPage: open url | time:468.0ms
-12-11-2021 11:06:12 : Step: RepositoriesListPage: click create repository | time:1070.1ms
-12-11-2021 11:06:12 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:68.1ms
-12-11-2021 11:06:12 : Step: GitHubCreateRepoDetailsPage: input repo name | time:137.2ms
-12-11-2021 11:06:13 : Step: GitHubCreateNewCreateRepoPage: get create repository button | time:642.4ms
-12-11-2021 11:06:15 : Step: GitHubCreateNewCreateRepoPage: click create repository button | time:2455.0ms
-12-11-2021 11:06:15 : Step: GitHubRepoMainPage: settings tab | time:79.9ms
-12-11-2021 11:06:15 : Step: GitHubDashboardPage: open url | time:461.1ms
-12-11-2021 11:06:16 : Step: RepositoriesListPage: click create repository | time:1098.4ms
-12-11-2021 11:06:16 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:36.9ms
-12-11-2021 11:06:16 : Step: GitHubCreateRepoDetailsPage: input repo name | time:108.7ms
-12-11-2021 11:06:17 : Step: GitHubCreateNewCreateRepoPage: get create repository button | time:640.0ms
-12-11-2021 11:06:19 : Step: GitHubCreateNewCreateRepoPage: click create repository button | time:2247.6ms
-12-11-2021 11:06:19 : Step: GitHubRepoMainPage: settings tab | time:44.9ms
-<br/> ------------------------------Captured stdout call------------------------------ <br/>12-11-2021 11:06:19 : Step: GitHubDashboardPage: open url | time:459.2ms
-12-11-2021 11:06:20 : Step: RepositoriesListPage: input text find repo | time:656.7ms
-12-11-2021 11:06:20 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-12-11-2021 11:06:20 : Step: RepositoriesListPage: is repo name invisible on the list | time:594.5ms
-12-11-2021 11:06:20 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-12-11-2021 11:06:20 : Step: RepositoriesListPage: is repo name exist on the list | time:42.2ms
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_partial_name_multi_match</td>
-          <td class="col-duration">33.23</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_find_repo_by_partial_name_multi_match.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>12-11-2021 11:06:34 : Step: RepositoriesListPage: is repositories contains repo | time:606.0ms
-12-11-2021 11:06:34 : Step: RepositoriesListPage: click first repo on repositories | time:566.8ms
-12-11-2021 11:06:35 : Step: GitHubRepoMainPage: settings tab | time:43.0ms
-12-11-2021 11:06:35 : Step: GitHubRepoMainPage: click settings tab | time:91.3ms
-12-11-2021 11:06:35 : Step: GitHubRepoSettingsPage: options side setting | time:589.9ms
-12-11-2021 11:06:37 : Step: GitHubRepoSettingsPage: click options side setting | time:2681.1ms
-12-11-2021 11:06:37 : Step: GitHubSettingsOptionsPage: click delete repository button | time:128.8ms
-12-11-2021 11:06:37 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:49.8ms
-12-11-2021 11:06:37 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:81.9ms
-12-11-2021 11:06:38 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:203.7ms
-12-11-2021 11:06:38 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:62.2ms
-12-11-2021 11:06:38 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:902.8ms
-12-11-2021 11:06:44 : Step: GitHubConfirmPasswordPage: is password input exist | time:5275.1ms
-12-11-2021 11:06:44 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:5275.3ms
-12-11-2021 11:06:44 : Step: RepositoriesListPage: is repositories contains repo | time:37.2ms
-12-11-2021 11:06:44 : Step: RepositoriesListPage: click first repo on repositories | time:539.5ms
-12-11-2021 11:06:44 : Step: GitHubRepoMainPage: settings tab | time:34.8ms
-12-11-2021 11:06:44 : Step: GitHubRepoMainPage: click settings tab | time:91.1ms
-12-11-2021 11:06:45 : Step: GitHubRepoSettingsPage: options side setting | time:567.1ms
-12-11-2021 11:06:47 : Step: GitHubRepoSettingsPage: click options side setting | time:2639.6ms
-12-11-2021 11:06:47 : Step: GitHubSettingsOptionsPage: click delete repository button | time:142.7ms
-12-11-2021 11:06:47 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:37.2ms
-12-11-2021 11:06:47 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:60.4ms
-12-11-2021 11:06:47 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:155.8ms
-12-11-2021 11:06:47 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:61.5ms
-12-11-2021 11:06:48 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:929.0ms
-12-11-2021 11:06:54 : Step: GitHubConfirmPasswordPage: is password input exist | time:5262.1ms
-12-11-2021 11:06:54 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:5262.4ms
-12-11-2021 11:06:57 : Step: RepositoriesListPage: is repositories contains repo | time:3103.9ms
-12-11-2021 11:06:57 : Step: GitHubDashboardPage: open url | time:468.2ms
-12-11-2021 11:06:58 : Step: RepositoriesListPage: click create repository | time:1192.2ms
-12-11-2021 11:06:58 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:41.9ms
-12-11-2021 11:06:58 : Step: GitHubCreateRepoDetailsPage: input repo name | time:106.2ms
-12-11-2021 11:06:59 : Step: GitHubCreateNewCreateRepoPage: get create repository button | time:636.1ms
-12-11-2021 11:07:01 : Step: GitHubCreateNewCreateRepoPage: click create repository button | time:2153.3ms
-12-11-2021 11:07:01 : Step: GitHubRepoMainPage: settings tab | time:38.1ms
-12-11-2021 11:07:01 : Step: GitHubDashboardPage: open url | time:563.7ms
-12-11-2021 11:07:02 : Step: RepositoriesListPage: click create repository | time:1251.3ms
-12-11-2021 11:07:02 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:44.2ms
-12-11-2021 11:07:03 : Step: GitHubCreateRepoDetailsPage: input repo name | time:124.2ms
-12-11-2021 11:07:03 : Step: GitHubCreateNewCreateRepoPage: get create repository button | time:628.4ms
-12-11-2021 11:07:05 : Step: GitHubCreateNewCreateRepoPage: click create repository button | time:2203.0ms
-12-11-2021 11:07:05 : Step: GitHubRepoMainPage: settings tab | time:32.2ms
-<br/> ------------------------------Captured stdout call------------------------------ <br/>12-11-2021 11:07:05 : Step: GitHubDashboardPage: open url | time:496.4ms
-12-11-2021 11:07:06 : Step: RepositoriesListPage: input text find repo | time:639.9ms
-12-11-2021 11:07:06 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-12-11-2021 11:07:06 : Step: RepositoriesListPage: is repo name exist on the list | time:59.0ms
-12-11-2021 11:07:06 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-12-11-2021 11:07:06 : Step: RepositoriesListPage: is repo name exist on the list | time:54.1ms
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_partial_name_not_match</td>
-          <td class="col-duration">57.59</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div><div><img src="screenshots/tests_github_dashoboard_test_py_TestGitHubDashboard_test_find_repo_by_partial_name_not_match.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>12-11-2021 11:07:07 : Step: RepositoriesListPage: is repositories contains repo | time:592.1ms
-12-11-2021 11:07:08 : Step: RepositoriesListPage: click first repo on repositories | time:651.6ms
-12-11-2021 11:07:08 : Step: GitHubRepoMainPage: settings tab | time:39.1ms
-12-11-2021 11:07:08 : Step: GitHubRepoMainPage: click settings tab | time:95.1ms
-12-11-2021 11:07:09 : Step: GitHubRepoSettingsPage: options side setting | time:581.3ms
-12-11-2021 11:07:11 : Step: GitHubRepoSettingsPage: click options side setting | time:2634.1ms
-12-11-2021 11:07:11 : Step: GitHubSettingsOptionsPage: click delete repository button | time:118.8ms
-12-11-2021 11:07:11 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:60.1ms
-12-11-2021 11:07:11 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:100.6ms
-12-11-2021 11:07:11 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:252.6ms
-12-11-2021 11:07:11 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:86.1ms
-12-11-2021 11:07:12 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:1005.7ms
-12-11-2021 11:07:17 : Step: GitHubConfirmPasswordPage: is password input exist | time:5284.2ms
-12-11-2021 11:07:17 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:5284.4ms
-12-11-2021 11:07:18 : Step: RepositoriesListPage: is repositories contains repo | time:32.6ms
-12-11-2021 11:07:18 : Step: RepositoriesListPage: click first repo on repositories | time:541.2ms
-12-11-2021 11:07:18 : Step: GitHubRepoMainPage: settings tab | time:46.4ms
-12-11-2021 11:07:18 : Step: GitHubRepoMainPage: click settings tab | time:101.7ms
-12-11-2021 11:07:19 : Step: GitHubRepoSettingsPage: options side setting | time:568.6ms
-12-11-2021 11:07:21 : Step: GitHubRepoSettingsPage: click options side setting | time:2648.3ms
-12-11-2021 11:07:21 : Step: GitHubSettingsOptionsPage: click delete repository button | time:100.2ms
-12-11-2021 11:07:21 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:53.7ms
-12-11-2021 11:07:21 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:57.4ms
-12-11-2021 11:07:21 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:180.7ms
-12-11-2021 11:07:21 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:55.9ms
-12-11-2021 11:07:22 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:908.9ms
-12-11-2021 11:07:27 : Step: GitHubConfirmPasswordPage: is password input exist | time:5262.7ms
-12-11-2021 11:07:27 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:5263.1ms
-12-11-2021 11:07:30 : Step: RepositoriesListPage: is repositories contains repo | time:3085.5ms
-12-11-2021 11:07:31 : Step: GitHubDashboardPage: open url | time:571.7ms
-12-11-2021 11:07:32 : Step: RepositoriesListPage: click create repository | time:1072.9ms
-12-11-2021 11:07:32 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:38.9ms
-12-11-2021 11:07:32 : Step: GitHubCreateRepoDetailsPage: input repo name | time:106.9ms
-12-11-2021 11:07:33 : Step: GitHubCreateNewCreateRepoPage: get create repository button | time:603.2ms
-12-11-2021 11:07:34 : Step: GitHubCreateNewCreateRepoPage: click create repository button | time:2027.9ms
-12-11-2021 11:07:34 : Step: GitHubRepoMainPage: settings tab | time:44.0ms
-12-11-2021 11:07:35 : Step: GitHubDashboardPage: open url | time:483.3ms
-12-11-2021 11:07:36 : Step: RepositoriesListPage: click create repository | time:1097.2ms
-12-11-2021 11:07:36 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:50.3ms
-12-11-2021 11:07:36 : Step: GitHubCreateRepoDetailsPage: input repo name | time:138.5ms
-12-11-2021 11:07:37 : Step: GitHubCreateNewCreateRepoPage: get create repository button | time:615.6ms
-12-11-2021 11:07:38 : Step: GitHubCreateNewCreateRepoPage: click create repository button | time:2091.6ms
-12-11-2021 11:07:38 : Step: GitHubRepoMainPage: settings tab | time:47.3ms
-<br/> ------------------------------Captured stdout call------------------------------ <br/>12-11-2021 11:07:38 : Step: GitHubDashboardPage: open url | time:457.8ms
-12-11-2021 11:07:39 : Step: RepositoriesListPage: input text find repo | time:623.9ms
-12-11-2021 11:07:39 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-12-11-2021 11:07:40 : Step: RepositoriesListPage: is repo name invisible on the list | time:572.3ms
-12-11-2021 11:07:40 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-12-11-2021 11:07:40 : Step: RepositoriesListPage: is repo name invisible on the list | time:36.1ms
-<br/> ----------------------------Captured stdout teardown---------------------------- <br/>12-11-2021 11:07:41 : Step: RepositoriesListPage: is repositories contains repo | time:568.9ms
-12-11-2021 11:07:42 : Step: RepositoriesListPage: click first repo on repositories | time:589.7ms
-12-11-2021 11:07:42 : Step: GitHubRepoMainPage: settings tab | time:41.6ms
-12-11-2021 11:07:42 : Step: GitHubRepoMainPage: click settings tab | time:98.9ms
-12-11-2021 11:07:42 : Step: GitHubRepoSettingsPage: options side setting | time:590.1ms
-12-11-2021 11:07:44 : Step: GitHubRepoSettingsPage: click options side setting | time:2650.9ms
-12-11-2021 11:07:44 : Step: GitHubSettingsOptionsPage: click delete repository button | time:157.3ms
-12-11-2021 11:07:45 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:72.2ms
-12-11-2021 11:07:45 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:76.3ms
-12-11-2021 11:07:45 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:215.4ms
-12-11-2021 11:07:45 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:88.5ms
-12-11-2021 11:07:46 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:1111.5ms
-12-11-2021 11:07:51 : Step: GitHubConfirmPasswordPage: is password input exist | time:5275.2ms
-12-11-2021 11:07:51 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:5275.4ms
-12-11-2021 11:07:51 : Step: RepositoriesListPage: is repositories contains repo | time:32.3ms
-12-11-2021 11:07:52 : Step: RepositoriesListPage: click first repo on repositories | time:561.0ms
-12-11-2021 11:07:52 : Step: GitHubRepoMainPage: settings tab | time:35.5ms
-12-11-2021 11:07:52 : Step: GitHubRepoMainPage: click settings tab | time:95.1ms
-12-11-2021 11:07:52 : Step: GitHubRepoSettingsPage: options side setting | time:587.8ms
-12-11-2021 11:07:54 : Step: GitHubRepoSettingsPage: click options side setting | time:2657.6ms
-12-11-2021 11:07:55 : Step: GitHubSettingsOptionsPage: click delete repository button | time:117.7ms
-12-11-2021 11:07:55 : Step: GitHubConfirmDangerActionDialogPage: confirm security text input | time:39.5ms
-12-11-2021 11:07:55 : Step: GitHubConfirmDangerActionDialogPage: get text to confirm | time:79.1ms
-12-11-2021 11:07:55 : Step: GitHubConfirmDangerActionDialogPage: type confirm security text | time:180.4ms
-12-11-2021 11:07:55 : Step: GitHubConfirmDangerActionDialogPage: delete this repo button | time:72.7ms
-12-11-2021 11:07:56 : Step: GitHubConfirmDangerActionDialogPage: click confirm delete repo button | time:884.1ms
-12-11-2021 11:08:01 : Step: GitHubConfirmPasswordPage: is password input exist | time:5277.1ms
-12-11-2021 11:08:01 : Step: GitHubConfirmPasswordPage: input password if confirm necessary | time:5277.4ms
-12-11-2021 11:08:04 : Step: RepositoriesListPage: is repositories contains repo | time:3093.9ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>13-11-2021 03:05:44 : Step: GitHubDashboardPage: open url | time:453.3ms
+13-11-2021 03:05:45 : Step: ExploreReposPage: click activities explore button | time:1279.0ms
+13-11-2021 03:05:45 : Step: GitHubExploreDashboardPage: get account name | time:39.7ms
 <br/></div></td></tr></tbody></table></body></html>
