@@ -1,5 +1,4 @@
 from selenium import webdriver
-from selenium.webdriver import DesiredCapabilities
 from selenium.webdriver.edge.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
@@ -34,7 +33,7 @@ class DriverFactory:
             chrome_options.add_argument('window-size=1920x1080')
             chrome_options.add_argument('--start-maximized')
             chrome_options.add_argument('--log-level=1')
-            chrome_options.set_capability(name="goog.loggingPrefs", value="performance.ALL")
+            chrome_options.set_capability(name="goog:loggingPrefs", value={"performance": "ALL"})
         return chrome_options
 
     @staticmethod
