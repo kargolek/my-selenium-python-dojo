@@ -2,7 +2,6 @@ import os
 from pathlib import Path
 
 import pytest
-from hamcrest import assert_that, equal_to
 from selenium import webdriver
 
 from fixtures.github.github_fixtures import GitHubFixtures
@@ -12,6 +11,7 @@ from pages.github_pages.github_device_verification_page import GitHubDeviceVerif
 from pages.github_pages.github_login_page import GitHubLoginPage
 from pages.github_pages.github_main_bar_page import GitHubMainBarPage
 from pages.github_pages.guides.guides_github_land_page import GuidesGitHubLandPage
+from pages.github_pages.owner_settings.github_owner_repo_settings_page import GitHubOwnerRepoSettingsPage
 from pages.github_pages.repository.github_repo_main_page import GitHubRepoMainPage
 from pages.github_pages.repository.settings.github_confirm_password_page import GitHubConfirmPasswordPage
 from pages.github_pages.repository.settings.github_settings_options_page import GitHubSettingsOptionsPage
@@ -26,16 +26,12 @@ GITHUB_COM = "https://github.com"
 driver: webdriver.Chrome
 
 DRIVER_TYPE = "chrome"
-HEADLESS = True
+HEADLESS = False
 COOKIES = None
 
 
 def get_test_root() -> str:
     return str(Path(__file__).parent)
-
-
-def get_resource_mail_content() -> str:
-    return str(Path(__file__).parent.parent) + "/resources/mail_content/"
 
 
 def get_screenshot_dir():
@@ -160,6 +156,11 @@ def github_api_service():
     return GitHubApiService(Secrets.TOKEN, Secrets.USERNAME)
 
 
+@pytest.fixture(scope="session")
+def github_owner_repo_setting_page(web_driver):
+    return GitHubOwnerRepoSettingsPage(web_driver)
+
+
 @pytest.fixture()
 def delete_all_repos(github_fixtures, github_api_service, github_dashboard_page, github_confirm_password_page,
                      github_settings_options_page):
@@ -190,22 +191,23 @@ def delete_all_repos_after_session(github_fixtures, github_api_service, github_d
 
 
 @pytest.fixture()
-def search_and_open_repo(web_driver, github_dashboard_page):
-    is_content_opened = github_dashboard_page.open_url() \
-        .top_main_bar \
-        .input_text_to_search("Python") \
-        .click_first_repo_result() \
-        .content_list_page \
-        .is_content_container_visible()
-    assert_that(is_content_opened, equal_to(True))
+def create_repos_test_1_and_test_2_if_not_exist(web_driver, github_api_service, github_fixtures,
+                                                github_dashboard_page, github_create_new_repo_page):
+    repos = github_fixtures.create_public_repo_if_not_exist("test_1",
+                                                            github_api_service,
+                                                            github_dashboard_page)
+    github_fixtures.create_public_repo_if_not_exist("test_2",
+                                                    github_api_service,
+                                                    github_dashboard_page,
+                                                    repos_on_account=repos)
 
 
 @pytest.fixture()
-def create_repos_test_1_and_test_2_if_not_exist(web_driver, github_api_service,
-                                                github_fixtures, github_dashboard_page, github_create_new_repo_page):
-    repos = github_fixtures.create_public_repo_if_not_exist("test_1", github_api_service, github_dashboard_page)
-    github_fixtures.create_public_repo_if_not_exist("test_2", github_api_service, github_dashboard_page,
-                                                    repos_on_account=repos)
+def create_repos_test_1_if_not_exist(web_driver, github_api_service, github_fixtures, github_dashboard_page,
+                                     github_create_new_repo_page):
+    github_fixtures.create_public_repo_if_not_exist("test_1",
+                                                    github_api_service,
+                                                    github_dashboard_page)
 
 
 @pytest.fixture()
