@@ -67,3 +67,7 @@ class GitHubFixtures:
                     .is_repo_name_exist_on_the_list(Secrets.USERNAME, repo_name):
                 raise FixturesException(f"Unable to create {repo_name} repo in {self.__class__.__name__}")
         return repos
+
+    def create_public_repo(self, repo_name: str, github_api_service: GitHubApiService):
+        if not github_api_service.api_call_create_repo(repo_name):
+            raise FixturesException(f"Unable to create {repo_name} repo in {self.__class__.__name__}")

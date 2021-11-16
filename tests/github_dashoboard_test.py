@@ -23,7 +23,7 @@ class TestGitHubDashboard:
         assert_that(create_repo_button, is_(WebElement))
 
     def test_should_open_create_new_repo_when_repo_exist(self, web_driver, github_dashboard_page,
-                                                         create_repos_test_1_if_not_exist):
+                                                         create_repo_random_name):
         create_repo_button = github_dashboard_page.open_url() \
             .repositories_list.click_create_repository().create_repo_details_page \
             .get_repo_name_input()

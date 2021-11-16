@@ -34,6 +34,7 @@ class DriverFactory:
                 chrome_options.add_argument('--disable-gpu')
             chrome_options.add_argument('window-size=1920x1080')
             chrome_options.add_argument('--start-maximized')
+            chrome_options.add_argument('--log-level=1')
         return chrome_options
 
     @staticmethod
@@ -44,8 +45,10 @@ class DriverFactory:
             driver = webdriver.Remote(command_executor=HTTP_LOCALHOST_WD_HUB,
                                       desired_capabilities=desired_capabilities,
                                       options=firefox_options)
+            driver.maximize_window()
         else:
             driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=firefox_options)
+            driver.maximize_window()
         return driver
 
     @staticmethod
@@ -65,8 +68,10 @@ class DriverFactory:
             driver = webdriver.Remote(command_executor=HTTP_LOCALHOST_WD_HUB,
                                       desired_capabilities=desired_capabilities,
                                       options=edge_options)
+            driver.maximize_window()
         else:
             driver = webdriver.Edge(executable_path=EdgeChromiumDriverManager().install(), options=edge_options)
+            driver.maximize_window()
         return driver
 
     @staticmethod
@@ -77,6 +82,8 @@ class DriverFactory:
             if headless:
                 edge_options.headless = True
             edge_options.add_argument('window-size=1920x1080')
+            edge_options.add_argument('--start-maximized')
+            edge_options.add_argument('--log-level=1')
         return edge_options
 
     @staticmethod

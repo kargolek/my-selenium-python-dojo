@@ -26,7 +26,7 @@ GITHUB_COM = "https://github.com"
 driver: webdriver.Chrome
 
 DRIVER_TYPE = "chrome"
-HEADLESS = False
+HEADLESS = True
 COOKIES = None
 
 
@@ -161,6 +161,11 @@ def github_owner_repo_setting_page(web_driver):
     return GitHubOwnerRepoSettingsPage(web_driver)
 
 
+@pytest.fixture(scope="session")
+def driver_utils(web_driver):
+    return DriverUtils(web_driver)
+
+
 @pytest.fixture()
 def delete_all_repos(github_fixtures, github_api_service, github_dashboard_page, github_confirm_password_page,
                      github_settings_options_page):
@@ -208,6 +213,12 @@ def create_repos_test_1_if_not_exist(web_driver, github_api_service, github_fixt
     github_fixtures.create_public_repo_if_not_exist("test_1",
                                                     github_api_service,
                                                     github_dashboard_page)
+
+
+@pytest.fixture()
+def create_repo_random_name(github_api_service, github_fixtures, random_string):
+    github_fixtures.create_public_repo(random_string,
+                                       github_api_service)
 
 
 @pytest.fixture()

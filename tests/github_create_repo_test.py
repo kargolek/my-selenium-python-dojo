@@ -1,3 +1,5 @@
+import time
+
 import pytest
 from hamcrest import assert_that, equal_to, is_, contains_string
 from selenium.webdriver.remote.webelement import WebElement
@@ -142,7 +144,7 @@ class TestGitHubCreateRepo:
         assert_that(inputted_repo_name, equal_to(inspiration_name))
 
     def test_should_throw_notification_for_repo_creation_failed(self, web_driver, github_create_new_repo_page,
-                                                                random_string):
+                                                                random_string, driver_utils):
         github_create_new_repo_page.open_url().create_repo_details_page \
             .input_repo_name(random_string)
         web_driver.execute_script("window.open()")
@@ -153,7 +155,7 @@ class TestGitHubCreateRepo:
         web_driver.close()
         web_driver.switch_to.window(web_driver.window_handles[0])
         github_create_new_repo_page.click_create_repository_button()
-
+        driver_utils.dismiss_if_alert_is_present()
         assert_that(github_create_new_repo_page.create_repo_details_page.get_error_notification_text(),
                     equal_to("Repository creation failed."))
 
