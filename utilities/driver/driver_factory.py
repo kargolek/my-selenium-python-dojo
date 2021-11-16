@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver import DesiredCapabilities
+from selenium.webdriver.edge.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
@@ -14,15 +15,13 @@ class DriverFactory:
 
     @staticmethod
     def __get_chrome_driver(chrome_options):
-        desired_capabilities = DesiredCapabilities.CHROME
-        desired_capabilities["goog:loggingPrefs"] = {"performance": "ALL"}
         if Environment.IS_CI_CD_ENV == "true":
             return webdriver.Remote(command_executor=HTTP_LOCALHOST_WD_HUB,
-                                    desired_capabilities=desired_capabilities,
                                     options=chrome_options)
         else:
-            return webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install(),
-                                    options=chrome_options, desired_capabilities=desired_capabilities)
+            return webdriver.Chrome(
+                service=Service(executable_path=ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()),
+                options=chrome_options)
 
     @staticmethod
     def __chrome_options_default(chrome_options, headless: bool):
@@ -35,19 +34,19 @@ class DriverFactory:
             chrome_options.add_argument('window-size=1920x1080')
             chrome_options.add_argument('--start-maximized')
             chrome_options.add_argument('--log-level=1')
+            chrome_options.set_capability(name="goog.loggingPrefs", value="performance.ALL")
         return chrome_options
 
     @staticmethod
     def __get_firefox_driver(firefox_options):
         driver: webdriver
-        desired_capabilities = DesiredCapabilities.FIREFOX
         if Environment.IS_CI_CD_ENV == "true":
             driver = webdriver.Remote(command_executor=HTTP_LOCALHOST_WD_HUB,
-                                      desired_capabilities=desired_capabilities,
                                       options=firefox_options)
             driver.maximize_window()
         else:
-            driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=firefox_options)
+            driver = webdriver.Firefox(service=Service(executable_path=GeckoDriverManager().install()),
+                                       options=firefox_options)
             driver.maximize_window()
         return driver
 
@@ -63,14 +62,13 @@ class DriverFactory:
     @staticmethod
     def __get_edge_driver(edge_options):
         driver: webdriver
-        desired_capabilities = DesiredCapabilities.EDGE
         if Environment.IS_CI_CD_ENV == "true":
             driver = webdriver.Remote(command_executor=HTTP_LOCALHOST_WD_HUB,
-                                      desired_capabilities=desired_capabilities,
                                       options=edge_options)
             driver.maximize_window()
         else:
-            driver = webdriver.Edge(executable_path=EdgeChromiumDriverManager().install(), options=edge_options)
+            driver = webdriver.Edge(service=Service(executable_path=EdgeChromiumDriverManager().install()),
+                                    options=edge_options)
             driver.maximize_window()
         return driver
 
