@@ -59,3 +59,8 @@ class BasePage:
             return True
         except TimeoutException:
             return False
+
+    def _count_occur_after_wait_visibility(self, container_locator, item_locator, time_seconds):
+        container: WebElement = WebDriverWait(self.driver, time_seconds) \
+            .until(EC.visibility_of_element_located(container_locator))
+        return len(container.find_elements(item_locator[0], item_locator[1]))

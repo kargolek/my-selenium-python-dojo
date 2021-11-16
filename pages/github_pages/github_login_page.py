@@ -14,6 +14,12 @@ class GitHubLoginPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
         self.github_dashboard_page = GitHubDashboardPage(self.driver)
+        self.base_url = "https://github.com/login"
+
+    @step
+    def open_url(self):
+        self.driver.get(self.base_url)
+        return self
 
     @step
     def input_login(self, login_name):

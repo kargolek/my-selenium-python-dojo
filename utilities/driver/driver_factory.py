@@ -25,14 +25,16 @@ class DriverFactory:
                                     options=chrome_options, desired_capabilities=desired_capabilities)
 
     @staticmethod
-    def __chrome_options_default(chrome_options):
+    def __chrome_options_default(chrome_options, headless: bool):
         if chrome_options is None:
             chrome_options = webdriver.ChromeOptions()
-            chrome_options.add_argument('--no-sandbox')
-            chrome_options.add_argument('--headless')
-            chrome_options.add_argument('--disable-gpu')
+            if headless:
+                chrome_options.add_argument('--no-sandbox')
+                chrome_options.add_argument('--headless')
+                chrome_options.add_argument('--disable-gpu')
             chrome_options.add_argument('window-size=1920x1080')
             chrome_options.add_argument('--start-maximized')
+            chrome_options.add_argument('--log-level=1')
         return chrome_options
 
     @staticmethod
@@ -43,15 +45,18 @@ class DriverFactory:
             driver = webdriver.Remote(command_executor=HTTP_LOCALHOST_WD_HUB,
                                       desired_capabilities=desired_capabilities,
                                       options=firefox_options)
+            driver.maximize_window()
         else:
             driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=firefox_options)
+            driver.maximize_window()
         return driver
 
     @staticmethod
-    def __firefox_options_default(firefox_options):
+    def __firefox_options_default(firefox_options, headless: bool):
         if firefox_options is None:
             firefox_options = webdriver.FirefoxOptions()
-            firefox_options.add_argument("--headless")
+            if headless:
+                firefox_options.add_argument("--headless")
             firefox_options.add_argument('window-size=1920x1080')
         return firefox_options
 
@@ -63,26 +68,31 @@ class DriverFactory:
             driver = webdriver.Remote(command_executor=HTTP_LOCALHOST_WD_HUB,
                                       desired_capabilities=desired_capabilities,
                                       options=edge_options)
+            driver.maximize_window()
         else:
             driver = webdriver.Edge(executable_path=EdgeChromiumDriverManager().install(), options=edge_options)
+            driver.maximize_window()
         return driver
 
     @staticmethod
-    def __edge_options_default(edge_options):
+    def __edge_options_default(edge_options, headless: bool):
         if edge_options is None:
             edge_options = webdriver.EdgeOptions()
             edge_options.use_chromium = True
-            edge_options.headless = True
+            if headless:
+                edge_options.headless = True
             edge_options.add_argument('window-size=1920x1080')
+            edge_options.add_argument('--start-maximized')
+            edge_options.add_argument('--log-level=1')
         return edge_options
 
     @staticmethod
-    def get_web_driver(browser_type: str, options=None):
+    def get_web_driver(browser_type: str, headless: bool, options=None):
         if browser_type.lower() == "chrome":
-            return DriverFactory.__get_chrome_driver(DriverFactory.__chrome_options_default(options))
+            return DriverFactory.__get_chrome_driver(DriverFactory.__chrome_options_default(options, headless))
         elif browser_type.lower() == "firefox":
-            return DriverFactory.__get_firefox_driver(DriverFactory.__firefox_options_default(options))
+            return DriverFactory.__get_firefox_driver(DriverFactory.__firefox_options_default(options, headless))
         elif browser_type.lower() == "edge":
-            return DriverFactory.__get_edge_driver(DriverFactory.__edge_options_default(options))
+            return DriverFactory.__get_edge_driver(DriverFactory.__edge_options_default(options, headless))
         else:
             raise Exception(f"Inappropriate browser type provided: {browser_type}")

@@ -3,17 +3,19 @@ from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
 from pages.github_pages.create.import_page.github_import_repo_page import GitHubImportRepoPage
-from pages.github_pages.create.new.github_create_new_repo_page import GitHubCreateNewCreateRepoPage
+from pages.github_pages.create.new.github_create_new_repo_page import GitHubCreateNewRepoPage
 from pages.github_pages.repository.github_repo_main_page import GitHubRepoMainPage
 from utilities.logger.test_logger.test_step import step
 
 
 class RepositoriesListPage(BasePage):
-    REPO_CONTAINER = (By.ID, "dashboard-repos-container")
+    REPO_CONTAINER = (By.XPATH, ".//aside//*[@id='dashboard-repos-container']")
     CREATE_REPOSITORY_BUTTON = (By.XPATH, ".//div[@id='repos-container']//a[@href='/new']")
     IMPORT_REPOSITORY_BUTTON = (By.LINK_TEXT, "Import repository")
     REPO_ITEMS = (By.XPATH, ".//aside//div[@class='wb-break-word']//a[@href]")
     FIND_REPO_INPUT = (By.ID, "dashboard-repos-filter-left")
+    REPO_SINGLE_ITEM = (By.XPATH,
+                        ".//ul[contains(@data-filterable-for, 'dashboard-repos')]//div[@class='wb-break-word']")
 
     def __init__(self, driver: webdriver):
         super().__init__(driver)
@@ -26,7 +28,7 @@ class RepositoriesListPage(BasePage):
     @step
     def click_create_repository(self):
         super()._wait_for_visible_element(self.CREATE_REPOSITORY_BUTTON, 10).click()
-        return GitHubCreateNewCreateRepoPage(self.driver)
+        return GitHubCreateNewRepoPage(self.driver)
 
     @step
     def click_import_repository(self):
@@ -63,6 +65,10 @@ class RepositoriesListPage(BasePage):
         return GitHubRepoMainPage(self.driver)
 
     @step
+    def get_first_repo_href(self):
+        return super()._wait_for_all_elements_visible(self.REPO_ITEMS, 5)[0].get_attribute("href")
+
+    @step
     def is_repositories_contains_repo(self):
         return super()._is_elements_visible_after_wait(self.REPO_ITEMS, 3)
 
@@ -70,3 +76,7 @@ class RepositoriesListPage(BasePage):
     def input_text_find_repo(self, text: str):
         super()._wait_for_visible_element(self.FIND_REPO_INPUT, 5).send_keys(text)
         return self
+
+    @step
+    def get_number_of_repo_items(self) -> int:
+        return super()._count_occur_after_wait_visibility(self.REPO_CONTAINER, self.REPO_SINGLE_ITEM, 10)

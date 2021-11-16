@@ -2,34 +2,36 @@ import os
 from pathlib import Path
 
 import pytest
-from hamcrest import assert_that, equal_to
 from selenium import webdriver
 
+from fixtures.github.github_fixtures import GitHubFixtures
+from pages.github_pages.create.new.github_create_new_repo_page import GitHubCreateNewRepoPage
 from pages.github_pages.dashboard.github_dashboard_page import GitHubDashboardPage
 from pages.github_pages.github_device_verification_page import GitHubDeviceVerificationPage
 from pages.github_pages.github_login_page import GitHubLoginPage
 from pages.github_pages.github_main_bar_page import GitHubMainBarPage
 from pages.github_pages.guides.guides_github_land_page import GuidesGitHubLandPage
+from pages.github_pages.owner_settings.github_owner_repo_settings_page import GitHubOwnerRepoSettingsPage
+from pages.github_pages.repository.github_repo_main_page import GitHubRepoMainPage
 from pages.github_pages.repository.settings.github_confirm_password_page import GitHubConfirmPasswordPage
+from pages.github_pages.repository.settings.github_settings_options_page import GitHubSettingsOptionsPage
+from utilities.api.github.github_api_service import GitHubApiService
 from utilities.credentials.secrets import Secrets
-from utilities.datetime.date_time import get_naive_utc_current_dt
 from utilities.driver.driver_factory import DriverFactory
 from utilities.driver.driver_utils import DriverUtils
+from utilities.generator.random_data import generate_random_string
 
 GITHUB_COM = "https://github.com"
 
 driver: webdriver.Chrome
 
 DRIVER_TYPE = "chrome"
+HEADLESS = True
 COOKIES = None
 
 
 def get_test_root() -> str:
     return str(Path(__file__).parent)
-
-
-def get_resource_mail_content() -> str:
-    return str(Path(__file__).parent.parent) + "/resources/mail_content/"
 
 
 def get_screenshot_dir():
@@ -66,7 +68,7 @@ def pytest_runtest_makereport(item):
 
 @pytest.fixture(scope="session")
 def web_driver() -> webdriver:
-    web_driver = DriverFactory.get_web_driver(DRIVER_TYPE)
+    web_driver = DriverFactory.get_web_driver(DRIVER_TYPE, HEADLESS)
     global driver
     driver = web_driver
     yield web_driver
@@ -74,19 +76,8 @@ def web_driver() -> webdriver:
 
 
 @pytest.fixture(scope="session")
-def login_to_github_account(web_driver):
-    before_sign_in_dt = get_naive_utc_current_dt()
-    web_driver.get("https://github.com/login")
-    login_page = GitHubLoginPage(web_driver)
-    login_page.sign_in_github_account(Secrets.EMAIL, Secrets.PASSWORD)
-    GitHubDeviceVerificationPage(web_driver).input_otp_code_if_verification_present(before_sign_in_dt)
-    assert GitHubDashboardPage(web_driver).repositories_list.is_repo_list_container_visible()
-    return login_page
-
-
-@pytest.fixture(scope="class")
-def github_main_bar_page(web_driver):
-    return GitHubMainBarPage(web_driver)
+def login_to_github_account(github_fixtures, github_login_page, github_otp_page, github_dashboard_page):
+    return github_fixtures.sign_in_to_account(github_login_page, github_otp_page, github_dashboard_page)
 
 
 @pytest.fixture
@@ -108,6 +99,16 @@ def add_cookies(web_driver):
     web_driver.get(GITHUB_COM)
     DriverUtils(web_driver).add_cookie(COOKIES, {"name": "__Host-user_session_same_site"})
     web_driver.refresh()
+
+
+@pytest.fixture(scope="session")
+def github_fixtures(web_driver):
+    return GitHubFixtures(web_driver)
+
+
+@pytest.fixture(scope="session")
+def github_main_bar_page(web_driver):
+    return GitHubMainBarPage(web_driver)
 
 
 @pytest.fixture(scope="session")
@@ -135,45 +136,91 @@ def github_confirm_password_page(web_driver):
     return GitHubConfirmPasswordPage(web_driver)
 
 
-def delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page):
-    web_driver.get(GITHUB_COM)
-    while github_dashboard_page.repositories_list.is_repositories_contains_repo():
-        github_dashboard_page.repositories_list.click_first_repo_on_repositories() \
-            .click_settings_tab() \
-            .click_options_side_setting() \
-            .click_delete_repository_button() \
-            .type_confirm_security_text() \
-            .click_confirm_delete_repo_button()
-        github_confirm_password_page.input_password_if_confirm_necessary(Secrets.PASSWORD)
-
-
-@pytest.fixture()
-def delete_all_repos(web_driver, github_dashboard_page, github_confirm_password_page):
-    delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page)
+@pytest.fixture(scope="session")
+def github_create_new_repo_page(web_driver):
+    return GitHubCreateNewRepoPage(web_driver)
 
 
 @pytest.fixture(scope="session")
-def delete_all_repos_after_all_tests(web_driver, github_dashboard_page, github_confirm_password_page):
+def github_repo_main_page(web_driver):
+    return GitHubRepoMainPage(web_driver)
+
+
+@pytest.fixture(scope="session")
+def github_settings_options_page(web_driver):
+    return GitHubSettingsOptionsPage(web_driver)
+
+
+@pytest.fixture(scope="session")
+def github_api_service():
+    return GitHubApiService(Secrets.TOKEN, Secrets.USERNAME)
+
+
+@pytest.fixture(scope="session")
+def github_owner_repo_setting_page(web_driver):
+    return GitHubOwnerRepoSettingsPage(web_driver)
+
+
+@pytest.fixture(scope="session")
+def driver_utils(web_driver):
+    return DriverUtils(web_driver)
+
+
+@pytest.fixture()
+def delete_all_repos(github_fixtures, github_api_service, github_dashboard_page, github_confirm_password_page,
+                     github_settings_options_page):
+    github_fixtures.delete_all_repos(github_api_service,
+                                     github_dashboard_page,
+                                     github_confirm_password_page,
+                                     github_settings_options_page)
+
+
+@pytest.fixture(scope="class")
+def delete_all_repos_class(github_fixtures, github_api_service, github_dashboard_page,
+                           github_confirm_password_page,
+                           github_settings_options_page):
+    github_fixtures.delete_all_repos(github_api_service,
+                                     github_dashboard_page,
+                                     github_confirm_password_page,
+                                     github_settings_options_page)
+
+
+@pytest.fixture(scope="session")
+def delete_all_repos_after_session(github_fixtures, github_api_service, github_dashboard_page,
+                                   github_confirm_password_page, github_settings_options_page):
     yield
-    delete_all_repos_on_dashboard(web_driver, github_dashboard_page, github_confirm_password_page)
+    github_fixtures.delete_all_repos(github_api_service,
+                                     github_dashboard_page,
+                                     github_confirm_password_page,
+                                     github_settings_options_page)
 
 
 @pytest.fixture()
-def search_and_open_repo(web_driver, github_dashboard_page):
-    is_content_opened = github_dashboard_page.open_url() \
-        .top_main_bar \
-        .input_text_to_search("Python") \
-        .click_first_repo_result() \
-        .content_list_page \
-        .is_content_container_visible()
-    assert_that(is_content_opened, equal_to(True))
+def create_repos_test_1_and_test_2_if_not_exist(web_driver, github_api_service, github_fixtures,
+                                                github_dashboard_page, github_create_new_repo_page):
+    repos = github_fixtures.create_public_repo_if_not_exist("test_1",
+                                                            github_api_service,
+                                                            github_dashboard_page)
+    github_fixtures.create_public_repo_if_not_exist("test_2",
+                                                    github_api_service,
+                                                    github_dashboard_page,
+                                                    repos_on_account=repos)
 
 
 @pytest.fixture()
-def create_repos_test_1_and_test_2(web_driver, github_dashboard_page, delete_all_repos):
-    for i in range(1, 3):
-        github_dashboard_page.open_url() \
-            .repositories_list \
-            .click_create_repository() \
-            .input_repo_name(f"test_{i}") \
-            .click_create_repository_button().settings_tab()
+def create_repos_test_1_if_not_exist(web_driver, github_api_service, github_fixtures, github_dashboard_page,
+                                     github_create_new_repo_page):
+    github_fixtures.create_public_repo_if_not_exist("test_1",
+                                                    github_api_service,
+                                                    github_dashboard_page)
+
+
+@pytest.fixture()
+def create_repo_random_name(github_api_service, github_fixtures, random_string):
+    github_fixtures.create_public_repo(random_string,
+                                       github_api_service)
+
+
+@pytest.fixture()
+def random_string():
+    return generate_random_string()

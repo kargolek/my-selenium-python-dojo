@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 
 from pages.base_page import BasePage
+from pages.github_pages.create.new.github_create_new_repo_page import GitHubCreateNewRepoPage
 from pages.github_pages.dashboard.repository_dashboard.explore_repos_page import ExploreReposPage
 from pages.github_pages.dashboard.repository_dashboard.repositories_page import RepositoriesListPage
 from pages.github_pages.github_main_bar_page import GitHubMainBarPage
@@ -17,6 +18,7 @@ class GitHelloWorldLandPage(BasePage):
 class GitHubDashboardPage(BasePage):
     INTRODUCE_CONTINUE_BUTTON = (By.XPATH, ".//form[@class='button_to']//input[@value='Continue']")
     READ_GUIDE_BUTTON = (By.LINK_TEXT, "Read the guide")
+    START_PROJECT_BUTTON = (By.LINK_TEXT, "Start a project")
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -43,3 +45,8 @@ class GitHubDashboardPage(BasePage):
     def click_continue_yourself_button(self):
         super()._wait_for_visible_element(self.INTRODUCE_CONTINUE_BUTTON, 5).click()
         return GitHubEditModePage(self.driver)
+
+    @step
+    def click_start_project_button(self):
+        super()._wait_for_clickable_element(self.START_PROJECT_BUTTON, 5).click()
+        return GitHubCreateNewRepoPage(self.driver)

@@ -15,5 +15,6 @@ class GitHubSettingsOptionsPage(BasePage):
 
     @step
     def click_delete_repository_button(self):
-        self._scroll_to_element_after_wait_visibility(self.DELETE_REPOSITORY_BUTTON, 5).click()
+        self._scroll_to_element_after_wait_visibility(self.DELETE_REPOSITORY_BUTTON, 10)
+        self._wait_for_clickable_element(self.DELETE_REPOSITORY_BUTTON, 10).click()
         return GitHubConfirmDangerActionDialogPage(self.driver)

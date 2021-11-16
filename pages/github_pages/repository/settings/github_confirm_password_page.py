@@ -14,7 +14,7 @@ class GitHubConfirmPasswordPage(BasePage):
 
     @step
     def is_password_input_exist(self):
-        return self._is_one_element_presence_after_wait(self.PASSWORD_INPUT, 5)
+        return self._is_one_element_visible_after_wait(self.PASSWORD_INPUT, 3)
 
     @step
     def input_password(self, password: str):

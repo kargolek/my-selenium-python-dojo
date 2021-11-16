@@ -3,6 +3,7 @@ import os
 import pickle
 from pathlib import Path
 
+from selenium.common.exceptions import NoAlertPresentException
 from selenium.webdriver.chrome import webdriver
 
 
@@ -50,3 +51,9 @@ class DriverUtils:
             return [event for event in events if 'Network.response' in event['method']]
         else:
             raise Exception("Unable to get events cause driver type is not chromedriver")
+
+    def dismiss_if_alert_is_present(self):
+        try:
+            self.driver.switch_to.alert.dismiss()
+        except NoAlertPresentException:
+            pass
