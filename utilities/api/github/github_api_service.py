@@ -37,3 +37,13 @@ class GitHubApiService:
     @step
     def get_repos(self):
         return self.__github_conn.get_user().get_repos()
+
+    @step
+    def set_user_account_details(self, name="", email="", blog="", company="", location="", bio=""):
+        try:
+            self.__github_conn.get_user().edit(name=name, email=email, blog=blog, company=company, location=location,
+                                               bio=bio)
+            return True
+        except GithubException:
+            print(traceback.format_exc())
+            return False

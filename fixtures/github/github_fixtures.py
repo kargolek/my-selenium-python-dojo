@@ -71,3 +71,7 @@ class GitHubFixtures:
     def create_public_repo(self, repo_name: str, github_api_service: GitHubApiService):
         if not github_api_service.api_call_create_repo(repo_name):
             raise FixturesException(f"Unable to create {repo_name} repo in {self.__class__.__name__}")
+
+    def clear_current_user_account_details(self, github_api_service: GitHubApiService):
+        if not github_api_service.set_user_account_details():
+            raise FixturesException(f"Unable to clear user account details {self.__class__.__name__}")
