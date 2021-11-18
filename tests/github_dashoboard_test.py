@@ -65,7 +65,7 @@ class TestGitHubDashboard:
             .explore_repos_page \
             .click_activities_explore_button()
 
-        assert_that(explore_dashboard_page.get_account_name(Secrets.USERNAME), not_none())
+        assert_that(explore_dashboard_page.is_proper_url(), is_(True))
 
     def test_find_repo_by_exact_name_one_match(self, github_dashboard_page,
                                                create_repos_test_1_and_test_2_if_not_exist):

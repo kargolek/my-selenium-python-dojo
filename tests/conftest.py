@@ -12,6 +12,7 @@ from pages.github_pages.github_login_page import GitHubLoginPage
 from pages.github_pages.github_main_bar_page import GitHubMainBarPage
 from pages.github_pages.guides.guides_github_land_page import GuidesGitHubLandPage
 from pages.github_pages.owner_settings.github_owner_repo_settings_page import GitHubOwnerRepoSettingsPage
+from pages.github_pages.profile.github_profile_land_page import GitHubProfileLandPage
 from pages.github_pages.repository.github_repo_main_page import GitHubRepoMainPage
 from pages.github_pages.repository.settings.github_confirm_password_page import GitHubConfirmPasswordPage
 from pages.github_pages.repository.settings.github_settings_options_page import GitHubSettingsOptionsPage
@@ -166,6 +167,11 @@ def driver_utils(web_driver):
     return DriverUtils(web_driver)
 
 
+@pytest.fixture(scope="session")
+def github_profile_land_page(web_driver):
+    return GitHubProfileLandPage(web_driver)
+
+
 @pytest.fixture()
 def delete_all_repos(github_fixtures, github_api_service, github_dashboard_page, github_confirm_password_page,
                      github_settings_options_page):
@@ -219,6 +225,11 @@ def create_repos_test_1_if_not_exist(web_driver, github_api_service, github_fixt
 def create_repo_random_name(github_api_service, github_fixtures, random_string):
     github_fixtures.create_public_repo(random_string,
                                        github_api_service)
+
+
+@pytest.fixture()
+def clear_current_user_account_details(github_api_service, github_fixtures):
+    github_fixtures.clear_current_user_account_details(github_api_service)
 
 
 @pytest.fixture()
