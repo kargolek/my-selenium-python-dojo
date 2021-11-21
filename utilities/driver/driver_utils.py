@@ -6,6 +6,8 @@ from pathlib import Path
 from selenium.common.exceptions import NoAlertPresentException
 from selenium.webdriver.chrome import webdriver
 
+from utilities.logger.test_logger.test_step import logger
+
 
 def should_ignore_cookie(cookie: dict, ignores_keys_values: dict) -> bool:
     for key in ignores_keys_values.keys():
@@ -57,3 +59,29 @@ class DriverUtils:
             self.driver.switch_to.alert.dismiss()
         except NoAlertPresentException:
             pass
+
+    def get_console_logs(self) -> list:
+        return self.driver.get_log('browser')
+
+    @staticmethod
+    def __parse_log(log: dict):
+        level = log.get("level")
+        message = log.get("message")
+        source = log.get("source")
+        return f"\n----------\nLEVEL: {level}\nMESSAGE: {message}\nSOURCE: {source}\n----------"
+
+    def is_any_severe_console_log_occurred(self) -> bool:
+        log: dict
+        for log in self.get_console_logs():
+            if log.get("level") == "SEVERE":
+                logger.error(self.__parse_log(log))
+                return True
+        return False
+
+    def is_severe_console_log_occurred(self, *logs_sources) -> bool:
+        log: dict
+        for log in self.get_console_logs():
+            if log.get("level") == "SEVERE" and log.get("source") in logs_sources:
+                logger.error(self.__parse_log(log))
+                return True
+        return False

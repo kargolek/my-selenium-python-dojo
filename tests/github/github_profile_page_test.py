@@ -13,7 +13,7 @@ class TestGitHubProfilePage:
     website = "http://google.com"
     twitter_id = "kargolek"
 
-    def test_edit_profile_should_save_all_details(self, github_profile_land_page):
+    def test_edit_profile_should_save_all_details(self, github_profile_land_page, driver_utils):
         profile_component_page = github_profile_land_page.open_url(Secrets.USERNAME) \
             .profile_component_page.click_edit_button() \
             .input_name(self.name) \
