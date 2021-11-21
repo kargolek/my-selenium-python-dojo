@@ -429,7 +429,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>index.html</h1>
-    <p>Report generated on 21-Nov-2021 at 23:13:46 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
+    <p>Report generated on 21-Nov-2021 at 23:35:59 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -451,7 +451,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <td>Python</td>
         <td>3.8.10</td></tr></table>
     <h2>Summary</h2>
-    <p>32 tests ran in 149.52 seconds. </p>
+    <p>32 tests ran in 161.35 seconds. </p>
     <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">32 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>, <input checked="true" class="filter" data-test-result="rerun" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="rerun">1 rerun</span>
     <h2>Results</h2>
     <table id="results-table">
@@ -467,344 +467,358 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <tr>
           <td class="col-result">Rerun</td>
           <td class="col-name">tests/github/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_exact_name_one_match::setup</td>
-          <td class="col-duration">8.54</td>
+          <td class="col-duration">8.75</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session=&quot;bec77413d647e4c2685e85de9a78aac1&quot;)&gt;<br/>github_api_service = &lt;utilities.api.github.github_api_service.GitHubApiService object at 0x7fa9da928c10&gt;<br/>github_fixtures = &lt;fixtures.github.github_fixtures.GitHubFixtures object at 0x7fa9da9853d0&gt;<br/>github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7fa9da97ae20&gt;<br/>github_create_new_repo_page = &lt;pages.github_pages.create.new.github_create_new_repo_page.GitHubCreateNewRepoPage object at 0x7fa9da928d00&gt;<br/><br/>    @pytest.fixture()<br/>    def create_repos_test_1_and_test_2_if_not_exist(web_driver, github_api_service, github_fixtures,<br/>                                                    github_dashboard_page, github_create_new_repo_page):<br/>        repos = github_fixtures.create_public_repo_if_not_exist(&quot;test_1&quot;,<br/>                                                                github_api_service,<br/>                                                                github_dashboard_page)<br/>&gt;       github_fixtures.create_public_repo_if_not_exist(&quot;test_2&quot;,<br/>                                                        github_api_service,<br/>                                                        github_dashboard_page,<br/>                                                        repos_on_account=repos)<br/><br/>tests/conftest.py:225: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;fixtures.github.github_fixtures.GitHubFixtures object at 0x7fa9da9853d0&gt;<br/>repo_name = &#x27;test_2&#x27;<br/>github_api_service = &lt;utilities.api.github.github_api_service.GitHubApiService object at 0x7fa9da928c10&gt;<br/>github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7fa9da97ae20&gt;<br/>repos_on_account = &lt;github.PaginatedList.PaginatedList object at 0x7fa9da84b250&gt;<br/><br/>    def create_public_repo_if_not_exist(self, repo_name: str, github_api_service: GitHubApiService,<br/>                                        github_dashboard_page: GitHubDashboardPage,<br/>                                        repos_on_account: PaginatedList = None):<br/>        if repos_on_account is None:<br/>            repos = github_api_service.get_repos()<br/>        else:<br/>            repos = repos_on_account<br/>        filtered_repos = [repo.name for repo in repos if repo.name == repo_name]<br/>        if repo_name not in filtered_repos:<br/>            github_api_service.api_call_create_repo(repo_name)<br/>            if not github_dashboard_page.open_url().repositories_list \<br/>                    .is_repo_name_exist_on_the_list(Secrets.USERNAME, repo_name):<br/>&gt;               raise FixturesException(f&quot;Unable to create {repo_name} repo in {self.__class__.__name__}&quot;)<br/><span class="error">E               fixtures.fixtures_exception.FixturesException: Unable to create test_2 repo in GitHubFixtures</span><br/><br/>fixtures/github/github_fixtures.py:68: FixturesException<br/> -----------------------------Captured stdout setup------------------------------ <br/>21-11-2021 23:13:19 : Step: GitHubApiService: get repos | time:0.1ms
-21-11-2021 23:13:20 : Step: GitHubApiService: api call create repo | time:841.0ms
-21-11-2021 23:13:20 : Step: GitHubDashboardPage: open url | time:381.1ms
-21-11-2021 23:13:20 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-21-11-2021 23:13:21 : Step: RepositoriesListPage: is repo name exist on the list | time:617.3ms
-21-11-2021 23:13:22 : Step: GitHubApiService: api call create repo | time:844.7ms
-21-11-2021 23:13:22 : Step: GitHubDashboardPage: open url | time:465.2ms
-21-11-2021 23:13:22 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-21-11-2021 23:13:28 : Step: RepositoriesListPage: is repo name exist on the list | time:5354.1ms
+            <div class="log">web_driver = &lt;selenium.webdriver.remote.webdriver.WebDriver (session=&quot;e485bf75d83595c60830485c834a13e9&quot;)&gt;<br/>github_api_service = &lt;utilities.api.github.github_api_service.GitHubApiService object at 0x7feeaf0998b0&gt;<br/>github_fixtures = &lt;fixtures.github.github_fixtures.GitHubFixtures object at 0x7feeaf0fb130&gt;<br/>github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7feeaf0ec430&gt;<br/>github_create_new_repo_page = &lt;pages.github_pages.create.new.github_create_new_repo_page.GitHubCreateNewRepoPage object at 0x7feeaf099370&gt;<br/><br/>    @pytest.fixture()<br/>    def create_repos_test_1_and_test_2_if_not_exist(web_driver, github_api_service, github_fixtures,<br/>                                                    github_dashboard_page, github_create_new_repo_page):<br/>        repos = github_fixtures.create_public_repo_if_not_exist(&quot;test_1&quot;,<br/>                                                                github_api_service,<br/>                                                                github_dashboard_page)<br/>&gt;       github_fixtures.create_public_repo_if_not_exist(&quot;test_2&quot;,<br/>                                                        github_api_service,<br/>                                                        github_dashboard_page,<br/>                                                        repos_on_account=repos)<br/><br/>tests/conftest.py:225: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;fixtures.github.github_fixtures.GitHubFixtures object at 0x7feeaf0fb130&gt;<br/>repo_name = &#x27;test_2&#x27;<br/>github_api_service = &lt;utilities.api.github.github_api_service.GitHubApiService object at 0x7feeaf0998b0&gt;<br/>github_dashboard_page = &lt;pages.github_pages.dashboard.github_dashboard_page.GitHubDashboardPage object at 0x7feeaf0ec430&gt;<br/>repos_on_account = &lt;github.PaginatedList.PaginatedList object at 0x7feeaef5f2e0&gt;<br/><br/>    def create_public_repo_if_not_exist(self, repo_name: str, github_api_service: GitHubApiService,<br/>                                        github_dashboard_page: GitHubDashboardPage,<br/>                                        repos_on_account: PaginatedList = None):<br/>        if repos_on_account is None:<br/>            repos = github_api_service.get_repos()<br/>        else:<br/>            repos = repos_on_account<br/>        filtered_repos = [repo.name for repo in repos if repo.name == repo_name]<br/>        if repo_name not in filtered_repos:<br/>            github_api_service.api_call_create_repo(repo_name)<br/>            if not github_dashboard_page.open_url().repositories_list \<br/>                    .is_repo_name_exist_on_the_list(Secrets.USERNAME, repo_name):<br/>&gt;               raise FixturesException(f&quot;Unable to create {repo_name} repo in {self.__class__.__name__}&quot;)<br/><span class="error">E               fixtures.fixtures_exception.FixturesException: Unable to create test_2 repo in GitHubFixtures</span><br/><br/>fixtures/github/github_fixtures.py:68: FixturesException<br/> -----------------------------Captured stdout setup------------------------------ <br/>21-11-2021 23:35:32 : Step: GitHubApiService: get repos | time:0.1ms
+21-11-2021 23:35:33 : Step: GitHubApiService: api call create repo | time:937.3ms
+21-11-2021 23:35:33 : Step: GitHubDashboardPage: open url | time:435.9ms
+21-11-2021 23:35:33 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+21-11-2021 23:35:34 : Step: RepositoriesListPage: is repo name exist on the list | time:595.8ms
+21-11-2021 23:35:35 : Step: GitHubApiService: api call create repo | time:879.0ms
+21-11-2021 23:35:35 : Step: GitHubDashboardPage: open url | time:428.1ms
+21-11-2021 23:35:35 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+21-11-2021 23:35:40 : Step: RepositoriesListPage: is repo name exist on the list | time:5361.9ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_name_author_should_match</td>
-          <td class="col-duration">18.04</td>
+          <td class="col-duration">16.59</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_name_author_should_match.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>21-11-2021 23:11:21 : Step: GitHubLoginPage: open url | time:394.4ms
-21-11-2021 23:11:21 : Step: GitHubLoginPage: input login | time:157.7ms
-21-11-2021 23:11:21 : Step: GitHubLoginPage: input password | time:153.6ms
-21-11-2021 23:11:22 : Step: GitHubLoginPage: click sign in button | time:736.6ms
-21-11-2021 23:11:22 : Step: GitHubLoginPage: sign in github account | time:1048.5ms
-21-11-2021 23:11:22 : Step: GitHubDeviceVerificationPage: is input device code present | time:35.1ms
-21-11-2021 23:11:27 : Step: GitHubDeviceVerificationPage: input device code | time:847.2ms
-21-11-2021 23:11:27 : Step: GitHubDeviceVerificationPage: input otp code if verification present | time:5669.5ms
-21-11-2021 23:11:28 : Step: RepositoriesListPage: is repo list container visible | time:159.6ms
-21-11-2021 23:11:29 : Step: GitHubApiService: api call delete all account repos | time:86.1ms
-21-11-2021 23:11:29 : Step: GitHubDashboardPage: open url | time:374.3ms
-21-11-2021 23:11:30 : Step: RepositoriesListPage: get number of repo items | time:615.5ms
-<br/> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:11:30 : Step: GitHubCreateNewRepoPage: open url | time:388.1ms
-21-11-2021 23:11:30 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:63.0ms
-21-11-2021 23:11:30 : Step: GitHubCreateRepoDetailsPage: input repo name | time:166.8ms
-21-11-2021 23:11:31 : Step: GitHubCreateRepoDetailsPage: is name success | time:581.3ms
-21-11-2021 23:11:34 : Step: GitHubCreateNewRepoPage: click create repository button | time:3976.3ms
-21-11-2021 23:11:35 : Step: GitHubRepoMainPage: get author name text | time:426.1ms
-21-11-2021 23:11:35 : Step: GitHubRepoMainPage: get repo name text | time:75.8ms
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>21-11-2021 23:33:22 : Step: GitHubLoginPage: open url | time:568.0ms
+21-11-2021 23:33:22 : Step: GitHubLoginPage: input login | time:179.8ms
+21-11-2021 23:33:22 : Step: GitHubLoginPage: input password | time:190.9ms
+21-11-2021 23:33:23 : Step: GitHubLoginPage: click sign in button | time:665.0ms
+21-11-2021 23:33:23 : Step: GitHubLoginPage: sign in github account | time:1036.2ms
+21-11-2021 23:33:23 : Step: GitHubDeviceVerificationPage: is input device code present | time:35.5ms
+21-11-2021 23:33:26 : Step: GitHubDeviceVerificationPage: input device code | time:1125.7ms
+21-11-2021 23:33:26 : Step: GitHubDeviceVerificationPage: input otp code if verification present | time:3319.6ms
+21-11-2021 23:33:26 : Step: RepositoriesListPage: is repo list container visible | time:180.8ms
+21-11-2021 23:33:28 : Step: GitHubApiService: api call delete all account repos | time:136.5ms
+21-11-2021 23:33:28 : Step: GitHubDashboardPage: open url | time:450.3ms
+21-11-2021 23:33:29 : Step: RepositoriesListPage: get number of repo items | time:613.3ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:33:29 : Step: GitHubCreateNewRepoPage: open url | time:484.4ms
+21-11-2021 23:33:29 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:82.2ms
+21-11-2021 23:33:29 : Step: GitHubCreateRepoDetailsPage: input repo name | time:182.7ms
+21-11-2021 23:33:30 : Step: GitHubCreateRepoDetailsPage: is name success | time:607.7ms
+21-11-2021 23:33:34 : Step: GitHubCreateNewRepoPage: click create repository button | time:4217.1ms
+21-11-2021 23:33:34 : Step: GitHubRepoMainPage: get author name text | time:562.4ms
+21-11-2021 23:33:34 : Step: GitHubRepoMainPage: get repo name text | time:111.3ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_should_match_public_as_default</td>
-          <td class="col-duration">4.81</td>
+          <td class="col-duration">5.39</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_should_match_public_as_default.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:11:35 : Step: GitHubCreateNewRepoPage: open url | time:436.8ms
-21-11-2021 23:11:35 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:64.1ms
-21-11-2021 23:11:36 : Step: GitHubCreateRepoDetailsPage: input repo name | time:139.7ms
-21-11-2021 23:11:36 : Step: GitHubCreateRepoDetailsPage: is name success | time:576.3ms
-21-11-2021 23:11:39 : Step: GitHubCreateNewRepoPage: click create repository button | time:3840.1ms
-21-11-2021 23:11:40 : Step: GitHubRepoMainPage: is privacy banner public | time:391.6ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:33:35 : Step: GitHubCreateNewRepoPage: open url | time:470.4ms
+21-11-2021 23:33:35 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:61.6ms
+21-11-2021 23:33:35 : Step: GitHubCreateRepoDetailsPage: input repo name | time:169.2ms
+21-11-2021 23:33:36 : Step: GitHubCreateRepoDetailsPage: is name success | time:598.8ms
+21-11-2021 23:33:39 : Step: GitHubCreateNewRepoPage: click create repository button | time:4296.1ms
+21-11-2021 23:33:40 : Step: GitHubRepoMainPage: is privacy banner public | time:461.6ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_should_match_clone_default_url</td>
-          <td class="col-duration">4.80</td>
+          <td class="col-duration">5.15</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_should_match_clone_default_url.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:11:40 : Step: GitHubCreateNewRepoPage: open url | time:322.0ms
-21-11-2021 23:11:40 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:76.9ms
-21-11-2021 23:11:40 : Step: GitHubCreateRepoDetailsPage: input repo name | time:182.0ms
-21-11-2021 23:11:41 : Step: GitHubCreateRepoDetailsPage: is name success | time:577.4ms
-21-11-2021 23:11:44 : Step: GitHubCreateNewRepoPage: click create repository button | time:3717.8ms
-21-11-2021 23:11:45 : Step: GitHubEmptyContentPage: get clone url | time:580.8ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:33:41 : Step: GitHubCreateNewRepoPage: open url | time:443.5ms
+21-11-2021 23:33:41 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:55.1ms
+21-11-2021 23:33:41 : Step: GitHubCreateRepoDetailsPage: input repo name | time:170.6ms
+21-11-2021 23:33:41 : Step: GitHubCreateRepoDetailsPage: is name success | time:605.6ms
+21-11-2021 23:33:45 : Step: GitHubCreateNewRepoPage: click create repository button | time:4027.2ms
+21-11-2021 23:33:45 : Step: GitHubEmptyContentPage: get clone url | time:512.2ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_should_match_readme_file</td>
-          <td class="col-duration">8.79</td>
+          <td class="col-duration">8.81</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_should_match_readme_file.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:11:45 : Step: GitHubCreateNewRepoPage: open url | time:327.2ms
-21-11-2021 23:11:45 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:50.8ms
-21-11-2021 23:11:46 : Step: GitHubCreateRepoDetailsPage: input repo name | time:161.1ms
-21-11-2021 23:11:46 : Step: GitHubCreateNewRepoPage: click readme checkbox | time:237.0ms
-21-11-2021 23:11:49 : Step: GitHubCreateRepoDetailsPage: is name success | time:3245.0ms
-21-11-2021 23:11:53 : Step: GitHubCreateNewRepoPage: click create repository button | time:7289.7ms
-21-11-2021 23:11:54 : Step: GitHubContentListPage: get file web element by file name | time:774.8ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:33:46 : Step: GitHubCreateNewRepoPage: open url | time:523.6ms
+21-11-2021 23:33:46 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:71.6ms
+21-11-2021 23:33:46 : Step: GitHubCreateRepoDetailsPage: input repo name | time:174.7ms
+21-11-2021 23:33:47 : Step: GitHubCreateNewRepoPage: click readme checkbox | time:305.0ms
+21-11-2021 23:33:50 : Step: GitHubCreateRepoDetailsPage: is name success | time:3271.2ms
+21-11-2021 23:33:54 : Step: GitHubCreateNewRepoPage: click create repository button | time:7024.0ms
+21-11-2021 23:33:54 : Step: GitHubContentListPage: get file web element by file name | time:788.7ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_should_match_gitignore</td>
-          <td class="col-duration">8.63</td>
+          <td class="col-duration">9.38</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_should_match_gitignore.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:11:54 : Step: GitHubCreateNewRepoPage: open url | time:413.5ms
-21-11-2021 23:11:55 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:78.4ms
-21-11-2021 23:11:55 : Step: GitHubCreateRepoDetailsPage: input repo name | time:165.7ms
-21-11-2021 23:11:55 : Step: GitHubCreateNewRepoPage: click gitignore checkbox | time:215.0ms
-21-11-2021 23:11:55 : Step: GitHubCreateNewRepoPage: click select gitignore template | time:142.9ms
-21-11-2021 23:11:55 : Step: GitHubCreateNewRepoPage: click gitignore type dropdown item | time:142.9ms
-21-11-2021 23:11:58 : Step: GitHubCreateRepoDetailsPage: is name success | time:3262.7ms
-21-11-2021 23:12:02 : Step: GitHubCreateNewRepoPage: click create repository button | time:6639.2ms
-21-11-2021 23:12:03 : Step: GitHubContentListPage: get file web element by file name | time:908.5ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:33:55 : Step: GitHubCreateNewRepoPage: open url | time:534.7ms
+21-11-2021 23:33:55 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:60.5ms
+21-11-2021 23:33:55 : Step: GitHubCreateRepoDetailsPage: input repo name | time:164.1ms
+21-11-2021 23:33:56 : Step: GitHubCreateNewRepoPage: click gitignore checkbox | time:273.0ms
+21-11-2021 23:33:56 : Step: GitHubCreateNewRepoPage: click select gitignore template | time:205.0ms
+21-11-2021 23:33:56 : Step: GitHubCreateNewRepoPage: click gitignore type dropdown item | time:165.1ms
+21-11-2021 23:33:59 : Step: GitHubCreateRepoDetailsPage: is name success | time:3250.6ms
+21-11-2021 23:34:04 : Step: GitHubCreateNewRepoPage: click create repository button | time:7949.0ms
+21-11-2021 23:34:04 : Step: GitHubContentListPage: get file web element by file name | time:91.7ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_should_match_license_file</td>
-          <td class="col-duration">8.75</td>
+          <td class="col-duration">9.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_should_match_license_file.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:12:03 : Step: GitHubCreateNewRepoPage: open url | time:327.3ms
-21-11-2021 23:12:03 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:67.0ms
-21-11-2021 23:12:03 : Step: GitHubCreateRepoDetailsPage: input repo name | time:149.7ms
-21-11-2021 23:12:04 : Step: GitHubCreateNewRepoPage: click choose license checkbox | time:243.4ms
-21-11-2021 23:12:04 : Step: GitHubCreateNewRepoPage: click select license dropdown | time:180.2ms
-21-11-2021 23:12:04 : Step: GitHubCreateNewRepoPage: click license type dropdown item | time:157.4ms
-21-11-2021 23:12:07 : Step: GitHubCreateRepoDetailsPage: is name success | time:3253.5ms
-21-11-2021 23:12:11 : Step: GitHubCreateNewRepoPage: click create repository button | time:7069.7ms
-21-11-2021 23:12:12 : Step: GitHubContentListPage: get file web element by file name | time:621.8ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:34:05 : Step: GitHubCreateNewRepoPage: open url | time:433.3ms
+21-11-2021 23:34:05 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:79.6ms
+21-11-2021 23:34:05 : Step: GitHubCreateRepoDetailsPage: input repo name | time:245.3ms
+21-11-2021 23:34:05 : Step: GitHubCreateNewRepoPage: click choose license checkbox | time:235.6ms
+21-11-2021 23:34:05 : Step: GitHubCreateNewRepoPage: click select license dropdown | time:180.2ms
+21-11-2021 23:34:06 : Step: GitHubCreateNewRepoPage: click license type dropdown item | time:162.5ms
+21-11-2021 23:34:09 : Step: GitHubCreateRepoDetailsPage: is name success | time:3281.7ms
+21-11-2021 23:34:13 : Step: GitHubCreateNewRepoPage: click create repository button | time:7733.2ms
+21-11-2021 23:34:13 : Step: GitHubContentListPage: get file web element by file name | time:64.7ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_should_match_privacy_private</td>
-          <td class="col-duration">7.52</td>
+          <td class="col-duration">8.13</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_should_match_privacy_private.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:12:12 : Step: GitHubCreateNewRepoPage: open url | time:329.6ms
-21-11-2021 23:12:12 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:49.8ms
-21-11-2021 23:12:12 : Step: GitHubCreateRepoDetailsPage: input repo name | time:164.6ms
-21-11-2021 23:12:12 : Step: GitHubCreateRepoDetailsPage: get privacy private checkbox | time:53.5ms
-21-11-2021 23:12:12 : Step: GitHubCreateRepoDetailsPage: click privacy private checkbox | time:115.2ms
-21-11-2021 23:12:16 : Step: GitHubCreateRepoDetailsPage: is name success | time:3268.4ms
-21-11-2021 23:12:19 : Step: GitHubCreateNewRepoPage: click create repository button | time:6855.4ms
-21-11-2021 23:12:19 : Step: GitHubRepoMainPage: is privacy banner private | time:61.0ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:34:14 : Step: GitHubCreateNewRepoPage: open url | time:427.6ms
+21-11-2021 23:34:14 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:56.5ms
+21-11-2021 23:34:14 : Step: GitHubCreateRepoDetailsPage: input repo name | time:163.7ms
+21-11-2021 23:34:14 : Step: GitHubCreateRepoDetailsPage: get privacy private checkbox | time:61.3ms
+21-11-2021 23:34:14 : Step: GitHubCreateRepoDetailsPage: click privacy private checkbox | time:144.3ms
+21-11-2021 23:34:18 : Step: GitHubCreateRepoDetailsPage: is name success | time:3262.7ms
+21-11-2021 23:34:21 : Step: GitHubCreateNewRepoPage: click create repository button | time:6914.1ms
+21-11-2021 23:34:22 : Step: GitHubRepoMainPage: is privacy banner private | time:487.6ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_should_not_create_if_name_exist</td>
-          <td class="col-duration">6.09</td>
+          <td class="col-duration">6.35</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_should_not_create_if_name_exist.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:12:20 : Step: GitHubCreateNewRepoPage: open url | time:432.0ms
-21-11-2021 23:12:20 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:36.4ms
-21-11-2021 23:12:20 : Step: GitHubCreateRepoDetailsPage: input repo name | time:130.1ms
-21-11-2021 23:12:21 : Step: GitHubCreateRepoDetailsPage: is name success | time:589.2ms
-21-11-2021 23:12:24 : Step: GitHubCreateNewRepoPage: click create repository button | time:4060.1ms
-21-11-2021 23:12:25 : Step: GitHubCreateNewRepoPage: open url | time:679.2ms
-21-11-2021 23:12:25 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:55.0ms
-21-11-2021 23:12:25 : Step: GitHubCreateRepoDetailsPage: input repo name | time:142.3ms
-21-11-2021 23:12:26 : Step: GitHubCreateRepoDetailsPage: is name error | time:590.1ms
-21-11-2021 23:12:26 : Step: GitHubCreateNewRepoPage: get create repository button | time:37.2ms
-21-11-2021 23:12:26 : Step: GitHubCreateNewRepoPage: is enable create repository button | time:56.6ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:34:22 : Step: GitHubCreateNewRepoPage: open url | time:438.6ms
+21-11-2021 23:34:22 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:59.9ms
+21-11-2021 23:34:23 : Step: GitHubCreateRepoDetailsPage: input repo name | time:155.8ms
+21-11-2021 23:34:23 : Step: GitHubCreateRepoDetailsPage: is name success | time:599.0ms
+21-11-2021 23:34:27 : Step: GitHubCreateNewRepoPage: click create repository button | time:4128.7ms
+21-11-2021 23:34:27 : Step: GitHubCreateNewRepoPage: open url | time:827.5ms
+21-11-2021 23:34:28 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:52.8ms
+21-11-2021 23:34:28 : Step: GitHubCreateRepoDetailsPage: input repo name | time:150.2ms
+21-11-2021 23:34:28 : Step: GitHubCreateRepoDetailsPage: is name error | time:589.1ms
+21-11-2021 23:34:28 : Step: GitHubCreateNewRepoPage: get create repository button | time:36.2ms
+21-11-2021 23:34:28 : Step: GitHubCreateNewRepoPage: is enable create repository button | time:62.1ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_should_description_match</td>
-          <td class="col-duration">8.27</td>
+          <td class="col-duration">9.06</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_should_description_match.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:12:26 : Step: GitHubCreateNewRepoPage: open url | time:346.3ms
-21-11-2021 23:12:26 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:57.2ms
-21-11-2021 23:12:26 : Step: GitHubCreateRepoDetailsPage: input repo name | time:153.9ms
-21-11-2021 23:12:27 : Step: GitHubCreateNewRepoPage: input description | time:181.1ms
-21-11-2021 23:12:27 : Step: GitHubCreateNewRepoPage: click readme checkbox | time:215.3ms
-21-11-2021 23:12:30 : Step: GitHubCreateRepoDetailsPage: is name success | time:3236.9ms
-21-11-2021 23:12:33 : Step: GitHubCreateNewRepoPage: click create repository button | time:6570.4ms
-21-11-2021 23:12:34 : Step: GitHubRepoMainPage: get about description text | time:808.9ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:34:29 : Step: GitHubCreateNewRepoPage: open url | time:522.4ms
+21-11-2021 23:34:29 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:47.7ms
+21-11-2021 23:34:29 : Step: GitHubCreateRepoDetailsPage: input repo name | time:168.4ms
+21-11-2021 23:34:29 : Step: GitHubCreateNewRepoPage: input description | time:174.1ms
+21-11-2021 23:34:30 : Step: GitHubCreateNewRepoPage: click readme checkbox | time:281.0ms
+21-11-2021 23:34:33 : Step: GitHubCreateRepoDetailsPage: is name success | time:3252.9ms
+21-11-2021 23:34:37 : Step: GitHubCreateNewRepoPage: click create repository button | time:7144.1ms
+21-11-2021 23:34:38 : Step: GitHubRepoMainPage: get about description text | time:775.5ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github/github_create_repo_test.py::TestGitHubCreateRepo::test_create_repo_should_open_import_repo_page</td>
-          <td class="col-duration">0.84</td>
+          <td class="col-duration">1.07</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_github_create_repo_test_py_TestGitHubCreateRepo_test_create_repo_should_open_import_repo_page.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:12:35 : Step: GitHubCreateNewRepoPage: open url | time:370.8ms
-21-11-2021 23:12:35 : Step: GitHubCreateNewRepoPage: click import repo button | time:409.7ms
-21-11-2021 23:12:35 : Step: GitHubImportRepoPage: is vsc url input visible | time:65.3ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:34:38 : Step: GitHubCreateNewRepoPage: open url | time:589.1ms
+21-11-2021 23:34:39 : Step: GitHubCreateNewRepoPage: click import repo button | time:443.0ms
+21-11-2021 23:34:39 : Step: GitHubImportRepoPage: is vsc url input visible | time:45.9ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github/github_create_repo_test.py::TestGitHubCreateRepo::test_input_name_should_indicate_name_with_white_spaces</td>
-          <td class="col-duration">1.15</td>
+          <td class="col-duration">1.23</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_github_create_repo_test_py_TestGitHubCreateRepo_test_input_name_should_indicate_name_with_white_spaces.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:12:36 : Step: GitHubCreateNewRepoPage: open url | time:396.6ms
-21-11-2021 23:12:36 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:45.4ms
-21-11-2021 23:12:36 : Step: GitHubCreateRepoDetailsPage: input repo name | time:139.1ms
-21-11-2021 23:12:37 : Step: GitHubCreateRepoDetailsPage: get warning toast msg text | time:617.5ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:34:40 : Step: GitHubCreateNewRepoPage: open url | time:416.7ms
+21-11-2021 23:34:40 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:51.2ms
+21-11-2021 23:34:40 : Step: GitHubCreateRepoDetailsPage: input repo name | time:187.5ms
+21-11-2021 23:34:40 : Step: GitHubCreateRepoDetailsPage: get warning toast msg text | time:631.8ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github/github_create_repo_test.py::TestGitHubCreateRepo::test_input_name_should_indicate_name_with_special_char</td>
-          <td class="col-duration">1.19</td>
+          <td class="col-duration">1.23</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_github_create_repo_test_py_TestGitHubCreateRepo_test_input_name_should_indicate_name_with_special_char.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:12:37 : Step: GitHubCreateNewRepoPage: open url | time:413.5ms
-21-11-2021 23:12:37 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:55.2ms
-21-11-2021 23:12:37 : Step: GitHubCreateRepoDetailsPage: input repo name | time:163.0ms
-21-11-2021 23:12:38 : Step: GitHubCreateRepoDetailsPage: get warning toast msg text | time:613.3ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:34:41 : Step: GitHubCreateNewRepoPage: open url | time:468.5ms
+21-11-2021 23:34:41 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:54.3ms
+21-11-2021 23:34:41 : Step: GitHubCreateRepoDetailsPage: input repo name | time:163.0ms
+21-11-2021 23:34:42 : Step: GitHubCreateRepoDetailsPage: get warning toast msg text | time:601.4ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github/github_create_repo_test.py::TestGitHubCreateRepo::test_input_name_by_click_inspiration_name</td>
-          <td class="col-duration">0.62</td>
+          <td class="col-duration">0.77</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_github_create_repo_test_py_TestGitHubCreateRepo_test_input_name_by_click_inspiration_name.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:12:39 : Step: GitHubCreateNewRepoPage: open url | time:389.8ms
-21-11-2021 23:12:39 : Step: GitHubCreateRepoDetailsPage: get inspiration repo name text | time:84.7ms
-21-11-2021 23:12:39 : Step: GitHubCreateRepoDetailsPage: click inspiration repo name | time:89.8ms
-21-11-2021 23:12:39 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:42.4ms
-21-11-2021 23:12:39 : Step: GitHubCreateRepoDetailsPage: get name text | time:62.6ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:34:42 : Step: GitHubCreateNewRepoPage: open url | time:448.5ms
+21-11-2021 23:34:43 : Step: GitHubCreateRepoDetailsPage: get inspiration repo name text | time:81.5ms
+21-11-2021 23:34:43 : Step: GitHubCreateRepoDetailsPage: click inspiration repo name | time:138.1ms
+21-11-2021 23:34:43 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:76.8ms
+21-11-2021 23:34:43 : Step: GitHubCreateRepoDetailsPage: get name text | time:101.8ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github/github_create_repo_test.py::TestGitHubCreateRepo::test_should_throw_notification_for_repo_creation_failed</td>
-          <td class="col-duration">8.48</td>
+          <td class="col-duration">9.20</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_github_create_repo_test_py_TestGitHubCreateRepo_test_should_throw_notification_for_repo_creation_failed.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:12:40 : Step: GitHubCreateNewRepoPage: open url | time:381.8ms
-21-11-2021 23:12:40 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:55.1ms
-21-11-2021 23:12:40 : Step: GitHubCreateRepoDetailsPage: input repo name | time:142.5ms
-21-11-2021 23:12:40 : Step: GitHubCreateNewRepoPage: open url | time:394.6ms
-21-11-2021 23:12:40 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:72.5ms
-21-11-2021 23:12:40 : Step: GitHubCreateRepoDetailsPage: input repo name | time:162.7ms
-21-11-2021 23:12:41 : Step: GitHubCreateRepoDetailsPage: is name success | time:597.9ms
-21-11-2021 23:12:44 : Step: GitHubCreateNewRepoPage: click create repository button | time:4180.2ms
-21-11-2021 23:12:45 : Step: GitHubRepoMainPage: is privacy banner public | time:49.6ms
-21-11-2021 23:12:45 : Step: GitHubCreateRepoDetailsPage: is name success | time:35.3ms
-21-11-2021 23:12:47 : Step: GitHubCreateNewRepoPage: click create repository button | time:2540.3ms
-21-11-2021 23:12:48 : Step: GitHubCreateRepoDetailsPage: get error notification text | time:81.8ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:34:43 : Step: GitHubCreateNewRepoPage: open url | time:430.9ms
+21-11-2021 23:34:43 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:41.1ms
+21-11-2021 23:34:44 : Step: GitHubCreateRepoDetailsPage: input repo name | time:120.4ms
+21-11-2021 23:34:44 : Step: GitHubCreateNewRepoPage: open url | time:421.2ms
+21-11-2021 23:34:44 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:49.2ms
+21-11-2021 23:34:44 : Step: GitHubCreateRepoDetailsPage: input repo name | time:143.2ms
+21-11-2021 23:34:45 : Step: GitHubCreateRepoDetailsPage: is name success | time:608.9ms
+21-11-2021 23:34:48 : Step: GitHubCreateNewRepoPage: click create repository button | time:4018.9ms
+21-11-2021 23:34:49 : Step: GitHubRepoMainPage: is privacy banner public | time:656.1ms
+21-11-2021 23:34:49 : Step: GitHubCreateRepoDetailsPage: is name success | time:37.4ms
+21-11-2021 23:34:52 : Step: GitHubCreateNewRepoPage: click create repository button | time:2663.3ms
+21-11-2021 23:34:52 : Step: GitHubCreateRepoDetailsPage: get error notification text | time:81.1ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github/github_create_repo_test.py::TestGitHubCreateRepo::test_should_open_readme_learn_more</td>
-          <td class="col-duration">1.22</td>
+          <td class="col-duration">1.71</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_github_create_repo_test_py_TestGitHubCreateRepo_test_should_open_readme_learn_more.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:12:48 : Step: GitHubCreateNewRepoPage: open url | time:379.2ms
-21-11-2021 23:12:48 : Step: GitHubCreateNewRepoPage: click readme lean more href | time:200.3ms
-21-11-2021 23:12:49 : Step: GuidesGitHubLandPage: is about readmes url set | time:372.8ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:34:53 : Step: GitHubCreateNewRepoPage: open url | time:578.3ms
+21-11-2021 23:34:53 : Step: GitHubCreateNewRepoPage: click readme lean more href | time:193.1ms
+21-11-2021 23:34:54 : Step: GuidesGitHubLandPage: is about readmes url set | time:440.0ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github/github_create_repo_test.py::TestGitHubCreateRepo::test_should_open_gitignore_learn_more</td>
-          <td class="col-duration">1.15</td>
+          <td class="col-duration">1.68</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_github_create_repo_test_py_TestGitHubCreateRepo_test_should_open_gitignore_learn_more.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:12:50 : Step: GitHubCreateNewRepoPage: open url | time:352.6ms
-21-11-2021 23:12:50 : Step: GitHubCreateNewRepoPage: click gitignore learn more href | time:148.7ms
-21-11-2021 23:12:50 : Step: GuidesGitHubLandPage: is ignoring url set | time:335.2ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:34:55 : Step: GitHubCreateNewRepoPage: open url | time:472.3ms
+21-11-2021 23:34:55 : Step: GitHubCreateNewRepoPage: click gitignore learn more href | time:144.5ms
+21-11-2021 23:34:56 : Step: GuidesGitHubLandPage: is ignoring url set | time:346.0ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github/github_create_repo_test.py::TestGitHubCreateRepo::test_should_open_license_learn_more</td>
-          <td class="col-duration">1.14</td>
+          <td class="col-duration">1.46</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_github_create_repo_test_py_TestGitHubCreateRepo_test_should_open_license_learn_more.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:12:51 : Step: GitHubCreateNewRepoPage: open url | time:373.6ms
-21-11-2021 23:12:51 : Step: GitHubCreateNewRepoPage: click license learn more href | time:138.0ms
-21-11-2021 23:12:52 : Step: GuidesGitHubLandPage: is license url set | time:298.8ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:34:57 : Step: GitHubCreateNewRepoPage: open url | time:439.8ms
+21-11-2021 23:34:57 : Step: GitHubCreateNewRepoPage: click license learn more href | time:191.0ms
+21-11-2021 23:34:58 : Step: GuidesGitHubLandPage: is license url set | time:354.2ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github/github_create_repo_test.py::TestGitHubCreateRepo::test_should_open_repo_settings</td>
-          <td class="col-duration">1.21</td>
+          <td class="col-duration">1.51</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_github_create_repo_test_py_TestGitHubCreateRepo_test_should_open_repo_settings.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:12:52 : Step: GitHubCreateNewRepoPage: open url | time:358.3ms
-21-11-2021 23:12:53 : Step: GitHubCreateNewRepoPage: click readme checkbox | time:227.9ms
-21-11-2021 23:12:53 : Step: GitHubCreateNewRepoPage: click repo settings href | time:117.9ms
-21-11-2021 23:12:53 : Step: GitHubOwnerRepoSettingsPage: is url set | time:213.9ms
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:34:58 : Step: GitHubCreateNewRepoPage: open url | time:463.2ms
+21-11-2021 23:34:59 : Step: GitHubCreateNewRepoPage: click readme checkbox | time:203.4ms
+21-11-2021 23:34:59 : Step: GitHubCreateNewRepoPage: click repo settings href | time:123.7ms
+21-11-2021 23:34:59 : Step: GitHubOwnerRepoSettingsPage: is url set | time:220.1ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github/github_dashoboard_test.py::TestGitHubDashboard::test_is_git_repo_list_available</td>
-          <td class="col-duration">5.85</td>
+          <td class="col-duration">9.09</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_github_dashoboard_test_py_TestGitHubDashboard_test_is_git_repo_list_available.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>21-11-2021 23:12:58 : Step: GitHubApiService: api call delete all account repos | time:4428.1ms
-21-11-2021 23:12:58 : Step: GitHubDashboardPage: open url | time:400.5ms
-21-11-2021 23:12:58 : Step: RepositoriesListPage: get number of repo items | time:98.5ms
-<br/> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:12:59 : Step: GitHubDashboardPage: open url | time:343.6ms
-21-11-2021 23:12:59 : Step: RepositoriesListPage: is repo list container visible | time:581.4ms
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>21-11-2021 23:35:05 : Step: GitHubApiService: api call delete all account repos | time:5330.0ms
+21-11-2021 23:35:06 : Step: GitHubDashboardPage: open url | time:528.3ms
+21-11-2021 23:35:06 : Step: RepositoriesListPage: get number of repo items | time:621.8ms
+Traceback (most recent call last):
+  File &quot;/home/runner/work/my-selenium-python-dojo/my-selenium-python-dojo/utilities/api/github/github_api_service.py&quot;, line 22, in api_call_delete_all_account_repos
+    repo.delete()
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/Repository.py&quot;, line 1498, in delete
+    headers, data = self._requester.requestJsonAndCheck(&quot;DELETE&quot;, self.url)
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/Requester.py&quot;, line 353, in requestJsonAndCheck
+    return self.__check(
+  File &quot;/home/runner/.local/lib/python3.8/site-packages/github/Requester.py&quot;, line 378, in __check
+    raise self.__createException(status, responseHeaders, output)
+github.GithubException.UnknownObjectException: 404 {&quot;message&quot;: &quot;Not Found&quot;, &quot;documentation_url&quot;: &quot;https://docs.github.com/rest/reference/repos#delete-a-repository&quot;}
+
+21-11-2021 23:35:07 : Step: GitHubApiService: api call delete all account repos | time:486.7ms
+21-11-2021 23:35:07 : Step: GitHubDashboardPage: open url | time:443.6ms
+21-11-2021 23:35:08 : Step: RepositoriesListPage: get number of repo items | time:607.3ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:35:08 : Step: GitHubDashboardPage: open url | time:463.7ms
+21-11-2021 23:35:09 : Step: RepositoriesListPage: is repo list container visible | time:604.8ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github/github_dashoboard_test.py::TestGitHubDashboard::test_should_open_create_new_repo</td>
-          <td class="col-duration">3.03</td>
+          <td class="col-duration">3.28</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -820,227 +834,39 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
     raise self.__createException(status, responseHeaders, output)
 github.GithubException.UnknownObjectException: 404 {&quot;message&quot;: &quot;Not Found&quot;, &quot;documentation_url&quot;: &quot;https://docs.github.com/rest/reference/repos#delete-a-repository&quot;}
 
-21-11-2021 23:13:00 : Step: GitHubApiService: api call delete all account repos | time:414.4ms
-21-11-2021 23:13:00 : Step: GitHubDashboardPage: open url | time:361.7ms
-21-11-2021 23:13:01 : Step: RepositoriesListPage: get number of repo items | time:593.1ms
-<br/> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:13:01 : Step: GitHubDashboardPage: open url | time:548.6ms
-21-11-2021 23:13:02 : Step: RepositoriesListPage: click create repository | time:1043.3ms
-21-11-2021 23:13:03 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:59.4ms
+21-11-2021 23:35:10 : Step: GitHubApiService: api call delete all account repos | time:515.1ms
+21-11-2021 23:35:10 : Step: GitHubDashboardPage: open url | time:441.0ms
+21-11-2021 23:35:11 : Step: RepositoriesListPage: get number of repo items | time:611.4ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:35:11 : Step: GitHubDashboardPage: open url | time:523.8ms
+21-11-2021 23:35:12 : Step: RepositoriesListPage: click create repository | time:1133.4ms
+21-11-2021 23:35:12 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:42.0ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github/github_dashoboard_test.py::TestGitHubDashboard::test_should_open_create_new_repo_when_repo_exist</td>
-          <td class="col-duration">2.43</td>
+          <td class="col-duration">2.37</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_github_dashoboard_test_py_TestGitHubDashboard_test_should_open_create_new_repo_when_repo_exist.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>21-11-2021 23:13:04 : Step: GitHubApiService: api call create repo | time:884.3ms
-<br/> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:13:04 : Step: GitHubDashboardPage: open url | time:416.7ms
-21-11-2021 23:13:05 : Step: RepositoriesListPage: click create repository | time:1075.7ms
-21-11-2021 23:13:05 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:48.3ms
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>21-11-2021 23:35:13 : Step: GitHubApiService: api call create repo | time:774.2ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:35:14 : Step: GitHubDashboardPage: open url | time:462.9ms
+21-11-2021 23:35:15 : Step: RepositoriesListPage: click create repository | time:1072.8ms
+21-11-2021 23:35:15 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:46.9ms
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">tests/github/github_dashoboard_test.py::TestGitHubDashboard::test_should_open_import_repo_page</td>
-          <td class="col-duration">4.23</td>
+          <td class="col-duration">4.78</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div><div><img src="screenshots/tests_github_github_dashoboard_test_py_TestGitHubDashboard_test_should_open_import_repo_page.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>21-11-2021 23:13:06 : Step: GitHubApiService: api call delete all account repos | time:507.5ms
-21-11-2021 23:13:06 : Step: GitHubDashboardPage: open url | time:404.2ms
-21-11-2021 23:13:07 : Step: RepositoriesListPage: get number of repo items | time:593.7ms
-21-11-2021 23:13:07 : Step: GitHubApiService: api call delete all account repos | time:376.1ms
-21-11-2021 23:13:08 : Step: GitHubDashboardPage: open url | time:357.3ms
-21-11-2021 23:13:08 : Step: RepositoriesListPage: get number of repo items | time:598.1ms
-<br/> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:13:09 : Step: GitHubDashboardPage: open url | time:416.6ms
-21-11-2021 23:13:10 : Step: RepositoriesListPage: click import repository | time:904.8ms
-21-11-2021 23:13:10 : Step: GitHubImportRepoPage: get vcs url input | time:50.7ms
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/github/github_dashoboard_test.py::TestGitHubDashboard::test_should_open_hello_world_read_guide_page</td>
-          <td class="col-duration">1.07</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div><div><img src="screenshots/tests_github_github_dashoboard_test_py_TestGitHubDashboard_test_should_open_hello_world_read_guide_page.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:13:10 : Step: GitHubDashboardPage: open url | time:339.5ms
-21-11-2021 23:13:10 : Step: GitHubDashboardPage: get read guide button | time:66.0ms
-21-11-2021 23:13:10 : Step: GitHubDashboardPage: click read guid button | time:166.0ms
-21-11-2021 23:13:11 : Step: GuidesGitHubLandPage: is quick start guide url set | time:332.4ms
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/github/github_dashoboard_test.py::TestGitHubDashboard::test_should_create_repo_form_introduce_yourself_activity</td>
-          <td class="col-duration">5.52</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div><div><img src="screenshots/tests_github_github_dashoboard_test_py_TestGitHubDashboard_test_should_create_repo_form_introduce_yourself_activity.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>21-11-2021 23:13:11 : Step: GitHubApiService: api call delete all account repos | time:54.3ms
-21-11-2021 23:13:12 : Step: GitHubDashboardPage: open url | time:408.3ms
-21-11-2021 23:13:12 : Step: RepositoriesListPage: get number of repo items | time:74.4ms
-<br/> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:13:15 : Step: GitHubDashboardPage: click continue yourself button | time:2883.1ms
-21-11-2021 23:13:16 : Step: GitHubEditModePage: click commit new file button | time:1030.0ms
-21-11-2021 23:13:16 : Step: GitHubContentListPage: get file web element by file name | time:50.9ms
-21-11-2021 23:13:16 : Step: GitHubDashboardPage: open url | time:360.7ms
-21-11-2021 23:13:17 : Step: RepositoriesListPage: is repo list container visible | time:629.7ms
-21-11-2021 23:13:17 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-21-11-2021 23:13:17 : Step: RepositoriesListPage: get repo by name | time:663.2ms
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/github/github_dashoboard_test.py::TestGitHubDashboard::test_open_explore_repos_dashboard_page</td>
-          <td class="col-duration">1.68</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div><div><img src="screenshots/tests_github_github_dashoboard_test_py_TestGitHubDashboard_test_open_explore_repos_dashboard_page.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:13:17 : Step: GitHubDashboardPage: open url | time:426.8ms
-21-11-2021 23:13:19 : Step: ExploreReposPage: click activities explore button | time:1236.8ms
-21-11-2021 23:13:19 : Step: GitHubExploreDashboardPage: is proper url | time:19.0ms
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/github/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_exact_name_one_match</td>
-          <td class="col-duration">2.32</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div><div><img src="screenshots/tests_github_github_dashoboard_test_py_TestGitHubDashboard_test_find_repo_by_exact_name_one_match.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>21-11-2021 23:13:19 : Step: GitHubApiService: get repos | time:0.1ms
-21-11-2021 23:13:20 : Step: GitHubApiService: api call create repo | time:841.0ms
-21-11-2021 23:13:20 : Step: GitHubDashboardPage: open url | time:381.1ms
-21-11-2021 23:13:20 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-21-11-2021 23:13:21 : Step: RepositoriesListPage: is repo name exist on the list | time:617.3ms
-21-11-2021 23:13:22 : Step: GitHubApiService: api call create repo | time:844.7ms
-21-11-2021 23:13:22 : Step: GitHubDashboardPage: open url | time:465.2ms
-21-11-2021 23:13:22 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-21-11-2021 23:13:28 : Step: RepositoriesListPage: is repo name exist on the list | time:5354.1ms
-<br/> -----------------------------Captured stdout setup------------------------------ <br/>21-11-2021 23:13:30 : Step: GitHubApiService: get repos | time:0.1ms
-<br/> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:13:31 : Step: GitHubDashboardPage: open url | time:461.3ms
-21-11-2021 23:13:31 : Step: RepositoriesListPage: input text find repo | time:656.8ms
-21-11-2021 23:13:31 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-21-11-2021 23:13:32 : Step: RepositoriesListPage: is repo name invisible on the list | time:565.0ms
-21-11-2021 23:13:32 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-21-11-2021 23:13:32 : Step: RepositoriesListPage: is repo name exist on the list | time:33.8ms
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/github/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_partial_name_one_match</td>
-          <td class="col-duration">1.65</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div><div><img src="screenshots/tests_github_github_dashoboard_test_py_TestGitHubDashboard_test_find_repo_by_partial_name_one_match.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>21-11-2021 23:13:32 : Step: GitHubApiService: get repos | time:0.1ms
-<br/> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:13:33 : Step: GitHubDashboardPage: open url | time:332.9ms
-21-11-2021 23:13:33 : Step: RepositoriesListPage: input text find repo | time:645.4ms
-21-11-2021 23:13:33 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-21-11-2021 23:13:34 : Step: RepositoriesListPage: is repo name invisible on the list | time:569.0ms
-21-11-2021 23:13:34 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-21-11-2021 23:13:34 : Step: RepositoriesListPage: is repo name exist on the list | time:30.6ms
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/github/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_partial_name_multi_match</td>
-          <td class="col-duration">1.19</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div><div><img src="screenshots/tests_github_github_dashoboard_test_py_TestGitHubDashboard_test_find_repo_by_partial_name_multi_match.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>21-11-2021 23:13:34 : Step: GitHubApiService: get repos | time:0.1ms
-<br/> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:13:35 : Step: GitHubDashboardPage: open url | time:357.6ms
-21-11-2021 23:13:35 : Step: RepositoriesListPage: input text find repo | time:650.5ms
-21-11-2021 23:13:35 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-21-11-2021 23:13:35 : Step: RepositoriesListPage: is repo name exist on the list | time:38.8ms
-21-11-2021 23:13:35 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-21-11-2021 23:13:35 : Step: RepositoriesListPage: is repo name exist on the list | time:53.0ms
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/github/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_partial_name_not_match</td>
-          <td class="col-duration">1.15</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div><div><img src="screenshots/tests_github_github_dashoboard_test_py_TestGitHubDashboard_test_find_repo_by_partial_name_not_match.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>21-11-2021 23:13:36 : Step: GitHubApiService: get repos | time:0.1ms
-<br/> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:13:36 : Step: GitHubDashboardPage: open url | time:351.2ms
-21-11-2021 23:13:37 : Step: RepositoriesListPage: input text find repo | time:648.5ms
-21-11-2021 23:13:37 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-21-11-2021 23:13:37 : Step: RepositoriesListPage: is repo name invisible on the list | time:41.9ms
-21-11-2021 23:13:37 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
-21-11-2021 23:13:37 : Step: RepositoriesListPage: is repo name invisible on the list | time:29.3ms
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/github/github_dashoboard_test.py::TestGitHubDashboard::test_start_a_project_should_open_new_repo_page</td>
-          <td class="col-duration">1.03</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div><div><img src="screenshots/tests_github_github_dashoboard_test_py_TestGitHubDashboard_test_start_a_project_should_open_new_repo_page.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:13:37 : Step: GitHubDashboardPage: open url | time:356.7ms
-21-11-2021 23:13:38 : Step: GitHubDashboardPage: click start project button | time:581.5ms
-21-11-2021 23:13:38 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:63.9ms
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/github/github_profile_page_test.py::TestGitHubProfilePage::test_edit_profile_should_save_all_details</td>
-          <td class="col-duration">3.14</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div><div><img src="screenshots/tests_github_github_profile_page_test_py_TestGitHubProfilePage_test_edit_profile_should_save_all_details.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:13:39 : Step: GitHubProfileLandPage: open url | time:854.7ms
-21-11-2021 23:13:39 : Step: ProfileComponentPage: click edit button | time:116.2ms
-21-11-2021 23:13:39 : Step: ProfileComponentPage: input name | time:153.5ms
-21-11-2021 23:13:40 : Step: ProfileComponentPage: input bio | time:216.7ms
-21-11-2021 23:13:40 : Step: ProfileComponentPage: input company | time:186.4ms
-21-11-2021 23:13:40 : Step: ProfileComponentPage: input location | time:173.0ms
-21-11-2021 23:13:40 : Step: ProfileComponentPage: input website blog | time:162.9ms
-21-11-2021 23:13:40 : Step: ProfileComponentPage: input twitter id | time:133.4ms
-21-11-2021 23:13:40 : Step: ProfileComponentPage: click save edit info | time:122.2ms
-21-11-2021 23:13:41 : Step: ProfileComponentPage: get name user detail text | time:603.4ms
-21-11-2021 23:13:41 : Step: ProfileComponentPage: get account name detail text | time:86.0ms
-21-11-2021 23:13:41 : Step: ProfileComponentPage: get bio detail text | time:79.1ms
-21-11-2021 23:13:41 : Step: ProfileComponentPage: get company detail text | time:56.0ms
-21-11-2021 23:13:41 : Step: ProfileComponentPage: get location detail text | time:69.8ms
-21-11-2021 23:13:41 : Step: ProfileComponentPage: get website blog detail text | time:65.5ms
-21-11-2021 23:13:41 : Step: ProfileComponentPage: get twitter detail text | time:58.3ms
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/herokuapp/herokuapp_javascript_error_test.py::TestHerokuAppJavascriptError::test_handle_assertion_for_javascript_errors_example</td>
-          <td class="col-duration">4.30</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div><div><img src="screenshots/tests_herokuapp_herokuapp_javascript_error_test_py_TestHerokuAppJavascriptError_test_handle_assertion_for_javascript_errors_example.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:13:42 : 
-----------
-LEVEL: SEVERE
-MESSAGE: http://the-internet.herokuapp.com/javascript_error 6:51 Uncaught TypeError: Cannot read properties of undefined (reading &#x27;xyz&#x27;)
-SOURCE: javascript
-----------
-<br/> ----------------------------Captured stdout teardown---------------------------- <br/>21-11-2021 23:13:43 : Step: GitHubApiService: api call delete all account repos | time:1398.1ms
-21-11-2021 23:13:44 : Step: GitHubDashboardPage: open url | time:538.1ms
-21-11-2021 23:13:44 : Step: RepositoriesListPage: get number of repo items | time:617.6ms
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>21-11-2021 23:35:16 : Step: GitHubApiService: api call delete all account repos | time:644.9ms
+21-11-2021 23:35:16 : Step: GitHubDashboardPage: open url | time:473.4ms
+21-11-2021 23:35:17 : Step: RepositoriesListPage: get number of repo items | time:602.9ms
 Traceback (most recent call last):
   File &quot;/home/runner/work/my-selenium-python-dojo/my-selenium-python-dojo/utilities/api/github/github_api_service.py&quot;, line 22, in api_call_delete_all_account_repos
     repo.delete()
@@ -1052,7 +878,192 @@ Traceback (most recent call last):
     raise self.__createException(status, responseHeaders, output)
 github.GithubException.UnknownObjectException: 404 {&quot;message&quot;: &quot;Not Found&quot;, &quot;documentation_url&quot;: &quot;https://docs.github.com/rest/reference/repos#delete-a-repository&quot;}
 
-21-11-2021 23:13:45 : Step: GitHubApiService: api call delete all account repos | time:363.9ms
-21-11-2021 23:13:45 : Step: GitHubDashboardPage: open url | time:534.7ms
-21-11-2021 23:13:46 : Step: RepositoriesListPage: get number of repo items | time:600.3ms
+21-11-2021 23:35:17 : Step: GitHubApiService: api call delete all account repos | time:476.3ms
+21-11-2021 23:35:18 : Step: GitHubDashboardPage: open url | time:417.1ms
+21-11-2021 23:35:18 : Step: RepositoriesListPage: get number of repo items | time:604.1ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:35:19 : Step: GitHubDashboardPage: open url | time:450.7ms
+21-11-2021 23:35:20 : Step: RepositoriesListPage: click import repository | time:1042.9ms
+21-11-2021 23:35:20 : Step: GitHubImportRepoPage: get vcs url input | time:52.6ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github/github_dashoboard_test.py::TestGitHubDashboard::test_should_open_hello_world_read_guide_page</td>
+          <td class="col-duration">1.81</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_github_dashoboard_test_py_TestGitHubDashboard_test_should_open_hello_world_read_guide_page.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:35:21 : Step: GitHubDashboardPage: open url | time:520.6ms
+21-11-2021 23:35:21 : Step: GitHubDashboardPage: get read guide button | time:102.3ms
+21-11-2021 23:35:21 : Step: GitHubDashboardPage: click read guid button | time:213.8ms
+21-11-2021 23:35:22 : Step: GuidesGitHubLandPage: is quick start guide url set | time:386.5ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github/github_dashoboard_test.py::TestGitHubDashboard::test_should_create_repo_form_introduce_yourself_activity</td>
+          <td class="col-duration">6.85</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_github_dashoboard_test_py_TestGitHubDashboard_test_should_create_repo_form_introduce_yourself_activity.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>21-11-2021 23:35:22 : Step: GitHubApiService: api call delete all account repos | time:115.0ms
+21-11-2021 23:35:23 : Step: GitHubDashboardPage: open url | time:593.6ms
+21-11-2021 23:35:24 : Step: RepositoriesListPage: get number of repo items | time:631.7ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:35:27 : Step: GitHubDashboardPage: click continue yourself button | time:3207.9ms
+21-11-2021 23:35:28 : Step: GitHubEditModePage: click commit new file button | time:1147.7ms
+21-11-2021 23:35:28 : Step: GitHubContentListPage: get file web element by file name | time:63.5ms
+21-11-2021 23:35:28 : Step: GitHubDashboardPage: open url | time:458.7ms
+21-11-2021 23:35:29 : Step: RepositoriesListPage: is repo list container visible | time:590.9ms
+21-11-2021 23:35:29 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+21-11-2021 23:35:29 : Step: RepositoriesListPage: get repo by name | time:633.3ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github/github_dashoboard_test.py::TestGitHubDashboard::test_open_explore_repos_dashboard_page</td>
+          <td class="col-duration">1.83</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_github_dashoboard_test_py_TestGitHubDashboard_test_open_explore_repos_dashboard_page.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:35:30 : Step: GitHubDashboardPage: open url | time:471.8ms
+21-11-2021 23:35:31 : Step: ExploreReposPage: click activities explore button | time:1331.7ms
+21-11-2021 23:35:31 : Step: GitHubExploreDashboardPage: is proper url | time:27.2ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_exact_name_one_match</td>
+          <td class="col-duration">1.99</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_github_dashoboard_test_py_TestGitHubDashboard_test_find_repo_by_exact_name_one_match.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>21-11-2021 23:35:32 : Step: GitHubApiService: get repos | time:0.1ms
+21-11-2021 23:35:33 : Step: GitHubApiService: api call create repo | time:937.3ms
+21-11-2021 23:35:33 : Step: GitHubDashboardPage: open url | time:435.9ms
+21-11-2021 23:35:33 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+21-11-2021 23:35:34 : Step: RepositoriesListPage: is repo name exist on the list | time:595.8ms
+21-11-2021 23:35:35 : Step: GitHubApiService: api call create repo | time:879.0ms
+21-11-2021 23:35:35 : Step: GitHubDashboardPage: open url | time:428.1ms
+21-11-2021 23:35:35 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+21-11-2021 23:35:40 : Step: RepositoriesListPage: is repo name exist on the list | time:5361.9ms
+<br/> -----------------------------Captured stdout setup------------------------------ <br/>21-11-2021 23:35:42 : Step: GitHubApiService: get repos | time:0.1ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:35:43 : Step: GitHubDashboardPage: open url | time:535.4ms
+21-11-2021 23:35:44 : Step: RepositoriesListPage: input text find repo | time:664.7ms
+21-11-2021 23:35:44 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+21-11-2021 23:35:44 : Step: RepositoriesListPage: is repo name invisible on the list | time:576.1ms
+21-11-2021 23:35:44 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+21-11-2021 23:35:44 : Step: RepositoriesListPage: is repo name exist on the list | time:44.0ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_partial_name_one_match</td>
+          <td class="col-duration">1.82</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_github_dashoboard_test_py_TestGitHubDashboard_test_find_repo_by_partial_name_one_match.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>21-11-2021 23:35:45 : Step: GitHubApiService: get repos | time:0.1ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:35:45 : Step: GitHubDashboardPage: open url | time:412.9ms
+21-11-2021 23:35:46 : Step: RepositoriesListPage: input text find repo | time:646.7ms
+21-11-2021 23:35:46 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+21-11-2021 23:35:46 : Step: RepositoriesListPage: is repo name invisible on the list | time:575.0ms
+21-11-2021 23:35:46 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+21-11-2021 23:35:46 : Step: RepositoriesListPage: is repo name exist on the list | time:37.9ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_partial_name_multi_match</td>
+          <td class="col-duration">1.30</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_github_dashoboard_test_py_TestGitHubDashboard_test_find_repo_by_partial_name_multi_match.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>21-11-2021 23:35:47 : Step: GitHubApiService: get repos | time:0.1ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:35:47 : Step: GitHubDashboardPage: open url | time:418.5ms
+21-11-2021 23:35:48 : Step: RepositoriesListPage: input text find repo | time:658.2ms
+21-11-2021 23:35:48 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+21-11-2021 23:35:48 : Step: RepositoriesListPage: is repo name exist on the list | time:38.3ms
+21-11-2021 23:35:48 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+21-11-2021 23:35:48 : Step: RepositoriesListPage: is repo name exist on the list | time:44.0ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github/github_dashoboard_test.py::TestGitHubDashboard::test_find_repo_by_partial_name_not_match</td>
+          <td class="col-duration">1.88</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_github_dashoboard_test_py_TestGitHubDashboard_test_find_repo_by_partial_name_not_match.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>21-11-2021 23:35:48 : Step: GitHubApiService: get repos | time:0.1ms
+<br/> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:35:49 : Step: GitHubDashboardPage: open url | time:436.9ms
+21-11-2021 23:35:49 : Step: RepositoriesListPage: input text find repo | time:650.1ms
+21-11-2021 23:35:49 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+21-11-2021 23:35:50 : Step: RepositoriesListPage: is repo name invisible on the list | time:581.3ms
+21-11-2021 23:35:50 : Step: RepositoriesListPage: get locator repo name | time:0.0ms
+21-11-2021 23:35:50 : Step: RepositoriesListPage: is repo name invisible on the list | time:47.9ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github/github_dashoboard_test.py::TestGitHubDashboard::test_start_a_project_should_open_new_repo_page</td>
+          <td class="col-duration">1.14</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_github_dashoboard_test_py_TestGitHubDashboard_test_start_a_project_should_open_new_repo_page.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:35:51 : Step: GitHubDashboardPage: open url | time:470.4ms
+21-11-2021 23:35:51 : Step: GitHubDashboardPage: click start project button | time:604.5ms
+21-11-2021 23:35:51 : Step: GitHubCreateRepoDetailsPage: get repo name input | time:47.1ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/github/github_profile_page_test.py::TestGitHubProfilePage::test_edit_profile_should_save_all_details</td>
+          <td class="col-duration">3.36</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_github_github_profile_page_test_py_TestGitHubProfilePage_test_edit_profile_should_save_all_details.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:35:53 : Step: GitHubProfileLandPage: open url | time:966.3ms
+21-11-2021 23:35:53 : Step: ProfileComponentPage: click edit button | time:191.7ms
+21-11-2021 23:35:53 : Step: ProfileComponentPage: input name | time:149.4ms
+21-11-2021 23:35:53 : Step: ProfileComponentPage: input bio | time:213.4ms
+21-11-2021 23:35:53 : Step: ProfileComponentPage: input company | time:183.3ms
+21-11-2021 23:35:54 : Step: ProfileComponentPage: input location | time:149.1ms
+21-11-2021 23:35:54 : Step: ProfileComponentPage: input website blog | time:170.6ms
+21-11-2021 23:35:54 : Step: ProfileComponentPage: input twitter id | time:148.7ms
+21-11-2021 23:35:54 : Step: ProfileComponentPage: click save edit info | time:145.8ms
+21-11-2021 23:35:55 : Step: ProfileComponentPage: get name user detail text | time:616.6ms
+21-11-2021 23:35:55 : Step: ProfileComponentPage: get account name detail text | time:74.8ms
+21-11-2021 23:35:55 : Step: ProfileComponentPage: get bio detail text | time:57.1ms
+21-11-2021 23:35:55 : Step: ProfileComponentPage: get company detail text | time:63.5ms
+21-11-2021 23:35:55 : Step: ProfileComponentPage: get location detail text | time:75.9ms
+21-11-2021 23:35:55 : Step: ProfileComponentPage: get website blog detail text | time:61.1ms
+21-11-2021 23:35:55 : Step: ProfileComponentPage: get twitter detail text | time:93.8ms
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/herokuapp/herokuapp_javascript_error_test.py::TestHerokuAppJavascriptError::test_handle_assertion_for_javascript_errors_example</td>
+          <td class="col-duration">3.25</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div><div><img src="screenshots/tests_herokuapp_herokuapp_javascript_error_test_py_TestHerokuAppJavascriptError_test_handle_assertion_for_javascript_errors_example.png" alt="screenshot" style="width:400px;height:300px;" onclick="window.open(this.src)" align="right"/></div></div>
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>21-11-2021 23:35:56 : 
+----------
+LEVEL: SEVERE
+MESSAGE: http://the-internet.herokuapp.com/javascript_error 6:51 Uncaught TypeError: Cannot read properties of undefined (reading &#x27;xyz&#x27;)
+SOURCE: javascript
+----------
+<br/> ----------------------------Captured stdout teardown---------------------------- <br/>21-11-2021 23:35:57 : Step: GitHubApiService: api call delete all account repos | time:1589.8ms
+21-11-2021 23:35:58 : Step: GitHubDashboardPage: open url | time:600.3ms
+21-11-2021 23:35:59 : Step: RepositoriesListPage: get number of repo items | time:649.8ms
 <br/></div></td></tr></tbody></table></body></html>
