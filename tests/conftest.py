@@ -28,7 +28,7 @@ GITHUB_COM = "https://github.com"
 driver: webdriver.Chrome
 
 DRIVER_TYPE = "chrome"
-HEADLESS = False
+HEADLESS = True
 COOKIES = None
 
 on_firefox_skip = pytest.mark.skipif(
