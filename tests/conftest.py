@@ -27,7 +27,7 @@ GITHUB_COM = "https://github.com"
 
 driver: webdriver.Chrome
 
-DRIVER_TYPE = "chrome"
+DRIVER_TYPE = "firefox"
 HEADLESS = True
 COOKIES = None
 
@@ -70,6 +70,14 @@ def pytest_runtest_makereport(item):
                    'onclick="window.open(this.src)" align="right"/></div>' % file_path
             extra.append(pytest_html.extras.html(html))
     report.extra = extra
+
+
+@pytest.hookimpl(tryfirst=True)
+def pytest_sessionfinish(session):
+    global driver
+    if 'driver' in globals():
+        session.config._metadata["Browser"] = driver.name
+        session.config._metadata["Browser Version"] = driver.capabilities.get("browserVersion")
 
 
 @pytest.fixture(scope="session")
