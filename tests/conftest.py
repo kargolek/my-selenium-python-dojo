@@ -27,7 +27,7 @@ GITHUB_COM = "https://github.com"
 
 driver: webdriver.Chrome
 
-DRIVER_TYPE = "firefox"
+DRIVER_TYPE = "edge"
 HEADLESS = True
 COOKIES = None
 
