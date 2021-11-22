@@ -72,6 +72,14 @@ def pytest_runtest_makereport(item):
     report.extra = extra
 
 
+@pytest.hookimpl(tryfirst=True)
+def pytest_sessionfinish(session):
+    global driver
+    if 'driver' in globals():
+        session.config._metadata["Browser"] = driver.name
+        session.config._metadata["Browser Version"] = driver.capabilities.get("browserVersion")
+
+
 @pytest.fixture(scope="session")
 def web_driver() -> webdriver:
     web_driver = DriverFactory.get_web_driver(DRIVER_TYPE, HEADLESS)
