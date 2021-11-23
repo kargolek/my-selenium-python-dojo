@@ -1,6 +1,7 @@
+import time
 from typing import List
 
-from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import TimeoutException, JavascriptException
 from selenium.webdriver.chrome import webdriver
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support import expected_conditions as EC
@@ -64,3 +65,14 @@ class BasePage:
         container: WebElement = WebDriverWait(self.driver, time_seconds) \
             .until(EC.visibility_of_element_located(container_locator))
         return len(container.find_elements(item_locator[0], item_locator[1]))
+
+    def _get_element_by_js_script(self, js_query: str, time_seconds, polling_time=0.5) -> WebElement:
+        start_time = time.time()
+        try:
+            return self.driver.execute_script(f"return {js_query}")
+        except JavascriptException:
+            time.sleep(polling_time)
+            end_time = time.time() - start_time
+            if time_seconds < 0:
+                raise JavascriptException(f"Unable to return WebElement by js query {js_query}")
+            return self._get_element_by_js_script(js_query, (time_seconds - end_time))
