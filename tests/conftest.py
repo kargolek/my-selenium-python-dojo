@@ -17,6 +17,7 @@ from pages.github_pages.repository.github_repo_main_page import GitHubRepoMainPa
 from pages.github_pages.repository.settings.github_confirm_password_page import GitHubConfirmPasswordPage
 from pages.github_pages.repository.settings.github_settings_options_page import GitHubSettingsOptionsPage
 from pages.herokuapp_pages.javascript_error_page import JavascriptErrorPage
+from pages.shop_polymer_pages.shop_polymer_main_page import ShopPolymerMainPage
 from utilities.api.github.github_api_service import GitHubApiService
 from utilities.credentials.secrets import Secrets
 from utilities.driver.driver_factory import DriverFactory
@@ -193,6 +194,11 @@ def github_profile_land_page(web_driver):
 @pytest.fixture(scope="session")
 def heroku_app_javascript_error_page(web_driver):
     return JavascriptErrorPage(web_driver)
+
+
+@pytest.fixture(scope="session")
+def shop_polymer_main_page(web_driver):
+    return ShopPolymerMainPage(web_driver)
 
 
 @pytest.fixture()
