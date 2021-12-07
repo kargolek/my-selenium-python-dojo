@@ -20,6 +20,7 @@ from pages.herokuapp_pages.javascript_error_page import JavascriptErrorPage
 from pages.shop_polymer_pages.shop_polymer_main_page import ShopPolymerMainPage
 from utilities.api.github.github_api_service import GitHubApiService
 from utilities.credentials.secrets import Secrets
+from utilities.datetime.date_time import get_naive_utc_current_dt
 from utilities.driver.driver_factory import DriverFactory
 from utilities.driver.driver_utils import DriverUtils
 from utilities.generator.random_data import generate_random_string
@@ -81,7 +82,7 @@ def pytest_sessionfinish(session):
         session.config._metadata["Browser Version"] = driver.capabilities.get("browserVersion")
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="class")
 def web_driver() -> webdriver:
     web_driver = DriverFactory.get_web_driver(DRIVER_TYPE, HEADLESS)
     global driver
@@ -90,7 +91,16 @@ def web_driver() -> webdriver:
     web_driver.quit()
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture()
+def web_driver_each() -> webdriver:
+    web_driver = DriverFactory.get_web_driver(DRIVER_TYPE, HEADLESS)
+    global driver
+    driver = web_driver
+    yield web_driver
+    web_driver.quit()
+
+
+@pytest.fixture(scope="class")
 def login_to_github_account(github_fixtures, github_login_page, github_otp_page, github_dashboard_page):
     return github_fixtures.sign_in_to_account(github_login_page, github_otp_page, github_dashboard_page)
 
@@ -102,13 +112,13 @@ def sign_out_github(github_main_bar_page):
         github_main_bar_page.click_sign_out_button()
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="class")
 def set_cookies(web_driver):
     global COOKIES
     COOKIES = web_driver.get_cookies()
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="class")
 def add_cookies(web_driver):
     global COOKIES
     web_driver.get(GITHUB_COM)
@@ -116,87 +126,107 @@ def add_cookies(web_driver):
     web_driver.refresh()
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="class")
 def github_fixtures(web_driver):
     return GitHubFixtures(web_driver)
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="class")
 def github_main_bar_page(web_driver):
     return GitHubMainBarPage(web_driver)
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="class")
 def github_dashboard_page(web_driver):
     return GitHubDashboardPage(web_driver)
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="class")
 def github_login_page(web_driver):
     return GitHubLoginPage(web_driver)
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture()
+def github_login_page_each(web_driver_each):
+    return GitHubLoginPage(web_driver_each)
+
+
+@pytest.fixture()
+def get_current_date_time():
+    return get_naive_utc_current_dt()
+
+
+@pytest.fixture(scope="class")
 def github_otp_page(web_driver):
     return GitHubDeviceVerificationPage(web_driver)
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture()
+def github_otp_page_each(web_driver_each):
+    return GitHubDeviceVerificationPage(web_driver_each)
+
+
+@pytest.fixture(scope="class")
 def github_guid_land_page(web_driver):
     return GuidesGitHubLandPage(web_driver)
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="class")
 def github_confirm_password_page(web_driver):
     return GitHubConfirmPasswordPage(web_driver)
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="class")
 def github_create_new_repo_page(web_driver):
     return GitHubCreateNewRepoPage(web_driver)
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="class")
 def github_repo_main_page(web_driver):
     return GitHubRepoMainPage(web_driver)
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="class")
 def github_settings_options_page(web_driver):
     return GitHubSettingsOptionsPage(web_driver)
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="class")
 def github_api_service():
     return GitHubApiService(Secrets.TOKEN, Secrets.USERNAME)
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="class")
 def github_owner_repo_setting_page(web_driver):
     return GitHubOwnerRepoSettingsPage(web_driver)
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="class")
 def driver_utils(web_driver):
     return DriverUtils(web_driver)
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture()
+def driver_utils_each(web_driver_each):
+    return DriverUtils(web_driver_each)
+
+
+@pytest.fixture(scope="class")
 def github_profile_land_page(web_driver):
     return GitHubProfileLandPage(web_driver)
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="class")
 def github_profile_land_page(web_driver):
     return GitHubProfileLandPage(web_driver)
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="class")
 def heroku_app_javascript_error_page(web_driver):
     return JavascriptErrorPage(web_driver)
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="class")
 def shop_polymer_main_page(web_driver):
     return ShopPolymerMainPage(web_driver)
 
@@ -220,7 +250,7 @@ def delete_all_repos_class(github_fixtures, github_api_service, github_dashboard
                                      github_settings_options_page)
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="class")
 def delete_all_repos_after_session(github_fixtures, github_api_service, github_dashboard_page,
                                    github_confirm_password_page, github_settings_options_page):
     yield
