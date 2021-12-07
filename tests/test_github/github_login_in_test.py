@@ -36,7 +36,7 @@ class TestGitHubLoginIn:
         check.equal(driver_utils_each.get_cookie_value("dotcom_user"), None)
         check.equal(driver_utils_each.get_cookie_value("logged_in"), "no")
 
-    def test_login_in_negative_incorrect_email(self, web_driver_each, github_login_page_each, driver_utils_each):
+    def test_login_in_negative_incorrect_email(self, github_login_page_each, driver_utils_each):
         github_login_page_each.open_url() \
             .sign_in_github_account(Secrets.EMAIL.__add__("123456789"), Secrets.PASSWORD)
 
@@ -45,7 +45,7 @@ class TestGitHubLoginIn:
         check.equal(driver_utils_each.get_cookie_value("dotcom_user"), None)
         check.equal(driver_utils_each.get_cookie_value("logged_in"), "no")
 
-    def test_login_in_negative_incorrect_username(self, web_driver_each, github_login_page_each, driver_utils_each):
+    def test_login_in_negative_incorrect_username(self, github_login_page_each, driver_utils_each):
         github_login_page_each.open_url() \
             .sign_in_github_account(Secrets.USERNAME.__add__("12345678"), Secrets.PASSWORD)
 
@@ -54,8 +54,7 @@ class TestGitHubLoginIn:
         check.equal(driver_utils_each.get_cookie_value("dotcom_user"), None)
         check.equal(driver_utils_each.get_cookie_value("logged_in"), "no")
 
-    def test_login_in_email_negative_incorrect_password(self, web_driver_each, github_login_page_each,
-                                                        driver_utils_each):
+    def test_login_in_email_negative_incorrect_password(self, github_login_page_each, driver_utils_each):
         github_login_page_each.open_url() \
             .sign_in_github_account(Secrets.EMAIL, "incorrect password")
 
