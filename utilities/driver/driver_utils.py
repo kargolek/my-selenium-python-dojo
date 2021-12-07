@@ -42,6 +42,12 @@ class DriverUtils:
             if should_ignore_cookie(cookie, ignore_cookies_by_key_value) is False:
                 self.driver.add_cookie(cookie)
 
+    def get_cookie_value(self, cookie_name: str):
+        try:
+            return self.driver.get_cookie(cookie_name)["value"]
+        except TypeError:
+            return None
+
     def get_browser_events(self):
         def process_browser_log_entry(entry):
             response = json.loads(entry['message'])['message']

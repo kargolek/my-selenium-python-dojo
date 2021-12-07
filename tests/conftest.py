@@ -20,6 +20,7 @@ from pages.herokuapp_pages.javascript_error_page import JavascriptErrorPage
 from pages.shop_polymer_pages.shop_polymer_main_page import ShopPolymerMainPage
 from utilities.api.github.github_api_service import GitHubApiService
 from utilities.credentials.secrets import Secrets
+from utilities.datetime.date_time import get_naive_utc_current_dt
 from utilities.driver.driver_factory import DriverFactory
 from utilities.driver.driver_utils import DriverUtils
 from utilities.generator.random_data import generate_random_string
@@ -90,6 +91,15 @@ def web_driver() -> webdriver:
     web_driver.quit()
 
 
+@pytest.fixture()
+def web_driver_each() -> webdriver:
+    web_driver = DriverFactory.get_web_driver(DRIVER_TYPE, HEADLESS)
+    global driver
+    driver = web_driver
+    yield web_driver
+    web_driver.quit()
+
+
 @pytest.fixture(scope="session")
 def login_to_github_account(github_fixtures, github_login_page, github_otp_page, github_dashboard_page):
     return github_fixtures.sign_in_to_account(github_login_page, github_otp_page, github_dashboard_page)
@@ -136,9 +146,24 @@ def github_login_page(web_driver):
     return GitHubLoginPage(web_driver)
 
 
+@pytest.fixture()
+def github_login_page_each(web_driver_each):
+    return GitHubLoginPage(web_driver_each)
+
+
+@pytest.fixture()
+def get_current_date_time():
+    return get_naive_utc_current_dt()
+
+
 @pytest.fixture(scope="session")
 def github_otp_page(web_driver):
     return GitHubDeviceVerificationPage(web_driver)
+
+
+@pytest.fixture()
+def github_otp_page_each(web_driver_each):
+    return GitHubDeviceVerificationPage(web_driver_each)
 
 
 @pytest.fixture(scope="session")
@@ -179,6 +204,11 @@ def github_owner_repo_setting_page(web_driver):
 @pytest.fixture(scope="session")
 def driver_utils(web_driver):
     return DriverUtils(web_driver)
+
+
+@pytest.fixture()
+def driver_utils_each(web_driver_each):
+    return DriverUtils(web_driver_each)
 
 
 @pytest.fixture(scope="session")
